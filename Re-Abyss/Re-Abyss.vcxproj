@@ -2102,6 +2102,7 @@
     <ClInclude Include="app\utils\NeptScript\Script\Evaluator\IEvaluator.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\NeptScript\Script\Parser\Error.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Parser\Parser.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script\Script.hpp" />
     <ClInclude Include="app\utils\Random\RandUtil.hpp" />

@@ -5,15 +5,11 @@
 #include <abyss/utils/NeptScript/Script/Ast/Statement/CommandStatement.hpp>
 #include <abyss/utils/NeptScript/Script/Ast/Statement/CharaStatement.hpp>
 #include <abyss/utils/NeptScript/Script/Ast/Statement/TextStatement.hpp>
+#include <abyss/utils/NeptScript/Script/Parser/Error.hpp>
 #include <Siv3D/Array.hpp>
 
 namespace abyss::Nept
 {
-    struct Error
-    {
-        s3d::String message;
-    };
-
     class Parser
     {
         using AstItr = s3d::Array<Token>::const_iterator;

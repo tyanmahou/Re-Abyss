@@ -2,6 +2,7 @@
 #include <abyss/utils/NeptScript/Script/Ast/Statement/CharaStatement.hpp>
 #include <abyss/utils/NeptScript/Script/Ast/Statement/CommandStatement.hpp>
 #include <abyss/utils/NeptScript/Script/Ast/Statement/TextStatement.hpp>
+#include <abyss/utils/NeptScript/Script/Parser/Error.hpp>
 
 namespace abyss::Nept
 {
@@ -16,5 +17,8 @@ namespace abyss::Nept
 
         virtual void evalOnSectionStart(const s3d::String& section) = 0;
         virtual void evalOnSectionEnd(const s3d::String& section) = 0;
+
+
+        virtual void error(const s3d::Array<Error>& errors) = 0;
     };
 }

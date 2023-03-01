@@ -23,6 +23,7 @@
 #include <abyss/utils/NeptScript/Script/Script.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
+#include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -45,7 +46,7 @@ namespace
             this->buildTrigger(U"Teardown");
         }
     public:
-        void eval(const CharaStatement& statement)
+        void eval(const CharaStatement& statement) override
         {
             // キャラ
             {
@@ -69,7 +70,7 @@ namespace
                 m_pEngine->addCommand<NameSetter>(*statement.displayName);
             }
         }
-        void eval(const CommandStatement& statement)
+        void eval(const CommandStatement& statement) override
         {
             const auto& command = statement.command;
             const auto& param = statement.rootParam;
@@ -159,20 +160,20 @@ namespace
                 m_pEngine->addCommand<Bgm>(kind, path, fade);
             }
         }
-        void eval(const TextStatement& statement)
+        void eval(const TextStatement& statement) override
         {
             this->showHideMessage(true);
             m_pEngine->addCommand<MessageStream>(statement.text);
         }
 
-        void evalOnSectionStart(const s3d::String& section)
+        void evalOnSectionStart(const s3d::String& section) override
         {
             m_blocks.push(section);
             if (auto blockFunc = this->findBlockFunc(section, U"Start")) {
                 (*blockFunc)(m_pObj);
             }
         }
-        void evalOnSectionEnd([[maybe_unused]]const s3d::String& section)
+        void evalOnSectionEnd([[maybe_unused]]const s3d::String& section) override
         {
             if (m_blocks.empty()) {
                 return;
@@ -181,6 +182,15 @@ namespace
                 (*blockFunc)(m_pObj);
             }
             m_blocks.pop();
+        }
+
+        void error([[maybe_unused]]const s3d::Array<Nept::Error>& errors) override
+        {
+#if ABYSS_DEBUG
+            for (const auto& error : errors) {
+                Debug::Log::Error(error.message);
+            }
+#endif
         }
     private:
         void buildChara(s3d::Optional<CharaKind> kind, s3d::Optional<Side> side, s3d::Optional<Face> face)

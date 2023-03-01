@@ -16,7 +16,10 @@ namespace abyss::Nept
         void eval(IEvaluator* evalImpl)
         {
             Evaluator evaluator(evalImpl);
-            return evaluator.eval(m_parser.root().get());
+            evaluator.eval(m_parser.root().get());
+            if (evalImpl) {
+                evalImpl->error(m_parser.errors());
+            }
         }
     private:
         Lexer m_lexer;
