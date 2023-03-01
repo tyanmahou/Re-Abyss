@@ -48,20 +48,15 @@ namespace abyss::Nept
         }
 
         bool isText = false;
-        bool isChara = false;
         bool isCommand = false;
-
         // 行の最初が一部記号の場合はテキストではない
-        if (line[pos] == U'/' ||
-            line[pos] == U'\\'||
-            line[pos] == U'|' ||
-            false
-        ) {
-            isChara = true;
-        } else if (line[pos] == U'#' ||
+        if (line[pos] == U'#' ||
             line[pos] == U'@' ||
             line[pos] == U'{' ||
             line[pos] == U'}' ||
+            line[pos] == U'/' ||
+            line[pos] == U'\\'||
+            line[pos] == U'|' ||
             false
         ) {
             isText = false;
@@ -168,7 +163,7 @@ namespace abyss::Nept
             } else if (line[pos] == U'.') {
                 m_tokens.emplace_back(TokenType::Dot, String(1, line[pos]));
                 ++pos;
-            } else {
+            }  else {
                 // 何もなければテキスト
                 const size_t start = pos;
                 while (pos < length) {

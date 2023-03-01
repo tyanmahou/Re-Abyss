@@ -89,13 +89,12 @@ namespace abyss::Nept
             param.first += it->value;
 
             ++it;
-            if (it != m_tokens.end() && (it->type == TokenType::Colon || isFirst && it->type == TokenType::Value)) {
+            if (it != m_tokens.end() && it->type == TokenType::Colon) {
                 // Value設定 (opt)
 
-                if (!isFirst) {
-                    // =
-                    ++it;
-                }
+                // :
+                ++it;
+
                 if (it == m_tokens.end() || it->type != TokenType::Value) {
                     m_errors.emplace_back(U"Not Found Command Param Value");
                     return nullptr;
@@ -151,7 +150,7 @@ namespace abyss::Nept
             ++it;
         }
         if (it == m_tokens.end() || it->value != lookValue) {
-            m_errors.emplace_back(U"Not Match Token / or \ or | ");
+            m_errors.emplace_back(U"Not Match Token / or \\ or | ");
             return nullptr;
         }
         ++it;
@@ -159,7 +158,7 @@ namespace abyss::Nept
         s3d::Optional<String> displayName;
         if (it != m_tokens.end() && it->type == TokenType::Colon) {
             ++it; // :
-            if (it == m_tokens.end() || it->type == TokenType::Value) {
+            if (it == m_tokens.end() || it->type != TokenType::Value) {
                 m_errors.emplace_back(U"Not Found Display Name");
                 return nullptr;
             }

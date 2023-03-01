@@ -54,9 +54,9 @@ namespace
 
                 s3d::Optional<Side> side;
                 if (statement.look == LookType::Left) {
-                    side = Side::Left;
-                } else {
                     side = Side::Right;
+                } else {
+                    side = Side::Left;
                 }
                 s3d::Optional<Face> face;
                 if (statement.emote) {

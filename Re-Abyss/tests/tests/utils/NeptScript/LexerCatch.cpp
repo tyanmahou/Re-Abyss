@@ -15,14 +15,14 @@ namespace abyss::tests
         SECTION("test normal")
         {
             s3d::String code = UR"(
-            @command "value0" key1:value1 key2:"value2"
+            @command:"value0" key1:value1 key2:"value2"
             /Actor/: Name
             Hello, NeptScript
             )";
             Lexer lexer(s3d::Arg::code = code);
             const auto& tokens = lexer.getTokens();
             s3d::Array<Token> anser{
-                {At, U"@"}, {Ident, U"command"}, {Value, U"value0"}, {Ident, U"key1"}, {Colon, U":"},{Value, U"value1"}, {Ident, U"key2"}, {Colon, U":"}, {Value, U"value2"},
+                {At, U"@"}, {Ident, U"command"}, {Colon, U":"}, {Value, U"value0"}, {Ident, U"key1"}, {Colon, U":"},{Value, U"value1"}, {Ident, U"key2"}, {Colon, U":"}, {Value, U"value2"},
                 {Slash, U"/"}, {Value, U"Actor"},{Slash, U"/"},{Colon, U":"},{Value, U"Name"},
                 {Text, U"Hello, NeptScript"},
             };
