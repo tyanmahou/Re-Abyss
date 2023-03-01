@@ -203,7 +203,7 @@ namespace abyss::Nept
             }
         }
         // }
-        if (it == m_tokens.end() || it->type != TokenType::RBracket) {
+        if (it == m_tokens.end() || it->type != TokenType::RBrace) {
             m_errors.emplace_back(U"Not Found }");
             return nullptr;
         }
@@ -215,6 +215,11 @@ namespace abyss::Nept
     {
         ++it; // @
         ++it; // section
+        if (it == m_tokens.end() || it->type != TokenType::Colon) {
+            m_errors.emplace_back(U"Not Found Section Colon");
+            return nullptr;
+        }
+        ++it; // :
 
         if (it == m_tokens.end() || it->type != TokenType::Value) {
             m_errors.emplace_back(U"Not Found Section Name");

@@ -1,16 +1,18 @@
 ; テストスクリプト01
 
-\Player.damage\: ???
-あああああ[r][l]
-
-; ゆれる
-[shake]ゆれる文字[/shake]
-
-; 待ち時間
-[wait time:1.0]
-
-; 色変え
-[color : "#FF0000"]赤色[/color]
-
-; クリック待ち
-[l]
+@section: "Test" {
+    \Player.damage\: ???
+    あああああ[r][l]
+    
+    ; ゆれる
+    [shake]ゆれる文字[/shake]
+    
+    ; 待ち時間
+    [wait time:1.0]
+    
+    ; 色変え
+    [color : "#FF0000"]赤色[/color]
+    
+    ; クリック待ち
+    [l]
+}

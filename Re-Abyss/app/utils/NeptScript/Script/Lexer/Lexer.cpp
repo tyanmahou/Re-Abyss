@@ -77,20 +77,36 @@ namespace abyss::Nept
                 return;
             }
             if (!isText && IsAlpha(line[pos])) {
+                auto tokenType = TokenType::Value;
+
+                // 直前コロン
+                bool isPrevColon = false;
+                if (!m_tokens.isEmpty()) {
+                    auto prevToken = m_tokens.back().type;
+                    if (prevToken == TokenType::Colon) {
+                        isPrevColon = true;
+                    }
+                }
+                if (isCommand) {
+                    // コマンドモード
+                    if (!isPrevColon) {
+                        // 直前がコロンじゃなければ識別子
+                        tokenType = TokenType::Ident;
+                    }
+                }
+
                 // 識別子
                 const size_t start = pos;
                 ++pos;
 
-                while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_' || line[pos] == U'-')) {
-                    ++pos;
-                }
-                auto tokenType = TokenType::Value;
-                if (isCommand) {
-                    // コマンドモード
-                    auto prevToken = m_tokens.back().type;
-                    if (prevToken != TokenType::Colon) {
-                        // 直前がコロンじゃなければ識別子
-                        tokenType = TokenType::Ident;
+                if (tokenType == TokenType::Ident || !isPrevColon) {
+                    while (pos < length && (IsAlnum(line[pos]) || line[pos] == U'_' || line[pos] == U'-')) {
+                        ++pos;
+                    }
+                } else {
+                    // 値モードなら空白以外はOK
+                    while (pos < length && !IsSpace(line[pos])) {
+                        ++pos;
                     }
                 }
                 m_tokens.emplace_back(tokenType, line.substr(start, pos - start));
