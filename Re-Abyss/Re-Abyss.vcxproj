@@ -899,10 +899,6 @@
     <ClCompile Include="app\utils\Layout\Window\detail\WindowResizer.cpp" />
     <ClCompile Include="app\utils\Layout\Window\Window.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
-    <ClCompile Include="app\utils\Mns\Evaluator\Evaluator.cpp" />
-    <ClCompile Include="app\utils\Mns\Lexer\Lexer.cpp" />
-    <ClCompile Include="app\utils\Mns\Parser\Parser.cpp" />
-    <ClCompile Include="app\utils\Mns\Script.cpp" />
     <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Mrp\Mrp.cpp" />
     <ClCompile Include="app\utils\Mrp\Parser\Parser.cpp" />
@@ -1018,11 +1014,10 @@
     <ClCompile Include="tests\tests\utils\Env\EnvCatch.cpp" />
     <ClCompile Include="tests\tests\utils\FixedPtr\FixedPtrCatch.cpp" />
     <ClCompile Include="tests\tests\utils\JSON\JSONBindCatch.cpp" />
-    <ClCompile Include="tests\tests\utils\Mns\LexerCatch.cpp" />
-    <ClCompile Include="tests\tests\utils\Mns\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Mrp\MrpCatch.cpp" />
     <ClCompile Include="tests\tests\utils\NameOf\NameOfCatch.cpp" />
     <ClCompile Include="tests\tests\utils\NeptScript\LexerCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\NeptScript\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp" />
@@ -2189,12 +2184,9 @@
     <ClInclude Include="app\utils\Mns\Ast\Statement\NameStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\TagStatement.hpp" />
     <ClInclude Include="app\utils\Mns\Ast\Statement\TextStatement.hpp" />
-    <ClInclude Include="app\utils\Mns\Evaluator\Evaluator.hpp" />
     <ClInclude Include="app\utils\Mns\Evaluator\IEvalImpl.hpp" />
-    <ClInclude Include="app\utils\Mns\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mns\Parser\Parser.hpp" />
-    <ClInclude Include="app\utils\Mns\Script.hpp" />
     <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
     <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
     <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
