@@ -2,7 +2,7 @@
 #include <queue>
 #include <memory>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/CharaTable.hpp>
+#include <abyss/modules/Adv/Project/Project.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
@@ -27,9 +27,9 @@ namespace abyss::Adv
             return *this;
         }
 
-        Adventures& setCharaTable(std::shared_ptr<CharaTable> charaTable)
+        Adventures& setProject(std::shared_ptr<Project> project)
         {
-            m_charaTable = charaTable;
+            m_project = project;
             return *this;
         }
 
@@ -93,6 +93,6 @@ namespace abyss::Adv
         bool m_doneCurrentInit = false;
         Manager* m_pManager;
 
-        std::shared_ptr<CharaTable> m_charaTable;
+        std::shared_ptr<Project> m_project;
     };
 }

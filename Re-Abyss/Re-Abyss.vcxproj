@@ -244,6 +244,7 @@
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
     <ClCompile Include="app\commons\ColorDef.cpp" />
+    <ClCompile Include="app\commons\Factory\Adv\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Project\Injector.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
@@ -311,6 +312,7 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
+    <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
@@ -345,7 +347,8 @@
     <ClCompile Include="app\modules\Adv\base\Engine.cpp" />
     <ClCompile Include="app\modules\Adv\base\AdvObj.cpp" />
     <ClCompile Include="app\models\Adv\Chara.cpp" />
-    <ClCompile Include="app\modules\Adv\CharaTable.cpp" />
+    <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp" />
+    <ClCompile Include="app\modules\Adv\Project\Project.cpp" />
     <ClCompile Include="app\modules\Adv\TagString.cpp" />
     <ClCompile Include="app\modules\Devs\Project\base\Tasks.cpp" />
     <ClCompile Include="app\modules\Devs\Project\Project.cpp" />
@@ -835,6 +838,7 @@
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
     <ClCompile Include="app\services\Actor\Land\LandService.cpp" />
+    <ClCompile Include="app\services\Adv\ProjectService.cpp" />
     <ClCompile Include="app\services\Attribute\AttributeService.cpp" />
     <ClCompile Include="app\services\Decor\DecorService.cpp" />
     <ClCompile Include="app\services\Devs\Project\ProjectService.cpp" />
@@ -1222,6 +1226,7 @@
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\Concepts.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
+    <ClInclude Include="app\commons\Factory\Adv\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
@@ -1301,6 +1306,9 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
+    <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
+    <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
+    <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
@@ -1346,8 +1354,11 @@
     <ClInclude Include="app\modules\Adv\base\ICommand.hpp" />
     <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
     <ClInclude Include="app\models\Adv\Chara.hpp" />
+    <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
+    <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />
+    <ClInclude Include="app\services\Adv\ProjectService.hpp" />
     <ClInclude Include="app\values\Adv\CharaKind.hpp" />
-    <ClInclude Include="app\modules\Adv\CharaTable.hpp" />
+    <ClInclude Include="app\modules\Adv\Project\CharaTable.hpp" />
     <ClInclude Include="app\values\Adv\Emote.hpp" />
     <ClInclude Include="app\values\Adv\Name.hpp" />
     <ClInclude Include="app\models\Adv\Serif.hpp" />

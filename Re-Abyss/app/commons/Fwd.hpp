@@ -90,7 +90,7 @@ namespace abyss
     namespace Adv
     {
         class Adventures;
-        class CharaTable;
+        class Project;
         class AdvObj;
     }
     using Adv::Adventures;

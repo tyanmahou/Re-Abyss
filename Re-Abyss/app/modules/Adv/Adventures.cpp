@@ -40,9 +40,9 @@ namespace abyss::Adv
     }
     s3d::Optional<Chara> Adventures::findChara(CharaKind kind) const
     {
-        if (!m_charaTable) {
+        if (!m_project) {
             return s3d::none;
         }
-        return m_charaTable->find(kind);
+        return m_project->findChara(kind);
     }
 }

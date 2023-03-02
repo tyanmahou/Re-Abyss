@@ -1,4 +1,5 @@
 [Common/Message]
+- csv"msgs/Chara.csv"
 - csv"msgs/Common.csv"
 - csv"msgs/Title.csv"
 - csv"msgs/SaveSelect.csv"

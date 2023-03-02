@@ -19,6 +19,7 @@ namespace abyss::Resource::Msg
                 preload.preload(pAssets);
             }
             if (auto service = Factory::Message::Injector(lang, pAssets).resolve<IMessageService>()) {
+                this->load(U"Chara", service);
                 this->load(U"Common", service);
                 this->load(U"SaveSelect", service);
                 this->load(U"Title", service);

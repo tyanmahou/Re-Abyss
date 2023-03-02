@@ -1,23 +1,10 @@
-#include <abyss/modules/Adv/CharaTable.hpp>
+#include <abyss/modules/Adv/Project/CharaTable.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Adv
 {
     CharaTable::CharaTable()
     {
-        // TODO 外部からロードになる
-        m_table[CharaKind::Player]
-            .setKind(CharaKind::Player)
-            .setName(U"Player")
-            .setFacePath(U"Actor/Player/Face.json");
-        m_table[CharaKind::CodeZero]
-            .setKind(CharaKind::CodeZero)
-            .setName(U"CodeZero")
-            .setFacePath(U"Actor/Enemy/CodeZero/Face.json");
-        m_table[CharaKind::DrQuery]
-            .setKind(CharaKind::DrQuery)
-            .setName(U"DrQuery")
-            .setFacePath(U"Actor/Enemy/DrQuery/Face.json");
     }
     void CharaTable::add(const Chara& chara)
     {

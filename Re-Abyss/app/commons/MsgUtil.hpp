@@ -1,6 +1,8 @@
 #pragma once
 #include <abyss/commons/Resource/Msg/Manager.hpp>
 #include <abyss/values/UserPlayMode.hpp>
+#include <abyss/values/Adv/CharaKind.hpp>
+#include <abyss/utils/Enum/EnumTraits.hpp>
 
 namespace abyss::MsgUtil
 {
@@ -73,6 +75,14 @@ namespace abyss::MsgUtil
             return Common(U"UserPlayMode_Hard");
         }
         return Common(U"UserPlayMode_Normal");
+    }
+
+    /// =============================
+    /// Chara
+    /// =============================
+    inline constexpr Text CharaName(Adv::CharaKind value)
+    {
+        return { U"Chara", Enum::ToStr(value) };
     }
 }
 template<>

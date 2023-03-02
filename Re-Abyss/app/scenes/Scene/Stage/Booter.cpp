@@ -14,7 +14,7 @@
 #include <abyss/modules/Temporary/Temporary.hpp>
 
 #include <abyss/modules/Adv/Adventures.hpp>
-#include <abyss/modules/Adv/CharaTable.hpp>
+#include <abyss/modules/Adv/Project/Project.hpp>
 
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Actor/God/Builder.hpp>
@@ -59,10 +59,8 @@ namespace abyss::Scene::Stage
         // Adventures初期化
         {
             auto* advs = pManager->getModule<Adventures>();
-            if (m_charaTable) {
-                advs->setCharaTable(m_charaTable);
-            } else {
-                advs->setCharaTable(std::make_shared<Adv::CharaTable>());
+            if (m_advProject) {
+                advs->setProject(m_advProject);
             }
         }
 

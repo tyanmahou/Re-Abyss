@@ -2324,7 +2324,7 @@
     <ClCompile Include="app\models\Adv\Chara.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Adv\CharaTable.cpp">
+    <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Adv\TagString.cpp">
@@ -2451,6 +2451,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\utils\NeptScript\ParserCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Adv\Project\Project.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Adv\ProjectService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Factory\Adv\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6236,7 +6248,7 @@
     <ClInclude Include="app\values\Adv\CharaKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\CharaTable.hpp">
+    <ClInclude Include="app\modules\Adv\Project\CharaTable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\values\Adv\Emote.hpp">
@@ -6396,6 +6408,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\NeptScript\Parser\Error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\Project\Project.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\entities\Adv\CharaEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Adv\base\IProjectService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Adv\ProjectService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Factory\Adv\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

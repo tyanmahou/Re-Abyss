@@ -1,4 +1,4 @@
-#include <abyss/commons/Factory/Migration/Injector.hpp>
+#include <abyss/commons/Factory/Message/Injector.hpp>
 
 #include <abyss/datastores/Msg/CSVMessageDataStore.hpp>
 #include <abyss/services/Msg/MessageService.hpp>
