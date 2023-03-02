@@ -4,8 +4,9 @@
 
 namespace abyss::Actor::Enemy::CodeZero::Shot
 {
-
-
+    /// <summary>
+    /// チャージ待機
+    /// </summary>
     class WaitState final: public BaseState
     {
         class CameraTarget;
@@ -17,5 +18,6 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     private:
         Ref<QuakeEpicenter> m_quake;
         std::shared_ptr<CameraTarget> m_cameraTarget;
+        s3d::Array <Ref<Effect::EffectObj>> m_effects;
     };
 }

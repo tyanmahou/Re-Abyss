@@ -4,6 +4,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/ShotProxy.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/modules/Effect/Effects.hpp>
+#include <abyss/modules/Effect/base/EffectObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/CameraTargetBase.hpp>
@@ -62,7 +63,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     };
     void WaitState::start()
     {
-        m_pActor
+        m_effects << m_pActor
             ->getModule<Effects>()
             ->createWorldFront<ShotCharge::Builder>(m_body->getPos());
 
@@ -75,6 +76,11 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     {
         if (m_quake) {
             m_quake->stop();
+        }
+        for (auto&& effect : m_effects) {
+            if (effect) {
+                effect->destroy();
+            }
         }
     }
     Fiber<> WaitState::task()
@@ -108,7 +114,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
         m_cameraTarget->unzoom();
 
         // ネガポジエフェクト
-        m_pActor
+        m_effects << m_pActor
             ->getModule<Effects>()
             ->createWorldFront<NegaPosi::Builder>(m_body->getPos());
 
