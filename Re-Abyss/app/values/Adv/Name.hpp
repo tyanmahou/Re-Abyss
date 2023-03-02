@@ -21,6 +21,10 @@ namespace abyss::Adv
             m_name(s3d::none)
         {}
 
+        bool isNoname() const
+        {
+            return !m_name.has_value();
+        }
         operator const s3d::Optional<s3d::String>& () const
         {
             return m_name;

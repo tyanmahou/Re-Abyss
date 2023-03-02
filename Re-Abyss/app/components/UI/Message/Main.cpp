@@ -68,6 +68,9 @@ namespace abyss::UI::Message
             } else {
                 m_boxView->setFaceIcon({});
             }
+            if (serif.getName().isNoname()) {
+                m_boxView->setName(chara->getName());
+            }
         } else {
             m_boxView->setFaceIcon({});
         }
