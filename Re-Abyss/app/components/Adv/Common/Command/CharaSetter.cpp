@@ -7,13 +7,13 @@ namespace abyss::Adv
     CharaSetter::CharaSetter(
         AdvObj* pObj,
         const s3d::Optional<CharaKind>& kind,
-        const s3d::Optional<Side>& side,
-        const s3d::Optional<Face>& face
+        const s3d::Optional<LookType>& look,
+        const s3d::Optional<Emote>& emote
     ):
         m_pObj(pObj),
         m_kind(kind),
-        m_side(side),
-        m_face(face)
+        m_look(look),
+        m_emote(emote)
     {}
     void CharaSetter::onStart()
     {
@@ -21,11 +21,11 @@ namespace abyss::Adv
         if (m_kind) {
             engine->setCharaKind(*m_kind);
         }
-        if (m_side) {
-            engine->setSide(*m_side);
+        if (m_look) {
+            engine->setLook(*m_look);
         }
-        if (m_face) {
-            engine->setFace(*m_face);
+        if (m_emote) {
+            engine->setEmote(*m_emote);
         }
     }
     Coro::Fiber<> CharaSetter::onCommand()

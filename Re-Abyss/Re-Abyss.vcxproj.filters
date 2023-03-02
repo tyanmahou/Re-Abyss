@@ -2321,7 +2321,7 @@
     <ClCompile Include="app\utils\NeptScript\Lexer\Lexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Adv\Chara.cpp">
+    <ClCompile Include="app\models\Adv\Chara.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Adv\CharaTable.cpp">
@@ -6230,25 +6230,25 @@
     <ClInclude Include="app\modules\Adv\base\ICommand.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\Chara.hpp">
+    <ClInclude Include="app\models\Adv\Chara.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\CharaKind.hpp">
+    <ClInclude Include="app\values\Adv\CharaKind.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\CharaTable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\Face.hpp">
+    <ClInclude Include="app\values\Adv\Emote.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\Name.hpp">
+    <ClInclude Include="app\values\Adv\Name.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\Serif.hpp">
+    <ClInclude Include="app\models\Adv\Serif.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Adv\Side.hpp">
+    <ClInclude Include="app\values\Adv\LookType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\TagString.hpp">

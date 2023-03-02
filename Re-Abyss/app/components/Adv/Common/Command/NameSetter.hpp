@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Adv/base/ICommand.hpp>
-#include <abyss/modules/Adv/Name.hpp>
+#include <abyss/values/Adv/Name.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss::Adv

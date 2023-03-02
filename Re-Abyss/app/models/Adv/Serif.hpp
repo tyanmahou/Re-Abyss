@@ -1,8 +1,8 @@
 #pragma once
-#include <abyss/modules/Adv/CharaKind.hpp>
-#include <abyss/modules/Adv/Side.hpp>
-#include <abyss/modules/Adv/Name.hpp>
-#include <abyss/modules/Adv/Face.hpp>
+#include <abyss/values/Adv/CharaKind.hpp>
+#include <abyss/values/Adv/LookType.hpp>
+#include <abyss/values/Adv/Name.hpp>
+#include <abyss/values/Adv/Emote.hpp>
 #include <abyss/modules/Adv/TagString.hpp>
 
 namespace abyss::Adv
@@ -23,33 +23,33 @@ namespace abyss::Adv
             return m_kind;
         }
 
-        Serif& setSide(Side side)
+        Serif& setLook(LookType look)
         {
-            m_side = side;
+            m_look = look;
             return *this;
         }
 
-        Side getSide() const
+        LookType getLook() const
         {
-            return m_side;
+            return m_look;
         }
 
-        bool isLeft() const
+        bool isLookLeft() const
         {
-            return m_side == Side::Left;
+            return m_look == LookType::Left;
         }
-        bool isRight() const
+        bool isLookRight() const
         {
-            return m_side == Side::Right;
+            return m_look == LookType::Right;
         }
-        Serif& setFace(const Face& face)
+        Serif& setEmote(const Emote& emote)
         {
-            m_face = face;
+            m_emote = emote;
             return *this;
         }
-        const Face& getFace() const
+        const Emote& getEmote() const
         {
-            return m_face;
+            return m_emote;
         }
 
         Serif& setName(const Name& name)
@@ -77,8 +77,8 @@ namespace abyss::Adv
         }
     private:
         CharaKind m_kind{};
-        Side m_side{};
-        Face m_face;
+        LookType m_look{};
+        Emote m_emote;
         Name m_name;
         TagString m_message;
     };

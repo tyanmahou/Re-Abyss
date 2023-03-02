@@ -7,7 +7,7 @@
 #include <abyss/modules/Adv/base/ICommand.hpp>
 #include <abyss/modules/Adv/base/SkipCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
-#include <abyss/modules/Adv/Serif.hpp>
+#include <abyss/models/Adv/Serif.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -47,8 +47,8 @@ namespace abyss::Adv
         }
     public:
         void setCharaKind(const CharaKind& kind);
-        void setSide(const Side& side);
-        void setFace(const Face& face);
+        void setLook(const LookType& look);
+        void setEmote(const Emote& emote);
 
         void setName(const Name& name);
         void append(const char32_t ch);

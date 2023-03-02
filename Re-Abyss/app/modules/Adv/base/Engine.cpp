@@ -70,13 +70,13 @@ namespace abyss::Adv
     {
         m_serif.setKind(kind);
     }
-    void Engine::setSide(const Side & side)
+    void Engine::setLook(const LookType & look)
     {
-        m_serif.setSide(side);
+        m_serif.setLook(look);
     }
-    void Engine::setFace(const Face & face)
+    void Engine::setEmote(const Emote& emote)
     {
-        m_serif.setFace(face);
+        m_serif.setEmote(emote);
     }
     void Engine::setName(const Name& name)
     {

@@ -3,11 +3,12 @@
 namespace abyss::Adv
 {
     /// <summary>
-    /// サイド
+    /// 向き
     /// </summary>
-    enum class Side : bool
+    enum class LookType
     {
         Left,
         Right,
+        Center,
     };
 }

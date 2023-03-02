@@ -52,17 +52,19 @@ namespace
             {
                 s3d::Optional<CharaKind> kind = Enum::Parse<CharaKind>(statement.actor);
 
-                s3d::Optional<Side> side;
-                if (statement.look == LookType::Left) {
-                    side = Side::Right;
+                s3d::Optional<Adv::LookType> look;
+                if (statement.look == Nept::Ast::LookType::Left) {
+                    look = Adv::LookType::Left;
+                } else if(statement.look == Nept::Ast::LookType::Right) {
+                    look = Adv::LookType::Right;
                 } else {
-                    side = Side::Left;
+                    look = Adv::LookType::Center;
                 }
-                s3d::Optional<Face> face;
+                s3d::Optional<Emote> emote;
                 if (statement.emote) {
-                    face = Face(*statement.emote);
+                    emote = Emote(*statement.emote);
                 }
-                this->buildChara(std::move(kind), std::move(side), std::move(face));
+                this->buildChara(std::move(kind), std::move(look), std::move(emote));
             }
 
             // 表示名
@@ -96,25 +98,6 @@ namespace
                     }
                 }
                 m_pEngine->addCommand<WaitTime>(time);
-            } else if (command == U"chara") {
-                s3d::Optional<CharaKind> kind;
-                if (param) {
-                    kind = Enum::Parse<CharaKind>(*param);
-                }
-                s3d::Optional<Side> side;
-                s3d::Optional<Face> face;
-                for (const auto& [key, value] : statement.params) {
-                    if (key == U"side" && value) {
-                        if (*value == U"l") {
-                            side = Side::Left;
-                        } else if (*value == U"r") {
-                            side = Side::Right;
-                        }
-                    } else if (key == U"face" && value) {
-                        face = Face(*value);
-                    }
-                }
-                this->buildChara(std::move(kind), std::move(side), std::move(face));
             } else if (command == U"build" && param) {
                 this->buildTrigger(U"Teardown");
                 m_build = param;
@@ -193,25 +176,25 @@ namespace
 #endif
         }
     private:
-        void buildChara(s3d::Optional<CharaKind> kind, s3d::Optional<Side> side, s3d::Optional<Face> face)
+        void buildChara(s3d::Optional<CharaKind> kind, s3d::Optional<Adv::LookType> look, s3d::Optional<Emote> emote)
         {
             // キャラか位置が変わったら切り替え
             const bool isChangeChara = kind && kind != m_charaKind;
-            const bool isChangeSide = side && side != m_charaSide;
+            const bool isChangeSide = look && look != m_charaLook;
             bool isHide = isChangeChara || isChangeSide;
             if (isHide) {
                 this->showHideMessage(false);
             }
-            if (isChangeChara && !side) {
-                side = Side::Left;
+            if (isChangeChara && !look) {
+                look = Adv::LookType::Right;
             }
-            if (isChangeChara && !face) {
-                face = Face{};
+            if (isChangeChara && !emote) {
+                emote = Emote{};
             }
 
-            m_pEngine->addCommand<CharaSetter>(kind, side, face);
+            m_pEngine->addCommand<CharaSetter>(kind, look, emote);
             m_charaKind = std::move(kind);
-            m_charaSide = std::move(side);
+            m_charaLook = std::move(look);
         }
         void showHideMessage(bool isShow)
         {
@@ -276,7 +259,7 @@ namespace
 
         bool m_isVisibleMessage = false;
         s3d::Optional<CharaKind> m_charaKind;
-        s3d::Optional<Side> m_charaSide;
+        s3d::Optional<Adv::LookType> m_charaLook;
         s3d::Optional<s3d::String> m_build;
 
         std::stack<s3d::String> m_blocks;

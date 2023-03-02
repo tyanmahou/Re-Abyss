@@ -1,4 +1,4 @@
-#include <abyss/modules/Adv/Chara.hpp>
+#include <abyss/models/Adv/Chara.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace
@@ -13,13 +13,13 @@ namespace
 
 namespace abyss::Adv
 {
-    bool Chara::isFindFace(const Face& face) const
+    bool Chara::isFindFace(const Emote& emote) const
     {
-        return ::Load(m_facePath).isContain(face);
+        return ::Load(m_facePath).isContain(emote);
     }
 
-    s3d::Texture Chara::getFace(const Face& face) const
+    s3d::Texture Chara::getFace(const Emote& emote) const
     {
-        return ::Load(m_facePath)(face);
+        return ::Load(m_facePath)(emote);
     }
 }

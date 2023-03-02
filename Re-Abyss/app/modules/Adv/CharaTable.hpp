@@ -1,6 +1,6 @@
 #pragma once
-#include <abyss/modules/Adv/Chara.hpp>
-#include <abyss/modules/Adv/Face.hpp>
+#include <abyss/models/Adv/Chara.hpp>
+#include <abyss/values/Adv/Emote.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <Siv3D/HashTable.hpp>
 

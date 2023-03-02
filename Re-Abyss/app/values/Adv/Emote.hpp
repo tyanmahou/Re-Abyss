@@ -3,21 +3,21 @@
 
 namespace abyss::Adv
 {
-    class Face
+    class Emote
     {
     public:
-        Face():
-            Face(U"default")
+        Emote():
+            Emote(U"default")
         {}
-        Face(const s3d::String& str) :
-            m_face(str)
+        Emote(const s3d::String& str) :
+            m_emote(str)
         {}
 
         operator const s3d::String&() const
         {
-            return m_face;
+            return m_emote;
         }
     private:
-        s3d::String m_face;
+        s3d::String m_emote;
     };
 }

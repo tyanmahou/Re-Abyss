@@ -56,14 +56,14 @@ namespace abyss::UI::Message
         const auto alpha = rate;
         const Vec2 pos = AnchorUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -40.0};
         m_boxView
-            ->setIsLeft(serif.isLeft())
+            ->setIsLeft(serif.isLookRight()) // 向きとアイコンの位置は反転するのでIsLeftにisRightを設定している
             .setPos(pos)
             .setName(serif.getName())
             .setAlpha(alpha);
 
         auto* advs = m_pUi->getModule<Adventures>();
         if (auto chara = advs->findChara(serif.getKind())) {
-            if (auto face = chara->getFace(serif.getFace())) {
+            if (auto face = chara->getFace(serif.getEmote())) {
                 m_boxView->setFaceIcon(face);
             } else {
                 m_boxView->setFaceIcon({});
@@ -74,7 +74,7 @@ namespace abyss::UI::Message
         m_boxView->draw();
 
         auto&& font = FontAsset(FontName::Serif);
-        const double messagePosX = serif.isLeft() ? -180 : -340;
+        const double messagePosX = serif.isLookRight() ? -180 : -340;
 
         Adv::TagStringView::DrawPrev(
             font,
