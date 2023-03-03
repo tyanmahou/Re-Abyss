@@ -313,6 +313,7 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
+    <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
@@ -1309,6 +1310,7 @@
     <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
+    <ClInclude Include="app\modules\Adv\base\Process.hpp" />
     <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />

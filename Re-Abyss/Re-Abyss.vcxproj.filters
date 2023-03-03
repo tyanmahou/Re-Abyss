@@ -2465,6 +2465,9 @@
     <ClCompile Include="app\commons\Factory\Adv\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Adv\base\Process.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6429,6 +6432,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Factory\Adv\Injector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\Process.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

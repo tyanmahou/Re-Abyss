@@ -77,7 +77,7 @@ namespace abyss::Adv
         /// <returns></returns>
         s3d::Optional<Chara> findChara(CharaKind kind) const;
 
-        /// <summary>
+        /// <summary>  
         /// コンポーネントの検索
         /// </summary>
         template<class Type>
