@@ -30,6 +30,37 @@ namespace abyss::Adv
             m_doneCurrentInit = false;
         }
     }
+
+    void Process::addCommand(std::function<void(AdvObj*)> callback)
+    {
+        class Callback : public ICommand
+        {
+        public:
+            Callback(AdvObj* pObj, std::function<void(AdvObj*)>&& callback) :
+                m_pObj(pObj),
+                m_callback(std::move(callback))
+            {}
+            void onStart() override
+            {
+                if (m_callback) {
+                    m_callback(m_pObj);
+                }
+            }
+            Coro::Fiber<> onCommand() override
+            {
+                co_return;
+            }
+        private:
+            AdvObj* m_pObj;
+            std::function<void(AdvObj*)> m_callback;
+        };
+        m_commands.push(std::make_shared<Callback>(m_pObj, std::move(callback)));
+    }
+    void Process::addCommand(std::shared_ptr<ICommand> command)
+    {
+        m_commands.push(command);
+    }
+
     void Process::resetStream()
     {
         auto task = [this]()->Coro::Fiber<> {
