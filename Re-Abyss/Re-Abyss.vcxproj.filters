@@ -2468,6 +2468,9 @@
     <ClCompile Include="app\modules\Adv\base\Process.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6260,7 +6263,7 @@
     <ClInclude Include="app\values\Adv\Name.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\models\Adv\Serif.hpp">
+    <ClInclude Include="app\models\Adv\Sentence.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\values\Adv\LookType.hpp">
@@ -6435,6 +6438,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\base\Process.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

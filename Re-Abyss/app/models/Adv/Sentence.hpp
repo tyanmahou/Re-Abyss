@@ -10,10 +10,10 @@ namespace abyss::Adv
     /// <summary>
     /// セリフ1つの情報
     /// </summary>
-    class Serif
+    class Sentence
     {
     public:
-        Serif& setKind(CharaKind kind)
+        Sentence& setKind(CharaKind kind)
         {
             m_kind = kind;
             return *this;
@@ -23,7 +23,7 @@ namespace abyss::Adv
             return m_kind;
         }
 
-        Serif& setLook(LookType look)
+        Sentence& setLook(LookType look)
         {
             m_look = look;
             return *this;
@@ -42,7 +42,7 @@ namespace abyss::Adv
         {
             return m_look == LookType::Right;
         }
-        Serif& setEmote(const Emote& emote)
+        Sentence& setEmote(const Emote& emote)
         {
             m_emote = emote;
             return *this;
@@ -52,7 +52,7 @@ namespace abyss::Adv
             return m_emote;
         }
 
-        Serif& setName(const Name& name)
+        Sentence& setName(const Name& name)
         {
             m_name = name;
             return *this;
@@ -62,7 +62,7 @@ namespace abyss::Adv
             return m_name;
         }
         
-        Serif& setMessage(const TagString& message)
+        Sentence& setMessage(const TagString& message)
         {
             m_message = message;
             return *this;

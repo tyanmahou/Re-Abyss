@@ -45,7 +45,7 @@ namespace abyss::UI::Message
 
         if (m_name) {
             double nameOffset = m_isLeft ? -140 : 140;
-            FontAsset(FontName::SerifName)(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 }, ColorF(1, m_alpha));
+            FontAsset(FontName::SentenceName)(*m_name).drawAt(m_pos + Vec2{ nameOffset, -65 }, ColorF(1, m_alpha));
         }
     }
 }

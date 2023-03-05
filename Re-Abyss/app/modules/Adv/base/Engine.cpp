@@ -68,23 +68,23 @@ namespace abyss::Adv
     }
     void Engine::setCharaKind(const CharaKind& kind)
     {
-        m_serif.setKind(kind);
+        m_sentence.setKind(kind);
     }
     void Engine::setLook(const LookType & look)
     {
-        m_serif.setLook(look);
+        m_sentence.setLook(look);
     }
     void Engine::setEmote(const Emote& emote)
     {
-        m_serif.setEmote(emote);
+        m_sentence.setEmote(emote);
     }
     void Engine::setName(const Name& name)
     {
-        m_serif.setName(name);
+        m_sentence.setName(name);
     }
     void Engine::append(const char32_t ch)
     {
-        m_serif.getMessage().append(ch, m_time);
+        m_sentence.getMessage().append(ch, m_time);
     }
     Engine& Engine::setColor(const s3d::Optional<s3d::ColorF>& color)
     {
@@ -93,7 +93,7 @@ namespace abyss::Adv
         } else if (!m_color.empty()) {
             m_color.pop();
         }
-        m_serif.getMessage().append(
+        m_sentence.getMessage().append(
             Tag::Color{ m_color.top()}
         );
         return *this;
@@ -101,14 +101,14 @@ namespace abyss::Adv
     Engine& Engine::setIsShake(bool isShake)
     {
         m_isShake = isShake;
-        m_serif.getMessage().append(
+        m_sentence.getMessage().append(
             Tag::Shake{ isShake }
         );
         return *this;
     }
     void Engine::clearMessage()
     {
-        auto& message = m_serif.getMessage();
+        auto& message = m_sentence.getMessage();
         m_prevMessage = std::move(message);
 
         message.clear();
@@ -123,7 +123,7 @@ namespace abyss::Adv
     }
     void Engine::clearBuffer()
     {
-        if (m_serif.getMessage().length() > 0) {
+        if (m_sentence.getMessage().length() > 0) {
             this->clearMessage();
         }
         if (m_prevMessage.length() > 0) {

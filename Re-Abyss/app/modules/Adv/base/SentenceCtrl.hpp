@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
-#include <abyss/models/Adv/Serif.hpp>
+#include <abyss/models/Adv/Sentence.hpp>
 
 namespace abyss::Adv
 {
@@ -45,7 +45,7 @@ namespace abyss::Adv
     private:
         AdvObj* m_pObj;
 
-        Serif m_sentence;
+        Sentence m_sentence;
         TagString m_prevMessage;
         std::stack<s3d::ColorF> m_color;
         bool m_isShake = false;

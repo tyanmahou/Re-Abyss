@@ -48,7 +48,7 @@ namespace abyss::UI::Message
         if (!isVisible()) {
             return;
         }
-        const auto& serif = m_engine->getSerif();
+        const auto& sentence = m_engine->getSentence();
 
         const auto rate = m_isVisible ?
             s3d::EaseOutCubic(m_showHideTimer.rate()) :
@@ -56,19 +56,19 @@ namespace abyss::UI::Message
         const auto alpha = rate;
         const Vec2 pos = AnchorUtil::FromTc(0, 150) + Vec2{0.0, (1.0 - rate) * -40.0};
         m_boxView
-            ->setIsLeft(serif.isLookRight()) // 向きとアイコンの位置は反転するのでIsLeftにisRightを設定している
+            ->setIsLeft(sentence.isLookRight()) // 向きとアイコンの位置は反転するのでIsLeftにisRightを設定している
             .setPos(pos)
-            .setName(serif.getName())
+            .setName(sentence.getName())
             .setAlpha(alpha);
 
         auto* advs = m_pUi->getModule<Adventures>();
-        if (auto chara = advs->findChara(serif.getKind())) {
-            if (auto face = chara->getFace(serif.getEmote())) {
+        if (auto chara = advs->findChara(sentence.getKind())) {
+            if (auto face = chara->getFace(sentence.getEmote())) {
                 m_boxView->setFaceIcon(face);
             } else {
                 m_boxView->setFaceIcon({});
             }
-            if (serif.getName().isNoname()) {
+            if (sentence.getName().isNoname()) {
                 m_boxView->setName(chara->getName());
             }
         } else {
@@ -76,8 +76,8 @@ namespace abyss::UI::Message
         }
         m_boxView->draw();
 
-        auto&& font = FontAsset(FontName::Serif);
-        const double messagePosX = serif.isLookRight() ? -180 : -340;
+        auto&& font = FontAsset(FontName::Sentence);
+        const double messagePosX = sentence.isLookRight() ? -180 : -340;
 
         Adv::TagStringView::DrawPrev(
             font,
@@ -89,7 +89,7 @@ namespace abyss::UI::Message
 
         Adv::TagStringView::Draw(
             font,
-            serif.getMessage(),
+            sentence.getMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
             m_engine->getTime(),
             alpha

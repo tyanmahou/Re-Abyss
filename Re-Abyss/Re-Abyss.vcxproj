@@ -314,6 +314,7 @@
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
+    <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
@@ -1311,6 +1312,7 @@
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\modules\Adv\base\Process.hpp" />
+    <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp" />
     <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
@@ -1363,7 +1365,7 @@
     <ClInclude Include="app\modules\Adv\Project\CharaTable.hpp" />
     <ClInclude Include="app\values\Adv\Emote.hpp" />
     <ClInclude Include="app\values\Adv\Name.hpp" />
-    <ClInclude Include="app\models\Adv\Serif.hpp" />
+    <ClInclude Include="app\models\Adv\Sentence.hpp" />
     <ClInclude Include="app\values\Adv\LookType.hpp" />
     <ClInclude Include="app\modules\Adv\TagString.hpp" />
     <ClInclude Include="app\modules\Devs\Project\base\Issue.hpp" />

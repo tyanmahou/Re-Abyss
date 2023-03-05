@@ -7,7 +7,7 @@
 #include <abyss/modules/Adv/base/ICommand.hpp>
 #include <abyss/modules/Adv/base/SkipCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
-#include <abyss/models/Adv/Serif.hpp>
+#include <abyss/models/Adv/Sentence.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -33,9 +33,9 @@ namespace abyss::Adv
 
         void addCommand(std::shared_ptr<ICommand> command);
 
-        const Serif& getSerif() const
+        const Sentence& getSentence() const
         {
-            return m_serif;
+            return m_sentence;
         }
         const TagString& getPrevMessage() const
         {
@@ -78,7 +78,7 @@ namespace abyss::Adv
     private:
         AdvObj* m_pObj;
 
-        Serif m_serif;
+        Sentence m_sentence;
         TagString m_prevMessage;
         std::stack<s3d::ColorF> m_color;
         bool m_isShake = false;
