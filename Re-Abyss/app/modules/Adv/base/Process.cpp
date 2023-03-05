@@ -9,6 +9,7 @@ namespace abyss::Adv
 
     bool Process::update()
     {
+        return m_stream.resume();
     }
     void Process::onStart()
     {
