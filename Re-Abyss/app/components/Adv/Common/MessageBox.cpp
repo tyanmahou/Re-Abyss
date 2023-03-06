@@ -13,7 +13,7 @@ namespace abyss::Adv
 
     void MessageBox::onStart()
     {
-        m_pUi = m_pObj->getModule<UIs>()->create<UI::Message::Builder>(m_pObj->engine());
+        m_pUi = m_pObj->getModule<UIs>()->create<UI::Message::Builder>(m_pObj->sentence());
         m_msgMain = m_pUi->find<UI::Message::Main>();
         if (m_msgMain) {
             m_msgMain->setVisible(m_isVisible);

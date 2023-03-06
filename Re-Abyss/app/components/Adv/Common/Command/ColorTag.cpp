@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/ColorTag.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 
 namespace abyss::Adv
 {
@@ -10,7 +10,7 @@ namespace abyss::Adv
     {}
     void ColorTag::onStart()
     {
-        m_pObj->engine()->setColor(m_color);
+        m_pObj->sentence()->setColor(m_color);
     }
     Coro::Fiber<> ColorTag::onCommand()
     {

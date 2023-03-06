@@ -1,7 +1,7 @@
 #include <abyss/components/Adv/Common/Command/ShowHideMessage.hpp>
 
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 #include <abyss/components/Adv/Common/MessageBox.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 
@@ -24,7 +24,7 @@ namespace abyss::Adv
         }
         if (!m_isShow) {
             // 非表示の場合は終わった時点でバッファクリア
-            m_pObj->engine()->clearBuffer();
+            m_pObj->sentence()->clearBuffer();
         }
     }
     Coro::Fiber<> ShowHideMessage::onCommand()

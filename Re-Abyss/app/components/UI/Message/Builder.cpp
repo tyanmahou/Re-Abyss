@@ -6,14 +6,14 @@ namespace abyss::UI::Message
 {
     void Builder::Build(
         UIObj* pUi,
-        const Ref<Adv::Engine>& engine
+        const Ref<Adv::SentenceCtrl>& sentence
     )
     {
         pUi->setFilter(Filter::Always);
 
         // メイン追加
         {
-            pUi->attach<Main>(pUi, engine);
+            pUi->attach<Main>(pUi, sentence);
         }
     }
 }

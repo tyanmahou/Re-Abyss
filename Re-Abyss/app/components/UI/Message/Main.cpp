@@ -2,7 +2,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Adv/Adventures.hpp>
 
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 
 #include <abyss/views/UI/Message/MessageBoxVM.hpp>
 #include <abyss/views/UI/Message/CursorVM.hpp>
@@ -16,10 +16,10 @@ namespace abyss::UI::Message
 {
     Main::Main(
         UIObj* pUi,
-        const Ref<Adv::Engine>& engine
+        const Ref<Adv::SentenceCtrl>& sentence
     ) :
         m_pUi(pUi),
-        m_engine(engine),
+        m_sentence(sentence),
         m_boxView(std::make_unique<MessageBoxVM>()),
         m_cursorView(std::make_unique<CursorVM>()),
         m_showHideTimer(0.5)
@@ -33,7 +33,7 @@ namespace abyss::UI::Message
 
     void Main::onUpdate()
     {
-        if (!m_engine) {
+        if (!m_sentence) {
             m_pUi->destroy();
             return;
         }
@@ -42,13 +42,13 @@ namespace abyss::UI::Message
 
     void Main::onDraw() const
     {
-        if (!m_engine) {
+        if (!m_sentence) {
             return;
         }
         if (!isVisible()) {
             return;
         }
-        const auto& sentence = m_engine->getSentence();
+        const auto& sentence = m_sentence->getSentence();
 
         const auto rate = m_isVisible ?
             s3d::EaseOutCubic(m_showHideTimer.rate()) :
@@ -81,9 +81,9 @@ namespace abyss::UI::Message
 
         Adv::TagStringView::DrawPrev(
             font,
-            m_engine->getPrevMessage(),
+            m_sentence->getPrevMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
-            m_engine->getTime(),
+            m_sentence->getTime(),
             alpha
         );
 
@@ -91,11 +91,11 @@ namespace abyss::UI::Message
             font,
             sentence.getMessage(),
             pos + s3d::Vec2{ messagePosX, -25 },
-            m_engine->getTime(),
+            m_sentence->getTime(),
             alpha
         );
 
-        if (m_engine->isInputWait() && !isBusyAnim()) {
+        if (m_sentence->isInputWait() && !isBusyAnim()) {
             m_cursorView->setPos(pos + s3d::Vec2{ messagePosX + 500, 50 }).draw();
         }
     }

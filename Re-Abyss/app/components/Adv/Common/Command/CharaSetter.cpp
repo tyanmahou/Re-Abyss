@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/CharaSetter.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 
 namespace abyss::Adv
 {
@@ -17,15 +17,15 @@ namespace abyss::Adv
     {}
     void CharaSetter::onStart()
     {
-        auto* engine = m_pObj->engine().get();
+        auto* sentence = m_pObj->sentence().get();
         if (m_kind) {
-            engine->setCharaKind(*m_kind);
+            sentence->setCharaKind(*m_kind);
         }
         if (m_look) {
-            engine->setLook(*m_look);
+            sentence->setLook(*m_look);
         }
         if (m_emote) {
-            engine->setEmote(*m_emote);
+            sentence->setEmote(*m_emote);
         }
     }
     Coro::Fiber<> CharaSetter::onCommand()

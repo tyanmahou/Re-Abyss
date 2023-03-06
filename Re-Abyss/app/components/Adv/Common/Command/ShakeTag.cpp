@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/ShakeTag.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 
 namespace abyss::Adv
 {
@@ -10,7 +10,7 @@ namespace abyss::Adv
     {}
     void ShakeTag::onStart()
     {
-        m_pObj->engine()->setIsShake(m_isShake);
+        m_pObj->sentence()->setIsShake(m_isShake);
     }
     Coro::Fiber<> ShakeTag::onCommand()
     {

@@ -13,6 +13,18 @@ namespace abyss::Adv
     public:
         bool update();
 
+        const Sentence& getSentence() const
+        {
+            return m_sentence;
+        }
+        const TagString& getPrevMessage() const
+        {
+            return m_prevMessage;
+        }
+        double getTime() const
+        {
+            return m_time;
+        }
         void setCharaKind(const CharaKind& kind);
         void setLook(const LookType& look);
         void setEmote(const Emote& emote);

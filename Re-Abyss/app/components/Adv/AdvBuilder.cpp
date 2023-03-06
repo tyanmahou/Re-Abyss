@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/AdvBuilder.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/Process.hpp>
 
 #include <abyss/components/Adv/Common/Command/Bgm.hpp>
 #include <abyss/components/Adv/Common/Command/CharaSetter.hpp>
@@ -38,7 +38,7 @@ namespace
     public:
         Evaluator(AdvObj* pObj) :
             m_pObj(pObj),
-            m_pEngine(pObj->engine().get())
+            m_pProcess(pObj->process().get())
         {}
         ~Evaluator()
         {
@@ -69,7 +69,7 @@ namespace
 
             // 表示名
             if (statement.displayName) {
-                m_pEngine->addCommand<NameSetter>(*statement.displayName);
+                m_pProcess->addCommand<NameSetter>(*statement.displayName);
             }
         }
         void eval(const CommandStatement& statement) override
@@ -77,19 +77,19 @@ namespace
             const auto& command = statement.command;
             const auto& param = statement.rootParam;
             if (command == U"cm") {
-                m_pEngine->addCommand<ClearMessage>();
+                m_pProcess->addCommand<ClearMessage>();
             } else if (command == U"l") {
-                m_pEngine->addCommand<WaitInput>();
+                m_pProcess->addCommand<WaitInput>();
             } else if (command == U"r") {
-                m_pEngine->addCommand<MessageStream>(U"\n");
+                m_pProcess->addCommand<MessageStream>(U"\n");
             } else if (command == U"color" && param) {
-                m_pEngine->addCommand<ColorTag>(Color(*param));
+                m_pProcess->addCommand<ColorTag>(Color(*param));
             } else if (command == U"/color") {
-                m_pEngine->addCommand<ColorTag>(s3d::none);
+                m_pProcess->addCommand<ColorTag>(s3d::none);
             } else if (command == U"shake") {
-                m_pEngine->addCommand<ShakeTag>(true);
+                m_pProcess->addCommand<ShakeTag>(true);
             } else if (command == U"/shake") {
-                m_pEngine->addCommand<ShakeTag>(false);
+                m_pProcess->addCommand<ShakeTag>(false);
             } else if (command == U"wait") {
                 Duration time{};
                 for (const auto& [key, value] : statement.params) {
@@ -97,7 +97,7 @@ namespace
                         time = Duration(s3d::Parse<double>(*value));
                     }
                 }
-                m_pEngine->addCommand<WaitTime>(time);
+                m_pProcess->addCommand<WaitTime>(time);
             } else if (command == U"build" && param) {
                 this->buildTrigger(U"Teardown");
                 m_build = param;
@@ -110,18 +110,18 @@ namespace
                 this->showHideMessage(false);
             } else if (command == U"send" && param) {
                 auto func = this->findFunc<void(AdvObj*)>(*param);
-                m_pEngine->addCommand<SignalSend>(func);
+                m_pProcess->addCommand<SignalSend>(func);
             } else if (command == U"receive" && param) {
                 auto func = this->findFunc<bool(AdvObj*)>(*param);
-                m_pEngine->addCommand<SignalReceive>(func);
+                m_pProcess->addCommand<SignalReceive>(func);
             } else if (command == U"skippable") {
-                m_pEngine->addCommand<SkipEnabled>(true);
+                m_pProcess->addCommand<SkipEnabled>(true);
             } else if (command == U"/skippable") {
-                m_pEngine->addCommand<SkipEnabled>(false);
+                m_pProcess->addCommand<SkipEnabled>(false);
             } else if (command == U"pause-disabled") {
-                m_pEngine->addCommand<PauseDisabled>(true);
+                m_pProcess->addCommand<PauseDisabled>(true);
             } else if (command == U"/pause-disabled") {
-                m_pEngine->addCommand<PauseDisabled>(false);
+                m_pProcess->addCommand<PauseDisabled>(false);
             } else if (command == U"bgm") {
                 Duration fade{ 2s };
                 Bgm::Kind kind{};
@@ -140,13 +140,13 @@ namespace
                         fade = Duration(s3d::Parse<double>(*value));
                     }
                 }
-                m_pEngine->addCommand<Bgm>(kind, path, fade);
+                m_pProcess->addCommand<Bgm>(kind, path, fade);
             }
         }
         void eval(const TextStatement& statement) override
         {
             this->showHideMessage(true);
-            m_pEngine->addCommand<MessageStream>(statement.text);
+            m_pProcess->addCommand<MessageStream>(statement.text);
         }
 
         void evalOnSectionStart(const s3d::String& section) override
@@ -192,7 +192,7 @@ namespace
                 emote = Emote{};
             }
 
-            m_pEngine->addCommand<CharaSetter>(kind, look, emote);
+            m_pProcess->addCommand<CharaSetter>(kind, look, emote);
             m_charaKind = std::move(kind);
             m_charaLook = std::move(look);
         }
@@ -202,7 +202,7 @@ namespace
                 return;
             }
             m_isVisibleMessage = isShow;
-            m_pEngine->addCommand<ShowHideMessage>(isShow);
+            m_pProcess->addCommand<ShowHideMessage>(isShow);
         }
         bool buildNativeCommand(s3d::StringView name)
         {
@@ -255,7 +255,7 @@ namespace
         }
     private:
         AdvObj* m_pObj;
-        Engine* m_pEngine;
+        Process* m_pProcess;
 
         bool m_isVisibleMessage = false;
         s3d::Optional<CharaKind> m_charaKind;

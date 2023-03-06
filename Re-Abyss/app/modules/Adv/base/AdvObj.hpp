@@ -4,7 +4,6 @@
 
 namespace abyss::Adv
 {
-    class Engine;
     class Process;
     class SentenceCtrl;
 
@@ -14,11 +13,6 @@ namespace abyss::Adv
         AdvObj();
 
         bool update();
-
-        const Ref<Engine>& engine() const
-        {
-            return m_engine;
-        }
         const Ref<Process>& process() const
         {
             return m_process;
@@ -28,7 +22,6 @@ namespace abyss::Adv
             return m_sentence;
         }
     private:
-        Ref<Engine> m_engine;
         Ref<Process> m_process;
         Ref<SentenceCtrl> m_sentence;
     };

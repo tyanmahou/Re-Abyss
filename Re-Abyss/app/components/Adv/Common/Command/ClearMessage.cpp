@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/ClearMessage.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 
 namespace abyss::Adv
 {
@@ -9,7 +9,7 @@ namespace abyss::Adv
     {}
     void ClearMessage::onStart()
     {
-        m_pObj->engine()->clearMessage();
+        m_pObj->sentence()->clearMessage();
     }
     Coro::Fiber<> ClearMessage::onCommand()
     {

@@ -9,7 +9,7 @@
 
 namespace abyss::Adv
 {
-    class Engine;
+    class SentenceCtrl;
 }
 
 namespace abyss::UI::Message
@@ -26,7 +26,7 @@ namespace abyss::UI::Message
     public:
         Main(
             UIObj* pUi,
-            const Ref<Adv::Engine>& engine
+            const Ref<Adv::SentenceCtrl>& sentence
         );
         ~Main();
         void onStart() override;
@@ -42,7 +42,7 @@ namespace abyss::UI::Message
     private:
         UIObj* m_pUi;
 
-        Ref<Adv::Engine> m_engine;
+        Ref<Adv::SentenceCtrl> m_sentence;
 
         std::unique_ptr<MessageBoxVM> m_boxView;
         std::unique_ptr<CursorVM> m_cursorView;

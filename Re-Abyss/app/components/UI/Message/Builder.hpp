@@ -4,7 +4,7 @@
 
 namespace abyss::Adv
 {
-    class Engine;
+    class SentenceCtrl;
 }
 namespace abyss::UI::Message
 {
@@ -12,7 +12,7 @@ namespace abyss::UI::Message
     {
         static void Build(
             UIObj* pUi,
-            const Ref<Adv::Engine>& engine
+            const Ref<Adv::SentenceCtrl>& sentence
         );
     };
 }

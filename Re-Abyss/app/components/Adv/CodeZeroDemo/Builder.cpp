@@ -8,7 +8,7 @@
 #include <abyss/components/Adv/CodeZeroDemo/Command/Teardown.hpp>
 
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/Process.hpp>
 
 namespace abyss::Adv::CodeZeroDemo
 {
@@ -18,22 +18,22 @@ namespace abyss::Adv::CodeZeroDemo
     }
     void Builder::Appear::Start(AdvObj* pObj)
     {
-        pObj->engine()->addCommand<CodeZeroDemo::AppearStart>();
+        pObj->process()->addCommand<CodeZeroDemo::AppearStart>();
     }
     void Builder::Appear::End(AdvObj* pObj)
     {
-        pObj->engine()->addCommand<CodeZeroDemo::AppearEnd>();
+        pObj->process()->addCommand<CodeZeroDemo::AppearEnd>();
     }
     void Builder::Disappear::Start(AdvObj* pObj)
     {
-        pObj->engine()->addCommand<CodeZeroDemo::DisappearStart>();
+        pObj->process()->addCommand<CodeZeroDemo::DisappearStart>();
     }
     void Builder::Disappear::End(AdvObj* pObj)
     {
-        pObj->engine()->addCommand<CodeZeroDemo::DisappearEnd>();
+        pObj->process()->addCommand<CodeZeroDemo::DisappearEnd>();
     }
     void Builder::Teardown(AdvObj* pObj)
     {
-        pObj->engine()->addCommand<CodeZeroDemo::Teardown>();
+        pObj->process()->addCommand<CodeZeroDemo::Teardown>();
     }
 }

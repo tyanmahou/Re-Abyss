@@ -2333,9 +2333,6 @@
     <ClCompile Include="app\modules\Adv\Adventures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Adv\base\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Adv\base\AdvObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -6270,9 +6267,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\TagString.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\modules\Adv\base\Engine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Adv\base\AdvObj.hpp">

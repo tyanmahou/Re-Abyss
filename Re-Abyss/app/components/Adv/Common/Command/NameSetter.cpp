@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/NameSetter.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 namespace abyss::Adv
 {
     NameSetter::NameSetter(AdvObj* pObj, const Name& name):
@@ -10,7 +10,7 @@ namespace abyss::Adv
 
     void NameSetter::onStart()
     {
-        m_pObj->engine()->setName(m_name);
+        m_pObj->sentence()->setName(m_name);
     }
 
     Coro::Fiber<> NameSetter::onCommand()

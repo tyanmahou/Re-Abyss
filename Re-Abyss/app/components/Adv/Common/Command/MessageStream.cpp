@@ -2,7 +2,7 @@
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <Siv3D.hpp>
 
@@ -16,9 +16,9 @@ namespace abyss::Adv
     {}
     void MessageStream::onEnd()
     {
-        const auto& engine = m_pObj->engine();
+        const auto& sentence = m_pObj->sentence();
         for (size_t index = m_done + 1; index < m_message.size(); ++index) {
-            engine->append(m_message[index]);
+            sentence->append(m_message[index]);
         }
     }
 
@@ -28,12 +28,12 @@ namespace abyss::Adv
     }
     Coro::Fiber<> MessageStream::stream()
     {
-        const auto& engine = m_pObj->engine();
+        const auto& sentence = m_pObj->sentence();
         auto* globalTime = m_pObj->getModule<GlobalTime>();
         size_t index = 0;
         for (char32_t ch : m_message) {
             m_done = index;
-            engine->append(ch);
+            sentence->append(ch);
             co_await Coro::WaitForSeconds(60ms, globalTime);
             ++index;
         }

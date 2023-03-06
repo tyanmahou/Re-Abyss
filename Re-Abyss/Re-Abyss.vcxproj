@@ -346,7 +346,6 @@
     <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\modules\Actor\Actors.cpp" />
     <ClCompile Include="app\modules\Adv\Adventures.cpp" />
-    <ClCompile Include="app\modules\Adv\base\Engine.cpp" />
     <ClCompile Include="app\modules\Adv\base\AdvObj.cpp" />
     <ClCompile Include="app\models\Adv\Chara.cpp" />
     <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp" />
@@ -1354,7 +1353,6 @@
     <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
     <ClInclude Include="app\modules\Actor\Actors.hpp" />
     <ClInclude Include="app\modules\Adv\Adventures.hpp" />
-    <ClInclude Include="app\modules\Adv\base\Engine.hpp" />
     <ClInclude Include="app\modules\Adv\base\ICommand.hpp" />
     <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
     <ClInclude Include="app\models\Adv\Chara.hpp" />
