@@ -27,7 +27,8 @@ namespace abyss::UI::SaveSelect::Main
 
         // フッター
         {
-            pUi->attach<FooterTips>(U"Z…{} X…{}"_fmt(
+            pUi->attach<FooterTips>(pUi)
+                ->setTips(U"Z…{} X…{}"_fmt(
                 MsgUtil::Decide,
                 MsgUtil::Cancel
             ));

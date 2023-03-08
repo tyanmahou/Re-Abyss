@@ -1,7 +1,9 @@
 #include <abyss/scenes/Scene/Home/Booter.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/Cycle/Home/Builder.hpp>
+#include <abyss/components/UI/Home/Top/Builder.hpp>
 
 namespace abyss::Scene::Home
 {
@@ -17,6 +19,11 @@ namespace abyss::Scene::Home
 
         // PostEffects初期化
         pManager->getModule<PostEffects>()->init();
+
+        // UI初期化
+        pManager->getModule<UIs>()->create<UI::Home::Top::Builder>();
+        pManager->getModule<UIs>()->flush();
+
         return true;
     }
 }

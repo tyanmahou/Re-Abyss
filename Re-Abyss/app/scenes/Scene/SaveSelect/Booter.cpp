@@ -6,7 +6,6 @@
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
-#include <abyss/components/Event/SaveSelect/Builder.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
 namespace abyss::Scene::SaveSelect
@@ -19,10 +18,6 @@ namespace abyss::Scene::SaveSelect
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::SaveSelect::Builder>(m_pObserver);
         pManager->getModule<CycleMaster>()->init();
-
-        // Mainイベント初期化
-        pManager->getModule<Events>()->create<Event::SaveSelect::Builder>();
-        pManager->getModule<Events>()->init();
 
         // UI初期化
         pManager->getModule<UIs>()->create<UI::SaveSelect::Main::Builder>();

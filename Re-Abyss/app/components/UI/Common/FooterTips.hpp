@@ -10,8 +10,17 @@ namespace abyss::UI
         public IDraw
     {
     public:
-        FooterTips(const s3d::String& tips);
+        FooterTips(UIObj* pUi);
+
+        FooterTips& setTips(const s3d::String& tips)
+        {
+            m_tips = tips;
+            return *this;
+        }
+    public:
         void onDraw() const override;
+    private:
+        UIObj* m_pUi;
         s3d::String m_tips;
     };
 }

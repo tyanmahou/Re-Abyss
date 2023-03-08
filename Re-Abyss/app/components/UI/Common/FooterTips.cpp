@@ -3,8 +3,8 @@
 
 namespace abyss::UI
 {
-    FooterTips::FooterTips(const s3d::String& tips):
-        m_tips(tips)
+    FooterTips::FooterTips(UIObj* pUi):
+        m_pUi(pUi)
     {
         this->setOrder(DrawOrder::UI::Footer);
     }

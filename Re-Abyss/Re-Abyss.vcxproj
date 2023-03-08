@@ -312,6 +312,8 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
@@ -328,7 +330,6 @@
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.cpp" />
-    <ClCompile Include="app\components\Event\Home\MainStream.cpp" />
     <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
     <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp" />
@@ -662,8 +663,6 @@
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\RoomMoveCtrl.cpp" />
-    <ClCompile Include="app\components\Event\SaveSelect\Builder.cpp" />
-    <ClCompile Include="app\components\Event\SaveSelect\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
@@ -1307,6 +1306,10 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Home\Main.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
     <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
@@ -1327,7 +1330,6 @@
     <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.hpp" />
     <ClInclude Include="app\components\Event\base\IStashUpdate.hpp" />
-    <ClInclude Include="app\components\Event\Home\MainStream.hpp" />
     <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp" />
     <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp" />
@@ -1766,8 +1768,6 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />
-    <ClInclude Include="app\components\Event\SaveSelect\Builder.hpp" />
-    <ClInclude Include="app\components\Event\SaveSelect\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
