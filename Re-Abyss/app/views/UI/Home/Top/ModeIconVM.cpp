@@ -12,14 +12,15 @@ namespace abyss::UI::Home::Top
         const Color& mainColor = m_isReverseColor ? color2 : color1;
         const Color& subColor = m_isReverseColor ? color1 : color2;
 
+        constexpr Vec2 baseSize{ 160, 160 };
+        Vec2 size = baseSize * m_scale;
+        RectF rect(m_pos - size / 2, size);
         // 下地
         {
-            constexpr Vec2 baseSize{ 160, 160 };
-            Vec2 size = baseSize * m_scale;
-            RectF(m_pos - size / 2, size)
+            rect
                 .rotatedAt(m_pos, s3d::Math::QuarterPi)
                 .draw(mainColor)
-                .drawFrame(5, 0, subColor)
+                .drawFrame(5 * m_scale, 0, subColor)
                 .scaledAt(m_pos, 0.8)
                 .drawFrame(1, subColor);
         }
@@ -31,8 +32,9 @@ namespace abyss::UI::Home::Top
         }
         // テキスト
         if (m_font) {
+            auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, m_pos));
             m_font(m_text)
-                .drawAt(m_fontSize, m_pos + m_textOffset, color2);
+                .draw( rect.tl() + m_textOffset, color1);
         }
     }
 }

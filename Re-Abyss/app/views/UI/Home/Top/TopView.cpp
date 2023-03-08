@@ -5,18 +5,15 @@
 namespace abyss::UI::Home::Top
 {
     TopView::TopView():
-        m_icons(std::make_unique<ModeIconVM[]>(IconSize)),
-        m_font(FontMethod::SDF, 50, U"/resources/fonts/PixelMplus12-Bold.ttf")
+        m_icons(std::make_unique<ModeIconVM[]>(IconSize))
     {
-        m_font.setBufferThickness(10);
-
         for (size_t index = 0; index < IconSize; ++index) {
             const auto& param = ViewParam::Icons[index];
             m_icons[index]
                 .setPos(param.pos)
                 .setIconOffset(param.iconOffset)
                 .setIconScale(param.scale)
-                .setFont(m_font)
+                .setFont(FontAsset(U"pm12b-20"))
                 .setText(param.text)
                 .setTextOffset(param.textOffset)
                 .setFontSize(param.fontSize)
