@@ -1,0 +1,61 @@
+[[Icons]]
+pos = "(187, 198)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "探索"
+textOffset = "(0, 30)"
+fontSize = 40
+scale = 1.0
+isReverseColor = false
+
+[[Icons]]
+pos = "(330, 318)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "ギルド"
+textOffset = "(0, 0)"
+fontSize = 30
+scale = 0.8
+isReverseColor = false
+
+[[Icons]]
+pos = "(110, 369)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "工房"
+textOffset = "(0, 0)"
+fontSize = 30
+scale = 0.8
+isReverseColor = true
+
+[[Icons]]
+pos = "(230, 450)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "収集"
+textOffset = "(0, 0)"
+fontSize = 25
+scale = 0.64
+isReverseColor = false
+
+[[Icons]]
+pos = "(482, 269)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "記憶"
+textOffset = "(0, 20)"
+fontSize = 25
+scale = 0.64
+isReverseColor = false
+
+
+[[Icons]]
+pos = "(440, 405)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "設定"
+textOffset = "(0, 20)"
+fontSize = 25
+scale = 0.512
+isReverseColor = true
+

@@ -5,6 +5,8 @@
 
 namespace abyss::UI::Home::Top
 {
+    class TopView;
+
     class Main final :
         public IComponent,
         public IUpdate,
@@ -12,11 +14,13 @@ namespace abyss::UI::Home::Top
     {
     public:
         Main(UIObj* pUi);
+        ~Main();
     public:
         void onUpdate() override;
         void onDraw() const override;
     private:
         UIObj* m_pUi;
+        std::unique_ptr<TopView> m_view;
     };
 }
 namespace abyss

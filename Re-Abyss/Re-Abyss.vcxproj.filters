@@ -2465,6 +2465,12 @@
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIconVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\TopView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6435,6 +6441,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\Home\Top\Mode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\TopView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIconVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

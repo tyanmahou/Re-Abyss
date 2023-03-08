@@ -1,5 +1,6 @@
 #include <abyss/scenes/Scene/Home/Scene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/scenes/System/System.hpp>
 #include <abyss/scenes/Scene/Home/Booter.hpp>
 
@@ -27,6 +28,7 @@ namespace abyss::Scene::Home
 #if ABYSS_NO_BUILD_RESOURCE
         void reload()
         {
+            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
             Resource::Assets::Norelease()->release();
             Resource::Assets::Main()->release();
 

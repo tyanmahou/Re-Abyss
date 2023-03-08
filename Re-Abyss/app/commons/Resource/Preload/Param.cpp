@@ -53,7 +53,9 @@
 // SaveSelect
 #include <abyss/params/UI/SaveSelect/Param.hpp>
 #include <abyss/params/UI/SaveSelect/UserInfoParam.hpp>
-#include "Param.hpp"
+
+// Home
+#include <abyss/params/UI/Home/Top/ViewParam.hpp>
 
 namespace
 {
@@ -78,6 +80,10 @@ namespace
     {
         resource->loadToml<UI::SaveSelect::Param>(U"UI/SaveSelect/Param.toml");
         resource->loadToml<UI::SaveSelect::UserInfoParam>(U"UI/SaveSelect/UserInfoParam.toml");
+    }
+    void LoadHomeToml(const Assets* resource)
+    {
+        resource->loadToml<UI::Home::Top::ViewParam>(U"UI/Home/Top/ViewParam.toml");
     }
     void LoadActorToml(const Assets* resource)
     {
@@ -165,6 +171,7 @@ namespace abyss::Resource::Preload
         info.custom << LoadSplashToml;
         info.custom << LoadTitleToml;
         info.custom << LoadSaveSelectToml;
+        info.custom << LoadHomeToml;
 
         // Actor
         info.custom << LoadActorToml;
