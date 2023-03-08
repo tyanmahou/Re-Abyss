@@ -4,6 +4,7 @@
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/scenes/Sequence/Game/GameSequence.hpp>
 #include <abyss/scenes/Sequence/SceneDebug/SceneDebugSequence.hpp>
+#include <abyss/scenes/Sequence/User/UserSequence.hpp>
 #include <abyss/scenes/Sequence/Stage/StageSequence.hpp>
 
 #include <abyss/debugs/System/System.hpp>
@@ -92,7 +93,8 @@ namespace abyss::Debug
 		folder.add(::BuildSeqChangeButton<GameSequence>(U"Splash", SceneKind::Splash));
 		folder.add(::BuildSeqChangeButton<GameSequence>(U"Title", SceneKind::Title));
 		folder.add(::BuildSeqChangeButton<GameSequence>(U"SaveSelect", SceneKind::SaveSelect));
-		// マップロード
+        folder.add(::BuildSeqChangeButton<UserSequence>(U"Home"));
+        // マップロード
 		{
 			auto mainFolder = Node::Create<DebugMenu::Folder>(U"Stage");
 			::BuildMainSceneChangeButtons(mainFolder, Path::MapPath);

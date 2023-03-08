@@ -14,6 +14,9 @@ namespace abyss
     }
     Coro::Fiber<> UserSequence::sequence()
     {
+        m_pManager->changeScene(SceneKind::Home);
+        co_yield{};
+
         m_pManager->pushSequence<StageSequence>(m_pManager);
         co_yield{};
 
