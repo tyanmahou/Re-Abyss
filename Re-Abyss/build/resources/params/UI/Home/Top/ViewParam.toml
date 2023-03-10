@@ -1,0 +1,61 @@
+[[Icons]]
+pos = "(187, 198)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "SEEK"
+textOffset = "(20, -40)"
+fontSize = 20
+scale = 1.0
+isReverseColor = false
+
+[[Icons]]
+pos = "(330, 318)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "GUILD"
+textOffset = "(70, -30)"
+fontSize = 20
+scale = 0.8
+isReverseColor = false
+
+[[Icons]]
+pos = "(110, 369)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "FACTORY"
+textOffset = "(25, -35)"
+fontSize = 20
+scale = 0.8
+isReverseColor = true
+
+[[Icons]]
+pos = "(245, 440)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "COLLECT"
+textOffset = "(20, 110)"
+fontSize = 20
+scale = 0.64
+isReverseColor = false
+
+[[Icons]]
+pos = "(482, 269)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "MEMORY"
+textOffset = "(40, -35)"
+fontSize = 20
+scale = 0.64
+isReverseColor = false
+
+
+[[Icons]]
+pos = "(440, 405)"
+iconOffset = "(0, 0)"
+iconScale = 1.0
+text = "OPTION"
+textOffset = "(0, 100)"
+fontSize = 20
+scale = 0.512
+isReverseColor = true
+
