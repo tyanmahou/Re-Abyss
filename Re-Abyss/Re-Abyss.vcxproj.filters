@@ -2471,6 +2471,24 @@
     <ClCompile Include="app\views\UI\Home\Top\TopView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6450,6 +6468,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\IModeThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

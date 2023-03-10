@@ -988,6 +988,12 @@
     <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp" />
     <ClCompile Include="app\views\UI\GamePause\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIconVM.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\TopView.cpp" />
     <ClCompile Include="app\views\UI\Message\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Message\MessageBoxVM.cpp" />
@@ -2320,6 +2326,13 @@
     <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp" />
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIconVM.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\IModeThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\TopView.hpp" />
     <ClInclude Include="app\views\UI\Message\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Message\MessageBoxVM.hpp" />
