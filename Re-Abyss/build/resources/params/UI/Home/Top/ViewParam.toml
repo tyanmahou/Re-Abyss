@@ -40,10 +40,10 @@ isReverseColor = false
 
 [[Icons]]
 pos = "(482, 269)"
-iconOffset = "(0, 0)"
-iconScale = 1.0
+iconOffset = "(0, -5)"
+iconScale = 0.909090909
 text = "COLLECT"
-textOffset = "(40, -35)"
+textOffset = "(30, 110)"
 fontSize = 20
 scale = 0.64
 isReverseColor = false
