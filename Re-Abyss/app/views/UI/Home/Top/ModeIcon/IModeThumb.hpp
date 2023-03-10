@@ -9,7 +9,7 @@ namespace abyss::UI::Home::Top
     public:
         virtual ~IModeThumb() = default;
 
-        virtual void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(& colors)[2]) const = 0;
         virtual void drawUnselected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const = 0;
+        virtual void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const = 0;
     };
 }

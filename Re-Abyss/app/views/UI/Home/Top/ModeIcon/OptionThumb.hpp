@@ -9,8 +9,8 @@ namespace abyss::UI::Home::Top
     public:
         OptionThumb();
 
-        void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const override;
         void drawUnselected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const override;
+        void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const override;
 
     private:
         TexturePacker m_texture;
