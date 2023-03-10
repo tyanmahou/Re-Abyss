@@ -29,11 +29,6 @@ namespace abyss::UI::Home::Top
             return *this;
         }
 
-        ModeIconVM& setFont(const s3d::Font& font)
-        {
-            m_font = font;
-            return *this;
-        }
         ModeIconVM& setText(const s3d::String& text)
         {
             m_text = text;
@@ -61,6 +56,11 @@ namespace abyss::UI::Home::Top
             m_isReverseColor = isReverseColor;
             return *this;
         }
+        ModeIconVM& setSelected(bool isSelected)
+        {
+            m_isSelected = isSelected;
+            return *this;
+        }
         void draw() const;
     private:
         s3d::Vec2 m_pos{};
@@ -69,12 +69,13 @@ namespace abyss::UI::Home::Top
         s3d::Vec2 m_iconOffset{};
         double m_iconScale = 1.0;
 
-        s3d::Font m_font;
         s3d::String m_text{};
         s3d::Vec2 m_textOffset{};
         double m_fontSize = 40.0;
 
         double m_scale = 1.0;
         bool m_isReverseColor = false;
+
+        bool m_isSelected = false;
     };
 }

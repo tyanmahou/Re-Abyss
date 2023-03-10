@@ -13,7 +13,6 @@ namespace abyss::UI::Home::Top
                 .setPos(param.pos)
                 .setIconOffset(param.iconOffset)
                 .setIconScale(param.scale)
-                .setFont(FontAsset(U"pm12b-20"))
                 .setText(param.text)
                 .setTextOffset(param.textOffset)
                 .setFontSize(param.fontSize)
@@ -26,7 +25,9 @@ namespace abyss::UI::Home::Top
     void TopView::draw() const
     {
         for (size_t index = 0; index < IconSize; ++index) {
-            m_icons[index].draw();
+            m_icons[index]
+                .setSelected(index == static_cast<size_t>(m_mode))
+                .draw();
         }
     }
 }

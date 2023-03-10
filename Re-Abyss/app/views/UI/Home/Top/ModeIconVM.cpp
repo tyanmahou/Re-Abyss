@@ -31,9 +31,9 @@ namespace abyss::UI::Home::Top
                 .drawAt(m_pos + m_iconOffset, subColor);
         }
         // テキスト
-        if (m_font) {
+        if (m_isSelected) {
             auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, m_pos));
-            m_font(m_text)
+            FontAsset(U"pm12b-20")(m_text)
                 .draw( rect.tl() + m_textOffset, color1);
         }
     }

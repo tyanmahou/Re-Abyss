@@ -9,9 +9,11 @@ namespace abyss::UI::Home::Top
     {
         Seek,
         Guild,
-        Factory,
-        Collect,
+        Maint,
         Memory,
+        Collect,
         Option,
+
+        Max,
     };
 }
