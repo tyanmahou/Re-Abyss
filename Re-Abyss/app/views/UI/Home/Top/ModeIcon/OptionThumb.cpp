@@ -18,8 +18,9 @@ namespace abyss::UI::Home::Top
     }
     void OptionThumb::drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const
     {
-        auto addScale = 1.0 + 0.1 * s3d::Saturate(time * 5);
         const auto& viewParam = ViewParam::OptionIcon();
+        auto addScale = 1.0 + 0.1 * s3d::Saturate(time * 5);
+
         m_texture(U"option_off")
             .scaled(viewParam.iconScale * addScale)
             .rotated(s3d::Periodic::Sawtooth0_1(10s, time) * s3d::Math::TwoPi)

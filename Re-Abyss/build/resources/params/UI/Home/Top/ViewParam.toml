@@ -30,7 +30,7 @@ isReverseColor = true
 
 [[Icons]]
 pos = "(245, 440)"
-iconOffset = "(0, 0)"
+iconOffset = "(0, -5)"
 iconScale = 1.0
 text = "MEMORY"
 textOffset = "(20, 110)"
