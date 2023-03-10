@@ -22,6 +22,7 @@ namespace abyss::UI::Home::Top
     private:
         UIObj* m_pUi;
         Mode m_mode = Mode::Seek;
+        double m_time = 0;
 
         std::unique_ptr<TopView> m_view;
     };

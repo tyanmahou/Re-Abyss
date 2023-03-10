@@ -3,6 +3,8 @@
 
 namespace abyss::UI::Home::Top
 {
+    class IModeThumb;
+
     class ModeIconVM
     {
     public:
@@ -13,22 +15,21 @@ namespace abyss::UI::Home::Top
             m_pos = pos;
             return *this;
         }
-        ModeIconVM& setIcon(const s3d::Texture& icon)
+        ModeIconVM& setTime(double time)
         {
-            m_icon = icon;
+            m_time = time;
             return *this;
         }
-        ModeIconVM& setIconOffset(const s3d::Vec2& offset)
+        template<class ThumbType, class... Args> requires std::derived_from<ThumbType, IModeThumb>
+        ModeIconVM& setThumbnail(Args&&... args)
         {
-            m_iconOffset = offset;
+            return this->setThumbnail(std::make_unique<ThumbType>(std::forward<Args>(args)...));
+        }
+        ModeIconVM& setThumbnail(std::unique_ptr<IModeThumb> thumbnail)
+        {
+            m_thumbnail = std::move(thumbnail);
             return *this;
         }
-        ModeIconVM& setIconScale(double scale)
-        {
-            m_iconScale = scale;
-            return *this;
-        }
-
         ModeIconVM& setText(const s3d::String& text)
         {
             m_text = text;
@@ -64,10 +65,9 @@ namespace abyss::UI::Home::Top
         void draw() const;
     private:
         s3d::Vec2 m_pos{};
+        double m_time = 0;
 
-        s3d::Texture m_icon;
-        s3d::Vec2 m_iconOffset{};
-        double m_iconScale = 1.0;
+        std::unique_ptr<IModeThumb> m_thumbnail;
 
         s3d::String m_text{};
         s3d::Vec2 m_textOffset{};

@@ -7,12 +7,12 @@ namespace abyss::UI::Home::Top
         m_texture(Resource::Assets::Main()->load(U"UI/Home/ModeIcon.json"))
     {
     }
-    void OptionThumb::drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const
+    void OptionThumb::drawSelected(const s3d::Vec2& pos, [[maybe_unused]] double time, const s3d::ColorF(&colors)[2]) const
     {
-        m_texture(U"option_off").drawAt(pos, colors[0]);
+        m_texture(U"option_off").drawAt(pos, colors[1]);
     }
-    void OptionThumb::drawUnselected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const
+    void OptionThumb::drawUnselected(const s3d::Vec2& pos, [[maybe_unused]] double time, const s3d::ColorF(&colors)[2]) const
     {
-        m_texture(U"option_off").drawAt(pos, colors[0]);
+        m_texture(U"option_off").drawAt(pos, colors[1]);
     }
 }

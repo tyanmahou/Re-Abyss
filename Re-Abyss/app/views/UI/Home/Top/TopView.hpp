@@ -19,6 +19,11 @@ namespace abyss::UI::Home::Top
     public:
         TopView();
         ~TopView();
+        TopView& setTime(double time)
+        {
+            m_time = time;
+            return *this;
+        }
         TopView& setMode(Mode mode)
         {
             m_mode = mode;
@@ -26,6 +31,7 @@ namespace abyss::UI::Home::Top
         }
         void draw() const;
     private:
+        double m_time = 0;
         Mode m_mode;
         std::unique_ptr<ModeIconVM[]> m_icons;
     };

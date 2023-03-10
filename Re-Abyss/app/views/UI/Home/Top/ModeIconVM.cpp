@@ -1,4 +1,5 @@
 #include <abyss/views/UI/Home/Top/ModeIconVM.hpp>
+#include <abyss/views/UI/Home/Top/ModeIcon/IModeThumb.hpp>
 
 namespace
 {
@@ -24,11 +25,13 @@ namespace abyss::UI::Home::Top
                 .scaledAt(m_pos, 0.8)
                 .drawFrame(1, subColor);
         }
-        // アイコン
-        if (m_icon) {
-            m_icon
-                .scaled(m_iconScale)
-                .drawAt(m_pos + m_iconOffset, subColor);
+        // サムネイル
+        if (m_thumbnail) {
+            if (m_isSelected) {
+                m_thumbnail->drawSelected(m_pos, m_time, { mainColor, subColor });
+            } else {
+                m_thumbnail->drawUnselected(m_pos, m_time, { mainColor, subColor });
+            }
         }
         // テキスト
         if (m_isSelected) {
