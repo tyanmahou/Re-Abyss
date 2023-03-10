@@ -24,6 +24,15 @@ namespace abyss
         }
 
         /// <summary>
+        /// ノコギリ波からフレームに変換
+        /// </summary>
+        /// <param name="period"></param>
+        /// <param name="time"></param>
+        /// <param name="frameSize"></param>
+        /// <returns></returns>
+        static s3d::int32 FrameFromSaw(double period, double time, s3d::int32 frameSize);
+
+        /// <summary>
         /// 三角波からフレームに変換
         /// </summary>
         /// <param name="period"></param>

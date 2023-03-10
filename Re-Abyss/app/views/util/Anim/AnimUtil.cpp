@@ -16,7 +16,10 @@ namespace abyss
     {
         return map[FrameFromRate(rate, static_cast<int32>(map.size()))];
     }
-
+    s3d::int32 AnimUtil::FrameFromSaw(double period, double time, s3d::int32 frameSize)
+    {
+        return FrameFromRate(Periodic::Sawtooth0_1(period, time), frameSize);
+    }
     s3d::int32 AnimUtil::FrameFromTriangle(double period, double time, s3d::int32 frameSize)
     {
         return FrameFromRate(Periodic::Triangle0_1(period, time), frameSize);

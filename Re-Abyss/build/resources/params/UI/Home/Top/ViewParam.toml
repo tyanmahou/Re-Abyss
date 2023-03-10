@@ -10,7 +10,7 @@ isReverseColor = false
 
 [[Icons]]
 pos = "(330, 318)"
-iconOffset = "(0, 0)"
+iconOffset = "(0, -10)"
 iconScale = 1.0
 text = "GUILD"
 textOffset = "(70, -30)"
