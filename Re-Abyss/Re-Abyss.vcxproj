@@ -314,6 +314,8 @@
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Main.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
@@ -663,8 +665,6 @@
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\RoomMoveCtrl.cpp" />
-    <ClCompile Include="app\components\Event\Splash\Builder.cpp" />
-    <ClCompile Include="app\components\Event\Splash\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
@@ -1318,6 +1318,8 @@
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
@@ -1777,8 +1779,6 @@
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\IRoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\RoomMoveCtrl.hpp" />
-    <ClInclude Include="app\components\Event\Splash\Builder.hpp" />
-    <ClInclude Include="app\components\Event\Splash\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />

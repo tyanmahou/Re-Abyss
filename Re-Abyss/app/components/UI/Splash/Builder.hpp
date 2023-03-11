@@ -1,9 +1,10 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-namespace abyss::Event::Splash
+
+namespace abyss::UI::Splash
 {
     struct Builder
     {
-        static void Build(EventObj* pEvent);
+        static void Build(UIObj* pUi);
     };
 }

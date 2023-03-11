@@ -6,7 +6,7 @@
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cycle/Splash/Builder.hpp>
-#include <abyss/components/Event/Splash/Builder.hpp>
+#include <abyss/components/UI/Splash/Builder.hpp>
 
 namespace abyss::Scene::Splash
 {
@@ -19,11 +19,8 @@ namespace abyss::Scene::Splash
         pManager->getModule<CycleMaster>()->build<Cycle::Splash::Builder>(m_pObserver);
         pManager->getModule<CycleMaster>()->init();
 
-        // Mainイベント初期化
-        pManager->getModule<Events>()->create<Event::Splash::Builder>();
-        pManager->getModule<Events>()->init();
-
         // UI初期化
+        pManager->getModule<UIs>()->create<UI::Splash::Builder>();
         pManager->getModule<UIs>()->flush();
 
         // PostEffects初期化

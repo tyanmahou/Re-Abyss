@@ -23,7 +23,7 @@ namespace abyss::UI::Home::Top
                 .setFontSize(param.fontSize)
                 .setScale(param.scale)
                 .setReverseColor(param.isReverseColor)
-                .setLocked(true)
+                //.setLocked(true)
                 ;
         }
         m_icons[IconSeek].setThumbnail<SeekThumb>();

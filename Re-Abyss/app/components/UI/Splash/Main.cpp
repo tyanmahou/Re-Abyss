@@ -1,38 +1,39 @@
-#include <abyss/components/Event/Splash/MainStream.hpp>
-
-#include <abyss/modules/Event/base/EventObj.hpp>
+#include <abyss/components/UI/Splash/Main.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 
 #include <abyss/components/UI/Splash/Logo/Builder.hpp>
 #include <abyss/components/UI/Splash/Logo/LogoCtrl.hpp>
 #include <abyss/components/Cycle/Splash/Master.hpp>
-
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 
-namespace abyss::Event::Splash
+namespace abyss::UI::Splash
 {
-    using namespace UI::Splash;
-
-    MainStream::MainStream(EventObj* pEvent):
-        m_pEvent(pEvent)
-    {}
-    void MainStream::setup(Executer executer)
+    Main::Main(UIObj* pUi) :
+        m_pUi(pUi)
+    {
+        m_fiber.reset(std::bind(&Main::onExecute, this));
+    }
+    void Main::setup([[maybe_unused]]Executer executer)
     {
     }
-    void MainStream::onStart()
+    void Main::onStart()
     {
-        auto uis = m_pEvent->getModule<UIs>();
+    }
+    void Main::onEnd()
+    {
+    }
+    void Main::onUpdate()
+    {
+        m_fiber.resume();
+    }
+    Coro::Fiber<> Main::onExecute()
+    {
+        auto uis = m_pUi->getModule<UIs>();
 
         // ロゴ生成
-        m_pLogo = uis->create<Logo::Builder>();
-    }
-    void MainStream::onEnd()
-    {
-    }
-    Coro::Fiber<> MainStream::onExecute()
-    {
-        auto logoCtrl = m_pLogo->find<Logo::LogoCtrl>();
+        auto pLogo = uis->create<Logo::Builder>();
+        auto logoCtrl = pLogo->find<Logo::LogoCtrl>();
 
         // ロゴ演出待機
         co_await Coro::WaitUntil([&logoCtrl]() {
@@ -40,7 +41,7 @@ namespace abyss::Event::Splash
         });
 
         // シーン遷移
-        m_pEvent
+        m_pUi
             ->getModule<CycleMaster>()
             ->find<Cycle::Splash::Master>()
             ->chageOpDemoScene();
