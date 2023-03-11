@@ -1,7 +1,7 @@
 [[Icons]]
 pos = "(187, 198)"
-iconOffset = "(0, 0)"
-iconScale = 1.0
+iconOffset = "(0, -1)"
+iconScale = 0.8
 text = "SEEK"
 textOffset = "(20, -40)"
 fontSize = 20
@@ -16,7 +16,7 @@ text = "GUILD"
 textOffset = "(70, -30)"
 fontSize = 20
 scale = 0.8
-isReverseColor = false
+isReverseColor = true
 
 [[Icons]]
 pos = "(110, 369)"
