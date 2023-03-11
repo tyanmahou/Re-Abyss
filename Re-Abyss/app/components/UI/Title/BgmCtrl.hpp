@@ -1,17 +1,17 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 
-namespace abyss::Event::Title
+namespace abyss::UI::Title
 {
     class BgmCtrl :
         public IComponent
     {
     public:
-        BgmCtrl(EventObj* pEvent);
+        BgmCtrl(UIObj* pUi);
 
         void onStart() override;
         void onEnd() override;
     private:
-        EventObj* m_pEvent;
+        UIObj* m_pUi;
     };
 }

@@ -2,13 +2,13 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Title/Builder.hpp>
-#include <abyss/components/Event/Title/Builder.hpp>
+#include <abyss/components/UI/Title/Builder.hpp>
 
 #include <Siv3D.hpp>
 
@@ -24,8 +24,8 @@ namespace abyss::Scene::Title
         pManager->getModule<CycleMaster>()->init();
 
         // Mainイベント初期化
-        pManager->getModule<Events>()->create<Event::Title::Builder>();
-        pManager->getModule<Events>()->init();
+        pManager->getModule<UIs>()->create<UI::Title::Builder>();
+        pManager->getModule<UIs>()->flush();
 
 
         // 泡

@@ -1059,13 +1059,13 @@
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp">
+    <ClCompile Include="app\components\UI\Title\BgmCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Title\Builder.cpp">
+    <ClCompile Include="app\components\UI\Title\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Title\MainStream.cpp">
+    <ClCompile Include="app\components\UI\Title\MainStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp">
@@ -4262,13 +4262,13 @@
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp">
+    <ClInclude Include="app\components\UI\Title\BgmCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\Title\Builder.hpp">
+    <ClInclude Include="app\components\UI\Title\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\Title\MainStream.hpp">
+    <ClInclude Include="app\components\UI\Title\MainStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\UI\base\IDraw.hpp">

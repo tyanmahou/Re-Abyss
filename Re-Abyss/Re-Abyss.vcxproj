@@ -668,9 +668,9 @@
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
-    <ClCompile Include="app\components\Event\Title\BgmCtrl.cpp" />
-    <ClCompile Include="app\components\Event\Title\Builder.cpp" />
-    <ClCompile Include="app\components\Event\Title\MainStream.cpp" />
+    <ClCompile Include="app\components\UI\Title\BgmCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Title\MainStream.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Main.cpp" />
@@ -1782,9 +1782,9 @@
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
-    <ClInclude Include="app\components\Event\Title\BgmCtrl.hpp" />
-    <ClInclude Include="app\components\Event\Title\Builder.hpp" />
-    <ClInclude Include="app\components\Event\Title\MainStream.hpp" />
+    <ClInclude Include="app\components\UI\Title\BgmCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Title\MainStream.hpp" />
     <ClInclude Include="app\modules\UI\base\IDraw.hpp" />
     <ClInclude Include="app\modules\UI\base\IPostUpdate.hpp" />
     <ClInclude Include="app\modules\UI\base\IUpdate.hpp" />

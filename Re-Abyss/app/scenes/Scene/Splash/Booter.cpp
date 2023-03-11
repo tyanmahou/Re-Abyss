@@ -1,7 +1,6 @@
 #include <abyss/scenes/Scene/Splash/Booter.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 

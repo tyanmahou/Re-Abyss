@@ -1,6 +1,5 @@
-#include <abyss/components/Event/Title/MainStream.hpp>
+#include <abyss/components/UI/Title/MainStream.hpp>
 
-#include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
@@ -12,12 +11,14 @@
 #include <abyss/components/UI/Title/BackGround/Builder.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 
-namespace abyss::Event::Title
+namespace abyss::UI::Title
 {
-    MainStream::MainStream(EventObj* pEvent):
-        m_pEvent(pEvent)
-    {}
-    void MainStream::setup(Executer executer)
+    MainStream::MainStream(UIObj* pUi):
+        m_pUi(pUi)
+    {
+        m_fiber.reset(std::bind(&MainStream::onExecute, this));
+    }
+    void MainStream::setup([[maybe_unused]]Executer executer)
     {
     }
     void MainStream::onStart()
@@ -26,10 +27,14 @@ namespace abyss::Event::Title
     void MainStream::onEnd()
     {
     }
+    void MainStream::onUpdate()
+    {
+        m_fiber.resume();
+    }
     Coro::Fiber<> MainStream::onExecute()
     {
         using namespace UI::Title;
-        auto uis = m_pEvent->getModule<UIs>();
+        auto uis = m_pUi->getModule<UIs>();
 
         // ロゴ演出
         auto logoCtrl = uis->create<Logo::Builder>()

@@ -1,9 +1,9 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
-namespace abyss::Event::Title
+namespace abyss::UI::Title
 {
     struct Builder
     {
-        static void Build(EventObj* pEvent);
+        static void Build(UIObj* pUi);
     };
 }
