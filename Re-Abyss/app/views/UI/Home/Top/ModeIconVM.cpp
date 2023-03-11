@@ -1,5 +1,6 @@
 #include <abyss/views/UI/Home/Top/ModeIconVM.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/IModeThumb.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace
 {
@@ -8,6 +9,10 @@ namespace
 }
 namespace abyss::UI::Home::Top
 {
+    ModeIconVM::ModeIconVM() :
+        m_texture(Resource::Assets::Main()->load(U"UI/Home/ModeIcon.json"))
+    {}
+
     void ModeIconVM::draw() const
     {
         const Color& mainColor = m_isReverseColor ? color2 : color1;
@@ -15,18 +20,24 @@ namespace abyss::UI::Home::Top
 
         constexpr Vec2 baseSize{ 160, 160 };
         Vec2 size = baseSize * m_scale;
-        RectF rect(m_pos - size / 2, size);
+        const RectF rect(m_pos - size / 2, size);
+        const auto rotatedRect = rect.rotatedAt(m_pos, s3d::Math::QuarterPi);
         // 下地
         {
-            rect
-                .rotatedAt(m_pos, s3d::Math::QuarterPi)
+            rotatedRect
                 .draw(mainColor)
                 .drawFrame(5 * m_scale, 0, subColor)
                 .scaledAt(m_pos, 0.8)
                 .drawFrame(1, subColor);
         }
         // サムネイル
-        if (m_thumbnail) {
+        if (m_isLocked) {
+            m_texture(U"lock").scaled(m_scale).drawAt(m_pos, subColor);
+            {
+                s3d::ScopedRenderStates2D scopedBlend(BlendState::Subtractive);
+                rotatedRect.draw(ColorF(1, 0.5));
+            }
+        } else if (m_thumbnail) {
             if (m_isSelected) {
                 m_thumbnail->drawSelected(m_pos, m_time, { mainColor, subColor });
             } else {
@@ -36,7 +47,7 @@ namespace abyss::UI::Home::Top
         // テキスト
         if (m_isSelected) {
             auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, m_pos));
-            FontAsset(U"pm12b-20")(m_text)
+            FontAsset(U"pm12b-20")(m_isLocked ? U"???" : m_text)
                 .draw( rect.tl() + m_textOffset, color1);
         }
     }

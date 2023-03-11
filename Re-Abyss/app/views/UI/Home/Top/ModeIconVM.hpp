@@ -1,5 +1,5 @@
 #pragma once
-#include <Siv3D/Texture.hpp>
+#include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 namespace abyss::UI::Home::Top
 {
@@ -8,7 +8,7 @@ namespace abyss::UI::Home::Top
     class ModeIconVM
     {
     public:
-        ModeIconVM() = default;
+        ModeIconVM();
 
         ModeIconVM& setPos(const s3d::Vec2& pos)
         {
@@ -57,6 +57,11 @@ namespace abyss::UI::Home::Top
             m_isReverseColor = isReverseColor;
             return *this;
         }
+        ModeIconVM& setLocked(bool isLocked)
+        {
+            m_isLocked = isLocked;
+            return *this;
+        }
         ModeIconVM& setSelected(bool isSelected)
         {
             m_isSelected = isSelected;
@@ -67,6 +72,7 @@ namespace abyss::UI::Home::Top
         s3d::Vec2 m_pos{};
         double m_time = 0;
 
+        TexturePacker m_texture;
         std::unique_ptr<IModeThumb> m_thumbnail;
 
         s3d::String m_text{};
@@ -77,5 +83,6 @@ namespace abyss::UI::Home::Top
         bool m_isReverseColor = false;
 
         bool m_isSelected = false;
+        bool m_isLocked = false;
     };
 }

@@ -22,7 +22,9 @@ namespace abyss::UI::Home::Top
                 .setTextOffset(param.textOffset)
                 .setFontSize(param.fontSize)
                 .setScale(param.scale)
-                .setReverseColor(param.isReverseColor);
+                .setReverseColor(param.isReverseColor)
+                .setLocked(true)
+                ;
         }
         m_icons[IconSeek].setThumbnail<SeekThumb>();
         m_icons[IconGuild].setThumbnail<GuildThumb>();

@@ -2,6 +2,7 @@
 #include <abyss/views/UI/Home/Top/ModeIcon/IModeThumb.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/views/Shader/Mask/MaskShader.hpp>
+
 namespace abyss::UI::Home::Top
 {
     class SeekThumb  final : public IModeThumb
