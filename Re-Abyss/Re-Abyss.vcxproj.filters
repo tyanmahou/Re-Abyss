@@ -1065,7 +1065,7 @@
     <ClCompile Include="app\components\UI\Title\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\UI\Title\MainStream.cpp">
+    <ClCompile Include="app\components\UI\Title\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp">
@@ -4268,7 +4268,7 @@
     <ClInclude Include="app\components\UI\Title\Builder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\UI\Title\MainStream.hpp">
+    <ClInclude Include="app\components\UI\Title\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\UI\base\IDraw.hpp">

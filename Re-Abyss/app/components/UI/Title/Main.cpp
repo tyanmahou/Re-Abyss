@@ -1,4 +1,4 @@
-#include <abyss/components/UI/Title/MainStream.hpp>
+#include <abyss/components/UI/Title/Main.hpp>
 
 #include <abyss/modules/UI/UIs.hpp>
 
@@ -13,25 +13,25 @@
 
 namespace abyss::UI::Title
 {
-    MainStream::MainStream(UIObj* pUi):
+    Main::Main(UIObj* pUi):
         m_pUi(pUi)
     {
-        m_fiber.reset(std::bind(&MainStream::onExecute, this));
+        m_fiber.reset(std::bind(&Main::onExecute, this));
     }
-    void MainStream::setup([[maybe_unused]]Executer executer)
+    void Main::setup([[maybe_unused]]Executer executer)
     {
     }
-    void MainStream::onStart()
+    void Main::onStart()
     {
     }
-    void MainStream::onEnd()
+    void Main::onEnd()
     {
     }
-    void MainStream::onUpdate()
+    void Main::onUpdate()
     {
         m_fiber.resume();
     }
-    Coro::Fiber<> MainStream::onExecute()
+    Coro::Fiber<> Main::onExecute()
     {
         using namespace UI::Title;
         auto uis = m_pUi->getModule<UIs>();

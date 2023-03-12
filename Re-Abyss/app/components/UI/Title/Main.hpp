@@ -5,12 +5,12 @@
 
 namespace abyss::UI::Title
 {
-    class MainStream :
+    class Main :
         public IComponent,
         public IUpdate
     {
     public:
-        MainStream(UIObj* pUi);
+        Main(UIObj* pUi);
 
         void setup(Executer executer) override;
         void onStart() override;
@@ -27,7 +27,7 @@ namespace abyss::UI::Title
 namespace abyss
 {
     template<>
-    struct ComponentTree<UI::Title::MainStream>
+    struct ComponentTree<UI::Title::Main>
     {
         using Base = MultiComponents<
             UI::IUpdate

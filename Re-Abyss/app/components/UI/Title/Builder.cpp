@@ -1,7 +1,7 @@
 #include <abyss/components/UI/Title/Builder.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include <abyss/components/UI/Title/MainStream.hpp>
+#include <abyss/components/UI/Title/Main.hpp>
 #include <abyss/components/UI/Title/BgmCtrl.hpp>
 
 namespace abyss::UI::Title
@@ -10,7 +10,7 @@ namespace abyss::UI::Title
     {
         // メイン
         {
-            pUi->attach<MainStream>(pUi);
+            pUi->attach<Main>(pUi);
         }
         // Bgm
         {
