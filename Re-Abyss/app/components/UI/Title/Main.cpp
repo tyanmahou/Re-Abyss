@@ -33,7 +33,6 @@ namespace abyss::UI::Title
     }
     Coro::Fiber<> Main::onExecute()
     {
-        using namespace UI::Title;
         auto uis = m_pUi->getModule<UIs>();
 
         // ロゴ演出

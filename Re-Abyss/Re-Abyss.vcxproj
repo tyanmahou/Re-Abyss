@@ -316,6 +316,8 @@
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Main.cpp" />
+    <ClCompile Include="app\components\UI\StageResult\Builder.cpp" />
+    <ClCompile Include="app\components\UI\StageResult\Main.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
@@ -335,8 +337,6 @@
     <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
     <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp" />
-    <ClCompile Include="app\components\Event\StageResult\Builder.cpp" />
-    <ClCompile Include="app\components\Event\StageResult\MainStream.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\Main.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp" />
@@ -1320,6 +1320,8 @@
     <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
     <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Main.hpp" />
+    <ClInclude Include="app\components\UI\StageResult\Builder.hpp" />
+    <ClInclude Include="app\components\UI\StageResult\Main.hpp" />
     <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
@@ -1345,8 +1347,6 @@
     <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\MapMove\LinkData.hpp" />
     <ClInclude Include="app\components\Event\MapMove\MapMoveCtrl.hpp" />
-    <ClInclude Include="app\components\Event\StageResult\Builder.hpp" />
-    <ClInclude Include="app\components\Event\StageResult\MainStream.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\Main.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp" />

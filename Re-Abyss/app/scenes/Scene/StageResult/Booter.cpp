@@ -1,11 +1,11 @@
 #include <abyss/scenes/Scene/StageResult/Booter.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/modules/Event/Events.hpp>
+#include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/components/Cycle/StageResult/Builder.hpp>
-#include <abyss/components/Event/StageResult/Builder.hpp>
+#include <abyss/components/UI/StageResult/Builder.hpp>
 
 namespace abyss::Scene::StageResult
 {
@@ -24,9 +24,9 @@ namespace abyss::Scene::StageResult
 
         // Mainイベント初期化
         {
-            auto* pEvent = pManager->getModule<Events>();
-            pEvent->create<Event::StageResult::Builder>();
-            pEvent->init();
+            auto* pUi = pManager->getModule<UIs>();
+            pUi->create<UI::StageResult::Builder>();
+            pUi->flush();
         }
 
         // PostEffects初期化
