@@ -23,14 +23,17 @@ namespace abyss::UI::Home::Top
             [[TOML_BIND(textOffset)]]
             s3d::Vec2 textOffset{};
 
-            [[TOML_BIND(fontSize)]]
-            double fontSize{ 40.0 };
-
             [[TOML_BIND(scale)]]
             double scale{ 1.0 };
 
             [[TOML_BIND(isReverseColor)]]
             bool isReverseColor{ false };
+
+            [[TOML_BIND(line0)]]
+            s3d::Line line0{};
+
+            [[TOML_BIND(line1)]]
+            s3d::Line line1{};
         };
 
         [[TOML_BIND(ViewParam::Icons, "Icons")]]

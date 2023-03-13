@@ -4,58 +4,63 @@ iconOffset = "(0, -1)"
 iconScale = 0.8
 text = "SEEK"
 textOffset = "(20, -40)"
-fontSize = 20
 scale = 1.0
 isReverseColor = false
+line0 = "((-200, -90), (180, -90))"
+line1 = "((-90, -200), (-90, 550))"
 
 [[Icons]]
 pos = "(330, 318)"
 iconOffset = "(0, -10)"
 iconScale = 1.0
 text = "GUILD"
-textOffset = "(70, -30)"
-fontSize = 20
+textOffset = "(70, -35)"
 scale = 0.8
 isReverseColor = true
+line0 = "((400, -73), (-400, -73))"
+line1 = "((73, -400), (73, 550))"
 
 [[Icons]]
 pos = "(110, 369)"
 iconOffset = "(0, 0)"
 iconScale = 1.0
 text = "MAINT"
-textOffset = "(25, -35)"
-fontSize = 20
+textOffset = "(70, -35)"
 scale = 0.8
 isReverseColor = true
+line0 = "((500, -73), (-200, -73))"
+line1 = "((73, -250), (73, 500))"
 
 [[Icons]]
 pos = "(245, 440)"
 iconOffset = "(0, -5)"
 iconScale = 1.0
 text = "MEMORY"
-textOffset = "(20, 110)"
-fontSize = 20
+textOffset = "(10, 120)"
 scale = 0.64
 isReverseColor = false
+line0 = "((-250, 65), (700, 65))"
+line1 = "((-65, 400), (-65, -450))"
 
 [[Icons]]
 pos = "(482, 269)"
 iconOffset = "(0, -5)"
 iconScale = 0.909090909
 text = "COLLECT"
-textOffset = "(30, 110)"
-fontSize = 20
+textOffset = "(30, 120)"
 scale = 0.64
 isReverseColor = false
-
+line0 = "((500, 65), (-500, 65))"
+line1 = "((65, 600), (65, -400))"
 
 [[Icons]]
 pos = "(440, 405)"
 iconOffset = "(0, 0)"
 iconScale = 0.512
 text = "OPTION"
-textOffset = "(0, 100)"
-fontSize = 20
+textOffset = "(15, 100)"
 scale = 0.512
 isReverseColor = true
+line0 = "((650, 50), (-300, 50))"
+line1 = "((50, 300), (50, -600))"
 

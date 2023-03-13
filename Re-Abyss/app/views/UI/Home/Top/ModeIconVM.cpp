@@ -1,12 +1,8 @@
 #include <abyss/views/UI/Home/Top/ModeIconVM.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/IModeThumb.hpp>
+#include <abyss/views/UI/Home/Top/ColorDef.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace
-{
-    constexpr Color color1(223, 228, 246);
-    constexpr Color color2(110, 110, 170);
-}
 namespace abyss::UI::Home::Top
 {
     ModeIconVM::ModeIconVM() :
@@ -15,8 +11,8 @@ namespace abyss::UI::Home::Top
 
     void ModeIconVM::draw() const
     {
-        const Color& mainColor = m_isReverseColor ? color2 : color1;
-        const Color& subColor = m_isReverseColor ? color1 : color2;
+        const Color& mainColor = m_isReverseColor ? ColorDef::Color2 : ColorDef::Color1;
+        const Color& subColor = m_isReverseColor ? ColorDef::Color1 : ColorDef::Color2;
 
         constexpr Vec2 baseSize{ 160, 160 };
         Vec2 size = baseSize * m_scale;
@@ -57,7 +53,7 @@ namespace abyss::UI::Home::Top
 
             auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, m_pos));
             FontAsset(U"pm12b-20")(m_isLocked ? U"???" : m_text)
-                .draw( rect.tl() + m_textOffset + animOffs, ColorF(color1, animeRate));
+                .draw( rect.tl() + m_textOffset + animOffs, ColorF(ColorDef::Color1, animeRate));
         }
     }
 }

@@ -40,11 +40,6 @@ namespace abyss::UI::Home::Top
             m_textOffset = offset;
             return *this;
         }
-        ModeIconVM& setFontSize(double size)
-        {
-            m_fontSize = size;
-            return *this;
-        }
 
         ModeIconVM& setScale(double scale)
         {

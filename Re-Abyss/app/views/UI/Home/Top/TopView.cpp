@@ -6,6 +6,7 @@
 #include <abyss/views/UI/Home/Top/ModeIcon/MemoryThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/CollectThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/OptionThumb.hpp>
+#include <abyss/views/UI/Home/Top/ColorDef.hpp>
 
 #include <abyss/params/UI/Home/Top/ViewParam.hpp>
 
@@ -20,7 +21,6 @@ namespace abyss::UI::Home::Top
                 .setPos(param.pos)
                 .setText(param.text)
                 .setTextOffset(param.textOffset)
-                .setFontSize(param.fontSize)
                 .setScale(param.scale)
                 .setReverseColor(param.isReverseColor)
                 //.setLocked(true)
@@ -37,6 +37,19 @@ namespace abyss::UI::Home::Top
     {}
     void TopView::draw() const
     {
+        // BackLine
+        {
+            const auto& param = ViewParam::Icons[static_cast<size_t>(m_mode)];
+            const auto animeRate = s3d::Min(m_time, 0.3) / 0.3;
+
+            auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, param.pos));
+            Line(param.line0.begin, s3d::Math::Lerp(param.line0.begin, param.line0.end, animeRate))
+                .moveBy(param.pos)
+                .draw(ColorDef::Color1);
+            Line(param.line1.begin, s3d::Math::Lerp(param.line1.begin, param.line1.end, animeRate))
+                .moveBy(param.pos)
+                .draw(ColorDef::Color1);
+        }
         for (size_t index = 0; index < IconSize; ++index) {
             m_icons[index]
                 .setTime(m_time)

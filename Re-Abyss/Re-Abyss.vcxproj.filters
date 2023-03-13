@@ -6497,6 +6497,9 @@
     <ClInclude Include="app\components\UI\Home\Top\ModeUpdater.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\views\UI\Home\Top\ColorDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

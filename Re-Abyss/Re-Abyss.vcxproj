@@ -2327,6 +2327,7 @@
     <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
     <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp" />
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ColorDef.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIconVM.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.hpp" />
