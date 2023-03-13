@@ -20,6 +20,12 @@ namespace abyss::UI::Home::Top
 
         constexpr Vec2 baseSize{ 160, 160 };
         Vec2 size = baseSize * m_scale;
+
+        // 選択時ぷにゅん
+        constexpr double selectedPunyunTime = 0.2;
+        if (m_isSelected && m_time <= selectedPunyunTime) {
+            size *= s3d::Math::Lerp(1.1, 1.0, s3d::Min(m_time, selectedPunyunTime) / selectedPunyunTime);
+        }
         const RectF rect(m_pos - size / 2, size);
         const auto rotatedRect = rect.rotatedAt(m_pos, s3d::Math::QuarterPi);
         // 下地
