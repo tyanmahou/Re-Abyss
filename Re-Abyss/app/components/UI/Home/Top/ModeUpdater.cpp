@@ -7,11 +7,11 @@ namespace abyss::UI::Home::Top
     {
         // Mode ↑→↓←
         m_changerMap[Mode::Seek] = { s3d::none, Mode::Guild, Mode::Maint, Mode::Maint };
-        m_changerMap[Mode::Guild] = { Mode::Seek, Mode::Collect, Mode::Memory, Mode::Seek };
-        m_changerMap[Mode::Maint] = { Mode::Seek, Mode::Memory, s3d::none, s3d::none };
+        m_changerMap[Mode::Guild] = { Mode::Seek, Mode::Option, Mode::Memory, Mode::Seek };
+        m_changerMap[Mode::Maint] = { Mode::Seek, Mode::Memory, Mode::Memory, s3d::none };
         m_changerMap[Mode::Memory] = { Mode::Guild, Mode::Guild, s3d::none, Mode::Maint };
         m_changerMap[Mode::Collect] = { s3d::none, s3d::none, Mode::Option, Mode::Guild};
-        m_changerMap[Mode::Option] = { Mode::Collect, s3d::none, s3d::none, Mode::Guild };
+        m_changerMap[Mode::Option] = { Mode::Collect, Mode::Collect, s3d::none, Mode::Guild };
     }
     Mode ModeUpdater::update(Mode mode) const
     {
