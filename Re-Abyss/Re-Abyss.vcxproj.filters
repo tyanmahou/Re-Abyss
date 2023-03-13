@@ -2489,6 +2489,9 @@
     <ClCompile Include="app\components\UI\StageResult\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6489,6 +6492,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\StageResult\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Home\Top\ModeUpdater.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

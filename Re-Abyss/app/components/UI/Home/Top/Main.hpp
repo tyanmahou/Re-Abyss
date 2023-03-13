@@ -3,6 +3,7 @@
 #include <abyss/modules/UI/base/IUpdate.hpp>
 #include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Home/Top/Mode.hpp>
+#include <abyss/components/UI/Home/Top/ModeUpdater.hpp>
 
 namespace abyss::UI::Home::Top
 {
@@ -22,6 +23,8 @@ namespace abyss::UI::Home::Top
     private:
         UIObj* m_pUi;
         Mode m_mode = Mode::Seek;
+        ModeUpdater m_modeUpdater;
+
         double m_time = 0;
 
         std::unique_ptr<TopView> m_view;
