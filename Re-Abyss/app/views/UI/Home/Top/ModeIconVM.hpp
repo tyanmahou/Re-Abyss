@@ -30,17 +30,6 @@ namespace abyss::UI::Home::Top
             m_thumbnail = std::move(thumbnail);
             return *this;
         }
-        ModeIconVM& setText(const s3d::String& text)
-        {
-            m_text = text;
-            return *this;
-        }
-        ModeIconVM& setTextOffset(const s3d::Vec2& offset)
-        {
-            m_textOffset = offset;
-            return *this;
-        }
-
         ModeIconVM& setScale(double scale)
         {
             m_scale = scale;
@@ -69,10 +58,6 @@ namespace abyss::UI::Home::Top
 
         TexturePacker m_texture;
         std::unique_ptr<IModeThumb> m_thumbnail;
-
-        s3d::String m_text{};
-        s3d::Vec2 m_textOffset{};
-        double m_fontSize = 40.0;
 
         double m_scale = 1.0;
         bool m_isReverseColor = false;

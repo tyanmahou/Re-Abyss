@@ -46,14 +46,5 @@ namespace abyss::UI::Home::Top
                 m_thumbnail->drawUnselected(m_pos, m_time, { mainColor, subColor });
             }
         }
-        // テキスト
-        if (m_isSelected) {
-            const auto animeRate = s3d::Min(m_time, 0.2) / 0.2;
-            const auto animOffs = s3d::Math::Lerp(Vec2{ -10, 0 }, Vec2{ 0, 0 }, animeRate);
-
-            auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, m_pos));
-            FontAsset(U"pm12b-20")(m_isLocked ? U"???" : m_text)
-                .draw( rect.tl() + m_textOffset + animOffs, ColorF(ColorDef::Color1, animeRate));
-        }
     }
 }
