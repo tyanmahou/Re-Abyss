@@ -995,6 +995,7 @@
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeSelectLineVM.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\TopView.cpp" />
     <ClCompile Include="app\views\UI\Message\CursorVM.cpp" />
     <ClCompile Include="app\views\UI\Message\MessageBoxVM.cpp" />
@@ -2336,6 +2337,7 @@
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\SeekThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeSelectLineVM.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\TopView.hpp" />
     <ClInclude Include="app\views\UI\Message\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Message\MessageBoxVM.hpp" />

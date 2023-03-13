@@ -6,14 +6,15 @@
 #include <abyss/views/UI/Home/Top/ModeIcon/MemoryThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/CollectThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/OptionThumb.hpp>
-#include <abyss/views/UI/Home/Top/ColorDef.hpp>
+#include <abyss/views/UI/Home/Top/ModeSelectLineVM.hpp>
 
 #include <abyss/params/UI/Home/Top/ViewParam.hpp>
 
 namespace abyss::UI::Home::Top
 {
     TopView::TopView():
-        m_icons(std::make_unique<ModeIconVM[]>(IconSize))
+        m_icons(std::make_unique<ModeIconVM[]>(IconSize)),
+        m_selectLine(std::make_unique<ModeSelectLineVM>())
     {
         for (size_t index = 0; index < IconSize; ++index) {
             const auto& param = ViewParam::Icons[index];
@@ -35,29 +36,19 @@ namespace abyss::UI::Home::Top
     {}
     void TopView::draw() const
     {
-        // BackLine
+        // 選択線
         {
             const auto& param = ViewParam::Icons[static_cast<size_t>(m_mode)];
-            const auto animeRate = s3d::Min(m_time, 0.3) / 0.3;
-
-            auto t2d = Transformer2D(s3d::Mat3x2::Rotate(-s3d::Math::QuarterPi, param.pos));
-            Line(param.line0.begin, s3d::Math::Lerp(param.line0.begin, param.line0.end, animeRate))
-                .moveBy(param.pos)
-                .draw(ColorDef::Color1);
-            Line(param.line1.begin, s3d::Math::Lerp(param.line1.begin, param.line1.end, animeRate))
-                .moveBy(param.pos)
-                .draw(ColorDef::Color1);
-
-            // Text
-            {
-                constexpr Vec2 baseSize{ 160, 160 };
-                Vec2 size = baseSize * param.scale;
-
-                const auto animeRate = s3d::Min(m_time, 0.2) / 0.2;
-                const auto animOffs = s3d::Math::Lerp(Vec2{ -10, 0 }, Vec2{ 0, 0 }, animeRate);
-                FontAsset(U"pm12b-20")(false ? U"???" : param.text)
-                    .draw(param.pos - size / 2 + param.textOffset + animOffs, ColorF(ColorDef::Color1, animeRate));
-            }
+            m_selectLine
+                ->setTime(m_time)
+                .setPos(param.pos)
+                .setScale(param.scale)
+                .setText(param.text)
+                .setTextOffset(param.textOffset)
+                .setLine(param.line0, param.line1)
+                //.setLocked(true)
+                .draw();
+                ;
         }
         for (size_t index = 0; index < IconSize; ++index) {
             m_icons[index]

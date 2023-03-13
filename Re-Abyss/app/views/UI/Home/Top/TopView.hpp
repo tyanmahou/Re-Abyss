@@ -4,6 +4,7 @@
 namespace abyss::UI::Home::Top
 {
     class ModeIconVM;
+    class ModeSelectLineVM;
 
     class TopView
     {
@@ -34,5 +35,6 @@ namespace abyss::UI::Home::Top
         double m_time = 0;
         Mode m_mode;
         std::unique_ptr<ModeIconVM[]> m_icons;
+        std::unique_ptr<ModeSelectLineVM> m_selectLine;
     };
 }
