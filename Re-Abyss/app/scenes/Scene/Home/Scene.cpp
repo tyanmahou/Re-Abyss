@@ -8,7 +8,7 @@
 
 namespace abyss::Scene::Home
 {
-    class Scene::Impl :
+    class Scene::Impl final :
         public Cycle::Home::IMasterObserver
     {
         using System = Sys::System<Sys::Config::Home()>;
@@ -49,6 +49,15 @@ namespace abyss::Scene::Home
         void draw()
         {
             m_system->draw();
+        }
+    public:
+        bool onStageStart(const s3d::String& mapPath) override
+        {
+
+        }
+        bool onBack()
+        {
+
         }
     private:
         std::unique_ptr<System> m_system;

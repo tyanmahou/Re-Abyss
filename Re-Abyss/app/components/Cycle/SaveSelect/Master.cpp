@@ -19,7 +19,6 @@ namespace abyss::Cycle::SaveSelect
     bool Master::back()
     {
         return this->notify(Notify::Back, 0);
-
     }
     bool Master::notify(Notify notify, s3d::int32 userId)
     {

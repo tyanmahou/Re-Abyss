@@ -6,7 +6,23 @@ namespace abyss::Cycle::Home
         m_observer(observer)
     {}
 
+    bool Master::stageStart(const s3d::String & mapPath)
+    {
+        if (this->notify(Notify::StageStart)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onStageStart, m_observer, mapPath);
+            return true;
+        }
+        return false;
+    }
 
+    bool Master::back()
+    {
+        if (this->notify(Notify::Back)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onBack, m_observer);
+            return true;
+        }
+        return false;
+    }
     bool Master::notify(Notify notify)
     {
         if (!m_observer) {

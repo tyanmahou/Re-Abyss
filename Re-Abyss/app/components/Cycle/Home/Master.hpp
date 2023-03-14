@@ -12,6 +12,9 @@ namespace abyss::Cycle::Home
     {
     public:
         virtual ~IMasterObserver() = default;
+
+        virtual bool onStageStart(const s3d::String& mapPath) = 0;
+        virtual bool onBack() = 0;
     };
 
     /// <summary>
@@ -24,9 +27,23 @@ namespace abyss::Cycle::Home
         enum class Notify : s3d::int8
         {
             None,
+            StageStart,
+            Back,
         };
     public:
         Master(IMasterObserver* observer);
+
+        /// <summary>
+        /// ステージ開始
+        /// </summary>
+        /// <returns></returns>
+        bool stageStart(const s3d::String& mapPath);
+
+        /// <summary>
+        /// 戻る
+        /// </summary>
+        /// <returns></returns>
+        bool back();
 
         bool listen() override;
 
