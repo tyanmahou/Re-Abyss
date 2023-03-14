@@ -1375,6 +1375,7 @@
     <ClInclude Include="app\models\Adv\Chara.hpp" />
     <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
+    <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
     <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />
     <ClInclude Include="app\services\Adv\ProjectService.hpp" />
     <ClInclude Include="app\values\Adv\CharaKind.hpp" />

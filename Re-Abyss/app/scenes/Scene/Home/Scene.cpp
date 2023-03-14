@@ -53,11 +53,21 @@ namespace abyss::Scene::Home
     public:
         bool onStageStart(const s3d::String& mapPath) override
         {
-
+            return onSceneEnd({
+                .mapPath = mapPath
+            });
         }
         bool onBack()
         {
-
+            return onSceneEnd({
+                .isBack = true
+            });
+        }
+        bool onSceneEnd(const SceneResult& result)
+        {
+            m_data->isRequestedSceneEnd = true;
+            m_data->result = result;
+            return true;
         }
     private:
         std::unique_ptr<System> m_system;

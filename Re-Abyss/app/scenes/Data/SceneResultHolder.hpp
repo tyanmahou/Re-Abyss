@@ -3,6 +3,7 @@
 #include <abyss/scenes/Scene/DevPortal/SceneResult.hpp>
 #include <abyss/scenes/Scene/Title/SceneResult.hpp>
 #include <abyss/scenes/Scene/SaveSelect/SceneResult.hpp>
+#include <abyss/scenes/Scene/Home/SceneResult.hpp>
 #include <abyss/scenes/Scene/Stage/SceneResult.hpp>
 #include <Siv3D/None.hpp>
 
@@ -15,6 +16,7 @@ namespace abyss
 #endif
         Scene::Title::SceneResult,
         Scene::SaveSelect::SceneResult,
+        Scene::Home::SceneResult,
         Scene::Stage::SceneResult
     >;
 }

@@ -3,6 +3,8 @@
 
 namespace abyss
 {
+    using namespace abyss::Scene;
+
     UserSequence::UserSequence(SequenceManager* pManager):
         m_pManager(pManager)
     {
@@ -14,12 +16,18 @@ namespace abyss
     }
     Coro::Fiber<> UserSequence::sequence()
     {
-        m_pManager->changeScene(SceneKind::Home);
-        co_yield{};
-
-        m_pManager->pushSequence<StageSequence>(m_pManager);
-        co_yield{};
-
+        while (true)
+        {
+            m_pManager->changeScene(SceneKind::Home);
+            co_yield{};
+            auto result = m_pManager->getResult<Home::SceneResult>();
+            if (result.isBack) {
+                co_return;
+            } else {
+                m_pManager->pushSequence<StageSequence>(m_pManager);
+                co_yield{};
+            }
+        }
         co_return;
     }
 }
