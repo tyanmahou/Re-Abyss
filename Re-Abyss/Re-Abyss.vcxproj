@@ -315,6 +315,7 @@
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\ModeUtil.cpp" />
     <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Main.cpp" />
     <ClCompile Include="app\components\UI\StageResult\Builder.cpp" />
@@ -1321,6 +1322,7 @@
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\ModeUpdater.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\ModeUtil.hpp" />
     <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Main.hpp" />
     <ClInclude Include="app\components\UI\StageResult\Builder.hpp" />

@@ -16,4 +16,10 @@ namespace abyss::UI::Home::Top
 
         Max,
     };
+
+    inline Mode& operator++(Mode& mode)
+    {
+        mode = static_cast<Mode>(static_cast<size_t>(mode) + 1);
+        return mode;
+    }
 }

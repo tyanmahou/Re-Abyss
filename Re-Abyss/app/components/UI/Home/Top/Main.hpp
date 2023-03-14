@@ -24,7 +24,7 @@ namespace abyss::UI::Home::Top
         UIObj* m_pUi;
         Mode m_mode = Mode::Seek;
         ModeUpdater m_modeUpdater;
-
+        s3d::HashTable<Mode, bool> m_modeLocked;
         double m_time = 0;
 
         std::unique_ptr<TopView> m_view;

@@ -2495,6 +2495,9 @@
     <ClCompile Include="app\views\UI\Home\Top\ModeSelectLineVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Home\Top\ModeUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6504,6 +6507,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\Home\Top\ModeSelectLineVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Home\Top\ModeUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

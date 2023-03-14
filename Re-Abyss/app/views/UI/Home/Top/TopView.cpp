@@ -54,7 +54,7 @@ namespace abyss::UI::Home::Top
         for (size_t index = 0; index < IconSize; ++index) {
             m_icons[index]
                 .setTime(m_time)
-                .setLocked(m_isLocked[modeIndex])
+                .setLocked(m_isLocked[index])
                 .setSelected(index == modeIndex)
                 .draw();
         }
