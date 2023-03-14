@@ -30,11 +30,18 @@ namespace abyss::UI::Home::Top
             m_mode = mode;
             return *this;
         }
+        TopView& setLock(Mode mode, bool isLocked)
+        {
+            m_isLocked[static_cast<size_t>(mode)] = isLocked;
+            return *this;
+        }
         void draw() const;
     private:
         double m_time = 0;
         Mode m_mode;
         std::unique_ptr<ModeIconVM[]> m_icons;
         std::unique_ptr<ModeSelectLineVM> m_selectLine;
+
+        std::array<bool, IconSize> m_isLocked;
     };
 }

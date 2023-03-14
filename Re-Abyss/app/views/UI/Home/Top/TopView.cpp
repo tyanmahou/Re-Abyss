@@ -22,7 +22,7 @@ namespace abyss::UI::Home::Top
                 .setPos(param.pos)
                 .setScale(param.scale)
                 .setReverseColor(param.isReverseColor)
-                //.setLocked(true)
+                .setLocked(true)
                 ;
         }
         m_icons[IconSeek].setThumbnail<SeekThumb>();
@@ -36,9 +36,10 @@ namespace abyss::UI::Home::Top
     {}
     void TopView::draw() const
     {
+        const size_t modeIndex = static_cast<size_t>(m_mode);
         // 選択線
         {
-            const auto& param = ViewParam::Icons[static_cast<size_t>(m_mode)];
+            const auto& param = ViewParam::Icons[modeIndex];
             m_selectLine
                 ->setTime(m_time)
                 .setPos(param.pos)
@@ -46,14 +47,15 @@ namespace abyss::UI::Home::Top
                 .setText(param.text)
                 .setTextOffset(param.textOffset)
                 .setLine(param.line0, param.line1)
-                //.setLocked(true)
+                .setLocked(m_isLocked[modeIndex])
                 .draw();
                 ;
         }
         for (size_t index = 0; index < IconSize; ++index) {
             m_icons[index]
                 .setTime(m_time)
-                .setSelected(index == static_cast<size_t>(m_mode))
+                .setLocked(m_isLocked[modeIndex])
+                .setSelected(index == modeIndex)
                 .draw();
         }
     }
