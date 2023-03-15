@@ -23,6 +23,7 @@ namespace abyss::Resource::Msg
                 this->load(U"Common", service);
                 this->load(U"SaveSelect", service);
                 this->load(U"Title", service);
+                this->load(U"Home", service);
             }
             pAssets->release();
         }

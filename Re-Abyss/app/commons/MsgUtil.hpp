@@ -78,6 +78,15 @@ namespace abyss::MsgUtil
     }
 
     /// =============================
+    /// SaveSelect
+    /// =============================
+    inline constexpr Text Home(s3d::StringView key)
+    {
+        return { U"Home", key };
+    }
+    inline constexpr Text Home_Tips_Unlock = Home(U"Tips_Unlock");
+
+    /// =============================
     /// Chara
     /// =============================
     inline constexpr Text CharaName(Adv::CharaKind value)

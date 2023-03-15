@@ -4,8 +4,10 @@
 #include <abyss/modules/UI/base/IDraw.hpp>
 #include <abyss/components/UI/Home/Top/Mode.hpp>
 #include <abyss/components/UI/Home/Top/ModeUpdater.hpp>
+#include <abyss/components/UI/Common/FooterTips.hpp>
 
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::UI::Home::Top
 {
@@ -20,6 +22,7 @@ namespace abyss::UI::Home::Top
         Main(UIObj* pUi);
         ~Main();
     public:
+        void onStart() override;
         void onUpdate() override;
         void onDraw() const override;
     private:
@@ -30,7 +33,7 @@ namespace abyss::UI::Home::Top
         Mode m_mode = Mode::Seek;
         ModeUpdater m_modeUpdater;
         s3d::HashTable<Mode, bool> m_modeLocked;
-
+        Ref<FooterTips> m_tips;
         double m_time = 0;
 
         std::unique_ptr<TopView> m_view;

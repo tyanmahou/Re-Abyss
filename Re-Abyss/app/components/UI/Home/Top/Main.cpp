@@ -5,6 +5,7 @@
 #include <abyss/views/UI/Home/Top/TopView.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
+#include <abyss/commons/MsgUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::UI::Home::Top
@@ -23,10 +24,21 @@ namespace abyss::UI::Home::Top
     Main::~Main()
     {
     }
+    void Main::onStart()
+    {
+        m_tips =m_pUi->find<FooterTips>();
+    }
     void Main::onUpdate()
     {
         m_time += m_pUi->deltaTime();
         m_fiber.resume();
+
+        // Tips更新
+        m_tips->setTips(
+            m_modeLocked[m_mode]
+            ? MsgUtil::Home_Tips_Unlock()
+            : MsgUtil::Home(U"Tips_Mode_{}"_fmt(Enum::ToStr(m_mode)))()
+        );
     }
     Coro::Fiber<> Main::onUpdateAysnc()
     {
