@@ -16,13 +16,11 @@ namespace abyss
     {
         while (true)
         {
-            m_pManager->changeScene(SceneKind::DevPortal);
-            co_yield{};
-            if (m_pManager->getResult<Scene::DevPortal::SceneResult>().command == Scene::DevPortal::SceneResult::GameStart) {
+            auto result = co_await m_pManager->changeScene<Scene::DevPortal::SceneResult>(SceneKind::DevPortal);
+            if (result.command == Scene::DevPortal::SceneResult::GameStart) {
                 break;
             }
-            m_pManager->changeScene(SceneKind::Experiment);
-            co_yield{};
+            co_await m_pManager->changeScene<void>(SceneKind::Experiment);
         }
     }
 }

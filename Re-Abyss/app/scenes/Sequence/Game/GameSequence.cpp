@@ -24,13 +24,11 @@ namespace abyss
         s3d::int32 transitionMsec = 0;
         while (true) {
             if (next == SceneKind::Splash) {
-                m_pManager->changeScene(SceneKind::Splash);
-                co_yield{};
+                co_await m_pManager->changeScene<void>(SceneKind::Splash);
                 next = SceneKind::Title;
             } else if (next == SceneKind::Title) {
-                m_pManager->changeScene(SceneKind::Title, transitionMsec);
-                co_yield{};
-                if (m_pManager->getResult<Title::SceneResult>().isStart) {
+                auto result = co_await m_pManager->changeScene<Title::SceneResult>(SceneKind::Title, transitionMsec);
+                if (result.isStart) {
                     next = SceneKind::SaveSelect;
                     transitionMsec = 1000;
                     continue;
@@ -39,9 +37,7 @@ namespace abyss
                     co_return;
                 }
             } else if (next == SceneKind::SaveSelect) {
-                m_pManager->changeScene(SceneKind::SaveSelect, transitionMsec);
-                co_yield{};
-                auto result = m_pManager->getResult<SaveSelect::SceneResult>();
+                auto result = co_await m_pManager->changeScene<SaveSelect::SceneResult>(SceneKind::SaveSelect, transitionMsec);
                 if (result.isBack) {
                     next = SceneKind::Title;
                     transitionMsec = 1000;
