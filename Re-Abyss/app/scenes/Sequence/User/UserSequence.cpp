@@ -18,9 +18,7 @@ namespace abyss
     {
         while (true)
         {
-            m_pManager->changeScene(SceneKind::Home);
-            co_yield{};
-            auto result = m_pManager->getResult<Home::SceneResult>();
+            auto result = co_await m_pManager->changeScene<Home::SceneResult>(SceneKind::Home);
             if (result.isBack) {
                 co_return;
             } else {

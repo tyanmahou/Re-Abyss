@@ -2,6 +2,7 @@
 #include <stack>
 #include <abyss/scenes/Sequence/ISequence.hpp>
 #include <abyss/scenes/Scene/SceneManager.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss
 {
@@ -42,6 +43,18 @@ namespace abyss
 
         SequecneData* data();
         const SequecneData* data() const;
+
+        template<class Result>
+        Coro::Fiber<Result> changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec = 0, const s3d::CrossFade crossFade = s3d::CrossFade::No)
+        {
+            this->changeScene(state, transitionTimeMillisec, crossFade);
+            co_yield{};
+            if constexpr (std::is_void_v<Result>) {
+                co_return;
+            } else {
+                co_return this->getResult<Result>();
+            }
+        }
     private:
         bool changeNext();
 
