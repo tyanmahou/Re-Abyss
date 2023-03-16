@@ -39,7 +39,10 @@ namespace abyss::UI::Home::Top
             .drawAt(basePos, colors[0]);
         {
             auto scopedMask = m_mask.equal([&] {
+                auto colorMul = s3d::Graphics2D::GetColorMul();
+                s3d::Graphics2D::Internal::SetColorMul(Float4(1, 1, 1, 1));
                 RectF(basePos - Vec2{ 42, 120 }, 84, 240).draw();
+                s3d::Graphics2D::Internal::SetColorMul(colorMul);
             });
             double offs = s3d::Periodic::Sawtooth1_1(2s, time) * (42 + 10);
             LineString ls{

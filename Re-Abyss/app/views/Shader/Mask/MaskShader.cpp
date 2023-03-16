@@ -45,7 +45,6 @@ namespace abyss
 
 			m_cb->isEqual = func == MaskFunc::Equal ? 1 : 0;
 			Graphics2D::SetConstantBuffer(ShaderStage::Pixel, 1, m_cb);
-
 			{
 				static constexpr BlendState blend{
 					true,
@@ -58,9 +57,15 @@ namespace abyss
 				Transformer2D transLocal(Mat3x2::Identity(), Transformer2D::Target::SetLocal);
 				Transformer2D transCamera(Mat3x2::Identity(), Transformer2D::Target::SetCamera);
 
-				m_rt2.draw();
-			}
-		}
+                auto colorAdd = s3d::Graphics2D::GetColorAdd();
+                auto colorMul = s3d::Graphics2D::GetColorMul();
+                s3d::Graphics2D::Internal::SetColorMul(Float4(1, 1, 1, 1));
+                s3d::Graphics2D::Internal::SetColorAdd(Float4(0, 0, 0, 0));
+                m_rt2.draw();
+                s3d::Graphics2D::Internal::SetColorAdd(colorAdd);
+                s3d::Graphics2D::Internal::SetColorMul(colorMul);
+            }
+        }
 
 		const RenderTexture& getDrawerTarget()
 		{

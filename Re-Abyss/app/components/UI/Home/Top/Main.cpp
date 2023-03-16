@@ -30,18 +30,25 @@ namespace abyss::UI::Home::Top
     }
     void Main::onUpdate()
     {
-        m_time += m_pUi->deltaTime();
         m_fiber.resume();
-
-        // Tips更新
-        m_tips->setTips(
-            m_modeLocked[m_mode]
-            ? MsgUtil::Home_Tips_Unlock()
-            : MsgUtil::Home(U"Tips_Mode_{}"_fmt(Enum::ToStr(m_mode)))()
-        );
+        if (m_inAnime.isEnd()) {
+            m_time += m_pUi->deltaTime();
+            // Tips更新
+            m_tips->setTips(
+                m_modeLocked[m_mode]
+                ? MsgUtil::Home_Tips_Unlock()
+                : MsgUtil::Home(U"Tips_Mode_{}"_fmt(Enum::ToStr(m_mode)))()
+            );
+        }
     }
     Coro::Fiber<> Main::onUpdateAysnc()
     {
+        // Inアニメ再生
+        while (!m_inAnime.isEnd())
+        {
+            m_inAnime.update(m_pUi->deltaTime());
+            co_yield{};
+        }
         while (true)
         {
             // Modeの変更
@@ -65,6 +72,7 @@ namespace abyss::UI::Home::Top
     {
         m_view
             ->setTime(m_time)
+            .setInAnimeRate(m_inAnime.rate())
             .setMode(m_mode)
             .draw();
     }

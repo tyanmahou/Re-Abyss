@@ -25,6 +25,11 @@ namespace abyss::UI::Home::Top
             m_time = time;
             return *this;
         }
+        TopView& setInAnimeRate(double rate)
+        {
+            m_inAnimeRate = rate;
+            return *this;
+        }
         TopView& setMode(Mode mode)
         {
             m_mode = mode;
@@ -38,6 +43,7 @@ namespace abyss::UI::Home::Top
         void draw() const;
     private:
         double m_time = 0;
+        double m_inAnimeRate = 0;
         Mode m_mode;
         std::unique_ptr<ModeIconVM[]> m_icons;
         std::unique_ptr<ModeSelectLineVM> m_selectLine;

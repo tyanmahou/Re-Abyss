@@ -36,6 +36,7 @@ namespace abyss::UI::Home::Top
     {}
     void TopView::draw() const
     {
+        s3d::Scene::Rect().draw(Color(31, 27, 48));
         const size_t modeIndex = static_cast<size_t>(m_mode);
         // 選択線
         {
@@ -51,11 +52,37 @@ namespace abyss::UI::Home::Top
                 .draw();
                 ;
         }
+        struct InAnimInfo
+        {
+            double animStartRate;
+            double animRateLength;
+            double offsetX;
+        };
+        constexpr double inAnimeStartOffs = 0.8 / 6.0;
+        constexpr auto animeEasing = [](double x) constexpr {
+            return x * inAnimeStartOffs;
+        };
+        constexpr double animRateLength = 1.0 - animeEasing(5.0);
+        constexpr double animRateLengthDelayRate = 0.6;
+        constexpr auto animeLengthEasing = [](double x) constexpr {
+            return animRateLength + inAnimeStartOffs * animRateLengthDelayRate * x;
+        };
+        std::array<InAnimInfo, IconSize> inAnimInfo{
+            InAnimInfo{animeEasing(5.0), animeLengthEasing(0.0), -50},
+            InAnimInfo{animeEasing(2.0), animeLengthEasing(3.0), -70},
+            InAnimInfo{animeEasing(1.0), animeLengthEasing(4.0), -40},
+            InAnimInfo{animeEasing(3.0), animeLengthEasing(2.0), -60},
+            InAnimInfo{animeEasing(4.0), animeLengthEasing(1.0), -90},
+            InAnimInfo{animeEasing(0.0), animeLengthEasing(5.0), -80},
+        };
         for (size_t index = 0; index < IconSize; ++index) {
+            double rate = s3d::Saturate((m_inAnimeRate - inAnimInfo[index].animStartRate) / inAnimInfo[index].animRateLength);
+            s3d::Transformer2D t2d(Mat3x2::Translate({s3d::Math::Lerp(inAnimInfo[index].offsetX, 0, rate), 0}));
+            s3d::ScopedColorMul2D colorMul(ColorF(1, rate));
             m_icons[index]
                 .setTime(m_time)
                 .setLocked(m_isLocked[index])
-                .setSelected(index == modeIndex)
+                .setSelected(m_inAnimeRate >= 1.0 && index == modeIndex)
                 .draw();
         }
     }

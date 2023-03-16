@@ -7,6 +7,7 @@
 #include <abyss/components/UI/Common/FooterTips.hpp>
 
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::UI::Home::Top
@@ -35,6 +36,7 @@ namespace abyss::UI::Home::Top
         s3d::HashTable<Mode, bool> m_modeLocked;
         Ref<FooterTips> m_tips;
         double m_time = 0;
+        TimeLite::Timer m_inAnime{0.5};
 
         std::unique_ptr<TopView> m_view;
 
