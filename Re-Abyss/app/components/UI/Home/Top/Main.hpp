@@ -28,6 +28,13 @@ namespace abyss::UI::Home::Top
         void onDraw() const override;
     private:
         Coro::Fiber<> onUpdateAysnc();
+
+        Coro::Fiber<> onSeek();
+        Coro::Fiber<> onGuild();
+        Coro::Fiber<> onMaint();
+        Coro::Fiber<> onMemory();
+        Coro::Fiber<> onCollect();
+        Coro::Fiber<> onOption();
     private:
         UIObj* m_pUi;
 

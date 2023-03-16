@@ -60,13 +60,67 @@ namespace abyss::UI::Home::Top
                     m_time = 0;
                 }
             }
-            if (InputManager::B.down()) {
+            if (!m_modeLocked[m_mode] && InputManager::A.down()) {
+                switch (m_mode)
+                {
+                case Mode::Seek:
+                    co_await this->onSeek();
+                    break;
+                case Mode::Guild:
+                    co_await this->onGuild();
+                    break;
+                case Mode::Maint:
+                    co_await this->onMaint();
+                    break;
+                case Mode::Memory:
+                    co_await this->onMemory();
+                    break;
+                case Mode::Collect:
+                    co_await this->onCollect();
+                    break;
+                case Mode::Option:
+                    co_await this->onOption();
+                    break;
+                default:
+                    break;
+                }
+            } else if (InputManager::B.down()) {
                 // 戻る
                 m_pUi->getModule<CycleMaster>()->find<Cycle::Home::Master>()->back();
                 co_return;
             }
             co_yield{};
         }
+    }
+    Coro::Fiber<> Main::onSeek()
+    {
+        // TODO 実装
+        co_return;
+    }
+    Coro::Fiber<> Main::onGuild()
+    {
+        // TODO 実装
+        co_return;
+    }
+    Coro::Fiber<> Main::onMaint()
+    {
+        // TODO 実装
+        co_return;
+    }
+    Coro::Fiber<> Main::onMemory()
+    {
+        // TODO 実装
+        co_return;
+    }
+    Coro::Fiber<> Main::onCollect()
+    {
+        // TODO 実装
+        co_return;
+    }
+    Coro::Fiber<> Main::onOption()
+    {
+        // TODO 実装
+        co_return;
     }
     void Main::onDraw() const
     {
