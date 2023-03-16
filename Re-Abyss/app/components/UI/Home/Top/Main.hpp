@@ -35,6 +35,8 @@ namespace abyss::UI::Home::Top
         Coro::Fiber<> onMemory();
         Coro::Fiber<> onCollect();
         Coro::Fiber<> onOption();
+
+        void updateTips();
     private:
         UIObj* m_pUi;
 

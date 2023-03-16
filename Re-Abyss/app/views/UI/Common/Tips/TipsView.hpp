@@ -6,6 +6,6 @@ namespace abyss::UI
     class TipsView
     {
     public:
-        static void DrawFooter(s3d::StringView message);
+        static void DrawFooter(s3d::StringView message, double rate = 1.0);
     };
 }
