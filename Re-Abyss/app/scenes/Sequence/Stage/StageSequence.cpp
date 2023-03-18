@@ -7,7 +7,7 @@ namespace
     StageSeqContext ContextDefault()
     {
         return {
-            .mapPath = Path::MapPath + U"Stage0/Stage0_0.tmx"
+            .stage = StageDef::Stage0()
         };
     }
 }
@@ -31,7 +31,7 @@ namespace abyss
     {
         // ステージイン
         m_pManager->data()->context = Scene::Stage::Context{
-            .mapPath = m_context.mapPath
+            .stage = m_context.stage
         };
         auto result = co_await m_pManager->changeScene<Scene::Stage::SceneResult>(SceneKind::Stage, 1000);
         // クリアならステージリザルトへ

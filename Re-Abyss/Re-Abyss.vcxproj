@@ -916,6 +916,7 @@
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
+    <ClCompile Include="app\values\StageDef.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.cpp" />
@@ -2146,6 +2147,7 @@
     <ClInclude Include="app\values\OopartsType.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
     <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />
+    <ClInclude Include="app\values\StageDef.hpp" />
     <ClInclude Include="app\values\UserPlayMode.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
     <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp" />

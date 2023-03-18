@@ -1,10 +1,10 @@
 #pragma once
-#include <Siv3D/String.hpp>
+#include <abyss/values/StageDef.hpp>
 
 namespace abyss::Scene::Stage
 {
     struct Context
     {
-        s3d::String mapPath;
+        StageDef stage;
     };
 }

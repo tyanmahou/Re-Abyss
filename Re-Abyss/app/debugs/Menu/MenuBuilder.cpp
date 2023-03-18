@@ -74,7 +74,7 @@ namespace
                 continue;
             }
 			abyss::StageSeqContext context{
-				.mapPath = s3d::FileSystem::RelativePath(path)
+				.stage = StageDef::FromDircet(s3d::FileSystem::RelativePath(path))
 			};
 			auto name = s3d::FileSystem::RelativePath(path, basePath);
 			folder.add(::BuildSeqChangeButton<StageSequence>(name, context));

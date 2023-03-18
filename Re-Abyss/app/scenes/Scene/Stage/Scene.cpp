@@ -18,20 +18,6 @@
 
 namespace abyss::Scene::Stage
 {
-    namespace
-    {
-        String MapName(const s3d::String& fullPath)
-        {
-#if ABYSS_DEBUG
-            if (fullPath.includes(U"tests/data/maps")) {
-                auto relativeTestPath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(fullPath), Path::TestMapPath);
-                return U"TestMap/{}"_fmt(relativeTestPath.substrView(0, relativeTestPath.lastIndexOf('.')));
-            }
-#endif
-            auto relativePath = s3d::FileSystem::RelativePath(FileUtil::FixRelativePath(fullPath), Path::MapPath);
-            return U"Map/{}"_fmt(relativePath.substrView(0, relativePath.lastIndexOf('.')));
-        }
-    }
     class Scene::Impl :
         public Cycle::Main::IMasterObserver
     {
@@ -44,24 +30,13 @@ namespace abyss::Scene::Stage
             if (std::holds_alternative<Context>(m_data->context)) {
                 m_context = std::get<Stage::Context>(m_data->context);
             } else {
-                m_context.mapPath = Path::MapPath + U"Stage0/Stage0_0.tmx";
+                m_context.stage = StageDef::Stage0();
             }
         }
         Coro::Generator<double> preloadAsset()
         {
             Resource::Assets::Main()->release();
-#if ABYSS_DEBUG
-            String path;
-            if (m_context.mapPath.includes(U"tests/data/maps")) {
-                path = U"Map/Test";
-            } else {
-                path = MapName(m_context.mapPath);
-            }
-            Resource::Preload::Preloader loader(path);
-#else
-            String path = MapName(m_context.mapPath);
-            Resource::Preload::Preloader loader(path);
-#endif
+            Resource::Preload::Preloader loader(m_context.stage.preloadPath());
             for (auto&& p : loader.preloadProgress()) {
                 co_yield p;
             }
@@ -103,9 +78,9 @@ namespace abyss::Scene::Stage
                     ->getDescAsDirect();
             }
             m_system = std::make_unique<System>();
-            auto injector = Factory::Stage::Injector(m_context.mapPath);
+            auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
-            m_stageData->setMapName(MapName(m_context.mapPath));
+            m_stageData->setMapName(m_context.stage.mapName());
 
             if (!m_advProject) {
                 m_advProject = Factory::Adv::Injector().instantiate<Adv::Project>();
@@ -129,7 +104,7 @@ namespace abyss::Scene::Stage
             }
 #if ABYSS_DEBUG
             if ((KeyControl + KeyO).down()) {
-                Debug::DebugUtil::FileEdit(m_context.mapPath);
+                Debug::DebugUtil::FileEdit(m_context.stage.mapPath());
             }
 #endif
         }
@@ -158,15 +133,8 @@ namespace abyss::Scene::Stage
         Coro::Generator<double> loadingOnMove(const s3d::String& link, s3d::int32 startId)
         {
             // マップ更新
-#if ABYSS_DEBUG
-            if (m_context.mapPath.includes(U"tests/data/maps")) {
-                m_context.mapPath = Path::TestMapPath + link + U".tmx";
-            } else {
-                m_context.mapPath = Path::MapPath + link + U".tmx";
-            }
-#else
-            m_context.mapPath = Path::MapPath + link + U".tmx";
-#endif
+            m_context.stage = m_context.stage.link(link);
+
             for (auto&& p : preloadAsset()) {
                 co_yield p;
             }
@@ -176,9 +144,9 @@ namespace abyss::Scene::Stage
             desc.startId = startId;
 
             m_system = std::make_unique<System>();
-            auto injector = Factory::Stage::Injector(m_context.mapPath);
+            auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
-            m_stageData->setMapName(MapName(m_context.mapPath));
+            m_stageData->setMapName(m_context.stage.mapName());
 
             auto booter = std::make_unique<BooterNormal>(this);
             booter->setPlayerDesc(desc)

@@ -1,12 +1,13 @@
 #pragma once
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/values/StageDef.hpp>
 
 namespace abyss
 {
     struct StageSeqContext
     {
-        s3d::String mapPath;
+        StageDef stage;
     };
 
     class StageSequence : public ISequence
