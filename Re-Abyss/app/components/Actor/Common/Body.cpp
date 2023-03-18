@@ -269,7 +269,7 @@ namespace abyss::Actor
     }
     Body& Body::reversed()
     {
-        m_forward = m_forward.flipped();
+        m_forward = m_forward.mirrored();
         return *this;
     }
     bool Body::isForward(Forward f) const
