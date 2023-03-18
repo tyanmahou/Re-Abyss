@@ -1,6 +1,6 @@
 #include <abyss/components/Adv/Common/Command/WaitInput.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
-#include <abyss/modules/Adv/base/Engine.hpp>
+#include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 
 namespace abyss::Adv
@@ -10,11 +10,11 @@ namespace abyss::Adv
     {}
     void WaitInput::onStart()
     {
-        m_pObj->engine()->setIsInputWait(true);
+        m_pObj->sentence()->setIsInputWait(true);
     }
     void WaitInput::onEnd()
     {
-        m_pObj->engine()->setIsInputWait(false);
+        m_pObj->sentence()->setIsInputWait(false);
     }
     Coro::Fiber<> WaitInput::onCommand()
     {
