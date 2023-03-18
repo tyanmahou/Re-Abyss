@@ -30,14 +30,14 @@ namespace abyss
     Coro::Fiber<> StageSequence::sequence()
     {
         // ステージイン
-        m_pManager->data()->context = Scene::Stage::Context{
+        auto result = co_await m_pManager->changeScene<Scene::Stage::Context, Scene::Stage::SceneResult>(SceneKind::Stage, {
             .stage = m_context.stage
-        };
-        auto result = co_await m_pManager->changeScene<Scene::Stage::SceneResult>(SceneKind::Stage, 1000);
+        });
         // クリアならステージリザルトへ
         if (result.isClear) {
-            m_pManager->data()->context = Scene::StageResult::Context{};
-            co_await m_pManager->changeScene<void>(SceneKind::StageResult);
+            co_await m_pManager->changeScene<Scene::StageResult::Context, void>(SceneKind::StageResult, {
+                .stage = m_context.stage
+            });
         }
 
         co_return;

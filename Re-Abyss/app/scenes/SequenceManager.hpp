@@ -21,7 +21,7 @@ namespace abyss
         /// </summary>
         void exit();
 
-        void changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec = 0, const s3d::CrossFade crossFade = s3d::CrossFade::No);
+        void changeScene(const SceneKind& state);
 
         template<class SequenceType, class... Args>
         void changeSequence(Args&&... args)
@@ -44,10 +44,18 @@ namespace abyss
         SequecneData* data();
         const SequecneData* data() const;
 
-        template<class Result>
-        Coro::Fiber<Result> changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec = 0, const s3d::CrossFade crossFade = s3d::CrossFade::No)
+        template<class Context, class Result>
+        Coro::Fiber<Result> changeScene(const SceneKind& state, Context&& context)
         {
-            this->changeScene(state, transitionTimeMillisec, crossFade);
+            data()->context = std::forward<Context>(context);
+
+            return this->changeScene<Result>(state);
+        }
+
+        template<class Result>
+        Coro::Fiber<Result> changeScene(const SceneKind& state)
+        {
+            this->changeScene(state);
             co_yield{};
             if constexpr (std::is_void_v<Result>) {
                 co_return;

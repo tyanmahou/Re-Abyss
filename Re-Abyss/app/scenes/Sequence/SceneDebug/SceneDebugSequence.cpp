@@ -15,7 +15,7 @@ namespace abyss
     }
     Coro::Fiber<> SceneDebugSequence::sequence(SceneKind kind)
     {
-        co_await m_pManager->changeScene<void>(kind, 1000);
+        co_await m_pManager->changeScene<void>(kind);
     }
 }
 #endif

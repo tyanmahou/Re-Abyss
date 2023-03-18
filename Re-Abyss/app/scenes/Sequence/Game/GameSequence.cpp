@@ -21,32 +21,28 @@ namespace abyss
     Coro::Fiber<> GameSequence::sequence(const SceneKind initScene)
     {
         SceneKind next = initScene;
-        s3d::int32 transitionMsec = 0;
         while (true) {
             if (next == SceneKind::Splash) {
                 co_await m_pManager->changeScene<void>(SceneKind::Splash);
                 next = SceneKind::Title;
             } else if (next == SceneKind::Title) {
-                auto result = co_await m_pManager->changeScene<Title::SceneResult>(SceneKind::Title, transitionMsec);
+                auto result = co_await m_pManager->changeScene<Title::SceneResult>(SceneKind::Title);
                 if (result.isStart) {
                     next = SceneKind::SaveSelect;
-                    transitionMsec = 1000;
                     continue;
                 } else {
                     m_pManager->exit();
                     co_return;
                 }
             } else if (next == SceneKind::SaveSelect) {
-                auto result = co_await m_pManager->changeScene<SaveSelect::SceneResult>(SceneKind::SaveSelect, transitionMsec);
+                auto result = co_await m_pManager->changeScene<SaveSelect::SceneResult>(SceneKind::SaveSelect);
                 if (result.isBack) {
                     next = SceneKind::Title;
-                    transitionMsec = 1000;
                     continue;
                 } else {
                     m_pManager->pushSequence<UserSequence>(m_pManager);
                     co_yield{};
                     next = SceneKind::Title;
-                    transitionMsec = 1000;
                     continue;
                 }
             } else {

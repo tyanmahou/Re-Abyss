@@ -1,9 +1,10 @@
 #pragma once
-#include <abyss/modules/Sound/BackGroundMusic.hpp>
+#include <abyss/values/StageDef.hpp>
 
 namespace abyss::Scene::StageResult
 {
     struct Context
     {
+        StageDef stage;
     };
 }

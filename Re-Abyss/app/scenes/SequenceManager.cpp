@@ -92,7 +92,7 @@ namespace abyss
     {
         m_isExit = true;
     }
-    void SequenceManager::changeScene(const SceneKind& state, s3d::int32 transitionTimeMillisec, const s3d::CrossFade crossFade)
+    void SequenceManager::changeScene(const SceneKind& state)
     {
         auto data = m_scene.get();
         data->fromScene = data->toScene;
@@ -100,7 +100,7 @@ namespace abyss
         if (data->fromScene == SceneKind::Invalid) {
             m_scene.init(state);
         } else {
-            m_scene.changeScene(state, transitionTimeMillisec, crossFade);
+            m_scene.changeScene(state, 0, s3d::CrossFade::No);
         }
 #if ABYSS_DEBUG
         Debug::Log::Info(U"[Scene Load] {}"_fmt(Enum::ToStr(state)));
