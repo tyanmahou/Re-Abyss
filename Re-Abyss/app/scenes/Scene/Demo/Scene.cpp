@@ -1,6 +1,6 @@
-#include <abyss/scenes/Scene/OpDemo/Scene.hpp>
+#include <abyss/scenes/Scene/Demo/Scene.hpp>
 
-namespace abyss::Scene::OpDemo
+namespace abyss::Scene::Demo
 {
     class Scene::Impl
     {

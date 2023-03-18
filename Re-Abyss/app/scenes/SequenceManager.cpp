@@ -1,6 +1,7 @@
 #include <abyss/scenes/SequenceManager.hpp>
 
 #include <abyss/scenes/Scene/Boot/Scene.hpp>
+#include <abyss/scenes/Scene/Demo/Scene.hpp>
 #include <abyss/scenes/Scene/DevPortal/Scene.hpp>
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
 #include <abyss/scenes/Scene/Splash/Scene.hpp>
@@ -21,6 +22,7 @@ namespace abyss
     {
         m_scene.add<Scene::Boot::Scene>(SceneKind::Boot);
         m_scene.add<Scene::Splash::Scene>(SceneKind::Splash);
+        m_scene.add<Scene::Demo::Scene>(SceneKind::Demo);
         m_scene.add<Scene::Title::Scene>(SceneKind::Title);
         m_scene.add<Scene::SaveSelect::Scene>(SceneKind::SaveSelect);
         m_scene.add<Scene::Home::Scene>(SceneKind::Home);

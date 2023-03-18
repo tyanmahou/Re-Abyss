@@ -13,7 +13,7 @@ namespace abyss
         /// <summary>スプラッシュ</summary>
         Splash,
         /// <summary>OPデモ</summary>
-        OpDemo,
+        Demo,
         /// <summary>タイトル</summary>
         Title,
         /// <summary>セーブ選択</summary>
