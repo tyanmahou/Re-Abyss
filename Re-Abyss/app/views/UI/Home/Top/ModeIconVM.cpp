@@ -5,8 +5,7 @@
 
 namespace abyss::UI::Home::Top
 {
-    ModeIconVM::ModeIconVM() :
-        m_texture(Resource::Assets::Main()->load(U"UI/Home/ModeIcon.json"))
+    ModeIconVM::ModeIconVM()
     {}
 
     void ModeIconVM::draw() const
@@ -34,7 +33,13 @@ namespace abyss::UI::Home::Top
         }
         // サムネイル
         if (m_isLocked) {
-            m_texture(U"lock").scaled(m_scale).drawAt(m_pos, subColor);
+            if (m_lockThumbnail) {
+                if (m_isSelected) {
+                    m_lockThumbnail->drawSelected(m_pos, m_time, { mainColor, subColor });
+                } else {
+                    m_lockThumbnail->drawUnselected(m_pos, m_time, { mainColor, subColor });
+                }
+            }
             {
                 s3d::ScopedRenderStates2D scopedBlend(BlendState::Subtractive);
                 rotatedRect.draw(ColorF(1, 0.5));

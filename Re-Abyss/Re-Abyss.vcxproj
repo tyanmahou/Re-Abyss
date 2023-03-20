@@ -993,6 +993,7 @@
     <ClCompile Include="app\views\UI\Home\Top\ModeIconVM.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.cpp" />
+    <ClCompile Include="app\views\UI\Home\Top\ModeIcon\LockThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.cpp" />
@@ -2338,6 +2339,7 @@
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\GuildThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\IModeThumb.hpp" />
+    <ClInclude Include="app\views\UI\Home\Top\ModeIcon\LockThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MaintThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\MemoryThumb.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\OptionThumb.hpp" />

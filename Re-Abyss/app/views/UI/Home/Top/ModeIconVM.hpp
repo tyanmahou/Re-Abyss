@@ -1,5 +1,6 @@
 #pragma once
-#include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <memory>
+#include <Siv3D/Vector2D.hpp>
 
 namespace abyss::UI::Home::Top
 {
@@ -30,6 +31,16 @@ namespace abyss::UI::Home::Top
             m_thumbnail = std::move(thumbnail);
             return *this;
         }
+        template<class ThumbType, class... Args> requires std::derived_from<ThumbType, IModeThumb>
+        ModeIconVM& setLockThumbnail(Args&&... args)
+        {
+            return this->setLockThumbnail(std::make_unique<ThumbType>(std::forward<Args>(args)...));
+        }
+        ModeIconVM& setLockThumbnail(std::unique_ptr<IModeThumb> thumbnail)
+        {
+            m_lockThumbnail = std::move(thumbnail);
+            return *this;
+        }
         ModeIconVM& setScale(double scale)
         {
             m_scale = scale;
@@ -56,7 +67,7 @@ namespace abyss::UI::Home::Top
         s3d::Vec2 m_pos{};
         double m_time = 0;
 
-        TexturePacker m_texture;
+        std::unique_ptr<IModeThumb> m_lockThumbnail;
         std::unique_ptr<IModeThumb> m_thumbnail;
 
         double m_scale = 1.0;

@@ -8,8 +8,8 @@ namespace abyss::UI::Home::Top
     {
     public:
         LockThumb(double scale);
-        void drawUnselected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const = 0;
-        void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const = 0;
+        void drawUnselected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const;
+        void drawSelected(const s3d::Vec2& pos, double time, const s3d::ColorF(&colors)[2]) const;
     private:
         TexturePacker m_texture;
         double m_scale;

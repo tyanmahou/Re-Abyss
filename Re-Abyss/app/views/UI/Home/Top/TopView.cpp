@@ -6,6 +6,7 @@
 #include <abyss/views/UI/Home/Top/ModeIcon/MemoryThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/CollectThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeIcon/OptionThumb.hpp>
+#include <abyss/views/UI/Home/Top/ModeIcon/LockThumb.hpp>
 #include <abyss/views/UI/Home/Top/ModeSelectLineVM.hpp>
 
 #include <abyss/params/UI/Home/Top/ViewParam.hpp>
@@ -23,6 +24,7 @@ namespace abyss::UI::Home::Top
                 .setScale(param.scale)
                 .setReverseColor(param.isReverseColor)
                 .setLocked(true)
+                .setLockThumbnail<LockThumb>(param.scale)
                 ;
         }
         m_icons[IconSeek].setThumbnail<SeekThumb>();
