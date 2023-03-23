@@ -836,6 +836,7 @@
     <ClCompile Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Stage\StageSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\User\UserSequence.cpp" />
+    <ClCompile Include="app\scenes\Sys\System.cpp" />
     <ClCompile Include="app\services\Actor\Enemy\EnemyService.cpp" />
     <ClCompile Include="app\services\Actor\Gimmick\GimmickService.cpp" />
     <ClCompile Include="app\services\Actor\Item\ItemService.cpp" />
@@ -1378,6 +1379,9 @@
     <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
+    <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
+    <ClInclude Include="app\scenes\Sys\Modules.hpp" />
+    <ClInclude Include="app\scenes\Sys\System.hpp" />
     <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />
     <ClInclude Include="app\services\Adv\ProjectService.hpp" />
     <ClInclude Include="app\values\Adv\CharaKind.hpp" />

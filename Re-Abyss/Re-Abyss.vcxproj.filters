@@ -2504,6 +2504,9 @@
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\LockThumb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Sys\System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6525,6 +6528,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\Home\Top\ModeIcon\LockThumb.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sys\Modules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sys\System.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Sys\IBooter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
