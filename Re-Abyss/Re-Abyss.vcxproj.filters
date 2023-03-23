@@ -2507,6 +2507,9 @@
     <ClCompile Include="app\scenes\Sys\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Factory\System\Injector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6540,6 +6543,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Sys\ModulePackage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Factory\System\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

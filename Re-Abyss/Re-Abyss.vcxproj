@@ -247,6 +247,7 @@
     <ClCompile Include="app\commons\Factory\Adv\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Project\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\System\Injector.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
@@ -1243,6 +1244,7 @@
     <ClInclude Include="app\commons\Factory\Adv\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\System\Injector.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />
