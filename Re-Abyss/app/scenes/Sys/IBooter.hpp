@@ -11,7 +11,7 @@ namespace abyss::Sys2
     public:
         virtual ~IBooter() = default;
 
-        virtual std::shared_ptr<Modules> module() const = 0;
+        virtual std::shared_ptr<Modules> build(Manager* pManager) const = 0;
         virtual bool onBoot(Manager* pManager) const = 0;
     };
 }

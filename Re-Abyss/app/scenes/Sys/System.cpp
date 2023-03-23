@@ -8,8 +8,7 @@ namespace abyss::Sys2
 {
     System::System(std::shared_ptr<IBooter> booter)
     {
-        m_mods = booter->module();
-        m_mods->setManager(&m_manager);
+        m_mods = booter->build(&m_manager);
         booter->onBoot(&m_manager);
     }
 

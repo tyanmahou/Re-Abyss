@@ -1380,6 +1380,7 @@
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
+    <ClInclude Include="app\scenes\Sys\ModulePackage.hpp" />
     <ClInclude Include="app\scenes\Sys\Modules.hpp" />
     <ClInclude Include="app\scenes\Sys\System.hpp" />
     <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />

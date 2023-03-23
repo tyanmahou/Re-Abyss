@@ -6539,6 +6539,9 @@
     <ClInclude Include="app\scenes\Sys\IBooter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\scenes\Sys\ModulePackage.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
