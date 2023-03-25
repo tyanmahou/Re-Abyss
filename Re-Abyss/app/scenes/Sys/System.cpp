@@ -15,69 +15,44 @@ namespace abyss::Sys2
     void System::update()
     {
         auto* timer = mod<GlobalTime>();
-        auto* events = mod<Events>();
-        auto* ui = mod<UIs>();
-        auto* actors = mod<Actors>();
-        auto* decors = mod<Decors>();
-        auto* pCollision = mod<CollisionManager>();
-        auto* physics = mod<PhysicsManager>();
 
         // ポーズ制御
-        if (auto* pauseManager = mod<Pause::PauseManager>()) {
-            pauseManager->update();
-        }
+        call(&Pause::PauseManager::update);
 
         timer->update();
 
         // フラッシュ
 #if ABYSS_DEBUG
-        mod<WorldComment>()->flush();
+        call(&WorldComment::flush);
 #endif
-        if (actors) {
-            actors->flush();
-        }
-        if (decors) {
-            decors->flush();
-        }
-        if (pCollision) {
-            pCollision->cleanUp();
-        }
-        if (physics) {
-            physics->cleanUp();
-        }
+        call(&Actors::flush);
+        call(&Decors::flush);
+        call(&CollisionManager::cleanUp);
+        call(&PhysicsManager::cleanUp);
+
         // Dt計算
         double dt = timer->deltaTime();
 
         // 環境更新
-        mod<Environment>()->update(dt);
+        call(&Environment::update, dt);
 
         // ポストエフェクト更新
         mod<PostEffects>()->update(Scene::DeltaTime());
-        if (auto* light = mod<Light>()) {
-            light->update(dt);
-        }
-        if (actors) {
-            actors->updateDeltaTime(dt);
-        }
+        call(&Light::update, dt);
 
+        call(&Actors::updateDeltaTime, dt);
+
+        auto* events = mod<Events>();
         bool isWorldStop = events ? events->isWorldStop() : false;
         // Actor更新
         if (!isWorldStop) {
-            if (actors) {
-                actors->update();
-                actors->move();
-            }
+            call(&Actors::update);
+            call(&Actors::move);
             {
                 // 地形衝突
-                if (actors) {
-                    actors->prePhysics();
-                }
-                if (physics) {
-                    physics->onPhysicsCollision();
-                }
-                if (actors) {
-                    actors->postPhysics();
-                }
+                call(&Actors::prePhysics);
+                call(&PhysicsManager::onPhysicsCollision);
+                call(&Actors::postPhysics);
             }
         }
         // カメラ更新
@@ -85,17 +60,10 @@ namespace abyss::Sys2
 
         // Actor衝突後更新
         if (!isWorldStop) {
-            if (actors) {
-                actors->preCollision();
-            }
-            if (pCollision) {
-                pCollision->onCollision();
-            }
-            if (actors) {
-                actors->postCollision();
-
-                actors->lastUpdate();
-            }
+            call(&Actors::preCollision);
+            call(&CollisionManager::onCollision);
+            call(&Actors::postCollision);
+            call(&Actors::lastUpdate);
         }
         // イベント更新
         if (events) {
@@ -103,45 +71,33 @@ namespace abyss::Sys2
         }
 
         // ノベル更新
-        if (auto* adv = mod<Adventures>()) {
-            adv->update();
-        }
+        call(&Adventures::update);
 
         // ui更新
-        ui->update();
+        call(&UIs::update);
 
         // 装飾更新
-        if (decors) {
-            decors->update();
-        }
+        call(&Decors::update);
 
         // クーロン更新
-        if (auto* cron = mod<Crons>()) {
-            cron->update();
-        }
+        call(&Crons::update);
 
         // クリーンアップ
-        if (actors) {
-            actors->cleanUp();
-        }
-        if (physics) {
-            physics->cleanUp();
-        }
+        call(&Actors::cleanUp);
+        call(&PhysicsManager::cleanUp);
 
         // エフェクト更新
-        mod<Effects>()->updateAll(dt);
+        call(&Effects::updateAll, dt);
 
         // Sfx
-        mod<SpecialEffects>()->update(dt);
+        call(&SpecialEffects::update, dt);
 
         // 上位命令聴講
         mod<CycleMaster>()->listen();
 
 #if ABYSS_DEBUG
-        if (decors) {
-            Debug::DebugUtil::AlertDecorCount(*decors);
-        }
-        Debug::DebugUtil::AlertEffectCount(*mod<Effects>());
+        call(Debug::DebugUtil::AlertDecorCount);
+        call(Debug::DebugUtil::AlertEffectCount);
 #endif
     }
 
@@ -152,27 +108,15 @@ namespace abyss::Sys2
 
         // バッファクリア
         drawer->clear();
-        if (auto* light = mod<Light>()) {
-            light->clear();
-        }
-        if (auto* distortion = mod<Distortion>()) {
-            distortion->clear();
-        }
+        call(&Light::clear);
+        call(&Distortion::clear);
 
-        if (auto* actor = mod<Actors>()) {
-            // Actor Draw
-            actor->draw();
-        }
-        if (auto* decors = mod<Decors>()) {
-            // Deor Draw
-            decors->draw();
-        }
-        // UI Draw
-        mod<UIs>()->draw();
-        // Effect Draw
-        mod<Effects>()->draw();
-        // SpecialEffects Draw
-        mod<SpecialEffects>()->draw();
+        // Draw
+        call(&Actors::draw);
+        call(&Decors::draw);
+        call(&UIs::draw);
+        call(&Effects::draw);
+        call(&SpecialEffects::draw);
 
 #if ABYSS_DEBUG
         Debug::DebugUtil::AlertDrawerCount(drawer);
@@ -190,9 +134,12 @@ namespace abyss::Sys2
                 auto t2d = CameraView::Transformer(cameraMat);
 
                 auto* env = mod<Environment>();
+                auto getEnv = [env](auto func) {
+                    return env ? (env->*func)() : nullptr;
+                };
                 // 背面
                 const auto bgDrawer = [&] {
-                    if (auto bg = env->getBg()) {
+                    if (auto bg = getEnv(&Environment::getBg)) {
                         bg->draw(cameraView.screenRegion());
                     }
                     drawer->draw(DrawLayer::BackGround);
@@ -212,17 +159,15 @@ namespace abyss::Sys2
                 } else {
                     bgDrawer();
                 }
-                if (auto sky = env->getSky()) {
+                if (auto sky = getEnv(&Environment::getSky)) {
                     sky->draw(cameraView.tl());
                 }
-                if (auto caustics = env->getCaustics()) {
+                if (auto caustics = getEnv(&Environment::getCaustics)) {
                     caustics->drawBack(cameraView.getCameraPos());
                 }
                 drawer->draw(DrawLayer::DecorBack);
 
-                if (auto room = mod<RoomManager>()) {
-                    room->drawDeathLine();
-                }
+                call(&RoomManager::drawDeathLine);
 
                 // 中面
                 drawer->draw(DrawLayer::Land);
@@ -232,20 +177,14 @@ namespace abyss::Sys2
 
                 // 全面
                 drawer->draw(DrawLayer::DecorFront);
-                if (auto caustics = env->getCaustics()) {
+                if (auto caustics = getEnv(&Environment::getCaustics)) {
                     caustics->drawFront(cameraView.getCameraPos());
                 }
-                if (auto distortion = mod<Distortion>()) {
-                    // Distortion Map更新
-                    distortion->render();
-                }
+                // Distortion Map更新
+                call(&Distortion::render);
 #if ABYSS_DEBUG
-                if (auto* actor = mod<Actors>()) {
-                    Debug::DebugUtil::DrawDebug(*actor);
-                }
-                if (auto* physics = mod<PhysicsManager>()) {
-                    Debug::DebugUtil::DrawDebug(*physics);
-                }
+                call<Actors>(Debug::DebugUtil::DrawDebug);
+                call<PhysicsManager>(Debug::DebugUtil::DrawDebug);
 #endif
             }
 
@@ -302,7 +241,7 @@ namespace abyss::Sys2
             {
 #if ABYSS_DEBUG
                 auto t2d = CameraView::Transformer(cameraMat);
-                mod<WorldComment>()->draw();
+                call(&WorldComment::draw);
 #endif
             }
             {
