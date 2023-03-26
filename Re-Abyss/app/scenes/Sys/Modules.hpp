@@ -4,6 +4,18 @@
 
 namespace abyss::Sys2
 {
+    template<class Mod>
+    concept Managed = requires(Mod * pMod, Manager * pManager)
+    {
+        pManager->set(pMod);
+    };
+
+    template<class Mod>
+    concept SetManagerable = requires(Mod * pMod, Manager * pManager)
+    {
+        pMod->setManager(pManager);
+    };
+
     /// <summary>
     /// モジュール
     /// </summary>
@@ -17,6 +29,23 @@ namespace abyss::Sys2
         inline Mod* get() const
         {
             return std::get<std::shared_ptr<Mod>>(m_modules).get();
+        }
+
+        void setManager(Manager* pManager)
+        {
+            auto set = [pManager]<class Mod>(std::shared_ptr<Mod>&mod) {
+                if (mod) {
+                    if constexpr (Managed<Mod>) {
+                        pManager->set(mod.get());
+                    }
+                    if constexpr (SetManagerable<Mod>) {
+                        mod->setManager(pManager);
+                    }
+                }
+            };
+            std::apply([=]<class... T>(T&... m) {
+                (set(m), ...);
+            }, m_modules);
         }
     private:
         ModulePackage m_modules;
