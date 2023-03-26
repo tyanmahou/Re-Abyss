@@ -5,6 +5,7 @@
 namespace abyss::Factory::Project
 {
     emaject::Injector Injector();
+    void Install(emaject::Injector& injector);
 }
 
 #endif

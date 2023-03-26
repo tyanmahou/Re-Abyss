@@ -11,13 +11,18 @@ namespace abyss::Factory::Project
         using namespace abyss::Devs::Project;
 
         emaject::Injector injector;
+        Install(injector);
+        return injector;
+    }
+    void Install(emaject::Injector& injector)
+    {
+        using namespace abyss::Devs::Project;
         injector
             // datastore
             .install<GitHubDataStoreInstaller>()
             // service
             .install<ProjectServiceInstaller>()
             ;
-        return injector;
     }
 }
 #endif
