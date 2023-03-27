@@ -5,164 +5,138 @@
 namespace
 {
     using namespace abyss;
+
+    struct CommonInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<GlobalTime>()
+                .asCached();
+
+            c->bind<Camera>()
+                .asCached();
+
+            c->bind<CycleMaster>()
+                .asCached();
+
+            c->bind<DrawManager>()
+                .asCached();
+
+            c->bind<PostEffects>()
+                .asCached();
+
+            c->bind<Sound>()
+                .asCached();
+
+            c->bind<UIs>()
+                .asCached();
+        }
+    };
+    struct AdvInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Adventures>()
+                .asCached();
+        }
+    };
+    struct CronsInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Crons>()
+                .asCached();
+        }
+    };
+    struct EventsInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Events>()
+                .asCached();
+        }
+    };
+    struct EnvironmentInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Environment>()
+                .asCached();
+        }
+    };
+    struct StageInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Actor::Actors>()
+                .asCached();
+
+            c->bind<Actor::Player::PlayerManager>()
+                .asCached();
+
+            c->bind<CollisionManager>()
+                .asCached();
+
+            c->bind<Decors>()
+                .asCached();
+
+            c->bind<Effects>()
+                .asCached();
+
+            c->bind<Light>()
+                .asCached();
+
+            c->bind<Distortion>()
+                .asCached();
+
+            c->bind<Pause::PauseManager>()
+                .asCached();
+
+            c->bind<PhysicsManager>()
+                .asCached();
+
+            c->bind<RoomManager>()
+                .asCached();
+
+            c->bind<Stage>()
+                .asCached();
+
+            c->bind<Temporary>()
+                .asCached();
+
+            c->bind<SpecialEffects>()
+                .asCached();
+
+#if ABYSS_DEBUG
+            c->bind<WorldComment>()
+                .asCached();
+#endif
+        }
+    };
+#if ABYSS_DEVELOP
     struct ProjectInstaller : emaject::IInstaller
     {
-        ProjectInstaller(Manager* pManager) :
-            m_pManager(pManager)
-        {}
         void onBinding(emaject::Container* c) const override
         {
             c->bind<Project>()
                 .fromFactory([](emaject::Container* c) {
-                    return std::make_shared<Project>(c->resolve<Devs::Project::IProjectService>());
+                return std::make_shared<Project>(c->resolve<Devs::Project::IProjectService>());
                 })
                 .asCached();
         }
-    private:
-        Manager* m_pManager;
     };
-
+#endif
 }
 namespace abyss::Factory::System
 {
-    struct CommonInstaller : emaject::IInstaller
-    {
-        CommonInstaller(Manager* pManager) :
-            m_pManager(pManager)
-        {}
-        void onBinding(emaject::Container* c) const override
-        {
-            //            if (m_config.isStage) {
-            //                c->bind<Actor::Actors>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<Actor::Player::PlayerManager>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<Camera>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            if (m_config.isStage) {
-            //                c->bind<CollisionManager>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //            if (m_config.useCron) {
-            //                c->bind<Crons>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<CycleMaster>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            if (m_config.isStage) {
-            //                c->bind<Decors>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //#if ABYSS_DEVELOP
-            //            if (m_config.useProject) {
-            //                c->bind<Project>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //#endif
-            //#if ABYSS_DEBUG
-            //            c->bind<WorldComment>()
-            //                .withArgs()
-            //                .asCached();
-            //#endif
-            //            if (m_config.isStage) {
-            //                c->bind<Distortion>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<DrawManager>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            c->bind<Effects>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            c->bind<Environment>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            if (m_config.useEvent) {
-            //                c->bind<Events>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<GlobalTime>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            if (m_config.isStage) {
-            //                c->bind<Light>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<Adventures>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<Pause::PauseManager>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<PhysicsManager>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<RoomManager>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<SpecialEffects>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            c->bind<PostEffects>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            c->bind<Sound>()
-            //                .withArgs()
-            //                .asCached();
-            //
-            //            if (m_config.isStage) {
-            //                c->bind<Stage>()
-            //                    .withArgs()
-            //                    .asCached();
-            //
-            //                c->bind<Temporary>()
-            //                    .withArgs()
-            //                    .asCached();
-            //            }
-            //
-            //            c->bind<UIs>()
-            //                .withArgs()
-            //                .asCached();
-        }
-    private:
-        Manager* m_pManager;
-    };
 
-    emaject::Injector DevPortal(Manager* pManager, SequecneData* pData)
+#if ABYSS_DEVELOP
+    emaject::Injector DevPortal([[maybe_unused]]SequecneData* pData)
     {
         emaject::Injector injector;
         injector
-            .install<ProjectInstaller>(pManager)
+            .install<CommonInstaller>()
+            .install<ProjectInstaller>()
             ;
 
         // Project
@@ -170,12 +144,14 @@ namespace abyss::Factory::System
 
         return injector;
     }
-    emaject::Injector Splash(Manager* pManager)
+#endif
+
+    emaject::Injector Splash([[maybe_unused]]SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>(pManager)
+            .install<CommonInstaller>()
             ;
 
         return injector;

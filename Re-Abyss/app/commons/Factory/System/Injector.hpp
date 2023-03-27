@@ -6,7 +6,7 @@
 namespace abyss::Factory::System
 {
 #if ABYSS_DEVELOP
-    emaject::Injector DevPortal(Manager* pManager, SequecneData* pData);
+    emaject::Injector DevPortal(SequecneData* pData);
 #endif
-    emaject::Injector Splash(Manager* pManager);
+    emaject::Injector Splash(SequecneData* pData);
 }
