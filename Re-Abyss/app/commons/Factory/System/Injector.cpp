@@ -1,11 +1,18 @@
 #include <abyss/commons/Factory/System/Injector.hpp>
-#include <abyss/scenes/System/ModulePackage.hpp>
+#include <abyss/scenes/Sys/Modules.hpp>
 #include <abyss/commons/Factory/Project/Injector.hpp>
 
 namespace
 {
     using namespace abyss;
 
+    struct ModuleInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Sys2::Modules>().asCached();
+        }
+    };
     struct CommonInstaller : emaject::IInstaller
     {
         void onBinding(emaject::Container* c) const override
@@ -135,6 +142,7 @@ namespace abyss::Factory::System
     {
         emaject::Injector injector;
         injector
+            .install<ModuleInstaller>()
             .install<CommonInstaller>()
             .install<ProjectInstaller>()
             ;

@@ -1,7 +1,8 @@
 #include <abyss/scenes/Scene/DevPortal/Scene.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/scenes/Scene/DevPortal/Booter.hpp>
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Sys/System.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Scene::DevPortal
@@ -9,7 +10,6 @@ namespace abyss::Scene::DevPortal
     class Scene::Impl final:
         public Cycle::DevPortal::IMasterObserver
     {
-        using System = Sys::System<Sys::Config::DevPortal()>;
     public:
         Impl(const InitData& init) :
             m_data(init._s)
@@ -19,9 +19,9 @@ namespace abyss::Scene::DevPortal
 
         void init()
         {
-            m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Booter>(this);
-            m_system->boot(booter.get());
+            m_system = Factory::System::DevPortal(m_data.get())
+                .instantiate<Sys2::System>();
+            m_system->boot<Booter>(this);
         }
 
         void update()
@@ -52,7 +52,7 @@ namespace abyss::Scene::DevPortal
             return true;
         }
     private:
-        std::unique_ptr<System> m_system;
+        std::shared_ptr<Sys2::System> m_system;
         std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init) :

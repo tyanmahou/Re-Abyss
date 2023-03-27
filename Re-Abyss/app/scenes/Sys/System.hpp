@@ -10,7 +10,15 @@ namespace abyss::Sys2
     class System
     {
     public:
-        INJECT_CTOR(System(std::shared_ptr<IBooter> booter));
+        INJECT_CTOR(System(std::shared_ptr<Modules> mods));
+
+        template<class Booter, class... Args>
+        bool boot(Args&&... args) const
+            requires std::derived_from<Booter, IBooter> && std::constructible_from<Booter, Args...>
+        {
+            return this->boot(Booter(std::forward<Args>(args)...));
+        }
+        bool boot(const IBooter& booter) const;
 
         void update();
 

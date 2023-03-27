@@ -6,11 +6,15 @@
 
 namespace abyss::Sys2
 {
-    System::System(std::shared_ptr<IBooter> booter)
+    System::System(std::shared_ptr<Modules> mods)
     {
-        m_mods = booter->build(&m_manager);
-        m_mods->setManager(&m_manager);
-        booter->onBoot(&m_manager);
+        m_mods = mods;
+        mods->setManager(&m_manager);
+    }
+
+    bool System::boot(const IBooter& booter) const
+    {
+        return booter.onBoot(&m_manager);
     }
 
     void System::update()
