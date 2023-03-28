@@ -1,7 +1,7 @@
 #include <abyss/scenes/Scene/Splash/Scene.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
-
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
+#include <abyss/scenes/Sys/System.hpp>
 #include <abyss/scenes/Scene/Splash/Booter.hpp>
 
 namespace abyss::Scene::Splash
@@ -9,9 +9,6 @@ namespace abyss::Scene::Splash
     class Scene::Impl :
         public Cycle::Splash::IMasterObserver
     {
-        using System = Sys::System<Sys::Config::Splash()>;
-        std::unique_ptr<System> m_system;
-        std::shared_ptr<Data_t> m_data;
     public:
         Impl([[maybe_unused]] const InitData& init) :
             m_data(init._s)
@@ -19,9 +16,9 @@ namespace abyss::Scene::Splash
 
         void initSystem()
         {
-            m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Booter>(this);
-            m_system->boot(booter.get());
+            m_system = Factory::System::DevPortal(m_data.get())
+                .instantiate<Sys2::System>();
+            m_system->boot<Booter>(this);
         }
         void loading()
         {
@@ -47,6 +44,9 @@ namespace abyss::Scene::Splash
 
             return true;
         }
+    private:
+        std::unique_ptr<Sys2::System> m_system;
+        std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init) :
         ISceneBase(init),

@@ -15,6 +15,11 @@ namespace
     };
     struct CommonInstaller : emaject::IInstaller
     {
+        CommonInstaller(
+            const Sfx::PostEffectsDesc& postEffectDesc = Sfx::PostEffectsDesc::CreateDefault()
+        ) :
+            m_postEffectDesc(postEffectDesc)
+        {}
         void onBinding(emaject::Container* c) const override
         {
             c->bind<GlobalTime>()
@@ -34,7 +39,13 @@ namespace
 
             c->bind<UIs>()
                 .asCached();
+
+            c->bind<PostEffects>()
+                .withArgs()
+                .asCached();
         }
+    private:
+        Sfx::PostEffectsDesc m_postEffectDesc;
     };
     struct AdvInstaller : emaject::IInstaller
     {
@@ -67,21 +78,6 @@ namespace
             c->bind<Environment>()
                 .asCached();
         }
-    };
-    struct PostEffectInstaller : emaject::IInstaller
-    {
-        PostEffectInstaller(const Sfx::PostEffectsDesc& desc = Sfx::PostEffectsDesc::CreateDefault()):
-            m_desc(desc)
-        {
-        }
-        void onBinding(emaject::Container* c) const override
-        {
-            c->bind<PostEffects>()
-                .withArgs(m_desc)
-                .asCached();
-        }
-    private:
-        Sfx::PostEffectsDesc m_desc;
     };
     struct StageInstaller : emaject::IInstaller
     {
@@ -156,7 +152,6 @@ namespace abyss::Factory::System
         injector
             .install<ModuleInstaller>()
             .install<CommonInstaller>()
-            .install<PostEffectInstaller>()
             .install<ProjectInstaller>()
             ;
 

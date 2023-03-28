@@ -12,7 +12,7 @@ namespace abyss::Scene::Splash
     Booter::Booter(Cycle::Splash::IMasterObserver* pObserver) :
         m_pObserver(pObserver)
     {}
-    bool Booter::onBoot(Manager* pManager) const
+    bool Booter::onBoot(const Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::Splash::Builder>(m_pObserver);
@@ -21,9 +21,6 @@ namespace abyss::Scene::Splash
         // UI初期化
         pManager->getModule<UIs>()->create<UI::Splash::Builder>();
         pManager->getModule<UIs>()->flush();
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
 
         return true;
     }
