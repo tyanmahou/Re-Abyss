@@ -45,7 +45,7 @@ namespace abyss::Scene::Splash
             return true;
         }
     private:
-        std::unique_ptr<Sys2::System> m_system;
+        std::shared_ptr<Sys2::System> m_system;
         std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init) :
