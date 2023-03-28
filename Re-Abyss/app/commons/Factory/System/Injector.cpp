@@ -29,9 +29,6 @@ namespace
             c->bind<DrawManager>()
                 .asCached();
 
-            c->bind<PostEffects>()
-                .asCached();
-
             c->bind<Sound>()
                 .asCached();
 
@@ -70,6 +67,21 @@ namespace
             c->bind<Environment>()
                 .asCached();
         }
+    };
+    struct PostEffectInstaller : emaject::IInstaller
+    {
+        PostEffectInstaller(const Sfx::PostEffectsDesc& desc = Sfx::PostEffectsDesc::CreateDefault()):
+            m_desc(desc)
+        {
+        }
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<PostEffects>()
+                .withArgs(m_desc)
+                .asCached();
+        }
+    private:
+        Sfx::PostEffectsDesc m_desc;
     };
     struct StageInstaller : emaject::IInstaller
     {
@@ -144,6 +156,7 @@ namespace abyss::Factory::System
         injector
             .install<ModuleInstaller>()
             .install<CommonInstaller>()
+            .install<PostEffectInstaller>()
             .install<ProjectInstaller>()
             ;
 
@@ -159,6 +172,7 @@ namespace abyss::Factory::System
         emaject::Injector injector;
 
         injector
+            .install<ModuleInstaller>()
             .install<CommonInstaller>()
             ;
 

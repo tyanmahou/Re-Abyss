@@ -5,7 +5,11 @@ namespace abyss::Sfx
     PostEffects::PostEffects():
         m_pManager(nullptr)
     {}
-
+    PostEffects::PostEffects(const PostEffectsDesc& desc) :
+        m_pManager(nullptr)
+    {
+        this->init(desc);
+    }
     void PostEffects::init(const PostEffectsDesc& desc)
     {
         if (desc.useDecorFar) {
@@ -35,6 +39,9 @@ namespace abyss::Sfx
     void PostEffects::setManager(Manager* pManager)
     {
         m_pManager = pManager;
+        if (m_bloom) {
+            m_bloom->setManager(pManager);
+        }
     }
     void PostEffects::update(double dt)
     {

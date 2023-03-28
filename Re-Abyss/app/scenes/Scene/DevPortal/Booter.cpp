@@ -18,9 +18,6 @@ namespace abyss::Scene::DevPortal
         pManager->getModule<CycleMaster>()->build<Cycle::DevPortal::Builder>(m_pObserver);
         pManager->getModule<CycleMaster>()->init();
 
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
-
         // UI
         {
             auto ui = pManager->getModule<UIs>();
