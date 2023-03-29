@@ -212,7 +212,26 @@ namespace abyss::Factory::System
 
         return injector;
     }
+    emaject::Injector Stage([[maybe_unused]] SequecneData* pData)
+    {
+        emaject::Injector injector;
 
+        injector
+            .install<CommonInstaller>(Sfx::PostEffectsDesc::CreateStage())
+            .install<AdvInstaller>()
+            .install<CronsInstaller>()
+            .install<EffectsInstaller>()
+            .install<EventsInstaller>()
+            .install<EnvironmentInstaller>(FieldEnv::EnvDesc{
+                .useSky = true,
+                .useCaustics = true,
+                .useFog = true
+            })
+            .install<StageInstaller>()
+            ;
+
+        return injector;
+    }
     emaject::Injector StageResult([[maybe_unused]] SequecneData* pData)
     {
         emaject::Injector injector;

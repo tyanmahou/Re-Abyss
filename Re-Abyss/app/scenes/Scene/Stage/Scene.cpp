@@ -5,13 +5,14 @@
 #include <abyss/modules/Temporary/TemporaryData.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Adv/Project/Project.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Factory/Adv/Injector.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Sys/System.hpp>
 #include <abyss/scenes/Scene/Stage/Booter.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/debugs/Debug.hpp>
@@ -21,7 +22,6 @@ namespace abyss::Scene::Stage
     class Scene::Impl :
         public Cycle::Main::IMasterObserver
     {
-        using System = Sys::System<Sys::Config::Stage()>;
     public:
         Impl(const Scene::InitData& init) :
             m_tempData(std::make_shared<TemporaryData>()),
@@ -77,7 +77,8 @@ namespace abyss::Scene::Stage
                     ->mod<Actor::Player::PlayerManager>()
                     ->getDescAsDirect();
             }
-            m_system = std::make_unique<System>();
+            m_system = Factory::System::Stage(m_data.get())
+                .instantiate<Sys2::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(m_context.stage.mapName());
@@ -85,14 +86,13 @@ namespace abyss::Scene::Stage
             if (!m_advProject) {
                 m_advProject = Factory::Adv::Injector().instantiate<Adv::Project>();
             }
-            auto booter = std::make_unique<BooterNormal>(this);
-            booter->setPlayerDesc(desc)
+            BooterNormal booter(this);
+            booter.setPlayerDesc(desc)
                 .setStageData(m_stageData)
                 .setTempData(m_tempData)
                 .setAdvProject(m_advProject)
                 ;
-
-            m_system->boot(booter.get());
+            m_system->boot(booter);
         }
 
         void update()
@@ -120,14 +120,15 @@ namespace abyss::Scene::Stage
         /// <returns></returns>
         bool onRestart() override
         {
-            m_systemNext = std::make_unique<System>();
+            m_systemNext = Factory::System::Stage(m_data.get())
+                .instantiate<Sys2::System>();
 
-            auto booter = std::make_unique<BooterRestart>(this);
-            booter->setStageData(m_stageData)
+            BooterRestart booter(this);
+            booter.setStageData(m_stageData)
                 .setTempData(m_tempData)
                 .setAdvProject(m_advProject)
                 ;
-            m_systemNext->boot(booter.get());
+            m_systemNext->boot(booter);
             return true;
         }
         Coro::Generator<double> loadingOnMove(const s3d::String& link, s3d::int32 startId)
@@ -143,19 +144,20 @@ namespace abyss::Scene::Stage
                 ->getDesc();
             desc.startId = startId;
 
-            m_system = std::make_unique<System>();
+            m_system = Factory::System::Stage(m_data.get())
+                .instantiate<Sys2::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(m_context.stage.mapName());
 
-            auto booter = std::make_unique<BooterNormal>(this);
-            booter->setPlayerDesc(desc)
+            BooterNormal booter(this);
+            booter.setPlayerDesc(desc)
                 .setStageData(m_stageData)
                 .setTempData(m_tempData)
                 .setAdvProject(m_advProject)
                 ;
 
-            m_system->boot(booter.get());
+            m_system->boot(booter);
             co_yield{};
         }
         bool onMoveStage(const s3d::String& link, s3d::int32 startId) override
@@ -188,8 +190,8 @@ namespace abyss::Scene::Stage
             return true;
         }
     private:
-        std::unique_ptr<System> m_system;
-        std::unique_ptr<System> m_systemNext;
+        std::shared_ptr<Sys2::System> m_system;
+        std::shared_ptr<Sys2::System> m_systemNext;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
         std::shared_ptr<Adv::Project> m_advProject;

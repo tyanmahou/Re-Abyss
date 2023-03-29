@@ -120,16 +120,8 @@ namespace abyss::Scene::Stage
 
         // Env初期化
         auto env = pManager->getModule<Environment>();
-        env->init(FieldEnv::EnvDesc{
-            .useSky = true,
-            .useCaustics = true,
-            .useFog = true
-        });
         // 背景色
         env->getBg()->setColor(m_stageData->getAttributeService()->getBgColor());
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init(Sfx::PostEffectsDesc::CreateStage());
 
         return stage->init();
     }

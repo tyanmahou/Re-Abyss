@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/scenes/System/IBooter.hpp>
+#include <abyss/scenes/Sys/IBooter.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/components/Actor/Player/PlayerDesc.hpp>
 
@@ -13,7 +13,7 @@ namespace abyss::Scene::Stage
 
     template<BootKind kind = BootKind::Normal>
     class Booter final :
-        public Sys::IBooter
+        public Sys2::IBooter
     {
     public:
         Booter(Cycle::Main::IMasterObserver* pObserver);

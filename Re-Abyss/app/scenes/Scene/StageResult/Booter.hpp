@@ -9,7 +9,7 @@ namespace abyss::Scene::StageResult
     {
     public:
         Booter(Cycle::StageResult::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::StageResult::IMasterObserver* m_pObserver;
     };

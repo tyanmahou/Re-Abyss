@@ -9,7 +9,7 @@ namespace abyss::Scene::Title
     {
     public:
         Booter(Cycle::Title::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::Title::IMasterObserver* m_pObserver;
     };

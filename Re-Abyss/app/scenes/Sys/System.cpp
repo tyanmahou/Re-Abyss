@@ -12,7 +12,7 @@ namespace abyss::Sys2
         mods->setManager(&m_manager);
     }
 
-    bool System::boot(const IBooter& booter) const
+    bool System::boot(const IBooter& booter)
     {
         return booter.onBoot(&m_manager);
     }

@@ -10,7 +10,7 @@ namespace abyss::Scene::DevPortal
     {
     public:
         Booter(Cycle::DevPortal::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::DevPortal::IMasterObserver* m_pObserver;
     };

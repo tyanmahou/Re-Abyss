@@ -17,7 +17,7 @@ namespace abyss::Scene::Title
     Booter::Booter(Cycle::Title::IMasterObserver* pObserver) :
         m_pObserver(pObserver)
     {}
-    bool Booter::onBoot(const Manager* pManager) const
+    bool Booter::onBoot(Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::Title::Builder>(m_pObserver);

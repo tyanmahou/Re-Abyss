@@ -9,7 +9,7 @@ namespace abyss::Scene::SaveSelect
     {
     public:
         Booter(Cycle::SaveSelect::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::SaveSelect::IMasterObserver* m_pObserver;
     };

@@ -8,6 +8,6 @@ namespace abyss::Sys2
     {
     public:
         virtual ~IBooter() = default;
-        virtual bool onBoot(const Manager* pManager) const = 0;
+        virtual bool onBoot(Manager* pManager) const = 0;
     };
 }

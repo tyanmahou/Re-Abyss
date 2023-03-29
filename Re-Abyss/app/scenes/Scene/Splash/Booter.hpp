@@ -9,7 +9,7 @@ namespace abyss::Scene::Splash
     {
     public:
         Booter(Cycle::Splash::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::Splash::IMasterObserver* m_pObserver;
     };

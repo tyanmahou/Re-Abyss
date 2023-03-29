@@ -12,7 +12,7 @@ namespace abyss::Scene::DevPortal
         m_pObserver(pObserver)
     {}
 
-    bool Booter::onBoot(const Manager* pManager) const
+    bool Booter::onBoot(Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::DevPortal::Builder>(m_pObserver);

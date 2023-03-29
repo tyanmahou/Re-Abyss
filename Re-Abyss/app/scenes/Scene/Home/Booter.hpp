@@ -9,7 +9,7 @@ namespace abyss::Scene::Home
     {
     public:
         Booter(Cycle::Home::IMasterObserver* pObserver);
-        bool onBoot(const Manager* pManager) const override;
+        bool onBoot(Manager* pManager) const override;
     private:
         Cycle::Home::IMasterObserver* m_pObserver;
     };
