@@ -6,10 +6,6 @@ namespace abyss::FieldEnv
 {
     Environment::Environment(const EnvDesc& desc)
     {
-        this->init(desc);
-    }
-    void Environment::init(const EnvDesc& desc)
-    {
         m_bg = std::make_unique<Bg>();
         if (desc.useSky) {
             m_sky = std::make_unique<Sky>();
