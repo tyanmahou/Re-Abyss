@@ -212,4 +212,15 @@ namespace abyss::Factory::System
 
         return injector;
     }
+
+    emaject::Injector StageResult([[maybe_unused]] SequecneData* pData)
+    {
+        emaject::Injector injector;
+
+        injector
+            .install<CommonInstaller>()
+            ;
+
+        return injector;
+    }
 }

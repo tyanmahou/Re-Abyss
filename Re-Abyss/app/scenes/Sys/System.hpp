@@ -24,12 +24,12 @@ namespace abyss::Sys2
 
         void draw() const;
 
-    private:
         template<class Mod>
         inline Mod* mod() const
         {
             return m_mods->get<Mod>();
         }
+    private:
         template<class Mod, class R, class... Args>
         void call(R(Mod::* func)(Args ...), Args...args) const
         {

@@ -13,7 +13,7 @@ namespace abyss::Scene::StageResult
         m_pObserver(pObserver)
     {}
 
-    bool Booter::onBoot(Manager* pManager) const
+    bool Booter::onBoot(const Manager* pManager) const
     {
         // Cycle初期化
         {
@@ -28,9 +28,6 @@ namespace abyss::Scene::StageResult
             pUi->create<UI::StageResult::Builder>();
             pUi->flush();
         }
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
 
         return true;
     }

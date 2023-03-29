@@ -1,5 +1,9 @@
 #include <abyss/scenes/Scene/StageResult/Scene.hpp>
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
+#include <abyss/commons/Resource/Preload/Preloader.hpp>
+#include <abyss/commons/Resource/Preload/Param.hpp>
+
+#include <abyss/scenes/Sys/System.hpp>
 #include <abyss/scenes/Scene/StageResult/Booter.hpp>
 
 #include <abyss/debugs/Debug.hpp>
@@ -9,7 +13,6 @@ namespace abyss::Scene::StageResult
 	class Scene::Impl :
         public Cycle::StageResult::IMasterObserver
 	{
-        using System = Sys::System<Sys::Config::Stage()>;
 	public:
 		Impl(const InitData& init):
 			m_data(init._s)
@@ -39,9 +42,9 @@ namespace abyss::Scene::StageResult
     private:
         void init()
         {
-            m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Booter>(this);
-            m_system->boot(booter.get());
+            m_system = Factory::System::StageResult(m_data.get())
+                .instantiate<Sys2::System>();
+            m_system->boot<Booter>(this);
             // BGM引継ぎ
             if (auto bgm = m_data->share.bgmBridge.pop()) {
                 m_system->mod<Sound>()->setBgm(*bgm);
@@ -49,7 +52,7 @@ namespace abyss::Scene::StageResult
         }
 	private:
 		std::shared_ptr<Data_t> m_data;
-        std::unique_ptr<System> m_system;
+        std::shared_ptr<Sys2::System> m_system;
 	};
 
     Scene::Scene(const InitData& init) :
