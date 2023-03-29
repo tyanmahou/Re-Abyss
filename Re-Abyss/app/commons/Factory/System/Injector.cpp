@@ -139,9 +139,6 @@ namespace
         void onBinding(emaject::Container* c) const override
         {
             c->bind<Project>()
-                .fromFactory([](emaject::Container* c) {
-                return std::make_shared<Project>(c->resolve<Devs::Project::IProjectService>());
-                })
                 .asCached();
         }
     };

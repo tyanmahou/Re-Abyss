@@ -1,6 +1,7 @@
 #pragma once
 #if ABYSS_DEVELOP
 #include <abyss/modules/Devs/Project/base/Issue.hpp>
+#include <Emaject.hpp>
 
 namespace abyss::Devs::Project
 {
@@ -12,8 +13,7 @@ namespace abyss::Devs::Project
     class Project
     {
     public:
-        Project();
-        Project(std::shared_ptr<IProjectService> service);
+        INJECT_CTOR(Project(std::shared_ptr<IProjectService> service));
 
         const s3d::Array<Issue>& issues(TaskStatus status) const;
         bool open(const s3d::URL& url) const;
