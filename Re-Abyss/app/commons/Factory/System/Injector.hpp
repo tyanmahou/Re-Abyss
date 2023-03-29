@@ -10,4 +10,5 @@ namespace abyss::Factory::System
 #endif
     emaject::Injector Splash(SequecneData* pData);
     emaject::Injector Title(SequecneData* pData);
+    emaject::Injector SaveSelect(SequecneData* pData);
 }

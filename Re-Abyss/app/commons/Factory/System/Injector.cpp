@@ -200,4 +200,16 @@ namespace abyss::Factory::System
 
         return injector;
     }
+    emaject::Injector SaveSelect([[maybe_unused]] SequecneData* pData)
+    {
+        emaject::Injector injector;
+
+        injector
+            .install<ModuleInstaller>()
+            .install<CommonInstaller>()
+            .install<EffectsInstaller>()
+            ;
+
+        return injector;
+    }
 }

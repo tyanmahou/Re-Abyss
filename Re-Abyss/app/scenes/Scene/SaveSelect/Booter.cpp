@@ -13,7 +13,7 @@ namespace abyss::Scene::SaveSelect
     Booter::Booter(Cycle::SaveSelect::IMasterObserver* pObserver) :
         m_pObserver(pObserver)
     {}
-    bool Booter::onBoot(Manager* pManager) const
+    bool Booter::onBoot(const Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::SaveSelect::Builder>(m_pObserver);
@@ -22,9 +22,6 @@ namespace abyss::Scene::SaveSelect
         // UI初期化
         pManager->getModule<UIs>()->create<UI::SaveSelect::Main::Builder>();
         pManager->getModule<UIs>()->flush();
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
 
         return true;
     }
