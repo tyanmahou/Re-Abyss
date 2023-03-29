@@ -2,22 +2,14 @@
 
 namespace abyss::Sfx
 {
-    PostEffects::PostEffects():
-        m_pManager(nullptr)
-    {}
     PostEffects::PostEffects(const PostEffectsDesc& desc) :
         m_pManager(nullptr)
-    {
-        this->init(desc);
-    }
-    void PostEffects::init(const PostEffectsDesc& desc)
     {
         if (desc.useDecorFar) {
             m_decorFar = std::make_unique<DecorFar>();
         }
         if (desc.useBloom) {
             m_bloom = std::make_unique<Bloom>();
-            m_bloom->setManager(m_pManager);
         }
         if (desc.useMoisture) {
             m_moisture = std::make_unique<Moisture>();
@@ -35,7 +27,6 @@ namespace abyss::Sfx
             m_scanline = std::make_unique<Scanline>();
         }
     }
-
     void PostEffects::setManager(Manager* pManager)
     {
         m_pManager = pManager;

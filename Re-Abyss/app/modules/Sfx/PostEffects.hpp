@@ -52,9 +52,7 @@ namespace abyss::Sfx
     class PostEffects
     {
     public:
-        PostEffects();
         PostEffects(const PostEffectsDesc& desc);
-        void init(const PostEffectsDesc& desc = PostEffectsDesc::CreateDefault());
         void setManager(Manager* pManager);
         void update(double dt);
 
