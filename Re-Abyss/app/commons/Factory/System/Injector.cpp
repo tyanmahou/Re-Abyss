@@ -5,14 +5,6 @@
 namespace
 {
     using namespace abyss;
-
-    struct ModuleInstaller : emaject::IInstaller
-    {
-        void onBinding(emaject::Container* c) const override
-        {
-            c->bind<Sys2::Modules>().asCached();
-        }
-    };
     struct CommonInstaller : emaject::IInstaller
     {
         CommonInstaller(
@@ -22,6 +14,8 @@ namespace
         {}
         void onBinding(emaject::Container* c) const override
         {
+            c->bind<Sys2::Modules>().asCached();
+
             c->bind<GlobalTime>()
                 .asCached();
 
@@ -161,7 +155,6 @@ namespace abyss::Factory::System
     {
         emaject::Injector injector;
         injector
-            .install<ModuleInstaller>()
             .install<CommonInstaller>()
             .install<ProjectInstaller>()
             ;
@@ -178,7 +171,6 @@ namespace abyss::Factory::System
         emaject::Injector injector;
 
         injector
-            .install<ModuleInstaller>()
             .install<CommonInstaller>()
             ;
 
@@ -189,7 +181,6 @@ namespace abyss::Factory::System
         emaject::Injector injector;
 
         injector
-            .install<ModuleInstaller>()
             .install<CommonInstaller>(Sfx::PostEffectsDesc::CreateTitle())
             .install<CronsInstaller>()
             .install<EffectsInstaller>()
@@ -205,9 +196,18 @@ namespace abyss::Factory::System
         emaject::Injector injector;
 
         injector
-            .install<ModuleInstaller>()
             .install<CommonInstaller>()
             .install<EffectsInstaller>()
+            ;
+
+        return injector;
+    }
+    emaject::Injector Home([[maybe_unused]] SequecneData* pData)
+    {
+        emaject::Injector injector;
+
+        injector
+            .install<CommonInstaller>()
             ;
 
         return injector;

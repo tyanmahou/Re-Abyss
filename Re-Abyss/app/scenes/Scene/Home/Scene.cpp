@@ -1,7 +1,8 @@
 #include <abyss/scenes/Scene/Home/Scene.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Sys/System.hpp>
 #include <abyss/scenes/Scene/Home/Booter.hpp>
 
 #include <Siv3D.hpp>
@@ -11,7 +12,6 @@ namespace abyss::Scene::Home
     class Scene::Impl final :
         public Cycle::Home::IMasterObserver
     {
-        using System = Sys::System<Sys::Config::Home()>;
     public:
         Impl(const InitData& init) :
             m_data(init._s)
@@ -37,9 +37,9 @@ namespace abyss::Scene::Home
 #endif
         void init()
         {
-            m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Booter>(this);
-            m_system->boot(booter.get());
+            m_system = Factory::System::Home(m_data.get())
+                .instantiate<Sys2::System>();
+            m_system->boot<Booter>(this);
         }
 
         void update()
@@ -70,7 +70,7 @@ namespace abyss::Scene::Home
             return true;
         }
     private:
-        std::unique_ptr<System> m_system;
+        std::shared_ptr<Sys2::System> m_system;
         std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init) :

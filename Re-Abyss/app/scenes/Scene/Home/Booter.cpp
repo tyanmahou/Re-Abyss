@@ -11,14 +11,11 @@ namespace abyss::Scene::Home
         m_pObserver(pObserver)
     {}
 
-    bool Booter::onBoot(Manager* pManager) const
+    bool Booter::onBoot(const Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::Home::Builder>(m_pObserver);
         pManager->getModule<CycleMaster>()->init();
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init();
 
         // UI初期化
         pManager->getModule<UIs>()->create<UI::Home::Top::Builder>();
