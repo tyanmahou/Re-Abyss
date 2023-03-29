@@ -35,7 +35,7 @@ namespace
                 .asCached();
 
             c->bind<PostEffects>()
-                .withArgs()
+                .withArgs(m_postEffectDesc)
                 .asCached();
         }
     private:
