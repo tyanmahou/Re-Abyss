@@ -73,9 +73,23 @@ namespace
     };
     struct EnvironmentInstaller : emaject::IInstaller
     {
+        EnvironmentInstaller(const FieldEnv::EnvDesc& desc = {}) :
+            m_desc(desc)
+        {}
         void onBinding(emaject::Container* c) const override
         {
             c->bind<Environment>()
+                .withArgs(m_desc)
+                .asCached();
+        }
+    private:
+        FieldEnv::EnvDesc m_desc;
+    };
+    struct EffectsInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* c) const override
+        {
+            c->bind<Effects>()
                 .asCached();
         }
     };
@@ -93,9 +107,6 @@ namespace
                 .asCached();
 
             c->bind<Decors>()
-                .asCached();
-
-            c->bind<Effects>()
                 .asCached();
 
             c->bind<Light>()
@@ -169,6 +180,22 @@ namespace abyss::Factory::System
         injector
             .install<ModuleInstaller>()
             .install<CommonInstaller>()
+            ;
+
+        return injector;
+    }
+    emaject::Injector Title([[maybe_unused]] SequecneData* pData)
+    {
+        emaject::Injector injector;
+
+        injector
+            .install<ModuleInstaller>()
+            .install<CommonInstaller>(Sfx::PostEffectsDesc::CreateTitle())
+            .install<CronsInstaller>()
+            .install<EffectsInstaller>()
+            .install<EnvironmentInstaller>(FieldEnv::EnvDesc{
+                .useCaustics = true,
+            })
             ;
 
         return injector;

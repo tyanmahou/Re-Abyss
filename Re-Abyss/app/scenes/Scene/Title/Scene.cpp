@@ -1,8 +1,9 @@
 #include <abyss/scenes/Scene/Title/Scene.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 
-#include <abyss/scenes/System/System.hpp>
+#include <abyss/scenes/Sys/System.hpp>
 #include <abyss/scenes/Scene/Title/Booter.hpp>
 
 namespace abyss::Scene::Title
@@ -10,9 +11,6 @@ namespace abyss::Scene::Title
     class Scene::Impl :
         public Cycle::Title::IMasterObserver
     {
-        using System = Sys::System<Sys::Config::Title()>;
-        std::unique_ptr<System> m_system;
-        std::shared_ptr<Data_t> m_data;
     public:
         Impl(const InitData& init):
             m_data(init._s)
@@ -38,9 +36,10 @@ namespace abyss::Scene::Title
 #endif
         void init()
         {
-            m_system = std::make_unique<System>();
-            auto booter = std::make_unique<Booter>(this);
-            m_system->boot(booter.get());
+            m_system = Factory::System::Title(m_data.get())
+                .instantiate<Sys2::System>();
+
+            m_system->boot<Booter>(this);
         }
         void update()
         {
@@ -71,6 +70,9 @@ namespace abyss::Scene::Title
             m_data->result = result;
             return true;
         }
+    private:
+        std::shared_ptr<Sys2::System> m_system;
+        std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init):
         ISceneBase(init),

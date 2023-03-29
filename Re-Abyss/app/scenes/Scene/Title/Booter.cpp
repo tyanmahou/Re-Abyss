@@ -17,7 +17,7 @@ namespace abyss::Scene::Title
     Booter::Booter(Cycle::Title::IMasterObserver* pObserver) :
         m_pObserver(pObserver)
     {}
-    bool Booter::onBoot(Manager* pManager) const
+    bool Booter::onBoot(const Manager* pManager) const
     {
         // Cycle初期化
         pManager->getModule<CycleMaster>()->build<Cycle::Title::Builder>(m_pObserver);
@@ -30,14 +30,6 @@ namespace abyss::Scene::Title
 
         // 泡
         pManager->getModule<Crons>()->create<Cron::BubbleGenerator::BuildOnce>();
-
-        // Env初期化
-        pManager->getModule<Environment>()->init(FieldEnv::EnvDesc{
-            .useCaustics = true,
-        });
-
-        // PostEffects初期化
-        pManager->getModule<PostEffects>()->init(Sfx::PostEffectsDesc::CreateTitle());
 
         return true;
     }

@@ -19,6 +19,7 @@ namespace abyss::FieldEnv
     public:
         Environment() = default;
 
+        Environment(const EnvDesc& desc);
         void init(const EnvDesc& desc = {});
 
         void update(double dt);
