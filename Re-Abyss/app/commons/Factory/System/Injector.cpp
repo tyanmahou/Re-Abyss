@@ -14,7 +14,7 @@ namespace
         {}
         void onBinding(emaject::Container* c) const override
         {
-            c->bind<Sys2::Modules>().asCached();
+            c->bind<Sys::Modules>().asCached();
 
             c->bind<GlobalTime>()
                 .asCached();

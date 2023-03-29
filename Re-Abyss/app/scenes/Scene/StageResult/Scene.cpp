@@ -43,7 +43,7 @@ namespace abyss::Scene::StageResult
         void init()
         {
             m_system = Factory::System::StageResult(m_data.get())
-                .instantiate<Sys2::System>();
+                .instantiate<Sys::System>();
             m_system->boot<Booter>(this);
             // BGM引継ぎ
             if (auto bgm = m_data->share.bgmBridge.pop()) {
@@ -52,7 +52,7 @@ namespace abyss::Scene::StageResult
         }
 	private:
 		std::shared_ptr<Data_t> m_data;
-        std::shared_ptr<Sys2::System> m_system;
+        std::shared_ptr<Sys::System> m_system;
 	};
 
     Scene::Scene(const InitData& init) :

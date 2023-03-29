@@ -6,7 +6,7 @@
 namespace abyss::Scene::DevPortal
 {
     class Booter final :
-        public Sys2::IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::DevPortal::IMasterObserver* pObserver);

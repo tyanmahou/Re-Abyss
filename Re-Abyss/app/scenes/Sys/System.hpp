@@ -5,7 +5,7 @@
 #include <abyss/scenes/Sys/Modules.hpp>
 #include <Emaject.hpp>
 
-namespace abyss::Sys2
+namespace abyss::Sys
 {
     class System
     {

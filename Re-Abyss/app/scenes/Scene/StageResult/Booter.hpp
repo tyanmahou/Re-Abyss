@@ -5,7 +5,7 @@
 namespace abyss::Scene::StageResult
 {
     class Booter final :
-        public Sys2::IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::StageResult::IMasterObserver* pObserver);

@@ -1545,9 +1545,6 @@
     <ClCompile Include="app\scenes\Scene\Title\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\System\System.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -5137,15 +5134,6 @@
     <ClInclude Include="app\services\User\UserService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\System\Config.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\System\IBooter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\System\Modules.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\scenes\Scene\Stage\Booter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5156,12 +5144,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\Title\Booter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\System\ModulePackage.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\System\System.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp">

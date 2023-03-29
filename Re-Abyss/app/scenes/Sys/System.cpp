@@ -4,7 +4,7 @@
 #include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
-namespace abyss::Sys2
+namespace abyss::Sys
 {
     System::System(std::shared_ptr<Modules> mods)
     {

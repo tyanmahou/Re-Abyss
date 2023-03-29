@@ -2,7 +2,7 @@
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss::Sys2
+namespace abyss::Sys
 {
     class IBooter
     {

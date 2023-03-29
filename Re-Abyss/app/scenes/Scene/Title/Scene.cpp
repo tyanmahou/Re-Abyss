@@ -37,7 +37,7 @@ namespace abyss::Scene::Title
         void init()
         {
             m_system = Factory::System::Title(m_data.get())
-                .instantiate<Sys2::System>();
+                .instantiate<Sys::System>();
 
             m_system->boot<Booter>(this);
         }
@@ -71,7 +71,7 @@ namespace abyss::Scene::Title
             return true;
         }
     private:
-        std::shared_ptr<Sys2::System> m_system;
+        std::shared_ptr<Sys::System> m_system;
         std::shared_ptr<Data_t> m_data;
     };
     Scene::Scene(const InitData& init):

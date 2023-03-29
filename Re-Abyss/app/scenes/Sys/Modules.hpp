@@ -2,7 +2,7 @@
 #include <abyss/scenes/Sys/ModulePackage.hpp>
 #include <Emaject.hpp>
 
-namespace abyss::Sys2
+namespace abyss::Sys
 {
     template<class Mod>
     concept Managed = requires(Mod * pMod, Manager * pManager)
@@ -54,9 +54,9 @@ namespace abyss::Sys2
 namespace emaject
 {
     template<>
-    struct InjectTraits<abyss::Sys2::Modules>
+    struct InjectTraits<abyss::Sys::Modules>
     {
-        void onInject(abyss::Sys2::Modules* value, Container* c)
+        void onInject(abyss::Sys::Modules* value, Container* c)
         {
             std::apply([=]<class... T>(T&... m) {
                 ((m = c->resolve<typename T::element_type>()), ...);

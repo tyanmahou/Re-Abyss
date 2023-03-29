@@ -5,7 +5,7 @@
 namespace abyss::Scene::Title
 {
     class Booter final :
-        public Sys2::IBooter
+        public Sys::IBooter
     {
     public:
         Booter(Cycle::Title::IMasterObserver* pObserver);

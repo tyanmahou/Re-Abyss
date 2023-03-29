@@ -27,7 +27,7 @@
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 
-namespace abyss::Sys2
+namespace abyss::Sys
 {
     template<class... T>
     using ModuleSet = std::tuple<std::shared_ptr<T>...>;

@@ -863,7 +863,6 @@
     <ClCompile Include="app\scenes\Scene\Stage\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\SaveSelect\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Splash\Booter.cpp" />
-    <ClCompile Include="app\scenes\System\System.cpp" />
     <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp" />
@@ -2111,14 +2110,9 @@
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
-    <ClInclude Include="app\scenes\System\Config.hpp" />
-    <ClInclude Include="app\scenes\System\IBooter.hpp" />
-    <ClInclude Include="app\scenes\System\Modules.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Booter.hpp" />
-    <ClInclude Include="app\scenes\System\ModulePackage.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\Splash\Booter.hpp" />
-    <ClInclude Include="app\scenes\System\System.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\Booter.hpp" />
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />

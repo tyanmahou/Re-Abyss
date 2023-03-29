@@ -78,7 +78,7 @@ namespace abyss::Scene::Stage
                     ->getDescAsDirect();
             }
             m_system = Factory::System::Stage(m_data.get())
-                .instantiate<Sys2::System>();
+                .instantiate<Sys::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(m_context.stage.mapName());
@@ -121,7 +121,7 @@ namespace abyss::Scene::Stage
         bool onRestart() override
         {
             m_systemNext = Factory::System::Stage(m_data.get())
-                .instantiate<Sys2::System>();
+                .instantiate<Sys::System>();
 
             BooterRestart booter(this);
             booter.setStageData(m_stageData)
@@ -145,7 +145,7 @@ namespace abyss::Scene::Stage
             desc.startId = startId;
 
             m_system = Factory::System::Stage(m_data.get())
-                .instantiate<Sys2::System>();
+                .instantiate<Sys::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
             m_stageData->setMapName(m_context.stage.mapName());
@@ -190,8 +190,8 @@ namespace abyss::Scene::Stage
             return true;
         }
     private:
-        std::shared_ptr<Sys2::System> m_system;
-        std::shared_ptr<Sys2::System> m_systemNext;
+        std::shared_ptr<Sys::System> m_system;
+        std::shared_ptr<Sys::System> m_systemNext;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
         std::shared_ptr<Adv::Project> m_advProject;
