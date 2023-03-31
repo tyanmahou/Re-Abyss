@@ -23,6 +23,11 @@ namespace abyss::Factory::Stage
     emaject::Injector Injector(const s3d::String& mapPath)
     {
         emaject::Injector injector;
+        Install(injector, mapPath);
+        return injector;
+    }
+    void Install(emaject::Injector& injector, const s3d::String& mapPath)
+    {
         injector
             // other
             .install<TiledMapInstaller>(mapPath)
@@ -45,6 +50,5 @@ namespace abyss::Factory::Stage
             .install<RoomServiceInstaller>()
             .install<Decor::DecorServiceInstaller>()
             ;
-        return injector;
     }
 }
