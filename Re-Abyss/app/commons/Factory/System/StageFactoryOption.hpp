@@ -8,6 +8,6 @@ namespace abyss::Factory::System
     {
         s3d::String mapPath;
         std::shared_ptr<StageData> stageData;
-        std::shared_ptr<Adv::Project> advProject;
+        std::shared_ptr<abyss::Adv::Project> advProject;
     };
 }
