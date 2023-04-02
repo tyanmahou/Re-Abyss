@@ -12,6 +12,6 @@ namespace abyss::Factory::System
     emaject::Injector Title(SequecneData* pData);
     emaject::Injector SaveSelect(SequecneData* pData);
     emaject::Injector Home(SequecneData* pData);
-    emaject::Injector Stage(SequecneData* pData);
+    emaject::Injector Stage(SequecneData* pData, const s3d::String& mapPath);
     emaject::Injector StageResult(SequecneData* pData);
 }

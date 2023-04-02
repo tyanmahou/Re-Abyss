@@ -77,7 +77,7 @@ namespace abyss::Scene::Stage
                     ->mod<Actor::Player::PlayerManager>()
                     ->getDescAsDirect();
             }
-            m_system = Factory::System::Stage(m_data.get())
+            m_system = Factory::System::Stage(m_data.get(), m_context.stage.mapPath());
                 .instantiate<Sys::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();

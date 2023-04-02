@@ -1,6 +1,8 @@
 #include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/scenes/Sys/Modules.hpp>
 #include <abyss/commons/Factory/Project/Injector.hpp>
+#include <abyss/commons/Factory/Adv/Injector.hpp>
+#include <abyss/commons/Factory/Stage/Injector.hpp>
 
 namespace
 {
@@ -209,7 +211,7 @@ namespace abyss::Factory::System
 
         return injector;
     }
-    emaject::Injector Stage([[maybe_unused]] SequecneData* pData)
+    emaject::Injector Stage([[maybe_unused]] SequecneData* pData, const s3d::String& mapPath)
     {
         emaject::Injector injector;
 
@@ -226,6 +228,9 @@ namespace abyss::Factory::System
             })
             .install<StageInstaller>()
             ;
+
+        Adv::Install(injector);
+        Stage::Install(injector, mapPath);
 
         return injector;
     }
