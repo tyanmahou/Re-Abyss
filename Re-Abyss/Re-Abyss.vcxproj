@@ -1244,6 +1244,7 @@
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\System\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\System\StageFactoryOption.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
     <ClInclude Include="app\commons\Fwd.hpp" />
     <ClInclude Include="app\commons\Game\Game.hpp" />

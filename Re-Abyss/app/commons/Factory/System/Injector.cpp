@@ -3,6 +3,7 @@
 #include <abyss/commons/Factory/Project/Injector.hpp>
 #include <abyss/commons/Factory/Adv/Injector.hpp>
 #include <abyss/commons/Factory/Stage/Injector.hpp>
+#include <abyss/commons/Factory/System/StageFactoryOption.hpp>
 
 namespace
 {
@@ -211,7 +212,7 @@ namespace abyss::Factory::System
 
         return injector;
     }
-    emaject::Injector Stage([[maybe_unused]] SequecneData* pData, const s3d::String& mapPath)
+    emaject::Injector Stage([[maybe_unused]] SequecneData* pData, const StageFactoryOption& option)
     {
         emaject::Injector injector;
 
@@ -230,7 +231,7 @@ namespace abyss::Factory::System
             ;
 
         Adv::Install(injector);
-        Stage::Install(injector, mapPath);
+        Stage::Install(injector, option.mapPath);
 
         return injector;
     }

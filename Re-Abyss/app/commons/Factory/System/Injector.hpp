@@ -5,6 +5,8 @@
 
 namespace abyss::Factory::System
 {
+    struct StageFactoryOption;
+
 #if ABYSS_DEVELOP
     emaject::Injector DevPortal(SequecneData* pData);
 #endif
@@ -12,6 +14,6 @@ namespace abyss::Factory::System
     emaject::Injector Title(SequecneData* pData);
     emaject::Injector SaveSelect(SequecneData* pData);
     emaject::Injector Home(SequecneData* pData);
-    emaject::Injector Stage(SequecneData* pData, const s3d::String& mapPath);
+    emaject::Injector Stage(SequecneData* pData, const StageFactoryOption& option);
     emaject::Injector StageResult(SequecneData* pData);
 }

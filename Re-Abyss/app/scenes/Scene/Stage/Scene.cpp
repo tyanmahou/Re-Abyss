@@ -8,6 +8,7 @@
 #include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Factory/Adv/Injector.hpp>
+#include <abyss/commons/Factory/System/StageFactoryOption.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
@@ -77,7 +78,7 @@ namespace abyss::Scene::Stage
                     ->mod<Actor::Player::PlayerManager>()
                     ->getDescAsDirect();
             }
-            m_system = Factory::System::Stage(m_data.get(), m_context.stage.mapPath());
+            m_system = Factory::System::Stage(m_data.get(), {})
                 .instantiate<Sys::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
@@ -120,7 +121,7 @@ namespace abyss::Scene::Stage
         /// <returns></returns>
         bool onRestart() override
         {
-            m_systemNext = Factory::System::Stage(m_data.get())
+            m_systemNext = Factory::System::Stage(m_data.get(), {})
                 .instantiate<Sys::System>();
 
             BooterRestart booter(this);
@@ -144,7 +145,7 @@ namespace abyss::Scene::Stage
                 ->getDesc();
             desc.startId = startId;
 
-            m_system = Factory::System::Stage(m_data.get())
+            m_system = Factory::System::Stage(m_data.get(), {})
                 .instantiate<Sys::System>();
             auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
             m_stageData = injector.instantiate<StageData>();
