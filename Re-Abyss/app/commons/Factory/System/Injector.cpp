@@ -4,10 +4,12 @@
 #include <abyss/commons/Factory/Adv/Injector.hpp>
 #include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Factory/System/StageFactoryOption.hpp>
+#include <abyss/modules/Stage/StageData.hpp>
 
 namespace
 {
     using namespace abyss;
+
     struct CommonInstaller : emaject::IInstaller
     {
         CommonInstaller(
@@ -230,8 +232,37 @@ namespace abyss::Factory::System
             .install<StageInstaller>()
             ;
 
-        Adv::Install(injector);
-        Stage::Install(injector, option.mapPath);
+        // Adv Project
+        if (option.advProject) {
+            injector.install([instance = option.advProject](emaject::Container* c) {
+                c->bind<abyss::Adv::Project>()
+                    .fromInstance(instance)
+                    .asCached();
+            });
+        } else {
+            Adv::Install(injector);
+            injector.install([](emaject::Container* c) {
+                c->bind<abyss::Adv::Project>()
+                    .fromNew()
+                    .asCached();
+            });
+        }
+
+        // StageData
+        if (option.stageData) {
+            injector.install([instance = option.stageData](emaject::Container* c) {
+                c->bind<StageData>()
+                    .fromInstance(instance)
+                    .asCached();
+            });
+        } else {
+            Stage::Install(injector, option.mapPath);
+            injector.install([](emaject::Container* c) {
+                c->bind<StageData>()
+                    .fromNew()
+                    .asCached();
+            });
+        }
 
         return injector;
     }
