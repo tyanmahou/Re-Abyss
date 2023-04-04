@@ -14,25 +14,6 @@ namespace abyss
 {
     class StageData
     {
-        s3d::String m_mapName;
-
-        [[INJECT(m_roomService)]]
-        std::shared_ptr<IRoomService> m_roomService;
-
-        [[INJECT(m_enemyService)]]
-        std::shared_ptr<Actor::Enemy::IEnemyService> m_enemyService;
-        [[INJECT(m_gimmickService)]]
-        std::shared_ptr<Actor::Gimmick::IGimmickService> m_gimmickService;
-        [[INJECT(m_itemService)]]
-        std::shared_ptr<Actor::Item::IItemService> m_itemService;
-        [[INJECT(m_landService)]]
-        std::shared_ptr<Actor::Land::ILandService> m_landService;
-
-        [[INJECT(m_decorService)]]
-        std::shared_ptr<Decor::IDecorService> m_decorService;
-
-        [[INJECT(m_attributeService)]]
-        std::shared_ptr<Attribute::IAttributeService> m_attributeService;
     public:
         StageData() = default;
 
@@ -53,5 +34,25 @@ namespace abyss
         Decor::IDecorService* getDecorService() const;
 
         Attribute::IAttributeService* getAttributeService() const;
+    private:
+        s3d::String m_mapName;
+
+        [[INJECT(m_roomService)]]
+        std::shared_ptr<IRoomService> m_roomService;
+
+        [[INJECT(m_enemyService)]]
+        std::shared_ptr<Actor::Enemy::IEnemyService> m_enemyService;
+        [[INJECT(m_gimmickService)]]
+        std::shared_ptr<Actor::Gimmick::IGimmickService> m_gimmickService;
+        [[INJECT(m_itemService)]]
+        std::shared_ptr<Actor::Item::IItemService> m_itemService;
+        [[INJECT(m_landService)]]
+        std::shared_ptr<Actor::Land::ILandService> m_landService;
+
+        [[INJECT(m_decorService)]]
+        std::shared_ptr<Decor::IDecorService> m_decorService;
+
+        [[INJECT(m_attributeService)]]
+        std::shared_ptr<Attribute::IAttributeService> m_attributeService;
     };
 }
