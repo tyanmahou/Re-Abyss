@@ -36,7 +36,7 @@ namespace abyss::tests
         emaject::Injector injector;
         injector.install([](emaject::Container* c) {
             c->bind<IRoomService>().to<Test_RoomService>().asCached();
-            c->bind<StageData>().asCached();
+            c->bind<StageData>().withArgs(StageDef{}).asCached();
         });
         auto stage = injector.instantiate<Stage>();
 

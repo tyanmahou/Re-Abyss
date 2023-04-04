@@ -256,10 +256,10 @@ namespace abyss::Factory::System
                     .asCached();
             });
         } else {
-            Stage::Install(injector, option.mapPath);
-            injector.install([](emaject::Container* c) {
+            Stage::Install(injector, option.stageDef.mapPath());
+            injector.install([stageDef = option.stageDef](emaject::Container* c) {
                 c->bind<StageData>()
-                    .fromNew()
+                    .withArgs(stageDef)
                     .asCached();
             });
         }

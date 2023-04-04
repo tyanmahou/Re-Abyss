@@ -17,7 +17,8 @@ namespace abyss
     const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& StageData::getGimmicks() const
     {
         if (!m_gimmickService) {
-            return {};
+            static s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>> empty;
+            return empty;
         }
         return m_gimmickService->getGimmicks();
 

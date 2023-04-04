@@ -73,8 +73,7 @@ namespace abyss::Scene::Stage
         std::shared_ptr<StageData> createStageDate(const StageDef& stage)
         {
             auto injector = Factory::Stage::Injector(stage.mapPath());
-            auto ret = injector.instantiate<StageData>();
-            ret->setMapName(stage.mapName());
+            auto ret = injector.instantiate<StageData>(stage);
             return ret;
         }
         std::shared_ptr<Adv::Project> createAdvProject()

@@ -8,6 +8,7 @@
 #include <abyss/services/Room/base/IRoomService.hpp>
 #include <abyss/services/Decor/base/IDecorService.hpp>
 #include <abyss/services/Attribute/base/IAttributeService.hpp>
+#include <abyss/values/StageDef.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
@@ -15,15 +16,13 @@ namespace abyss
     class StageData
     {
     public:
-        StageData() = default;
+        StageData(const StageDef& stage):
+            m_stage(stage)
+        {}
 
-        const s3d::String& getMapName() const
+        s3d::String getMapName() const
         {
-            return m_mapName;
-        }
-        void setMapName(s3d::String&& mapName)
-        {
-            m_mapName = std::move(mapName);
+            return m_stage.mapName();
         }
         const s3d::Array<RoomEntity>& getRooms() const;
         const s3d::Array<std::shared_ptr<Actor::Land::LandEntity>>& getLands() const;
@@ -35,7 +34,7 @@ namespace abyss
 
         Attribute::IAttributeService* getAttributeService() const;
     private:
-        s3d::String m_mapName;
+        StageDef m_stage;
 
         [[INJECT(m_roomService)]]
         std::shared_ptr<IRoomService> m_roomService;
