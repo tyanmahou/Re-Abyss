@@ -36,31 +36,31 @@ namespace abyss::tests
         emaject::Injector injector;
         injector.install([](emaject::Container* c) {
             c->bind<IRoomService>().to<Test_RoomService>().asCached();
+            c->bind<StageData>().asCached();
         });
-        Stage stage;
-        stage.setStageData(injector.instantiate<StageData>());
+        auto stage = injector.instantiate<Stage>();
 
         SECTION("find border min: pos (0, 0)")
         {
-            auto room = stage.findRoom({ 0, 0 });
+            auto room = stage->findRoom({ 0, 0 });
             REQUIRE(room.has_value());
             REQUIRE(room->getRegion() == Test_RoomService::Room1);
         }
         SECTION("find border max: pos (100, 100)")
         {
-            auto room = stage.findRoom({ 100, 100 });
+            auto room = stage->findRoom({ 100, 100 });
             REQUIRE(room.has_value());
             REQUIRE(room->getRegion() == Test_RoomService::Room2);
         }
         SECTION("find: pos (150, 150)")
         {
-            auto room = stage.findRoom({ 150, 150 });
+            auto room = stage->findRoom({ 150, 150 });
             REQUIRE(room.has_value());
             REQUIRE(room->getRegion() == Test_RoomService::Room2);
         }
         SECTION("not find: pos (-50, -50)")
         {
-            auto room = stage.findRoom({ -50, -50 });
+            auto room = stage->findRoom({ -50, -50 });
             // 見つからない
             REQUIRE(!room.has_value());
         }
