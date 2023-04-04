@@ -54,6 +54,10 @@ namespace abyss
 #endif
         return { Path::MapPath + link + U".tmx" };
     }
+    bool StageDef::isValid() const
+    {
+        return !m_mapPath.isEmpty();
+    }
     StageDef::StageDef(const s3d::FilePath& mapPath):
         m_mapPath(mapPath)
     {
