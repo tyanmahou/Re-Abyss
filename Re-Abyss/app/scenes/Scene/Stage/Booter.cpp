@@ -41,10 +41,6 @@ namespace abyss::Scene::Stage
 
         // Stage初期化
         auto* stage = pManager->getModule<abyss::Stage>();
-        {
-            stage->setStageData(m_stageData);
-            stage->load();
-        }
 
         // Temporary初期化
         auto* temporary = pManager->getModule<Temporary>();
@@ -53,14 +49,6 @@ namespace abyss::Scene::Stage
             if constexpr (kind == BootKind::Restart) {
                 // リスタートでリセットのフラグをリセット
                 temporary->clearFlag(TempLevel::Restart);
-            }
-        }
-
-        // Adventures初期化
-        {
-            auto* advs = pManager->getModule<Adventures>();
-            if (m_advProject) {
-                advs->setProject(m_advProject);
             }
         }
 

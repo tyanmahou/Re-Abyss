@@ -70,6 +70,17 @@ namespace abyss::Scene::Stage
             this->init();
         }
 #endif
+        std::shared_ptr<StageData> createStageDate(const StageDef& stage)
+        {
+            auto injector = Factory::Stage::Injector(stage.mapPath());
+            auto ret = injector.instantiate<StageData>();
+            ret->setMapName(stage.mapName());
+            return ret;
+        }
+        std::shared_ptr<Adv::Project> createAdvProject()
+        {
+            return Factory::Adv::Injector().instantiate<Adv::Project>();
+        }
         void init(bool isLockPlayer = false)
         {
             Actor::Player::PlayerDesc desc{};
@@ -78,20 +89,17 @@ namespace abyss::Scene::Stage
                     ->mod<Actor::Player::PlayerManager>()
                     ->getDescAsDirect();
             }
-            m_system = Factory::System::Stage(m_data.get(), {})
+            m_stageData = this->createStageDate(m_context.stage);
+            m_advProject = createAdvProject();
+            m_system = Factory::System::Stage(m_data.get(), {
+                    .stageData = m_stageData,
+                    .advProject = m_advProject
+                })
                 .instantiate<Sys::System>();
-            auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
-            m_stageData = injector.instantiate<StageData>();
-            m_stageData->setMapName(m_context.stage.mapName());
 
-            if (!m_advProject) {
-                m_advProject = Factory::Adv::Injector().instantiate<Adv::Project>();
-            }
             BooterNormal booter(this);
             booter.setPlayerDesc(desc)
-                .setStageData(m_stageData)
                 .setTempData(m_tempData)
-                .setAdvProject(m_advProject)
                 ;
             m_system->boot(booter);
         }
@@ -121,14 +129,14 @@ namespace abyss::Scene::Stage
         /// <returns></returns>
         bool onRestart() override
         {
-            m_systemNext = Factory::System::Stage(m_data.get(), {})
+            m_systemNext = Factory::System::Stage(m_data.get(), {
+                    .stageData = m_stageData,
+                    .advProject = m_advProject
+                })
                 .instantiate<Sys::System>();
 
             BooterRestart booter(this);
-            booter.setStageData(m_stageData)
-                .setTempData(m_tempData)
-                .setAdvProject(m_advProject)
-                ;
+            booter.setTempData(m_tempData);
             m_systemNext->boot(booter);
             return true;
         }
@@ -145,17 +153,16 @@ namespace abyss::Scene::Stage
                 ->getDesc();
             desc.startId = startId;
 
-            m_system = Factory::System::Stage(m_data.get(), {})
+            m_stageData = this->createStageDate(m_context.stage);
+            m_system = Factory::System::Stage(m_data.get(), {
+                    .stageData = m_stageData,
+                    .advProject = m_advProject
+                })
                 .instantiate<Sys::System>();
-            auto injector = Factory::Stage::Injector(m_context.stage.mapPath());
-            m_stageData = injector.instantiate<StageData>();
-            m_stageData->setMapName(m_context.stage.mapName());
 
             BooterNormal booter(this);
             booter.setPlayerDesc(desc)
-                .setStageData(m_stageData)
                 .setTempData(m_tempData)
-                .setAdvProject(m_advProject)
                 ;
 
             m_system->boot(booter);
@@ -215,8 +222,7 @@ namespace abyss::Scene::Stage
             })
             .setSuperCallback([this] {
                 m_pImpl->superReload();
-            })
-                ;
+            });
 #endif
     }
     Scene::~Scene()

@@ -5,6 +5,7 @@
 #include <abyss/modules/Adv/Project/Project.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <Emaject.hpp>
 
 namespace abyss::Adv
 {
@@ -24,12 +25,6 @@ namespace abyss::Adv
         Adventures& setManager(Manager* pManager)
         {
             m_pManager = pManager;
-            return *this;
-        }
-
-        Adventures& setProject(std::shared_ptr<Project> project)
-        {
-            m_project = project;
             return *this;
         }
 
@@ -87,6 +82,13 @@ namespace abyss::Adv
                 return nullptr;
             }
             return m_talks.front()->find<Type>();
+        }
+    private:
+        [[INJECT(setProject)]]
+        Adventures& setProject(std::shared_ptr<Project> project)
+        {
+            m_project = project;
+            return *this;
         }
     private:
         std::queue<std::shared_ptr<AdvObj>> m_talks;

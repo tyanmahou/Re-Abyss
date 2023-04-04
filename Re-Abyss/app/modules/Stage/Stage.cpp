@@ -348,19 +348,12 @@ namespace abyss
     {
         return m_startPos.find(startId);
     }
-    void Stage::load()
+    void Stage::setStageData(std::shared_ptr<StageData> stageData)
     {
+        m_stageData = stageData;
         if (!m_stageData) {
             return;
         }
         m_startPos = GetStartPosList(m_stageData->getGimmicks());
-    }
-    void Stage::setStageData(std::shared_ptr<StageData> stageData)
-    {
-        m_stageData = stageData;
-    }
-    std::shared_ptr<StageData> Stage::lockStageData() const
-    {
-        return m_stageData;
     }
 }
