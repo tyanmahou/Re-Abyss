@@ -150,9 +150,13 @@ namespace abyss
         {
             auto* env = m_pManager->getModule<Environment>();
 
+            // Bg
+            const auto bgColor = m_stageData->getAttributeService()->getBgColor();
+            env->getBg()->setColor(bgColor);
+
             // Fog
             if (auto fog = env->getFog()) {
-                fog->setFogColor(m_stageData->getAttributeService()->getBgColor())
+                fog->setFogColor(bgColor)
                     .setFogFactor(2.0);
             }
         }

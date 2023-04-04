@@ -106,11 +106,6 @@ namespace abyss::Scene::Stage
             cron->create<Cron::FishGenerator::BuildOnce>();
         }
 
-        // Env初期化
-        auto env = pManager->getModule<Environment>();
-        // 背景色
-        env->getBg()->setColor(m_stageData->getAttributeService()->getBgColor());
-
         return stage->init();
     }
 
