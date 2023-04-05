@@ -344,7 +344,7 @@ namespace abyss
 
         return true;
     }
-    const s3d::String& Stage::mapName() const
+    s3d::String Stage::mapName() const
     {
         return m_stageData->getMapName();
     }

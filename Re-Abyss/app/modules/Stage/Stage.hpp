@@ -28,7 +28,7 @@ namespace abyss
 		bool checkOut() const;
 		bool checkIn() const;
 
-        const s3d::String& mapName() const;
+        s3d::String mapName() const;
 
 		s3d::Optional<StartPos> findStartPos(const s3d::int32 startId) const;
 		s3d::Optional<Room::RoomData> findRoom(const s3d::Vec2& pos) const;
