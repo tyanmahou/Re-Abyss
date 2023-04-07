@@ -27,6 +27,8 @@ namespace abyss
         StageDef link(const s3d::String& link) const;
 
         bool isValid() const;
+
+        auto operator<=>(const StageDef& other) const = default;
     private:
         StageDef(const s3d::FilePath& mapPath);
     private:

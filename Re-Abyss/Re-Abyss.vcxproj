@@ -1040,6 +1040,7 @@
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp" />
     <ClCompile Include="tests\tests\values\FpsCatch.cpp" />
+    <ClCompile Include="tests\tests\values\StageDefCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\engine\texture\box-shadow\128.png" />
