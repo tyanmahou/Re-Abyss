@@ -107,7 +107,7 @@ namespace abyss::Scene::Stage
         {
             m_system->update();
             if (m_systemNext) {
-                m_system = std::move(m_systemNext);
+                m_system = m_systemNext();
                 m_systemNext = nullptr;
             }
 #if ABYSS_DEBUG
@@ -128,15 +128,18 @@ namespace abyss::Scene::Stage
         /// <returns></returns>
         bool onRestart() override
         {
-            m_systemNext = Factory::System::Stage(m_data.get(), {
-                    .stageData = m_stageData,
-                    .advProject = m_advProject
-                })
-                .instantiate<Sys::System>();
+            m_systemNext = [&]() {
+                auto next = Factory::System::Stage(m_data.get(), {
+                                    .stageData = m_stageData,
+                                    .advProject = m_advProject
+                                })
+                    .instantiate<Sys::System>();
 
-            BooterRestart booter(this);
-            booter.setTempData(m_tempData);
-            m_systemNext->boot(booter);
+                BooterRestart booter(this);
+                booter.setTempData(m_tempData);
+                next->boot(booter);
+                return next;
+            };
             return true;
         }
         Coro::Generator<double> loadingOnMove(const s3d::String& link, s3d::int32 startId)
@@ -198,7 +201,7 @@ namespace abyss::Scene::Stage
         }
     private:
         std::shared_ptr<Sys::System> m_system;
-        std::shared_ptr<Sys::System> m_systemNext;
+        std::function<std::shared_ptr<Sys::System>()> m_systemNext;
         std::shared_ptr<StageData> m_stageData;
         std::shared_ptr<TemporaryData> m_tempData;
         std::shared_ptr<Adv::Project> m_advProject;
