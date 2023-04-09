@@ -80,6 +80,14 @@ namespace abyss::Scene::Stage
         {
             return Factory::Adv::Injector().instantiate<Adv::Project>();
         }
+        std::shared_ptr<Sys::System> createSystem()
+        {
+            return Factory::System::Stage(m_data.get(), {
+                    .stageData = m_stageData,
+                    .advProject = m_advProject
+                })
+                .instantiate<Sys::System>();
+        }
         void init(bool isLockPlayer = false)
         {
             Actor::Player::PlayerDesc desc{};
@@ -89,12 +97,8 @@ namespace abyss::Scene::Stage
                     ->getDescAsDirect();
             }
             m_stageData = this->createStageDate(m_context.stage);
-            m_advProject = createAdvProject();
-            m_system = Factory::System::Stage(m_data.get(), {
-                    .stageData = m_stageData,
-                    .advProject = m_advProject
-                })
-                .instantiate<Sys::System>();
+            m_advProject = this->createAdvProject();
+            m_system = this->createSystem();
 
             BooterNormal booter(this);
             booter.setPlayerDesc(desc)
@@ -129,12 +133,7 @@ namespace abyss::Scene::Stage
         bool onRestart() override
         {
             m_systemNext = [&]() {
-                auto next = Factory::System::Stage(m_data.get(), {
-                                    .stageData = m_stageData,
-                                    .advProject = m_advProject
-                                })
-                    .instantiate<Sys::System>();
-
+                auto next = this->createSystem();
                 BooterRestart booter(this);
                 booter.setTempData(m_tempData);
                 next->boot(booter);
@@ -156,11 +155,7 @@ namespace abyss::Scene::Stage
             desc.startId = startId;
 
             m_stageData = this->createStageDate(m_context.stage);
-            m_system = Factory::System::Stage(m_data.get(), {
-                    .stageData = m_stageData,
-                    .advProject = m_advProject
-                })
-                .instantiate<Sys::System>();
+            m_system = this->createSystem();
 
             BooterNormal booter(this);
             booter.setPlayerDesc(desc)
