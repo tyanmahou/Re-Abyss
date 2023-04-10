@@ -2,6 +2,9 @@
 
 namespace abyss::Adv
 {
+    Adventures::Adventures(const std::shared_ptr<Project>& project):
+        m_project(project)
+    {}
     bool Adventures::update()
     {
         do {

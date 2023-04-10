@@ -21,6 +21,7 @@ namespace abyss::Adv
     class Adventures
     {
     public:
+        INJECT_CTOR(Adventures(const std::shared_ptr<Project>& project));
 
         Adventures& setManager(Manager* pManager)
         {
@@ -82,13 +83,6 @@ namespace abyss::Adv
                 return nullptr;
             }
             return m_talks.front()->find<Type>();
-        }
-    private:
-        [[INJECT(setProject)]]
-        Adventures& setProject(std::shared_ptr<Project> project)
-        {
-            m_project = project;
-            return *this;
         }
     private:
         std::queue<std::shared_ptr<AdvObj>> m_talks;
