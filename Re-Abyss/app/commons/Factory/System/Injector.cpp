@@ -5,6 +5,7 @@
 #include <abyss/commons/Factory/Stage/Injector.hpp>
 #include <abyss/commons/Factory/System/StageFactoryOption.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
+#include <abyss/modules/Temporary/TemporaryData.hpp>
 
 namespace
 {
@@ -263,7 +264,14 @@ namespace abyss::Factory::System
                     .asCached();
             });
         }
-
+        // TempData
+        {
+            injector.install([instance = option.tempData](emaject::Container* c) {
+                c->bind<TemporaryData>()
+                    .fromInstance(instance)
+                    .asCached();
+            });
+        }
         return injector;
     }
     emaject::Injector StageResult([[maybe_unused]] SequecneData* pData)

@@ -3,6 +3,7 @@
 #include <Siv3D/Optional.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempKey.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempLevel.hpp>
+#include <Emaject.hpp>
 
 namespace abyss
 {
@@ -15,7 +16,7 @@ namespace abyss
     class Temporary
     {
     public:
-        Temporary();
+        INJECT_CTOR(Temporary(const std::shared_ptr<TemporaryData>& tempData));
 
         bool saveFlag(const TempKey& key, TempLevel level = TempLevel::Restart) const;
         bool saveFlagRoom(const TempKey& key) const
@@ -56,8 +57,6 @@ namespace abyss
         const s3d::Optional<RestartInfo>& getRestartInfo() const;
         s3d::Optional<s3d::int32> getRestartId()const;
         s3d::Optional<s3d::String> getRestartBgm()const;
-
-        void setTemporaryData(const std::shared_ptr<TemporaryData>& tempData);
     private:
         std::shared_ptr<TemporaryData> m_tempData;
     };

@@ -45,7 +45,6 @@ namespace abyss::Scene::Stage
         // Temporary初期化
         auto* temporary = pManager->getModule<Temporary>();
         {
-            temporary->setTemporaryData(m_tempData);
             if constexpr (kind == BootKind::Restart) {
                 // リスタートでリセットのフラグをリセット
                 temporary->clearFlag(TempLevel::Restart);

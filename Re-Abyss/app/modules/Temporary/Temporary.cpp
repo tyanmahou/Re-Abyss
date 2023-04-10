@@ -3,8 +3,8 @@
 
 namespace abyss
 {
-    Temporary::Temporary():
-        m_tempData(std::make_shared<TemporaryData>())
+    Temporary::Temporary(const std::shared_ptr<TemporaryData>& tempData):
+        m_tempData(tempData)
     {}
     bool Temporary::saveFlag(const TempKey& key, TempLevel level) const
     {
@@ -63,11 +63,6 @@ namespace abyss
             return info->getBgm();
         }
         return s3d::none;
-    }
-
-    void Temporary::setTemporaryData(const std::shared_ptr<TemporaryData>& tempData)
-    {
-        m_tempData = tempData;
     }
 
 }

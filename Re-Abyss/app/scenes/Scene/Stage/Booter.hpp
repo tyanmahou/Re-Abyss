@@ -30,18 +30,11 @@ namespace abyss::Scene::Stage
             m_initEvent = event;
             return *this;
         }
-        Booter& setTempData(std::shared_ptr<TemporaryData> tempData)
-        {
-            m_tempData = tempData;
-            return *this;
-        }
-
     private:
         Cycle::Main::IMasterObserver* m_pObserver;
 
         Actor::Player::PlayerDesc m_playerDesc;
         std::shared_ptr<Event::EventObj> m_initEvent;
-        std::shared_ptr<TemporaryData> m_tempData;
     };
 
     using BooterNormal = Booter<BootKind::Normal>;

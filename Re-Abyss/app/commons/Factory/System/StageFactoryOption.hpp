@@ -10,5 +10,6 @@ namespace abyss::Factory::System
         StageDef stageDef;
         std::shared_ptr<StageData> stageData;
         std::shared_ptr<abyss::Adv::Project> advProject;
+        std::shared_ptr<TemporaryData> tempData;
     };
 }

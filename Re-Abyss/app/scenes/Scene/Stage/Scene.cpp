@@ -84,7 +84,8 @@ namespace abyss::Scene::Stage
         {
             return Factory::System::Stage(m_data.get(), {
                     .stageData = m_stageData,
-                    .advProject = m_advProject
+                    .advProject = m_advProject,
+                    .tempData = m_tempData
                 })
                 .instantiate<Sys::System>();
         }
@@ -101,9 +102,7 @@ namespace abyss::Scene::Stage
             m_system = this->createSystem();
 
             BooterNormal booter(this);
-            booter.setPlayerDesc(desc)
-                .setTempData(m_tempData)
-                ;
+            booter.setPlayerDesc(desc);
             m_system->boot(booter);
         }
 
@@ -135,7 +134,6 @@ namespace abyss::Scene::Stage
             m_systemNext = [&]() {
                 auto next = this->createSystem();
                 BooterRestart booter(this);
-                booter.setTempData(m_tempData);
                 next->boot(booter);
                 return next;
             };
@@ -158,9 +156,7 @@ namespace abyss::Scene::Stage
             m_system = this->createSystem();
 
             BooterNormal booter(this);
-            booter.setPlayerDesc(desc)
-                .setTempData(m_tempData)
-                ;
+            booter.setPlayerDesc(desc);
 
             m_system->boot(booter);
             co_yield{};
