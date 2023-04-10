@@ -85,8 +85,14 @@ namespace
 }
 namespace abyss
 {
-    Stage::Stage()
-    {}
+    Stage::Stage(const std::shared_ptr<StageData>& stageData):
+        m_stageData(stageData)
+    {
+        if (!m_stageData) {
+            return;
+        }
+        m_startPos = GetStartPosList(m_stageData->getGimmicks());
+    }
 
     Stage::~Stage()
     {}
@@ -351,13 +357,5 @@ namespace abyss
     s3d::Optional<StartPos> Stage::findStartPos(const s3d::int32 startId)const
     {
         return m_startPos.find(startId);
-    }
-    void Stage::setStageData(std::shared_ptr<StageData> stageData)
-    {
-        m_stageData = stageData;
-        if (!m_stageData) {
-            return;
-        }
-        m_startPos = GetStartPosList(m_stageData->getGimmicks());
     }
 }

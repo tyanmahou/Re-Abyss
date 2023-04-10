@@ -18,7 +18,7 @@ namespace abyss
 			All = CheckIn | CheckOut,
 		};
 	public:
-		Stage();
+        INJECT_CTOR(Stage(const std::shared_ptr<StageData>& stageData));
 		~Stage();
 
 		void setManager(Manager* pManager);
@@ -34,9 +34,6 @@ namespace abyss
 		s3d::Optional<Room::RoomData> findRoom(const s3d::Vec2& pos) const;
 
     private:
-        [[INJECT(setStageData)]]
-        void setStageData(std::shared_ptr<StageData> stageData);
-
         bool initDecor(Decors& decor, const Room::RoomData& nextRoom) const;
         bool initActor(Actors& actors, const Room::RoomData& nextRoom, BuildTiming buildTiming) const;
 
