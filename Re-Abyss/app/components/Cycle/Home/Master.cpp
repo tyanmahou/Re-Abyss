@@ -6,10 +6,10 @@ namespace abyss::Cycle::Home
         m_observer(observer)
     {}
 
-    bool Master::stageStart(const s3d::String & mapPath)
+    bool Master::stageStart(const StageDef& stage)
     {
         if (this->notify(Notify::StageStart)) {
-            m_notifyEvent = std::bind(&IMasterObserver::onStageStart, m_observer, mapPath);
+            m_notifyEvent = std::bind(&IMasterObserver::onStageStart, m_observer, stage);
             return true;
         }
         return false;

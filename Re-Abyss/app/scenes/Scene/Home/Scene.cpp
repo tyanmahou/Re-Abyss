@@ -51,10 +51,10 @@ namespace abyss::Scene::Home
             m_system->draw();
         }
     public:
-        bool onStageStart(const s3d::String& mapPath) override
+        bool onStageStart(const StageDef& stage) override
         {
             return onSceneEnd({
-                .mapPath = mapPath
+                .stage = stage
             });
         }
         bool onBack()

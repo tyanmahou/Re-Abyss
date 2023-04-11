@@ -1,11 +1,12 @@
 #pragma once
 #include <Siv3D/String.hpp>
+#include <abyss/values/StageDef.hpp>
 
 namespace abyss::Scene::Home
 {
     struct SceneResult
     {
-        s3d::String mapPath;
+        StageDef stage;
         bool isBack = false;
     };
 }

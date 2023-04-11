@@ -1,6 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Cycle/base/IListener.hpp>
+#include <abyss/values/StageDef.hpp>
 #include <Siv3D/Fwd.hpp>
 
 namespace abyss::Cycle::Home
@@ -13,7 +14,7 @@ namespace abyss::Cycle::Home
     public:
         virtual ~IMasterObserver() = default;
 
-        virtual bool onStageStart(const s3d::String& mapPath) = 0;
+        virtual bool onStageStart(const StageDef& stage) = 0;
         virtual bool onBack() = 0;
     };
 
@@ -37,7 +38,7 @@ namespace abyss::Cycle::Home
         /// ステージ開始
         /// </summary>
         /// <returns></returns>
-        bool stageStart(const s3d::String& mapPath);
+        bool stageStart(const StageDef& stage);
 
         /// <summary>
         /// 戻る
