@@ -22,7 +22,9 @@ namespace abyss
             if (result.isBack) {
                 co_return;
             } else {
-                m_pManager->pushSequence<StageSequence>(m_pManager);
+                m_pManager->pushSequence<StageSequence>(m_pManager, StageSeqContext{
+                    .stage = result.stage
+                });
                 co_yield{};
             }
         }
