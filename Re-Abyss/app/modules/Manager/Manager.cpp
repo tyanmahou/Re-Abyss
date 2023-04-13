@@ -127,6 +127,12 @@ namespace abyss
         return *this;
     }
 
+    Manager& Manager::set(Storage* pStorage)
+    {
+        m_pStorage = pStorage;
+        return *this;
+    }
+
 #if ABYSS_DEBUG
     Manager& Manager::set(WorldComment* pWorldComment)
     {
@@ -194,6 +200,8 @@ namespace abyss
             return m_pPostEffects;
         } else if constexpr (std::is_same_v<PauseManager, T>) {
             return m_pPause;
+        } else if constexpr (std::is_same_v<Storage, T>) {
+            return m_pStorage;
         }
 #if ABYSS_DEBUG
         else if constexpr (std::is_same_v<WorldComment, T>) {
@@ -230,6 +238,7 @@ namespace abyss
     template SpecialEffects* Manager::getModule<SpecialEffects>() const;
     template PostEffects* Manager::getModule<PostEffects>() const;
     template PauseManager* Manager::getModule<PauseManager>() const;
+    template Storage* Manager::getModule<Storage>() const;
 #if ABYSS_DEBUG
     template WorldComment* Manager::getModule<WorldComment>() const;
 #endif

@@ -1,4 +1,5 @@
 #include <abyss/scenes/SequenceManager.hpp>
+#include <abyss/commons/Factory/Storage/Injector.hpp>
 
 #include <abyss/scenes/Scene/Boot/Scene.hpp>
 #include <abyss/scenes/Scene/Demo/Scene.hpp>
@@ -10,7 +11,6 @@
 #include <abyss/scenes/Scene/Home/Scene.hpp>
 #include <abyss/scenes/Scene/Stage/Scene.hpp>
 #include <abyss/scenes/Scene/StageResult/Scene.hpp>
-
 #include <abyss/scenes/Sequence/Root/RootSequence.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/debugs/Debug.hpp>
@@ -39,6 +39,7 @@ namespace abyss
         });
 #endif
         data()->isRequestedSceneEnd = true;
+        data()->dataStore = Factory::Storage::Injector().instantiate<User::DataStore>();
     }
     bool SequenceManager::update()
     {

@@ -195,8 +195,10 @@ namespace abyss
 	/// </summary>
 	namespace User
 	{
+        class Storage;
 		class UserModel;
 	}
+    using User::Storage;
 
 	/// <summary>
 	/// Components

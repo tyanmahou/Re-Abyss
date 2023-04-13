@@ -5,6 +5,7 @@
 #include <abyss/scenes/Data/ShareData.hpp>
 #include <abyss/scenes/Loading/Loader.hpp>
 #include <abyss/scenes/Fade/Fader.hpp>
+#include <abyss/modules/User/DataStore.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 
@@ -25,5 +26,7 @@ namespace abyss
 
         Loading::Loader loader;
         Fade::Fader feader;
+
+        std::shared_ptr<User::DataStore> dataStore;
     };
 }

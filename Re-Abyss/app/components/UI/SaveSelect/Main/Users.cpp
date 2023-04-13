@@ -1,15 +1,12 @@
 #include <abyss/components/UI/SaveSelect/Main/Users.hpp>
-#include <abyss/commons/Resource/UserData/Storage/Storage.hpp>
-#include <abyss/commons/Resource/SaveUtil.hpp>
-#include <abyss/services/User/base/IUserService.hpp>
+#include <abyss/modules/UI/base/UIObj.hpp>
+#include <abyss/modules/User/Storage.hpp>
 
 namespace abyss::UI::SaveSelect::Main
 {
-    using Resource::UserData::Storage;
-
     Users::Users(UIObj* pUi):
         m_pUi(pUi),
-        m_users(Storage::Get<User::IUserService>()->getUsers())
+        m_users(pUi->getModule<Storage>()->getUsers())
     {}
 
     bool Users::isContains(s3d::int32 userId) const
@@ -25,16 +22,16 @@ namespace abyss::UI::SaveSelect::Main
     }
     void Users::login(s3d::int32 userId)
     {
-        m_users[userId] = Resource::SaveUtil::Login(m_users[userId]);
+        m_users[userId] = m_pUi->getModule<Storage>()->login(m_users[userId]);
     }
     void Users::create(s3d::int32 userId, UserPlayMode playMode)
     {
-        m_users[userId] = Resource::SaveUtil::CreateUser(userId, playMode);
+        m_users[userId] = m_pUi->getModule<Storage>()->createUser(userId, playMode);
     }
 
     void Users::erase(s3d::int32 userId)
     {
-        Resource::SaveUtil::EraseUser(userId);
+        m_pUi->getModule<Storage>()->eraseUser(userId);
         m_users.erase(userId);
     }
 }

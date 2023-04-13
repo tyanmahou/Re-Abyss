@@ -14,8 +14,10 @@ namespace
     struct CommonInstaller : emaject::IInstaller
     {
         CommonInstaller(
+            SequecneData* pData,
             const Sfx::PostEffectsDesc& postEffectDesc = Sfx::PostEffectsDesc::CreateDefault()
         ) :
+            m_pData(pData),
             m_postEffectDesc(postEffectDesc)
         {}
         void onBinding(emaject::Container* c) const override
@@ -43,8 +45,14 @@ namespace
             c->bind<PostEffects>()
                 .withArgs(m_postEffectDesc)
                 .asCached();
+
+            // ストレージ
+            c->bind<Storage>()
+                .withArgs(m_pData->dataStore)
+                .asCached();
         }
     private:
+        SequecneData* m_pData;
         Sfx::PostEffectsDesc m_postEffectDesc;
     };
     struct AdvInstaller : emaject::IInstaller
@@ -154,11 +162,11 @@ namespace abyss::Factory::System
 {
 
 #if ABYSS_DEVELOP
-    emaject::Injector DevPortal([[maybe_unused]]SequecneData* pData)
+    emaject::Injector DevPortal(SequecneData* pData)
     {
         emaject::Injector injector;
         injector
-            .install<CommonInstaller>()
+            .install<CommonInstaller>(pData)
             .install<ProjectInstaller>()
             ;
 
@@ -169,22 +177,22 @@ namespace abyss::Factory::System
     }
 #endif
 
-    emaject::Injector Splash([[maybe_unused]]SequecneData* pData)
+    emaject::Injector Splash(SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>()
+            .install<CommonInstaller>(pData)
             ;
 
         return injector;
     }
-    emaject::Injector Title([[maybe_unused]] SequecneData* pData)
+    emaject::Injector Title(SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>(Sfx::PostEffectsDesc::CreateTitle())
+            .install<CommonInstaller>(pData, Sfx::PostEffectsDesc::CreateTitle())
             .install<CronsInstaller>()
             .install<EffectsInstaller>()
             .install<EnvironmentInstaller>(FieldEnv::EnvDesc{
@@ -194,33 +202,33 @@ namespace abyss::Factory::System
 
         return injector;
     }
-    emaject::Injector SaveSelect([[maybe_unused]] SequecneData* pData)
+    emaject::Injector SaveSelect(SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>()
+            .install<CommonInstaller>(pData)
             .install<EffectsInstaller>()
             ;
 
         return injector;
     }
-    emaject::Injector Home([[maybe_unused]] SequecneData* pData)
+    emaject::Injector Home(SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>()
+            .install<CommonInstaller>(pData)
             ;
 
         return injector;
     }
-    emaject::Injector Stage([[maybe_unused]] SequecneData* pData, const StageFactoryOption& option)
+    emaject::Injector Stage(SequecneData* pData, const StageFactoryOption& option)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>(Sfx::PostEffectsDesc::CreateStage())
+            .install<CommonInstaller>(pData, Sfx::PostEffectsDesc::CreateStage())
             .install<AdvInstaller>()
             .install<CronsInstaller>()
             .install<EffectsInstaller>()
@@ -274,12 +282,12 @@ namespace abyss::Factory::System
         }
         return injector;
     }
-    emaject::Injector StageResult([[maybe_unused]] SequecneData* pData)
+    emaject::Injector StageResult(SequecneData* pData)
     {
         emaject::Injector injector;
 
         injector
-            .install<CommonInstaller>()
+            .install<CommonInstaller>(pData)
             ;
 
         return injector;

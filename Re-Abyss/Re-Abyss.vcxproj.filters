@@ -180,9 +180,6 @@
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\commons\Resource\UserData\Storage\Storage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2510,6 +2507,9 @@
     <ClCompile Include="tests\tests\values\StageDefCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\User\Storage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -3177,9 +3177,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\commons\Resource\UserData\Storage\Storage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp">
@@ -6534,6 +6531,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Factory\System\StageFactoryOption.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\User\RuntimeData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\User\UserData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\User\DataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\User\Storage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,6 +26,7 @@
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/User/Storage.hpp>
 
 namespace abyss::Sys
 {
@@ -62,6 +63,7 @@ namespace abyss::Sys
         Sound,
         Stage,
         Temporary,
-        UIs
+        UIs,
+        Storage
     > ;
 }
