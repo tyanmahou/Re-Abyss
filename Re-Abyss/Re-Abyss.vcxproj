@@ -1380,6 +1380,7 @@
     <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
     <ClInclude Include="app\models\Adv\Chara.hpp" />
     <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
+    <ClInclude Include="app\modules\Fade\FadeProxy.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
     <ClInclude Include="app\modules\User\RuntimeData.hpp" />
     <ClInclude Include="app\modules\User\Storage.hpp" />

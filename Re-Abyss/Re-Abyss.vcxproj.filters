@@ -6545,6 +6545,9 @@
     <ClInclude Include="app\modules\User\Storage.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\modules\Fade\FadeProxy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
