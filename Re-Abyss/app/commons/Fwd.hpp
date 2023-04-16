@@ -160,6 +160,13 @@ namespace abyss
     }
     using Pause::PauseManager;
 
+    namespace Fade
+    {
+        class Fader;
+        class SceneFader;
+    }
+    using Fade::Fader;
+
 	/// <summary>
 	/// Entities
 	/// </summary>

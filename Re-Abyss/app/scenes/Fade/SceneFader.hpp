@@ -2,9 +2,9 @@
 
 namespace abyss::Fade
 {
-    class Fader
+    class SceneFader
     {
     public:
-        Fader() = default;
+        SceneFader() = default;
     };
 }
