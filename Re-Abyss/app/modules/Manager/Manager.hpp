@@ -34,6 +34,7 @@ namespace abyss
         PostEffects* m_pPostEffects = nullptr;
         PauseManager* m_pPause = nullptr;
         Storage* m_pStorage = nullptr;
+        Fader* m_pFader = nullptr;
 #if ABYSS_DEBUG
         WorldComment* m_pWorldComment = nullptr;
 #endif
@@ -90,6 +91,7 @@ namespace abyss
         Manager& set(PauseManager* pPause);
 
         Manager& set(Storage* pStorage);
+        Manager& set(Fader* pFader);
 #if ABYSS_DEBUG
         Manager& set(WorldComment* pWorldComment);
 #endif
