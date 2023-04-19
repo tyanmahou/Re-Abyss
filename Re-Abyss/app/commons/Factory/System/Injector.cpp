@@ -50,6 +50,10 @@ namespace
             c->bind<Storage>()
                 .withArgs(m_pData->dataStore)
                 .asCached();
+
+            c->bind<Fader>()
+                .withArgs(&m_pData->feader)
+                .asCached();
         }
     private:
         SequecneData* m_pData;
