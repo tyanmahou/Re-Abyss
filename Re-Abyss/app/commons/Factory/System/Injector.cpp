@@ -52,7 +52,7 @@ namespace
                 .asCached();
 
             c->bind<Fader>()
-                .withArgs(&m_pData->feader)
+                .withArgs(&m_pData->fader)
                 .asCached();
         }
     private:

@@ -372,6 +372,7 @@
     <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\modules\User\Storage.cpp" />
+    <ClCompile Include="app\scenes\Fade\SceneFader.cpp" />
     <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
     <ClCompile Include="app\scenes\Loading\Loader.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />

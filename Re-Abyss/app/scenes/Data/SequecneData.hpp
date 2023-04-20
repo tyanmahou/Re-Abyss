@@ -25,7 +25,7 @@ namespace abyss
         SharedData share{};
 
         Loading::Loader loader;
-        Fade::SceneFader feader;
+        Fade::SceneFader fader;
 
         std::shared_ptr<User::DataStore> dataStore;
     };

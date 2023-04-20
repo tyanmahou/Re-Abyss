@@ -14,6 +14,23 @@ namespace abyss
         {
             this->getData().isRequestedSceneEnd = true;
         }
+
+        Fade::SceneFader& fader()
+        {
+            return this->getData().fader;
+        }
+        const Fade::SceneFader& fader() const
+        {
+            return this->getData().fader;
+        }
+        Loading::Loader& loader()
+        {
+            return this->getData().loader;
+        }
+        const Loading::Loader& loader() const
+        {
+            return this->getData().loader;
+        }
     public:
         using SceneManager::Scene::Scene;
 
