@@ -15,21 +15,15 @@ namespace abyss
             this->getData().isRequestedSceneEnd = true;
         }
 
-        Fade::SceneFader& fader()
+        template<class Self>
+        decltype(auto) fader(this Self&& self)
         {
-            return this->getData().fader;
+            return std::forward_like<Self>(self.getData().fader);
         }
-        const Fade::SceneFader& fader() const
+        template<class Self>
+        decltype(auto) loader(this Self&& self)
         {
-            return this->getData().fader;
-        }
-        Loading::Loader& loader()
-        {
-            return this->getData().loader;
-        }
-        const Loading::Loader& loader() const
-        {
-            return this->getData().loader;
+            return std::forward_like<Self>(self.getData().loader);
         }
     public:
         using SceneManager::Scene::Scene;
