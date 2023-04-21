@@ -38,7 +38,7 @@ namespace abyss::Fade
             return;
         }
         if (m_fade) {
-            m_fade->onFade(m_isFadeIn ? m_timer.rate() : m_timer.invRate());
+            m_fade->onFade(Scene::Rect(), m_isFadeIn ? m_timer.rate() : m_timer.invRate());
         }
     }
 }

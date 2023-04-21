@@ -8,7 +8,7 @@ namespace abyss::Fade
     {
     public:
         virtual ~ISceneFade() = default;
-        virtual void onFade(double t) const= 0;
+        virtual void onFade(const s3d::RectF& rect, double t) const= 0;
     };
 
     /// <summary>
