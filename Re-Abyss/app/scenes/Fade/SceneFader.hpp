@@ -1,16 +1,10 @@
 #pragma once
 #include <memory>
+#include <abyss/scenes/Fade/ISceneFade.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Fade
 {
-    class ISceneFade
-    {
-    public:
-        virtual ~ISceneFade() = default;
-        virtual void onFade(const s3d::RectF& rect, double t) const= 0;
-    };
-
     /// <summary>
     /// シーンフェード
     /// </summary>

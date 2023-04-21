@@ -372,7 +372,9 @@
     <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\modules\User\Storage.cpp" />
+    <ClCompile Include="app\scenes\Fade\IrisOut\IrisOutFade.cpp" />
     <ClCompile Include="app\scenes\Fade\SceneFader.cpp" />
+    <ClCompile Include="app\scenes\Fade\Screen\ScreenFade.cpp" />
     <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
     <ClCompile Include="app\scenes\Loading\Loader.cpp" />
     <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
@@ -965,6 +967,9 @@
     <ClCompile Include="app\views\Effect\Actor\Common\KiranVM.cpp" />
     <ClCompile Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.cpp" />
     <ClCompile Include="app\views\Effect\Misc\Fish\FishVM.cpp" />
+    <ClCompile Include="app\views\Fade\FadeViewBase.cpp" />
+    <ClCompile Include="app\views\Fade\IrisOutFadeView.cpp" />
+    <ClCompile Include="app\views\Fade\ScreenFadeView.cpp" />
     <ClCompile Include="app\views\FieldEnv\Caustics\CausticsView.cpp" />
     <ClCompile Include="app\views\FieldEnv\Sky\SkyView.cpp" />
     <ClCompile Include="app\views\Light\LightUtil.cpp" />
@@ -1388,6 +1393,9 @@
     <ClInclude Include="app\modules\User\Storage.hpp" />
     <ClInclude Include="app\modules\User\UserData.hpp" />
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
+    <ClInclude Include="app\scenes\Fade\IrisOut\IrisOutFade.hpp" />
+    <ClInclude Include="app\scenes\Fade\ISceneFade.hpp" />
+    <ClInclude Include="app\scenes\Fade\Screen\ScreenFade.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
     <ClInclude Include="app\scenes\Sys\ModulePackage.hpp" />
@@ -2315,6 +2323,8 @@
     <ClInclude Include="app\views\Effect\Actor\Common\KiranVM.hpp" />
     <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
+    <ClInclude Include="app\views\Fade\IrisOutFadeView.hpp" />
+    <ClInclude Include="app\views\Fade\ScreenFadeView.hpp" />
     <ClInclude Include="app\views\FieldEnv\Caustics\CausticsView.hpp" />
     <ClInclude Include="app\views\FieldEnv\Sky\SkyView.hpp" />
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
@@ -2374,6 +2384,7 @@
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
+    <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
