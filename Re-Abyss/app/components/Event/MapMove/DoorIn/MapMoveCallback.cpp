@@ -1,5 +1,6 @@
 #include <abyss/components/Event/MapMove/DoorIn/MapMoveCallback.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
 #include <Siv3D.hpp>
@@ -21,9 +22,10 @@ namespace abyss::Event::MapMove::DoorIn
     void MapMoveCallback::onMoveStart()
     {
         auto* env = m_pEvent->getModule<Environment>();
+        auto* camera = m_pEvent->getModule<Camera>();
 
         m_pEvent->getModule<Fader>()
-            ->fadeOutIrisOut(m_origin)
+            ->fadeOutIrisOut(camera->transform(m_origin))
             ->setColor(env->getThemeColorOrDefault());
     }
     void MapMoveCallback::onMoveUpdate(double t)

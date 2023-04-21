@@ -2,7 +2,7 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
 #include <Siv3D.hpp>
 
@@ -26,10 +26,10 @@ namespace abyss::Event::RoomMove::DoorMove
     void RoomMoveCallback::onMoveStart()
     {
         auto* env = m_pEvent->getModule<Environment>();
-
-        m_pEvent->getModule<Fader>()
-            ->fadeOutIrisOut(m_playerMove.first, 0.5)
-            ->setColor(env->getThemeColorOrDefault());
+        auto* camera = m_pEvent->getModule<Camera>();
+        m_fade = m_pEvent->getModule<Fader>()
+            ->fadeOutIrisOut(camera->transform(m_playerMove.first));
+        m_fade->setColor(env->getThemeColorOrDefault());
     }
 
     void RoomMoveCallback::onMoveUpdate(double t)
@@ -41,9 +41,10 @@ namespace abyss::Event::RoomMove::DoorMove
                 m_state = State::FadeIn;
 
                 auto* env = m_pEvent->getModule<Environment>();
-                m_pEvent->getModule<Fader>()
-                    ->fadeInIrisOut(m_playerMove.second, 0.5)
-                    ->setColor(env->getThemeColorOrDefault());
+                auto* camera = m_pEvent->getModule<Camera>();
+                m_fade = m_pEvent->getModule<Fader>()
+                    ->fadeInIrisOut(camera->transform(m_playerMove.second));
+                m_fade->setColor(env->getThemeColorOrDefault());
 
                 // ドア移動の場合はライトを即切り替え
                 if(auto&& next = m_pEvent->getModule<RoomManager>()->nextRoom()) {
@@ -53,6 +54,13 @@ namespace abyss::Event::RoomMove::DoorMove
                     this->m_fadeInCallback();
                 }
             }
+        }
+
+        if (m_fade) {
+            bool isFadeOut = m_state == State::FadeOut;
+            auto pos = isFadeOut ? m_playerMove.first : m_playerMove.second;
+            auto* camera = m_pEvent->getModule<Camera>();
+            m_fade->setPos(camera->transform(pos));
         }
     }
 

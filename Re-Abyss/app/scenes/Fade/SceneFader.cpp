@@ -34,7 +34,7 @@ namespace abyss::Fade
     }
     void SceneFader::draw() const
     {
-        if (!this->isFading()) {
+        if (!(this->isFading() || !m_isFadeIn)) {
             return;
         }
         if (m_fade) {
