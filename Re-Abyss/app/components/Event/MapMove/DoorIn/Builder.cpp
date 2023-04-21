@@ -1,5 +1,4 @@
 #include <abyss/components/Event/MapMove/DoorIn/Builder.hpp>
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Event/MapMove/MapMoveCtrl.hpp>
 #include <abyss/components/Event/MapMove/DoorIn/MapMoveCallback.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
@@ -37,10 +36,6 @@ namespace abyss::Event::MapMove::DoorIn
             };
             pEvent
                 ->attach<MapMoveCtrl>(pEvent, std::move(callback), linkData, milliSec);
-        }
-        // フェード
-        {
-            pEvent->attach<FadeIrisOut>(pEvent);
         }
     }
 }

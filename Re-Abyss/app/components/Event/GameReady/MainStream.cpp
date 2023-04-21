@@ -4,9 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
-
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
-
+#include <abyss/modules/Fade/Fader.hpp>
 
 #include <Siv3D.hpp>
 
@@ -17,29 +15,22 @@ namespace abyss::Event::GameReady
     {}
     void MainStream::setup(Executer executer)
     {
-        executer.onStart().addAfter<FadeIrisOut>();
     }
     void MainStream::onStart()
     {
-        m_pEvent->find<FadeIrisOut>()->setIsFadeIn(true);
     }
     Coro::Fiber<> MainStream::onExecute()
     {
         // フェード
         {
-            auto fade = m_pEvent->find<FadeIrisOut>();
+            auto* playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
+            auto* env = m_pEvent->getModule<Environment>();
 
-            auto globalTime = m_pEvent->getModule<GlobalTime>();
-            auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
-            auto env = m_pEvent->getModule<Environment>();
-
-            s3d::Timer timer(1s, s3d::StartImmediately::Yes, globalTime);
-
-            while (!timer.reachedZero()) {
-                fade->setPos(playerManager->getPos())
-                    .setFadeTime(timer.progress0_1())
-                    .setColor(env->getThemeColorOrDefault())
-                    ;
+            auto* fader = m_pEvent->getModule<Fader>();
+            auto fade = fader->fadeInIrisOut(playerManager->getPos());
+            fade->setColor(env->getThemeColorOrDefault());
+            while (fader->isFading()) {
+                fade->setPos(playerManager->getPos());
                 co_yield{};
             }
         }

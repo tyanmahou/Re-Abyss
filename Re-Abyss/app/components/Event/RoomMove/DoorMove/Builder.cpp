@@ -42,11 +42,6 @@ namespace abyss::Event::RoomMove::DoorMove
             pEvent
                 ->attach<RoomMoveCtrl>(pEvent, std::move(callback), nextRoom, milliSec);
         }
-    
-        // フェード
-        {
-            pEvent->attach<FadeIrisOut>(pEvent);
-        }
     }
 
 }

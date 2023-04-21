@@ -999,9 +999,6 @@
     <ClCompile Include="app\modules\Event\base\StreamHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1084,12 +1081,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\DyingEffect\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeCtrl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\UI\Message\Builder.cpp">
@@ -1797,9 +1788,6 @@
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\UI\Message\CursorVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1846,9 +1834,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\Title\Logo\LogoVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\util\Fade\Fade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp">
@@ -1989,15 +1974,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\GamePause\BackGround\BackGroundVM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Fade\Screen\Builder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Pause\PauseManager.cpp">
@@ -4238,9 +4214,6 @@
     <ClInclude Include="app\modules\Event\base\StreamHandler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -4347,12 +4320,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\DyingEffect\Main.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\Message\Builder.hpp">
@@ -5623,9 +5590,6 @@
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\views\UI\Message\CursorVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5672,9 +5636,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\util\Fade\Fade.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp">
@@ -5843,15 +5804,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp">

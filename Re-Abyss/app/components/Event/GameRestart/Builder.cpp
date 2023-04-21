@@ -2,7 +2,6 @@
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/components/Event/Common/GlobalTimeCtrl.hpp>
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Event/GameRestart/MainStream.hpp>
 
 namespace abyss::Event::GameRestart
@@ -15,10 +14,6 @@ namespace abyss::Event::GameRestart
         // メイン
         {
             pEvent->attach<MainStream>(pEvent);
-        }
-        // フェード制御
-        {
-            pEvent->attach<FadeIrisOut>(pEvent, false);
         }
         // グローバルタイムスケール制御
         {

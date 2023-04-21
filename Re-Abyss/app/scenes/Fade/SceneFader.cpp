@@ -23,7 +23,7 @@ namespace abyss::Fade
     }
     bool SceneFader::isFading() const
     {
-        return m_timer.isRunning();
+        return !m_timer.isEnd();
     }
     void SceneFader::update(double dt)
     {
@@ -38,7 +38,7 @@ namespace abyss::Fade
             return;
         }
         if (m_fade) {
-            m_fade->onFade(Scene::Rect(), m_isFadeIn ? m_timer.rate() : m_timer.invRate());
+            m_fade->onFade(Scene::Rect(), m_isFadeIn ? m_timer.invRate() : m_timer.rate());
         }
     }
 }

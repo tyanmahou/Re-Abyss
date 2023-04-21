@@ -1,7 +1,6 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/components/Event/RoomMove/IRoomMoveCallback.hpp>
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove
 {
@@ -36,7 +35,6 @@ namespace abyss::Event::RoomMove::DoorMove
         s3d::Vec2 m_origin;
         std::function<void()> m_fadeInCallback;
 
-        Ref<FadeIrisOut> m_fade;
         State m_state = State::FadeOut;
 
         double fadeIn0_1()const

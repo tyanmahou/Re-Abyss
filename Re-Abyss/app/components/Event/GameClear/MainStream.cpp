@@ -6,8 +6,9 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
 
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 
@@ -20,7 +21,6 @@ namespace abyss::Event::GameClear
     {}
     void MainStream::setup(Executer executer)
     {
-        executer.onStart().addAfter<FadeIrisOut>();
     }
     void MainStream::onStart()
     {
@@ -38,16 +38,13 @@ namespace abyss::Event::GameClear
 
         // フェード
         {
-            auto fade = m_pEvent->find<FadeIrisOut>();
-            fade->create();
-            auto playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
-
-            Timer timer(1s, StartImmediately::Yes);
-
-            while (!timer.reachedZero()) {
-                fade->setPos(playerManager->getPos())
-                    .setFadeTime(timer.progress0_1())
-                    ;
+            auto* env = m_pEvent->getModule<Environment>();
+            auto* playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
+            auto* fader = m_pEvent->getModule<Fader>();
+            auto fade = fader->fadeOutIrisOut(playerManager->getPos());
+            fade->setColor(env->getThemeColorOrDefault());
+            while (fader->isFading()) {
+                fade->setPos(playerManager->getPos());
                 co_yield{};
             }
         }

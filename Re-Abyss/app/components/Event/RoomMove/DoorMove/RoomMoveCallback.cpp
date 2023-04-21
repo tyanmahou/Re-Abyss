@@ -2,6 +2,8 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove
@@ -23,7 +25,11 @@ namespace abyss::Event::RoomMove::DoorMove
 
     void RoomMoveCallback::onMoveStart()
     {
-        m_fade = m_pEvent->find<FadeIrisOut>();
+        auto* env = m_pEvent->getModule<Environment>();
+
+        m_pEvent->getModule<Fader>()
+            ->fadeOutIrisOut(m_playerMove.first, 0.5)
+            ->setColor(env->getThemeColorOrDefault());
     }
 
     void RoomMoveCallback::onMoveUpdate(double t)
@@ -34,6 +40,11 @@ namespace abyss::Event::RoomMove::DoorMove
             if (t >= 0.5) {
                 m_state = State::FadeIn;
 
+                auto* env = m_pEvent->getModule<Environment>();
+                m_pEvent->getModule<Fader>()
+                    ->fadeInIrisOut(m_playerMove.second, 0.5)
+                    ->setColor(env->getThemeColorOrDefault());
+
                 // ドア移動の場合はライトを即切り替え
                 if(auto&& next = m_pEvent->getModule<RoomManager>()->nextRoom()) {
                     m_pEvent->getModule<Light>()->initColor(next->getLightColor());
@@ -42,16 +53,6 @@ namespace abyss::Event::RoomMove::DoorMove
                     this->m_fadeInCallback();
                 }
             }
-        }
-
-        bool isFadeOut = m_state == State::FadeOut;
-
-        if (m_fade) {
-            auto pos = isFadeOut ? m_playerMove.first : m_playerMove.second;
-            m_fade->setPos(pos)
-                .setFadeTime(isFadeOut ? this->fadeOut0_1() : this->fadeIn0_1())
-                .setIsFadeIn(!isFadeOut)
-                ;
         }
     }
 

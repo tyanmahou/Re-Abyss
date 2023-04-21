@@ -18,7 +18,7 @@ namespace abyss::Fade
         void fadeIn(double timeSec);
         void fadeOut(double timeSec);
 
-        bool isFading() const;
+        [[nodiscard]] bool isFading() const;
 
         void update(double dt);
         void draw() const;

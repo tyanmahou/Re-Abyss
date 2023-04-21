@@ -7,10 +7,9 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/components/UI/GamePause/Main.hpp>
-#include <abyss/components/UI/Fade/Screen/Builder.hpp>
-#include <abyss/components/UI/Fade/Screen/FadeCtrl.hpp>
 #include <abyss/components/UI/utils/DialogUtil.hpp>
 
 namespace abyss::Event::GamePause
@@ -51,16 +50,10 @@ namespace abyss::Event::GamePause
 
             // フェード
             {
-                auto fade = m_pEvent->getModule<UIs>()
-                    ->create<UI::Fade::Screen::Builder>()
-                    ->find <UI::Fade::Screen::FadeCtrl>();
-                Timer timer(1s, StartImmediately::Yes);
-
-                while (!timer.reachedZero()) {
-                    fade->setIsFadeOut(true)
-                        .setFadeTime(timer.progress0_1())
-                        .setColor(s3d::ColorF(0, 1))
-                        ;
+                auto* fader = m_pEvent->getModule<Fader>();
+                fader->fadeOutScreen(1.0)
+                    ->setColor(s3d::ColorF(0, 1));
+                while (fader->isFading()) {
                     co_yield{};
                 }
             }

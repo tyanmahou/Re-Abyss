@@ -343,8 +343,6 @@
     <ClCompile Include="app\components\UI\DevPortal\Builder.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\Main.cpp" />
     <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp" />
-    <ClCompile Include="app\components\UI\Fade\Screen\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Fade\Screen\FadeCtrl.cpp" />
     <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
     <ClCompile Include="app\datastores\Devs\Project\GitHubDataStore.cpp" />
     <ClCompile Include="app\datastores\Msg\CSVMessageDataStore.cpp" />
@@ -656,7 +654,6 @@
     <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.cpp" />
     <ClCompile Include="app\modules\Event\base\StreamHandler.cpp" />
-    <ClCompile Include="app\components\Event\Common\FadeIrisOut.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp" />
     <ClCompile Include="app\components\Event\GameClear\Builder.cpp" />
@@ -685,8 +682,6 @@
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Main.cpp" />
-    <ClCompile Include="app\components\UI\Fade\IrisOut\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Fade\IrisOut\FadeCtrl.cpp" />
     <ClCompile Include="app\components\UI\Message\Builder.cpp" />
     <ClCompile Include="app\components\UI\Message\Main.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp" />
@@ -995,8 +990,6 @@
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp" />
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
-    <ClCompile Include="app\views\UI\Fade\IrisOut\IrisOutVM.cpp" />
-    <ClCompile Include="app\views\UI\Fade\Screen\ScreenVM.cpp" />
     <ClCompile Include="app\views\UI\GamePause\BackGround\BackGroundVM.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIconVM.cpp" />
     <ClCompile Include="app\views\UI\Home\Top\ModeIcon\CollectThumb.cpp" />
@@ -1025,7 +1018,6 @@
     <ClCompile Include="app\views\UI\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\UI\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\util\Anim\AnimUtil.cpp" />
-    <ClCompile Include="app\views\util\Fade\Fade.cpp" />
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\Collision\TagCatch.cpp" />
@@ -1368,8 +1360,6 @@
     <ClInclude Include="app\components\UI\DevPortal\Builder.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\Main.hpp" />
     <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp" />
-    <ClInclude Include="app\components\UI\Fade\Screen\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Fade\Screen\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Main.hpp" />
     <ClInclude Include="app\components\UI\GamePause\Result.hpp" />
     <ClInclude Include="app\datastores\Devs\Project\base\IProjectDataStore.hpp" />
@@ -1791,7 +1781,6 @@
     <ClInclude Include="app\modules\Event\base\IStream.hpp" />
     <ClInclude Include="app\modules\Event\base\IUpdate.hpp" />
     <ClInclude Include="app\modules\Event\base\StreamHandler.hpp" />
-    <ClInclude Include="app\components\Event\Common\FadeIrisOut.hpp" />
     <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp" />
     <ClInclude Include="app\components\Event\Common\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
@@ -1828,8 +1817,6 @@
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Builder.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Main.hpp" />
-    <ClInclude Include="app\components\UI\Fade\IrisOut\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Fade\IrisOut\FadeCtrl.hpp" />
     <ClInclude Include="app\components\UI\Message\Builder.hpp" />
     <ClInclude Include="app\components\UI\Message\Main.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
@@ -2350,8 +2337,6 @@
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
-    <ClInclude Include="app\views\UI\Fade\IrisOut\IrisOutVM.hpp" />
-    <ClInclude Include="app\views\UI\Fade\Screen\ScreenVM.hpp" />
     <ClInclude Include="app\views\UI\GamePause\BackGround\BackGroundVM.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ColorDef.hpp" />
     <ClInclude Include="app\views\UI\Home\Top\ModeIconVM.hpp" />
@@ -2382,7 +2367,6 @@
     <ClInclude Include="app\views\UI\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp" />
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
-    <ClInclude Include="app\views\util\Fade\Fade.hpp" />
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
     <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />

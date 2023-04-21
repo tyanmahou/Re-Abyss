@@ -1,6 +1,5 @@
 #pragma once
 #include <abyss/components/Event/MapMove/MapMoveCtrl.hpp>
-#include <abyss/components/Event/Common/FadeIrisOut.hpp>
 
 namespace abyss::Event::MapMove::DoorIn
 {
@@ -28,6 +27,5 @@ namespace abyss::Event::MapMove::DoorIn
         s3d::Vec2 m_origin;
 
         double m_elapsed = 0.0;
-        Ref<FadeIrisOut> m_fade;
     };
 }

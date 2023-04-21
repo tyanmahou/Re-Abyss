@@ -14,6 +14,7 @@ namespace abyss::Fade
         {
             m_pos = pos;
         }
+        void setColor(const s3d::Color& color) const;
     public:
         void onFade(const s3d::RectF& rect, double t) const override;
     private:
