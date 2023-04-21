@@ -4,8 +4,8 @@ namespace abyss
 {
     void ISceneBase::update()
     {
-        this->fader().update();
-        if (this->loader().update()) {
+        fader().update();
+        if (loader().update()) {
             // ローディング
             return;
         }
@@ -16,14 +16,14 @@ namespace abyss
     }
     void ISceneBase::draw() const
     {
-        bool isLoading = this->loader().isLoading();
+        bool isLoading = loader().isLoading();
         if (!isLoading) {
             this->onSceneDraw();
         }
-        this->fader().draw();
+        fader().draw();
 
         if (isLoading) {
-            this->loader().draw();
+            loader().draw();
             return;
         }
     }
