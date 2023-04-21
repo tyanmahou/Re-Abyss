@@ -4,7 +4,7 @@ namespace abyss
 {
     void ISceneBase::update()
     {
-        fader().update();
+        fader().update(s3d::Scene::DeltaTime());
         if (loader().update()) {
             // ローディング
             return;
