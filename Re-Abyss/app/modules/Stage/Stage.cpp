@@ -24,6 +24,7 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
 
 #include <abyss/entities/Room/RoomEntity.hpp>
@@ -164,6 +165,12 @@ namespace abyss
             if (auto fog = env->getFog()) {
                 fog->setFogColor(bgColor)
                     .setFogFactor(2.0);
+            }
+
+            // Fader
+            {
+                auto* fader = m_pManager->getModule<Fader>();
+                fader->setDefaultColor(m_stageData->getAttributeService()->getBgColor());
             }
         }
         // サウンド初期化

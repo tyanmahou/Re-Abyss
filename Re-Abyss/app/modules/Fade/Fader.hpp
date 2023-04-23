@@ -24,7 +24,13 @@ namespace abyss::Fade
         void fadeIn(double timeSec = 1.0) const;
 
         [[nodiscard]] bool isFading() const;
+
+        void setDefaultColor(const s3d::Optional<s3d::Color>& color)
+        {
+            m_defaultColor = color;
+        }
     private:
         SceneFader* m_fader;
+        s3d::Optional<s3d::Color> m_defaultColor;
     };
 }

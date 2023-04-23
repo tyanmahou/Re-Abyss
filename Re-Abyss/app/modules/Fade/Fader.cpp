@@ -11,6 +11,9 @@ namespace abyss::Fade
     {
         auto fade = std::make_shared<ScreenFade>();
         m_fader->set(fade).fadeOut(timeSec);
+        if (m_defaultColor) {
+            fade->setColor(*m_defaultColor);
+        }
         return fade;
     }
 
@@ -19,6 +22,9 @@ namespace abyss::Fade
         auto fade = std::make_shared<IrisOutFade>();
         fade->setPos(pos);
         m_fader->set(fade).fadeIn(timeSec);
+        if (m_defaultColor) {
+            fade->setColor(*m_defaultColor);
+        }
         return fade;
     }
 
@@ -27,6 +33,9 @@ namespace abyss::Fade
         auto fade = std::make_shared<IrisOutFade>();
         fade->setPos(pos);
         m_fader->set(fade).fadeOut(timeSec);
+        if (m_defaultColor) {
+            fade->setColor(*m_defaultColor);
+        }
         return fade;
     }
 

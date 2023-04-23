@@ -6,7 +6,6 @@
 #include <abyss/modules/Cron/Crons.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
-#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 
 #include <abyss/modules/Stage/Stage.hpp>
@@ -104,7 +103,6 @@ namespace abyss::Scene::Stage
             // 魚
             cron->create<Cron::FishGenerator::BuildOnce>();
         }
-
         return stage->init();
     }
 
