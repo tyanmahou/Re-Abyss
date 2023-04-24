@@ -3,7 +3,6 @@
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove
@@ -25,11 +24,9 @@ namespace abyss::Event::RoomMove::DoorMove
 
     void RoomMoveCallback::onMoveStart()
     {
-        auto* env = m_pEvent->getModule<Environment>();
         auto* camera = m_pEvent->getModule<Camera>();
         m_fade = m_pEvent->getModule<Fader>()
             ->fadeOutIrisOut(camera->transform(m_playerMove.first));
-        m_fade->setColor(env->getThemeColorOrDefault());
     }
 
     void RoomMoveCallback::onMoveUpdate(double t)
@@ -40,11 +37,9 @@ namespace abyss::Event::RoomMove::DoorMove
             if (t >= 0.5) {
                 m_state = State::FadeIn;
 
-                auto* env = m_pEvent->getModule<Environment>();
                 auto* camera = m_pEvent->getModule<Camera>();
                 m_fade = m_pEvent->getModule<Fader>()
                     ->fadeInIrisOut(camera->transform(m_playerMove.second));
-                m_fade->setColor(env->getThemeColorOrDefault());
 
                 // ドア移動の場合はライトを即切り替え
                 if(auto&& next = m_pEvent->getModule<RoomManager>()->nextRoom()) {

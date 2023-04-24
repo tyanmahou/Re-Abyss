@@ -7,7 +7,6 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
@@ -39,12 +38,10 @@ namespace abyss::Event::GameClear
 
         // フェード
         {
-            auto* env = m_pEvent->getModule<Environment>();
             auto* playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
             auto* fader = m_pEvent->getModule<Fader>();
             auto* camera = m_pEvent->getModule<Camera>();
             auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()));
-            fade->setColor(env->getThemeColorOrDefault());
             while (fader->isFading()) {
                 fade->setPos(camera->transform(playerManager->getPos()));
                 co_yield{};
