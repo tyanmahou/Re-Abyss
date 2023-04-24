@@ -2507,6 +2507,9 @@
     <ClCompile Include="app\scenes\Fade\Screen\ScreenFade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Event\FadeUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6537,6 +6540,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Fade\Screen\ScreenFade.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Event\FadeUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
