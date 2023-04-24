@@ -170,7 +170,7 @@ namespace abyss
             // Fader
             {
                 auto* fader = m_pManager->getModule<Fader>();
-                fader->setDefaultColor(m_stageData->getAttributeService()->getBgColor());
+                fader->setDefaultColor(bgColor);
             }
         }
         // サウンド初期化
