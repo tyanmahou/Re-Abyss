@@ -18,7 +18,7 @@ namespace abyss::Event::GameReady
     Coro::Fiber<> MainStream::onExecute()
     {
         // フェード
-        co_await FadeUtil::FadeInIrisOut(m_pEvent->getManager());
+        co_await FadeUtil::FadeInIrisOutByPlayerPos(m_pEvent->getManager());
     }
 
 }

@@ -6,7 +6,7 @@
 
 namespace abyss
 {
-    Coro::Fiber<> FadeUtil::FadeInIrisOut(Manager* pManager)
+    Coro::Fiber<> FadeUtil::FadeInIrisOutByPlayerPos(Manager* pManager)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         auto* camera = pManager->getModule<Camera>();

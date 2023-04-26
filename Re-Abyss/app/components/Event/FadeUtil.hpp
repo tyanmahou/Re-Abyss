@@ -15,6 +15,6 @@ namespace abyss
         /// </summary>
         /// <param name="pManager"></param>
         /// <returns></returns>
-        static Coro::Fiber<> FadeInIrisOut(Manager* pManager);
+        static Coro::Fiber<> FadeInIrisOutByPlayerPos(Manager* pManager);
     };
 }
