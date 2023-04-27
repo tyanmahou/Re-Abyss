@@ -6,7 +6,7 @@
 
 namespace abyss
 {
-    Coro::Fiber<> FadeUtil::FadeInIrisOutByPlayerPos(Manager* pManager)
+    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         auto* camera = pManager->getModule<Camera>();
@@ -17,5 +17,16 @@ namespace abyss
             co_yield{};
         }
         co_return;
+    }
+    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(Manager* pManager)
+    {
+        auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
+        auto* fader = pManager->getModule<Fader>();
+        auto* camera = pManager->getModule<Camera>();
+        auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()));
+        while (fader->isFading()) {
+            fade->setPos(camera->transform(playerManager->getPos()));
+            co_yield{};
+        }
     }
 }

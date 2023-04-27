@@ -2,12 +2,10 @@
 #include <abyss/commons/Path.hpp>
 
 #include <abyss/modules/Event/base/EventObj.hpp>
-#include <abyss/modules/Actor/Player/PlayerManager.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/components/Event/FadeUtil.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
@@ -37,16 +35,7 @@ namespace abyss::Event::GameClear
         co_await Coro::WaitForSeconds(3.42s);
 
         // フェード
-        {
-            auto* playerManager = m_pEvent->getModule<Actor::Player::PlayerManager>();
-            auto* fader = m_pEvent->getModule<Fader>();
-            auto* camera = m_pEvent->getModule<Camera>();
-            auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()));
-            while (fader->isFading()) {
-                fade->setPos(camera->transform(playerManager->getPos()));
-                co_yield{};
-            }
-        }
+        co_await FadeUtil::WaitOutIrisOutByPlayerPos(m_pEvent->getManager());
 
         // リスタート
         m_pEvent->getModule<CycleMaster>()

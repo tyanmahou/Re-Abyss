@@ -11,10 +11,17 @@ namespace abyss
     {
     public:
         /// <summary>
-        /// アイリスアウト フェードイン
+        /// フェードイン待機 プレイヤー座標でアイリスアウト
         /// </summary>
         /// <param name="pManager"></param>
         /// <returns></returns>
-        static Coro::Fiber<> FadeInIrisOutByPlayerPos(Manager* pManager);
+        static Coro::Fiber<> WaitInIrisOutByPlayerPos(Manager* pManager);
+
+        /// <summary>
+        /// フェードアウト待機 プレイヤー座標でアイリスアウト
+        /// </summary>
+        /// <param name="pManager"></param>
+        /// <returns></returns>
+        static Coro::Fiber<> WaitOutIrisOutByPlayerPos(Manager* pManager);
     };
 }
