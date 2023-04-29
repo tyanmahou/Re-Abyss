@@ -6,6 +6,19 @@
 
 namespace abyss
 {
+    Coro::Fiber<> FadeUtil::WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color)
+    {
+        auto* fader = pManager->getModule<Fader>();
+        auto fade = fader->fadeOutScreen(1.0);
+
+        if (color) {
+            fade->setColor(*color);
+        }
+        while (fader->isFading()) {
+            co_yield{};
+        }
+        co_return;
+    }
     Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();

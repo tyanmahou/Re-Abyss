@@ -7,10 +7,10 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/components/UI/GamePause/Main.hpp>
 #include <abyss/components/UI/utils/DialogUtil.hpp>
+#include <abyss/components/Event/FadeUtil.hpp>
 
 namespace abyss::Event::GamePause
 {
@@ -49,14 +49,7 @@ namespace abyss::Event::GamePause
             m_pEvent->getModule<Sound>()->stop(1s);
 
             // フェード
-            {
-                auto* fader = m_pEvent->getModule<Fader>();
-                fader->fadeOutScreen(1.0)
-                    ->setColor(s3d::ColorF(0, 1));
-                while (fader->isFading()) {
-                    co_yield{};
-                }
-            }
+            co_await FadeUtil::WaitOut(m_pEvent->getManager(), s3d::ColorF(0, 1));
 
             // ステージから出る
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
