@@ -19,37 +19,37 @@ namespace abyss
         }
         co_return;
     }
-    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager)
+    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         return WaitInIrisOut(pManager, [playerManager]{
             return playerManager->getPos();
-        });
+        }, timeSec);
     }
-    Coro::Fiber<> FadeUtil::WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter)
+    Coro::Fiber<> FadeUtil::WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
         auto* camera = pManager->getModule<Camera>();
         auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeInIrisOut(camera->transform(positionGetter()));
+        auto fade = fader->fadeInIrisOut(camera->transform(positionGetter()), timeSec);
         while (fader->isFading()) {
             fade->setPos(camera->transform(positionGetter()));
             co_yield{};
         }
         co_return;
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(Manager* pManager)
+    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(Manager* pManager, double timeSec)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         return WaitOutIrisOut(pManager, [playerManager] {
             return playerManager->getPos();
-        });
+        }, timeSec);
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter)
+    Coro::Fiber<> FadeUtil::WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         auto* fader = pManager->getModule<Fader>();
         auto* camera = pManager->getModule<Camera>();
-        auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()));
+        auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()), timeSec);
         while (fader->isFading()) {
             fade->setPos(camera->transform(playerManager->getPos()));
             co_yield{};

@@ -36,7 +36,8 @@ namespace abyss::Event::RoomMove::DoorMove
                 std::make_pair(from, to),
                 std::make_pair(playerFrom, playerTo),
                 playerPos,
-                fadeInCallback
+                fadeInCallback,
+                milliSec
                 );
 
             pEvent
