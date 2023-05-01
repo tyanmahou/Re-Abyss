@@ -3,6 +3,7 @@
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/modules/GameObject/GameObject.hpp>
 
 namespace abyss
 {
@@ -37,6 +38,12 @@ namespace abyss
         }
         co_return;
     }
+    Coro::Fiber<> FadeUtil::WaitInIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
+    {
+        return WaitInIrisOut(pGameObject->getManager(), [pos] {
+            return pos;
+        }, timeSec);
+    }
     Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(Manager* pManager, double timeSec)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
@@ -54,5 +61,11 @@ namespace abyss
             fade->setPos(camera->transform(playerManager->getPos()));
             co_yield{};
         }
+    }
+    Coro::Fiber<> FadeUtil::WaitOutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
+    {
+        return WaitOutIrisOut(pGameObject->getManager(), [pos] {
+            return pos;
+        }, timeSec);
     }
 }

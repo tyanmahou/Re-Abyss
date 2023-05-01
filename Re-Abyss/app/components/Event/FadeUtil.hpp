@@ -25,6 +25,7 @@ namespace abyss
         static Coro::Fiber<> WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec = 1.0);
 
         static Coro::Fiber<> WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
+        static Coro::Fiber<> WaitInIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
 
         /// <summary>
         /// フェードアウト待機 プレイヤー座標でアイリスアウト
@@ -34,5 +35,6 @@ namespace abyss
         static Coro::Fiber<> WaitOutIrisOutByPlayerPos(Manager* pManager, double timeSec = 1.0);
 
         static Coro::Fiber<> WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
+        static Coro::Fiber<> WaitOutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
     };
 }
