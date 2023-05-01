@@ -74,7 +74,7 @@ namespace abyss::Event::RoomMove::DoorMove
                 this->m_fadeInCallback();
             }
 
-            co_await FadeUtil::WaitOutIrisOut(m_pEvent->getManager(), [pos = m_playerMove.second]() {
+            co_await FadeUtil::WaitInIrisOut(m_pEvent->getManager(), [pos = m_playerMove.second]() {
                 return pos;
             }, m_milliSec / 2000.0);
         }
