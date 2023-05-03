@@ -27,6 +27,10 @@ namespace abyss
             return playerManager->getPos();
         }, timeSec);
     }
+    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(GameObject* pGameObject, double timeSec)
+    {
+        return WaitInIrisOutByPlayerPos(pGameObject->getManager(),timeSec);
+    }
     Coro::Fiber<> FadeUtil::WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
         auto* camera = pManager->getModule<Camera>();
@@ -50,6 +54,10 @@ namespace abyss
         return WaitOutIrisOut(pManager, [playerManager] {
             return playerManager->getPos();
         }, timeSec);
+    }
+    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(GameObject* pGameObject, double timeSec)
+    {
+        return WaitOutIrisOutByPlayerPos(pGameObject->getManager(), timeSec);
     }
     Coro::Fiber<> FadeUtil::WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
