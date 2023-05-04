@@ -35,7 +35,7 @@ namespace abyss::Event::GameClear
         co_await Coro::WaitForSeconds(3.42s);
 
         // フェード
-        co_await FadeUtil::WaitOutIrisOutByPlayerPos(m_pEvent->getManager());
+        co_await FadeUtil::WaitOutIrisOutByPlayerPos(m_pEvent);
 
         // リスタート
         m_pEvent->getModule<CycleMaster>()
