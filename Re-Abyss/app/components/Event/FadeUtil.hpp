@@ -16,6 +16,7 @@ namespace abyss
         /// <param name="pManager"></param>
         /// <returns></returns>
         static Coro::Fiber<> WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color = s3d::none);
+        static Coro::Fiber<> WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none);
 
         /// <summary>
         /// フェードイン待機 プレイヤー座標でアイリスアウト

@@ -20,6 +20,10 @@ namespace abyss
         }
         co_return;
     }
+    Coro::Fiber<> FadeUtil::WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color)
+    {
+        return WaitOut(pGameObject->getManager(), color);
+    }
     Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec)
     {
         auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
