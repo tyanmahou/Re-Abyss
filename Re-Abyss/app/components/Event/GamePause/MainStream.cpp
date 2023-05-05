@@ -49,7 +49,7 @@ namespace abyss::Event::GamePause
             m_pEvent->getModule<Sound>()->stop(1s);
 
             // フェード
-            co_await FadeUtil::WaitOut(m_pEvent->getManager(), s3d::ColorF(0, 1));
+            co_await FadeUtil::WaitOut(m_pEvent, s3d::ColorF(0, 1));
 
             // ステージから出る
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
