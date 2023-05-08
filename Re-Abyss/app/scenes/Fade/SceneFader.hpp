@@ -15,8 +15,8 @@ namespace abyss::Fade
         ~SceneFader();
 
         SceneFader& set(std::shared_ptr<ISceneFade> fade);
-        void fadeIn(double timeSec);
-        void fadeOut(double timeSec);
+        void fadeIn(double timeSec = 1.0);
+        void fadeOut(double timeSec = 1.0);
 
         [[nodiscard]] bool isFading() const;
 

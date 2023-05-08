@@ -9,7 +9,9 @@ namespace abyss::Scene::Experiment
     public:
         Impl(const InitData& init) :
             m_data(init._s)
-        {}
+        {
+            m_data->fader.fadeIn();
+        }
 
         void update()
         {

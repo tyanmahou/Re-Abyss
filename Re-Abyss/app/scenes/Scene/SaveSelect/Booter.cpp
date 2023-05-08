@@ -4,7 +4,7 @@
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
@@ -23,6 +23,10 @@ namespace abyss::Scene::SaveSelect
         pManager->getModule<UIs>()->create<UI::SaveSelect::Main::Builder>();
         pManager->getModule<UIs>()->flush();
 
+        // Fade
+        {
+            pManager->getModule<Fader>()->fadeIn();
+        }
         return true;
     }
 }

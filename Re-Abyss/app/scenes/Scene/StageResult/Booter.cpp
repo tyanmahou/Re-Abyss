@@ -3,7 +3,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/StageResult/Builder.hpp>
 #include <abyss/components/UI/StageResult/Builder.hpp>
 
@@ -28,7 +28,10 @@ namespace abyss::Scene::StageResult
             pUi->create<UI::StageResult::Builder>();
             pUi->flush();
         }
-
+        // Fade
+        {
+            pManager->getModule<Fader>()->fadeIn();
+        }
         return true;
     }
 }

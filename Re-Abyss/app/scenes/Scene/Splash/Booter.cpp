@@ -3,7 +3,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/Splash/Builder.hpp>
 #include <abyss/components/UI/Splash/Builder.hpp>
 
@@ -21,7 +21,10 @@ namespace abyss::Scene::Splash
         // UI初期化
         pManager->getModule<UIs>()->create<UI::Splash::Builder>();
         pManager->getModule<UIs>()->flush();
-
+        // Fade
+        {
+            pManager->getModule<Fader>()->fadeIn();
+        }
         return true;
     }
 }

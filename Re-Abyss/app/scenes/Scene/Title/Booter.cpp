@@ -5,6 +5,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Title/Builder.hpp>
@@ -30,7 +31,10 @@ namespace abyss::Scene::Title
 
         // 泡
         pManager->getModule<Crons>()->create<Cron::BubbleGenerator::BuildOnce>();
-
+        // Fade
+        {
+            pManager->getModule<Fader>()->fadeIn();
+        }
         return true;
     }
 }

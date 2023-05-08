@@ -2,6 +2,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/components/Cycle/Home/Builder.hpp>
 #include <abyss/components/UI/Home/Top/Builder.hpp>
 
@@ -21,6 +22,10 @@ namespace abyss::Scene::Home
         pManager->getModule<UIs>()->create<UI::Home::Top::Builder>();
         pManager->getModule<UIs>()->flush();
 
+        // Fade
+        {
+            pManager->getModule<Fader>()->fadeIn();
+        }
         return true;
     }
 }
