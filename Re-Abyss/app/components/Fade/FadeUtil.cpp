@@ -7,15 +7,18 @@
 
 namespace
 {
+    using namespace abyss;
     using namespace abyss::Fade;
-    template<FadeOperation Operation>
-    void FadeInOut(Fader* pFader, double timeSec)
+    template<FadeOperation Operation, class T>
+    std::shared_ptr<T> FadeInOut(GameObject* pGameObject, double timeSec)
     {
+        auto* pFader = pGameObject->getModule<Fader>();
         if constexpr (Operation == FadeOperation::FadeIn) {
             pFader->fadeIn(timeSec);
         } else {
             pFader->fadeOut(timeSec);
         }
+        return pFader->create<T>();
     }
 }
 namespace abyss::Fade
@@ -23,12 +26,10 @@ namespace abyss::Fade
     template<FadeOperation Operation>
     std::shared_ptr<ScreenFade> FadeUtil<Operation>::Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color, double timeSec)
     {
-        auto* fader = pGameObject->getModule<Fader>();
-        auto fade = fader->create<ScreenFade>();
+        auto fade = ::FadeInOut<Operation, ScreenFade>(pGameObject, timeSec);
         if (color) {
             fade->setColor(*color);
         }
-        ::FadeInOut<Operation>(fader, timeSec);
         return fade;
     }
     template<FadeOperation Operation>
@@ -44,11 +45,9 @@ namespace abyss::Fade
     template<FadeOperation Operation>
     std::shared_ptr<IrisOutFade> FadeUtil<Operation>::IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
     {
+        auto fade = ::FadeInOut<Operation, IrisOutFade>(pGameObject, timeSec);
         auto* camera = pGameObject->getModule<Camera>();
-        auto* fader = pGameObject->getModule<Fader>();
-        auto fade = fader->create<IrisOutFade>();
         fade->setPos(camera->transform(pos));
-        ::FadeInOut<Operation>(fader, timeSec);
         return fade;
     }
     template<FadeOperation Operation>
