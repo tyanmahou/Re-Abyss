@@ -1,7 +1,6 @@
 #include <abyss/components/Event/MapMove/DoorIn/MapMoveCallback.hpp>
 #include <abyss/modules/Event/base/EventObj.hpp>
-#include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::MapMove::DoorIn
@@ -20,11 +19,7 @@ namespace abyss::Event::MapMove::DoorIn
     }
     void MapMoveCallback::onMoveStart()
     {
-        auto* camera = m_pEvent->getModule<Camera>();
-
-        m_pEvent->getModule<Fader>()
-            ->fadeOutIrisOut(camera->transform(m_origin))
-            ;
+        FadeUtil::OutIrisOut(m_pEvent, m_origin);
     }
     void MapMoveCallback::onMoveUpdate(double t)
     {

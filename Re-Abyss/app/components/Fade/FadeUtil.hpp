@@ -1,6 +1,8 @@
 #pragma once
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/components/Fade/Screen/ScreenFade.hpp>
+#include <abyss/components/Fade/IrisOut/IrisOutFade.hpp>
 
 namespace abyss::Fade
 {
@@ -18,6 +20,7 @@ namespace abyss::Fade
         static Coro::Fiber<> WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color = s3d::none);
         static Coro::Fiber<> WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none);
 
+        static std::shared_ptr<IrisOutFade> OutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
         /// <summary>
         /// フェードイン待機 プレイヤー座標でアイリスアウト
         /// </summary>

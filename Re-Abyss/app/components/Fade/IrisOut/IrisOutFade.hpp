@@ -12,6 +12,7 @@ namespace abyss::Fade
     {
     public:
         IrisOutFade();
+        IrisOutFade(const s3d::Vec2& pos);
 
         void setPos(const s3d::Vec2& pos)
         {

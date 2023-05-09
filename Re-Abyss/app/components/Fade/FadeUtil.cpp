@@ -10,7 +10,7 @@ namespace abyss::Fade
     Coro::Fiber<> FadeUtil::WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color)
     {
         auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeOutScreen(1.0);
+        auto fade = fader->fadeOut<ScreenFade>(1.0);
 
         if (color) {
             fade->setColor(*color);
@@ -23,6 +23,14 @@ namespace abyss::Fade
     Coro::Fiber<> FadeUtil::WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color)
     {
         return WaitOut(pGameObject->getManager(), color);
+    }
+    std::shared_ptr<IrisOutFade> FadeUtil::OutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
+    {
+        auto* pManager = pGameObject->getManager();
+        auto* camera = pManager->getModule<Camera>();
+        auto* fader = pManager->getModule<Fader>();
+        auto fade = fader->fadeOut<IrisOutFade, Vec2>(camera->transform(pos), timeSec);
+        return fade;
     }
     Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec)
     {
@@ -39,7 +47,7 @@ namespace abyss::Fade
     {
         auto* camera = pManager->getModule<Camera>();
         auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeInIrisOut(camera->transform(positionGetter()), timeSec);
+        auto fade = fader->fadeIn<IrisOutFade, Vec2>(camera->transform(positionGetter()), timeSec);
         while (fader->isFading()) {
             fade->setPos(camera->transform(positionGetter()));
             co_yield{};
@@ -65,12 +73,11 @@ namespace abyss::Fade
     }
     Coro::Fiber<> FadeUtil::WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
-        auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
         auto* fader = pManager->getModule<Fader>();
         auto* camera = pManager->getModule<Camera>();
-        auto fade = fader->fadeOutIrisOut(camera->transform(playerManager->getPos()), timeSec);
+        auto fade = fader->fadeOut<IrisOutFade, Vec2>(camera->transform(positionGetter()), timeSec);
         while (fader->isFading()) {
-            fade->setPos(camera->transform(playerManager->getPos()));
+            fade->setPos(camera->transform(positionGetter()));
             co_yield{};
         }
     }

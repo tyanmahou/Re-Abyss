@@ -1,12 +1,10 @@
 #pragma once
 #include <memory>
-#include <abyss/components/Fade/Screen/ScreenFade.hpp>
-#include <abyss/components/Fade/IrisOut/IrisOutFade.hpp>
+#include <abyss/modules/Fade/SceneFader.hpp>
+#include <abyss/modules/Fade/base/IFadeColor.hpp>
 
 namespace abyss::Fade
 {
-    class SceneFader;
-
     /// <summary>
     /// フェーダー
     /// SceneFaderのプロキシクラス
@@ -16,11 +14,26 @@ namespace abyss::Fade
     public:
         Fader(SceneFader* fader);
 
-        std::shared_ptr<ScreenFade> fadeOutScreen(double timeSec = 1.0) const;
-
-        std::shared_ptr<IrisOutFade> fadeInIrisOut(const s3d::Vec2& pos, double timeSec = 1.0) const;
-        std::shared_ptr<IrisOutFade> fadeOutIrisOut(const s3d::Vec2& pos, double timeSec = 1.0) const;
-
+        template<class T, class... Args>
+        std::shared_ptr<T> fadeIn(Args&&... args, double timeSec = 1.0) requires std::constructible_from<T, Args...>
+        {
+            auto fade = std::make_shared<T>(std::forward<Args...>(args)...);
+            m_fader->set(fade).fadeIn(timeSec);
+            if constexpr (std::derived_from<T, IFadeColor>) {
+                fade->setColor(*m_defaultColor);
+            }
+            return fade;
+        }
+        template<class T, class... Args>
+        std::shared_ptr<T> fadeOut(Args&&... args, double timeSec = 1.0) requires std::constructible_from<T, Args...>
+        {
+            auto fade = std::make_shared<T>(std::forward<Args...>(args)...);
+            m_fader->set(fade).fadeOut(timeSec);
+            if constexpr (std::derived_from<T, IFadeColor>) {
+                fade->setColor(*m_defaultColor);
+            }
+            return fade;
+        }
         void fadeIn(double timeSec = 1.0) const;
 
         [[nodiscard]] bool isFading() const;
