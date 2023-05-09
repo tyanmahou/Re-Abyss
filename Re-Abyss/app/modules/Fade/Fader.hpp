@@ -20,7 +20,9 @@ namespace abyss::Fade
             auto fade = std::make_shared<T>();
             m_fader->set(fade);
             if constexpr (std::derived_from<T, IFadeColor>) {
-                fade->setColor(*m_defaultColor);
+                if (m_defaultColor) {
+                    fade->setColor(*m_defaultColor);
+                }
             }
             return fade;
         }
