@@ -18,7 +18,7 @@ namespace
         } else {
             pFader->fadeOut(timeSec);
         }
-        return pFader->create<T>();
+        return pFader->set<T>();
     }
 }
 namespace abyss::Fade

@@ -15,7 +15,7 @@ namespace abyss::Fade
         Fader(SceneFader* fader);
 
         template<class T>
-        std::shared_ptr<T> create() requires std::constructible_from<T>
+        std::shared_ptr<T> set() requires std::constructible_from<T>
         {
             auto fade = std::make_shared<T>();
             m_fader->set(fade);
