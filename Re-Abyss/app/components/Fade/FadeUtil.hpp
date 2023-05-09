@@ -3,6 +3,7 @@
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
 #include <abyss/components/Fade/Screen/ScreenFade.hpp>
 #include <abyss/components/Fade/IrisOut/IrisOutFade.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Fade
 {
