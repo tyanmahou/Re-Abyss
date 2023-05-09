@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include <abyss/scenes/Fade/ISceneFade.hpp>
+#include <abyss/modules/Fade/base/ISceneFade.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 
 namespace abyss::Fade

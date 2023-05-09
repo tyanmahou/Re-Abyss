@@ -6,7 +6,7 @@ namespace abyss::Fade
     class FadeViewBase
     {
     public:
-        void setFadeColor(const s3d::Color& color)
+        void setFadeColor(const s3d::ColorF& color)
         {
             m_fadeColor = color;
         }
@@ -14,6 +14,6 @@ namespace abyss::Fade
         bool fadeTimeAdjust(double& t, double factor = 0.75) const;
     protected:
 
-        s3d::Color m_fadeColor{ ColorDef::DefaultFadeColor };
+        s3d::ColorF m_fadeColor{ ColorDef::DefaultFadeColor };
     };
 }

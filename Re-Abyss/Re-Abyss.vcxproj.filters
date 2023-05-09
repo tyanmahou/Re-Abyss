@@ -2489,9 +2489,6 @@
     <ClCompile Include="app\modules\Fade\Fader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Fade\SceneFader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Fade\FadeViewBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2501,13 +2498,16 @@
     <ClCompile Include="app\views\Fade\IrisOutFadeView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Fade\IrisOut\IrisOutFade.cpp">
+    <ClCompile Include="app\components\Fade\IrisOut\IrisOutFade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Fade\Screen\ScreenFade.cpp">
+    <ClCompile Include="app\components\Fade\Screen\ScreenFade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\components\Event\FadeUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Fade\SceneFader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6086,9 +6086,6 @@
     <ClInclude Include="app\params\Loading\Common\Param.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Fade\SceneFader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AngryState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6533,16 +6530,22 @@
     <ClInclude Include="app\views\Fade\IrisOutFadeView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Fade\ISceneFade.hpp">
+    <ClInclude Include="app\components\Fade\IrisOut\IrisOutFade.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Fade\IrisOut\IrisOutFade.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\Fade\Screen\ScreenFade.hpp">
+    <ClInclude Include="app\components\Fade\Screen\ScreenFade.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Event\FadeUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Fade\base\IFadeColor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Fade\base\ISceneFade.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Fade\SceneFader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

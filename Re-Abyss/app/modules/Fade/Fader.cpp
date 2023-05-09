@@ -1,5 +1,5 @@
 #include <abyss/modules/Fade/Fader.hpp>
-#include <abyss/scenes/Fade/SceneFader.hpp>
+#include <abyss/modules/Fade/SceneFader.hpp>
 
 namespace abyss::Fade
 {

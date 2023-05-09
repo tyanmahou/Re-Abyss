@@ -1,4 +1,4 @@
-#include <abyss/scenes/Fade/Screen/ScreenFade.hpp>
+#include <abyss/components/Fade/Screen/ScreenFade.hpp>
 
 namespace abyss::Fade
 {
@@ -6,7 +6,7 @@ namespace abyss::Fade
         m_view(std::make_unique<ScreenFadeView>())
     {
     }
-    void ScreenFade::setColor(const s3d::Color& color) const
+    void ScreenFade::setColor(const s3d::ColorF& color)
     {
         m_view->setFadeColor(color);
     }

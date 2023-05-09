@@ -1,4 +1,4 @@
-#include <abyss/scenes/Fade/IrisOut/IrisOutFade.hpp>
+#include <abyss/components/Fade/IrisOut/IrisOutFade.hpp>
 
 namespace abyss::Fade
 {
@@ -7,7 +7,7 @@ namespace abyss::Fade
         m_view(std::make_unique<IrisOutFadeView>())
     {}
 
-    void IrisOutFade::setColor(const s3d::Color& color) const
+    void IrisOutFade::setColor(const s3d::ColorF& color)
     {
         m_view->setFadeColor(color);
     }

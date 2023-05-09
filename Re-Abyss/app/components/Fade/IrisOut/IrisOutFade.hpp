@@ -1,11 +1,14 @@
 #pragma once
 #include <memory>
-#include <abyss/scenes/Fade/ISceneFade.hpp>
+#include <abyss/modules/Fade/base/ISceneFade.hpp>
+#include <abyss/modules/Fade/base/IFadeColor.hpp>
 #include <abyss/views/Fade/IrisOutFadeView.hpp>
 
 namespace abyss::Fade
 {
-    class IrisOutFade final : public ISceneFade
+    class IrisOutFade final :
+        public ISceneFade,
+        public IFadeColor
     {
     public:
         IrisOutFade();
@@ -14,7 +17,7 @@ namespace abyss::Fade
         {
             m_pos = pos;
         }
-        void setColor(const s3d::Color& color) const;
+        void setColor(const s3d::ColorF& color) override;
     public:
         void onFade(const s3d::RectF& rect, double t) const override;
     private:

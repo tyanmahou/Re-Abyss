@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
-#include <abyss/scenes/Fade/Screen/ScreenFade.hpp>
-#include <abyss/scenes/Fade/IrisOut/IrisOutFade.hpp>
+#include <abyss/components/Fade/Screen/ScreenFade.hpp>
+#include <abyss/components/Fade/IrisOut/IrisOutFade.hpp>
 
 namespace abyss::Fade
 {
