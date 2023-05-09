@@ -10,7 +10,7 @@ namespace
     using namespace abyss;
     using namespace abyss::Fade;
     template<FadeOperation Operation, class T>
-    std::shared_ptr<T> FadeInOut(GameObject* pGameObject, double timeSec)
+    Ref<T> FadeInOut(GameObject* pGameObject, double timeSec)
     {
         auto* pFader = pGameObject->getModule<Fader>();
         if constexpr (Operation == FadeOperation::FadeIn) {
@@ -24,7 +24,7 @@ namespace
 namespace abyss::Fade
 {
     template<FadeOperation Operation>
-    std::shared_ptr<ScreenFade> FadeUtil<Operation>::Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color, double timeSec)
+    Ref<ScreenFade> FadeUtil<Operation>::Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color, double timeSec)
     {
         auto fade = ::FadeInOut<Operation, ScreenFade>(pGameObject, timeSec);
         if (color) {
@@ -43,7 +43,7 @@ namespace abyss::Fade
         co_return;
     }
     template<FadeOperation Operation>
-    std::shared_ptr<IrisOutFade> FadeUtil<Operation>::IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
+    Ref<IrisOutFade> FadeUtil<Operation>::IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
     {
         auto fade = ::FadeInOut<Operation, IrisOutFade>(pGameObject, timeSec);
         auto* camera = pGameObject->getModule<Camera>();

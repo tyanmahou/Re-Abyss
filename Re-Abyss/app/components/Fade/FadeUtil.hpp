@@ -24,7 +24,7 @@ namespace abyss::Fade
         /// <param name="color"></param>
         /// <param name="timeSec"></param>
         /// <returns></returns>
-        static std::shared_ptr<ScreenFade> Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none, double timeSec = 1.0);
+        static Ref<ScreenFade> Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none, double timeSec = 1.0);
         static Coro::Fiber<> WaitScreen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none, double timeSec = 1.0);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace abyss::Fade
         /// <param name="pos"></param>
         /// <param name="timeSec"></param>
         /// <returns></returns>
-        static std::shared_ptr<IrisOutFade> IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
+        static Ref<IrisOutFade> IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
         static Coro::Fiber<> WaitIrisOutByPlayerPos(GameObject* pGameObject, double timeSec = 1.0);
         static Coro::Fiber<> WaitIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
         static Coro::Fiber<> WaitIrisOut(GameObject* pGameObject, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
