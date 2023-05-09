@@ -29,14 +29,14 @@ namespace abyss::Fade
         template<class T>
         std::shared_ptr<T> fadeIn(double timeSec = 1.0) requires std::constructible_from<T>
         {
-            auto fade = create<T>();
+            auto fade = set<T>();
             fadeIn(timeSec);
             return fade;
         }
         template<class T>
         std::shared_ptr<T> fadeOut(double timeSec = 1.0) requires std::constructible_from<T>
         {
-            auto fade = create<T>();
+            auto fade = set<T>();
             fadeOut(timeSec);
             return fade;
         }
