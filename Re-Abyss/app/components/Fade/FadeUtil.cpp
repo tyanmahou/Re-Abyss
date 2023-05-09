@@ -1,11 +1,11 @@
-#include <abyss/components/Event/FadeUtil.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 
-namespace abyss
+namespace abyss::Fade
 {
     Coro::Fiber<> FadeUtil::WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color)
     {

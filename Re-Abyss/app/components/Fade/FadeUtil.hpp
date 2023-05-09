@@ -2,7 +2,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
-namespace abyss
+namespace abyss::Fade
 {
     /// <summary>
     /// フェードユーティリティ
@@ -40,4 +40,9 @@ namespace abyss
         static Coro::Fiber<> WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
         static Coro::Fiber<> WaitOutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
     };
+}
+
+namespace abyss
+{
+    using Fade::FadeUtil;
 }

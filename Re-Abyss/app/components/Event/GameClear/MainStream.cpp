@@ -5,7 +5,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/UIs.hpp>
-#include <abyss/components/Event/FadeUtil.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>

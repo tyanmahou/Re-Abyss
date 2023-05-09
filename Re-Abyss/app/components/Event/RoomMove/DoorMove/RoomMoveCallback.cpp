@@ -2,7 +2,7 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
-#include <abyss/components/Event/FadeUtil.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Event::RoomMove::DoorMove

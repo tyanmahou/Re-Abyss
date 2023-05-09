@@ -10,7 +10,7 @@
 #include <abyss/components/Cycle/Main/Master.hpp>
 #include <abyss/components/UI/GamePause/Main.hpp>
 #include <abyss/components/UI/utils/DialogUtil.hpp>
-#include <abyss/components/Event/FadeUtil.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 
 namespace abyss::Event::GamePause
 {

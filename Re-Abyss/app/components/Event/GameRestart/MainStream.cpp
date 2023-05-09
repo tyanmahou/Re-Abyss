@@ -2,7 +2,7 @@
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/components/Event/FadeUtil.hpp>
+#include <abyss/components/Fade/FadeUtil.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
 

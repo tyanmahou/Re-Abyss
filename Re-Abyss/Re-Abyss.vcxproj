@@ -313,7 +313,7 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
-    <ClCompile Include="app\components\Event\FadeUtil.cpp" />
+    <ClCompile Include="app\components\Fade\FadeUtil.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
@@ -1323,7 +1323,7 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
-    <ClInclude Include="app\components\Event\FadeUtil.hpp" />
+    <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
