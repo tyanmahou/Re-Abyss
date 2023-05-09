@@ -39,7 +39,7 @@ namespace abyss::Event::GameRestart
             m_globalTimeScale = 1.0;
         }
         // フェード
-        co_await FadeUtil::WaitOutIrisOutByPlayerPos(m_pEvent);
+        co_await FadeOut::WaitIrisOutByPlayerPos(m_pEvent);
     }
 
     double MainStream::getGlobalTimeScale() const

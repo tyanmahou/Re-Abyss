@@ -19,7 +19,7 @@ namespace abyss::Event::MapMove::DoorIn
     }
     void MapMoveCallback::onMoveStart()
     {
-        FadeUtil::OutIrisOut(m_pEvent, m_origin);
+        FadeOut::IrisOut(m_pEvent, m_origin);
     }
     void MapMoveCallback::onMoveUpdate(double t)
     {

@@ -58,7 +58,7 @@ namespace abyss::Event::RoomMove::DoorMove
         // フェードアウト
         m_state = State::FadeOut;
         {
-            co_await FadeUtil::WaitOutIrisOut(m_pEvent, m_playerMove.first, m_milliSec / 2000.0);
+            co_await FadeOut::WaitIrisOut(m_pEvent, m_playerMove.first, m_milliSec / 2000.0);
         }
 
         // フェードイン
@@ -72,7 +72,7 @@ namespace abyss::Event::RoomMove::DoorMove
                 this->m_fadeInCallback();
             }
 
-            co_await FadeUtil::WaitInIrisOut(m_pEvent, m_playerMove.second, m_milliSec / 2000.0);
+            co_await FadeIn::WaitIrisOut(m_pEvent, m_playerMove.second, m_milliSec / 2000.0);
         }
         co_return;
     }

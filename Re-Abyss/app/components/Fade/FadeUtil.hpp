@@ -6,46 +6,43 @@
 
 namespace abyss::Fade
 {
-    /// <summary>
-    /// フェードユーティリティ
-    /// </summary>
+    enum class FadeOperation
+    {
+        FadeIn,
+        FadeOut,
+    };
+
+    template<FadeOperation Operation>
     class FadeUtil
     {
     public:
         /// <summary>
-        /// フェードアウトを待機
+        /// スクリーンフェード
         /// </summary>
-        /// <param name="pManager"></param>
+        /// <param name="pGameObject"></param>
+        /// <param name="pos"></param>
+        /// <param name="color"></param>
+        /// <param name="timeSec"></param>
         /// <returns></returns>
-        static Coro::Fiber<> WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color = s3d::none);
-        static Coro::Fiber<> WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none);
-
-        static std::shared_ptr<IrisOutFade> OutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
-        /// <summary>
-        /// フェードイン待機 プレイヤー座標でアイリスアウト
-        /// </summary>
-        /// <param name="pManager"></param>
-        /// <returns></returns>
-        static Coro::Fiber<> WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec = 1.0);
-        static Coro::Fiber<> WaitInIrisOutByPlayerPos(GameObject* pGameObject, double timeSec = 1.0);
-
-        static Coro::Fiber<> WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
-        static Coro::Fiber<> WaitInIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
+        static std::shared_ptr<ScreenFade> Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none, double timeSec = 1.0);
+        static Coro::Fiber<> WaitScreen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color = s3d::none, double timeSec = 1.0);
 
         /// <summary>
-        /// フェードアウト待機 プレイヤー座標でアイリスアウト
+        /// アイリスアウト
         /// </summary>
-        /// <param name="pManager"></param>
+        /// <param name="pGameObject"></param>
+        /// <param name="pos"></param>
+        /// <param name="timeSec"></param>
         /// <returns></returns>
-        static Coro::Fiber<> WaitOutIrisOutByPlayerPos(Manager* pManager, double timeSec = 1.0);
-        static Coro::Fiber<> WaitOutIrisOutByPlayerPos(GameObject* pGameObject, double timeSec = 1.0);
-
-        static Coro::Fiber<> WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
-        static Coro::Fiber<> WaitOutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
+        static std::shared_ptr<IrisOutFade> IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
+        static Coro::Fiber<> WaitIrisOutByPlayerPos(GameObject* pGameObject, double timeSec = 1.0);
+        static Coro::Fiber<> WaitIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec = 1.0);
+        static Coro::Fiber<> WaitIrisOut(GameObject* pGameObject, std::function<s3d::Vec2()> positionGetter, double timeSec = 1.0);
     };
 }
 
 namespace abyss
 {
-    using Fade::FadeUtil;
+    using FadeIn = Fade::FadeUtil<Fade::FadeOperation::FadeIn>;
+    using FadeOut = Fade::FadeUtil<Fade::FadeOperation::FadeOut>;
 }

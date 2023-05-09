@@ -11,6 +11,11 @@ namespace abyss::Fade
         m_fader->fadeIn(timeSec);
     }
 
+    void Fader::fadeOut(double timeSec) const
+    {
+        m_fader->fadeOut(timeSec);
+    }
+
     bool Fader::isFading() const
     {
         return m_fader->isFading();

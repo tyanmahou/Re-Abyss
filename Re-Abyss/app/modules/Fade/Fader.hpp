@@ -14,28 +14,32 @@ namespace abyss::Fade
     public:
         Fader(SceneFader* fader);
 
-        template<class T, class... Args>
-        std::shared_ptr<T> fadeIn(Args&&... args, double timeSec = 1.0) requires std::constructible_from<T, Args...>
+        template<class T>
+        std::shared_ptr<T> create() requires std::constructible_from<T>
         {
-            auto fade = std::make_shared<T>(std::forward<Args...>(args)...);
-            m_fader->set(fade).fadeIn(timeSec);
+            auto fade = std::make_shared<T>();
+            m_fader->set(fade);
             if constexpr (std::derived_from<T, IFadeColor>) {
                 fade->setColor(*m_defaultColor);
             }
             return fade;
         }
-        template<class T, class... Args>
-        std::shared_ptr<T> fadeOut(Args&&... args, double timeSec = 1.0) requires std::constructible_from<T, Args...>
+        template<class T>
+        std::shared_ptr<T> fadeIn(double timeSec = 1.0) requires std::constructible_from<T>
         {
-            auto fade = std::make_shared<T>(std::forward<Args...>(args)...);
-            m_fader->set(fade).fadeOut(timeSec);
-            if constexpr (std::derived_from<T, IFadeColor>) {
-                fade->setColor(*m_defaultColor);
-            }
+            auto fade = create<T>();
+            fadeIn(timeSec);
+            return fade;
+        }
+        template<class T>
+        std::shared_ptr<T> fadeOut(double timeSec = 1.0) requires std::constructible_from<T>
+        {
+            auto fade = create<T>();
+            fadeOut(timeSec);
             return fade;
         }
         void fadeIn(double timeSec = 1.0) const;
-
+        void fadeOut(double timeSec = 1.0) const;
         [[nodiscard]] bool isFading() const;
 
         void setDefaultColor(const s3d::Optional<s3d::Color>& color)

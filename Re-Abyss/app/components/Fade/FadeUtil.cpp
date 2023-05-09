@@ -5,86 +5,79 @@
 #include <abyss/modules/Fade/Fader.hpp>
 #include <abyss/modules/GameObject/GameObject.hpp>
 
+namespace
+{
+    using namespace abyss::Fade;
+    template<FadeOperation Operation>
+    void FadeInOut(Fader* pFader, double timeSec)
+    {
+        if constexpr (Operation == FadeOperation::FadeIn) {
+            pFader->fadeIn(timeSec);
+        } else {
+            pFader->fadeOut(timeSec);
+        }
+    }
+}
 namespace abyss::Fade
 {
-    Coro::Fiber<> FadeUtil::WaitOut(Manager* pManager, const s3d::Optional<s3d::ColorF>& color)
+    template<FadeOperation Operation>
+    std::shared_ptr<ScreenFade> FadeUtil<Operation>::Screen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color, double timeSec)
     {
-        auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeOut<ScreenFade>(1.0);
-
+        auto* fader = pGameObject->getModule<Fader>();
+        auto fade = fader->create<ScreenFade>();
         if (color) {
             fade->setColor(*color);
         }
-        while (fader->isFading()) {
-            co_yield{};
-        }
-        co_return;
-    }
-    Coro::Fiber<> FadeUtil::WaitOut(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color)
-    {
-        return WaitOut(pGameObject->getManager(), color);
-    }
-    std::shared_ptr<IrisOutFade> FadeUtil::OutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
-    {
-        auto* pManager = pGameObject->getManager();
-        auto* camera = pManager->getModule<Camera>();
-        auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeOut<IrisOutFade, Vec2>(camera->transform(pos), timeSec);
+        ::FadeInOut<Operation>(fader, timeSec);
         return fade;
     }
-    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(Manager* pManager, double timeSec)
+    template<FadeOperation Operation>
+    Coro::Fiber<> FadeUtil<Operation>::WaitScreen(GameObject* pGameObject, const s3d::Optional<s3d::ColorF>& color, double timeSec)
     {
-        auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
-        return WaitInIrisOut(pManager, [playerManager]{
-            return playerManager->getPos();
-        }, timeSec);
-    }
-    Coro::Fiber<> FadeUtil::WaitInIrisOutByPlayerPos(GameObject* pGameObject, double timeSec)
-    {
-        return WaitInIrisOutByPlayerPos(pGameObject->getManager(),timeSec);
-    }
-    Coro::Fiber<> FadeUtil::WaitInIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
-    {
-        auto* camera = pManager->getModule<Camera>();
-        auto* fader = pManager->getModule<Fader>();
-        auto fade = fader->fadeIn<IrisOutFade, Vec2>(camera->transform(positionGetter()), timeSec);
+        Screen(pGameObject, color, timeSec);
+        auto* fader = pGameObject->getModule<Fader>();
         while (fader->isFading()) {
-            fade->setPos(camera->transform(positionGetter()));
             co_yield{};
         }
         co_return;
     }
-    Coro::Fiber<> FadeUtil::WaitInIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
+    template<FadeOperation Operation>
+    std::shared_ptr<IrisOutFade> FadeUtil<Operation>::IrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
     {
-        return WaitInIrisOut(pGameObject->getManager(), [pos] {
-            return pos;
-        }, timeSec);
+        auto* camera = pGameObject->getModule<Camera>();
+        auto* fader = pGameObject->getModule<Fader>();
+        auto fade = fader->create<IrisOutFade>();
+        fade->setPos(camera->transform(pos));
+        ::FadeInOut<Operation>(fader, timeSec);
+        return fade;
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(Manager* pManager, double timeSec)
+    template<FadeOperation Operation>
+    Coro::Fiber<> FadeUtil<Operation>::WaitIrisOutByPlayerPos(GameObject* pGameObject, double timeSec)
     {
-        auto* playerManager = pManager->getModule<Actor::Player::PlayerManager>();
-        return WaitOutIrisOut(pManager, [playerManager] {
+        auto* playerManager = pGameObject->getModule<Actor::Player::PlayerManager>();
+        return WaitIrisOut(pGameObject, [playerManager] {
             return playerManager->getPos();
         }, timeSec);
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOutByPlayerPos(GameObject* pGameObject, double timeSec)
+    template<FadeOperation Operation>
+    Coro::Fiber<> FadeUtil<Operation>::WaitIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
     {
-        return WaitOutIrisOutByPlayerPos(pGameObject->getManager(), timeSec);
+        return WaitIrisOut(pGameObject, [pos] {
+            return pos;
+        }, timeSec);
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOut(Manager* pManager, std::function<s3d::Vec2()> positionGetter, double timeSec)
+    template<FadeOperation Operation>
+    Coro::Fiber<> FadeUtil<Operation>::WaitIrisOut(GameObject* pGameObject, std::function<s3d::Vec2()> positionGetter, double timeSec)
     {
-        auto* fader = pManager->getModule<Fader>();
-        auto* camera = pManager->getModule<Camera>();
-        auto fade = fader->fadeOut<IrisOutFade, Vec2>(camera->transform(positionGetter()), timeSec);
+        auto fade = IrisOut(pGameObject, positionGetter(), timeSec);
+
+        auto* fader = pGameObject->getModule<Fader>();
+        auto* camera = pGameObject->getModule<Camera>();
         while (fader->isFading()) {
             fade->setPos(camera->transform(positionGetter()));
             co_yield{};
         }
     }
-    Coro::Fiber<> FadeUtil::WaitOutIrisOut(GameObject* pGameObject, const s3d::Vec2& pos, double timeSec)
-    {
-        return WaitOutIrisOut(pGameObject->getManager(), [pos] {
-            return pos;
-        }, timeSec);
-    }
+    template class FadeUtil<FadeOperation::FadeIn>;
+    template class FadeUtil<FadeOperation::FadeOut>;
 }
