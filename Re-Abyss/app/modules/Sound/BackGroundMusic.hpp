@@ -2,6 +2,7 @@
 #include <stack>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Audio.hpp>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss
 {
@@ -11,6 +12,8 @@ namespace abyss
     class BackGroundMusic
     {
     public:
+        BackGroundMusic(Resource::Assets* pAssets = Resource::Assets::Norelease());
+
         /// <summary>
         /// 再生
         /// </summary>
@@ -40,6 +43,8 @@ namespace abyss
         void stash(const s3d::Duration& sec = 2s);
         void stashPop(const s3d::Duration& sec = 2s);
     private:
+        Resource::Assets* m_pAssets;
+
         s3d::Audio m_prev;
         s3d::Audio m_current;
         s3d::Optional<s3d::String> m_currentPath;

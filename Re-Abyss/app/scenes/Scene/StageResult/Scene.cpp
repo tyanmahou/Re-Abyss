@@ -45,10 +45,6 @@ namespace abyss::Scene::StageResult
             m_system = Factory::System::StageResult(m_data.get())
                 .instantiate<Sys::System>();
             m_system->boot<Booter>(this);
-            // BGM引継ぎ
-            if (auto bgm = m_data->share.bgmBridge.pop()) {
-                m_system->mod<Sound>()->setBgm(*bgm);
-            }
         }
 	private:
 		std::shared_ptr<Data_t> m_data;

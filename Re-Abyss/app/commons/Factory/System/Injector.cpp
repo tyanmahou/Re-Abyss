@@ -37,6 +37,7 @@ namespace
                 .asCached();
 
             c->bind<Sound>()
+                .withArgs(&m_pData->sound)
                 .asCached();
 
             c->bind<UIs>()

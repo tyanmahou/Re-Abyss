@@ -175,9 +175,6 @@ namespace abyss::Scene::Stage
         bool onClear() override
         {
             m_tempData->clearFlag(abyss::TempLevel::Exit);
-            // BGMの引継ぎ
-            m_data->share.bgmBridge
-                .set(m_system->mod<Sound>()->getBgm());
 
             return onSceneEnd({
                 .isClear = true

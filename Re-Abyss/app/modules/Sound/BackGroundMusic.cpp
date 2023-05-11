@@ -8,6 +8,10 @@
 
 namespace abyss
 {
+    BackGroundMusic::BackGroundMusic(Resource::Assets* pAssets):
+        m_pAssets(pAssets)
+    {
+    }
     void BackGroundMusic::play(const s3d::String& path, const s3d::Duration& sec)
     {
         const auto fixPath = FileUtil::FixRelativePath(path);
@@ -21,7 +25,7 @@ namespace abyss
         m_prev = m_current;
 
         // Bgm はストリーミング再生
-        m_current = Resource::Assets::Main()->loadAudio(s3d::Audio::Stream, fixPath, Path::Root);
+        m_current = m_pAssets->loadAudio(s3d::Audio::Stream, fixPath, Path::Root);
 
         if (m_prev.isPlaying()) {
             m_prev.stop(sec);

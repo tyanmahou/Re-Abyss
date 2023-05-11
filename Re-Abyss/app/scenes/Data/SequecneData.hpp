@@ -2,9 +2,9 @@
 #include <abyss/scenes/SceneKind.hpp>
 #include <abyss/scenes/Data/SceneContextHolder.hpp>
 #include <abyss/scenes/Data/SceneResultHolder.hpp>
-#include <abyss/scenes/Data/ShareData.hpp>
 #include <abyss/scenes/Loading/Loader.hpp>
 #include <abyss/modules/Fade/SceneFader.hpp>
+#include <abyss/modules/Sound/SceneSound.hpp>
 #include <abyss/modules/User/DataStore.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
@@ -22,8 +22,8 @@ namespace abyss
         bool isRequestedSceneEnd{};
         SceneKind fromScene{};
         SceneKind toScene{};
-        SharedData share{};
 
+        SceneSound sound;
         Loading::Loader loader;
         Fade::SceneFader fader;
 

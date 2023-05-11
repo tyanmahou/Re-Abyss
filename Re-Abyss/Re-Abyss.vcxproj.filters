@@ -2510,6 +2510,9 @@
     <ClCompile Include="app\modules\Fade\SceneFader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sound\SceneSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -5701,9 +5704,6 @@
     <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Data\ShareData.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -5711,9 +5711,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Scene\SceneManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\scenes\Data\BgmBridge.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp">
@@ -6546,6 +6543,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Fade\SceneFader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\SceneSound.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
