@@ -3,6 +3,7 @@
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
+#include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/components/Cycle/Home/Builder.hpp>
 #include <abyss/components/UI/Home/Top/Builder.hpp>
 
@@ -25,6 +26,10 @@ namespace abyss::Scene::Home
         // Fade
         {
             pManager->getModule<Fader>()->fadeIn();
+        }
+        // Sound
+        {
+            pManager->getModule<Sound>()->stop();
         }
         return true;
     }
