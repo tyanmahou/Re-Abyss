@@ -6548,6 +6548,9 @@
     <ClInclude Include="app\modules\Sound\SceneSound.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Sound\BgmPath.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

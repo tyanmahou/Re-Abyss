@@ -1,5 +1,5 @@
 #include <abyss/components/Event/GameClear/MainStream.hpp>
-#include <abyss/commons/Path.hpp>
+#include <abyss/components/Sound/BgmPath.hpp>
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
@@ -30,7 +30,7 @@ namespace abyss::Event::GameClear
     Coro::Fiber<> MainStream::onExecute()
     {
         // クリアBGM
-        m_pEvent->getModule<Sound>()->play(Path::SoundPath + U"bgm/Main/Common/clear.aas", 0s);
+        m_pEvent->getModule<Sound>()->play(BgmPath::StageResult, 0s);
         // 少し待つ
         co_await Coro::WaitForSeconds(3.42s);
 

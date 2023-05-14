@@ -7,6 +7,7 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/components/Cycle/StageResult/Builder.hpp>
 #include <abyss/components/UI/StageResult/Builder.hpp>
+#include <abyss/components/Sound/BgmPath.hpp>
 
 namespace abyss::Scene::StageResult
 {
@@ -35,7 +36,7 @@ namespace abyss::Scene::StageResult
         }
         // Sound
         {
-            pManager->getModule<Sound>()->stop();
+            pManager->getModule<Sound>()->play(BgmPath::StageResult);
         }
         return true;
     }
