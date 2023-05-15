@@ -1,5 +1,5 @@
 #include <abyss/components/UI/Title/BgmCtrl.hpp>
-#include <abyss/commons/Path.hpp>
+#include <abyss/components/Sound/BgmPath.hpp>
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <Siv3D.hpp>
@@ -12,7 +12,7 @@ namespace abyss::UI::Title
     void BgmCtrl::onStart()
     {
         m_pUi->getModule<Sound>()
-            ->play(Path::SoundPath + U"bgm/Title/title.aas", 0.2s);
+            ->play(BgmPath::Title, 0.2s);
     }
     void BgmCtrl::onEnd()
     {
