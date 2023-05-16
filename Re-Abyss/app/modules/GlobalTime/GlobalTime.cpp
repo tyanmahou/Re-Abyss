@@ -119,5 +119,11 @@ namespace abyss
     {
         return m_pImpl->addTimeScale(timeScale);
     }
+    std::shared_ptr<GlobalTimeScale> GlobalTime::createAddTimeScale()
+    {
+        auto globalTimeScale = std::make_shared<GlobalTimeScale>();
+        this->addTimeScale(globalTimeScale);
+        return globalTimeScale;
+    }
 }
 

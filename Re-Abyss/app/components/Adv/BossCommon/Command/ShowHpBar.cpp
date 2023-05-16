@@ -8,6 +8,8 @@
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/UI/UIs.hpp>
+#include <abyss/modules/GlobalTime/GlobalTime.hpp>
+#include <abyss/utils/Coro/Fiber/Wait.hpp>
 
 namespace abyss::Adv::BossCommon
 {
@@ -45,10 +47,25 @@ namespace abyss::Adv::BossCommon
         if (!m_hpGauge) {
             co_return;
         }
-        m_chargeSe = Resource::Assets::Main()->load(U"se/Common/charge_boss_hp.aas");
-        m_chargeSe.play();
-        while (m_hpGauge && !m_hpGauge->isFull()) {
-            co_yield{};
+
+        auto* globalTime = m_pObj->getModule<GlobalTime>();
+        // ゲージ上昇
+        {
+            m_chargeSe = Resource::Assets::Main()->load(U"se/Common/charge_boss_hp.aas");
+            m_chargeSe.play();
+            while (m_hpGauge && !m_hpGauge->isFull()) {
+                co_yield{};
+            }
+            m_chargeSe.stop();
+
+            co_await Coro::WaitForSeconds(1.0s, globalTime);
+        }
+
+        // 少しだけ停止
+        {
+            auto globalTimeScale = m_pObj->getModule<GlobalTime>()->createAddTimeScale();
+            globalTimeScale->setScale(0.0);
+            co_await Coro::WaitForSeconds(0.25s);
         }
     }
 }

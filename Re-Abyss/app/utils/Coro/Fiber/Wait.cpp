@@ -1,12 +1,14 @@
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Coro
 {
     Fiber<> WaitForSeconds(const s3d::Duration& duration)
     {
-        Timer timer(duration, StartImmediately::Yes);
-        while (!timer.reachedZero()) {
+        TimeLite::Timer timer(duration.count());
+        while (!timer.isEnd()) {
+            timer.update(s3d::Scene::DeltaTime());
             co_yield{};
         }
     }

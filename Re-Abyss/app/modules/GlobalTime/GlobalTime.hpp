@@ -28,6 +28,7 @@ namespace abyss
         bool isPuase() const;
 
         void addTimeScale(const std::shared_ptr<GlobalTimeScale>& timeScale);
+        std::shared_ptr<GlobalTimeScale> createAddTimeScale();
     private:
         s3d::uint64 getMicrosec() override;
     private:
