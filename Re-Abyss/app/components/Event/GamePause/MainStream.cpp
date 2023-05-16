@@ -24,13 +24,13 @@ namespace abyss::Event::GamePause
     {
         m_pEvent->getModule<GlobalTime>()->pause();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(true);
-        GlobalAudio::BusFadeVolume(MixBusKind::Bgm, 0.1, 0.2s);
+        m_pEvent->getModule<Sound>()->fadeBgmVolume(0.1, 0.2s);
     }
     void MainStream::onEnd()
     {
         m_pEvent->getModule<GlobalTime>()->resume();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(false);
-        GlobalAudio::BusFadeVolume(MixBusKind::Bgm, 1, 0.5s);
+        m_pEvent->getModule<Sound>()->fadeBgmVolume(1.0, 0.5s);
     }
     Coro::Fiber<> MainStream::onExecute()
     {
@@ -54,7 +54,7 @@ namespace abyss::Event::GamePause
             // ステージから出る
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
             // 音量戻す
-            GlobalAudio::BusSetVolume(MixBusKind::Bgm, 1.0);
+            m_pEvent->getModule<Sound>()->setBgmVolume(1.0);
 
             while (true) {
                 co_yield{};

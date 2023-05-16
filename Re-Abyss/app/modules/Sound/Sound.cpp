@@ -1,4 +1,5 @@
 #include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/MixBus.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -33,5 +34,21 @@ namespace abyss
     const s3d::Optional<s3d::String>& Sound::currentBgmPath() const
     {
         return m_pSceneSound->currentBgmPath();
+    }
+    void Sound::setBgmVolume(double volume)
+    {
+        this->setBusVolume(MixBusKind::Bgm, volume);
+    }
+    void Sound::fadeBgmVolume(double volume, const s3d::Duration& time)
+    {
+        this->fadeBusVolume(MixBusKind::Bgm, volume, time);
+    }
+    void Sound::setBusVolume(s3d::MixBus busIndex, double volume)
+    {
+        GlobalAudio::BusSetVolume(busIndex, volume);
+    }
+    void Sound::fadeBusVolume(s3d::MixBus busIndex, double volume, const s3d::Duration& time)
+    {
+        GlobalAudio::BusFadeVolume(busIndex, volume, time);
     }
 }

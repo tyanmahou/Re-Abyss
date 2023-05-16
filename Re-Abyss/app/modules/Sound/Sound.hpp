@@ -23,6 +23,12 @@ namespace abyss
         void release();
 
         const s3d::Optional<s3d::String>& currentBgmPath()const;
+
+        void setBusVolume(s3d::MixBus busIndex, double volume);
+        void fadeBusVolume(s3d::MixBus busIndex, double volume, const s3d::Duration& time);
+
+        void setBgmVolume(double volume);
+        void fadeBgmVolume(double volume, const s3d::Duration& time);
     private:
         SceneSound* m_pSceneSound = nullptr;
     };
