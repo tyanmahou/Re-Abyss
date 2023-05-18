@@ -123,7 +123,7 @@ namespace
             } else if (command == U"/pause-disabled") {
                 m_pProcess->addCommand<PauseDisabled>(false);
             } else if (command == U"bgm") {
-                Duration fade{ 2s };
+                Duration fade{ 0.2s };
                 Bgm::Kind kind{};
                 String path = U"";
                 for (const auto& [key, value] : statement.params) {

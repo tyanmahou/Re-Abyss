@@ -19,13 +19,13 @@ namespace abyss
         /// </summary>
         /// <param name="path"></param>
         /// <param name="sec"></param>
-        void play(const s3d::String& path, const s3d::Duration& sec = 2s);
+        void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
 
         /// <summary>
         /// 停止
         /// </summary>
         /// <param name="sec"></param>
-        void stop(const s3d::Duration& sec = 2s);
+        void stop(const s3d::Duration& sec = 0.2s);
 
         /// <summary>
         /// リリース

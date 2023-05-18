@@ -6,12 +6,12 @@ namespace abyss
     class SceneSound
     {
     public:
-        void play(const s3d::String& path, const s3d::Duration& sec = 2s);
+        void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
 
-        void stop(const s3d::Duration& sec = 2s);
+        void stop(const s3d::Duration& sec = 0.2s);
 
-        void stash(const s3d::Duration& sec = 2s);
-        void stashPop(const s3d::Duration& sec = 2s);
+        void stash(const s3d::Duration& sec = 0.2s);
+        void stashPop(const s3d::Duration& sec = 0.2s);
 
         void release();
 
