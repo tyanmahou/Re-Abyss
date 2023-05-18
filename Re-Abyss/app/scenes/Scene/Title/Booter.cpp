@@ -6,7 +6,6 @@
 #include <abyss/modules/FieldEnv/Environment.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
 
 #include <abyss/components/Cron/BubbleGenerator/Builder.hpp>
 #include <abyss/components/Cycle/Title/Builder.hpp>
@@ -35,10 +34,6 @@ namespace abyss::Scene::Title
         // Fade
         {
             pManager->getModule<Fader>()->fadeIn();
-        }
-        // Sound
-        {
-            pManager->getModule<Sound>()->stop();
         }
         return true;
     }
