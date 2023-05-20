@@ -9,14 +9,14 @@
 #include <abyss/components/Effect/Actor/Player/Shot/Builder.hpp>
 #include <abyss/components/Effect/Actor/Player/ShotFiring/Builder.hpp>
 #include <abyss/views/UI/Title/Cursor/Shot/ShotVM.hpp>
+#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 
 namespace abyss::UI::Title::Cursor
 {
     using namespace abyss::Effect::Actor;
 
-    Shot::Shot(UIObj* pUi, const s3d::Vec2& pos):
+    Shot::Shot(UIObj* pUi):
         m_pUi(pUi),
-        m_pos(pos),
         m_view(std::make_unique<ShotVM>())
     {}
 
@@ -54,6 +54,10 @@ namespace abyss::UI::Title::Cursor
             ColorDef::Shot::BigCharge
             );
 
+    }
+    void Shot::setPosFromCc(const s3d::Vec2& pos, const s3d::Vec2& offset)
+    {
+        m_pos = AnchorUtil::FromCc(pos + offset);
     }
 }
 

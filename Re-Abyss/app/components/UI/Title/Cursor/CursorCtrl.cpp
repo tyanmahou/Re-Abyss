@@ -16,6 +16,20 @@
 
 namespace abyss::UI::Title::Cursor
 {
+    namespace
+    {
+
+        struct CursorViewParam
+        {
+            MsgUtil::Text name;
+            double posY;
+        };
+        static const std::array<CursorViewParam, CursorCtrl::ModeTerm> viewParams
+        {
+            CursorViewParam{MsgUtil::Title_GameStart, 90.0},
+            CursorViewParam{MsgUtil::Title_Exit, 140.0},
+        };
+    }
     CursorCtrl::Mode& operator ++(CursorCtrl::Mode& mode)
     {
         mode = (mode == CursorCtrl::Mode::Max) ?
@@ -34,7 +48,7 @@ namespace abyss::UI::Title::Cursor
         m_pUi(pUi),
         m_view(std::make_unique<CursorVM>()),
         m_gameStartTimer(1s, StartImmediately::No, pUi->getModule<GlobalTime>()),
-        m_shot(std::make_unique<Shot>(pUi, AnchorUtil::FromCc(Vec2{ -130.0 , 90.0 } + Vec2{ 30, -1 })))
+        m_shot(std::make_unique<Shot>(pUi))
     {
     }
     CursorCtrl::~CursorCtrl()
@@ -71,6 +85,7 @@ namespace abyss::UI::Title::Cursor
 
         // 決定
         if (InputManager::A.down() || InputManager::Start.down()) {
+            m_shot->setPosFromCc(Vec2{ -130.0 , viewParams[static_cast<size_t>(m_mode)].posY });
             // shot effect
             m_shot->addShotFiringEffect();
             m_gameStartTimer.start();
@@ -80,16 +95,6 @@ namespace abyss::UI::Title::Cursor
 
     void CursorCtrl::onDraw() const
     {
-        struct CursorViewParam
-        {
-            MsgUtil::Text name;
-            double posY;
-        };
-        static const std::array<CursorViewParam, ModeTerm> viewParams
-        {
-            CursorViewParam{MsgUtil::Title_GameStart, 90.0},
-            CursorViewParam{MsgUtil::Title_Exit, 140.0},
-        };
         size_t modeIndex = static_cast<size_t>(m_mode);
         m_view->setPos(AnchorUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
 
