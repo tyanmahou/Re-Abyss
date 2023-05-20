@@ -105,7 +105,7 @@ namespace abyss::UI::Title::Cursor
             MsgUtil::Title_Exit
         };
         for (size_t index = 0; index < ModeTerm; ++index) {
-            FontAsset(FontName::SceneName)(modeName[index]).drawAt(::CursorPosModeName(modeIndex));
+            FontAsset(FontName::SceneName)(modeName[index]).drawAt(::CursorPosModeName(index));
         }
         if (m_isSelected) {
             m_shot->draw();

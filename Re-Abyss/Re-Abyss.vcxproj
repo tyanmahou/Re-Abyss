@@ -1394,6 +1394,7 @@
     <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
     <ClInclude Include="app\components\Fade\IrisOut\IrisOutFade.hpp" />
     <ClInclude Include="app\components\Fade\Screen\ScreenFade.hpp" />
+    <ClInclude Include="app\params\UI\Title\CursorParam.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
     <ClInclude Include="app\scenes\Sys\ModulePackage.hpp" />
