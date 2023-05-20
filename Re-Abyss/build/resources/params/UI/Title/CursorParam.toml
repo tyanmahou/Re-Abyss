@@ -1,0 +1,5 @@
+[ViewParam]
+posX = -130.0
+posY_GameStart = 90.0
+posY_Exit = 140.0
+shotOffset = "(30, -1)"

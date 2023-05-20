@@ -49,6 +49,7 @@
 // Title
 #include <abyss/params/UI/Title/LogoParam.hpp>
 #include <abyss/params/UI/Title/BgParam.hpp>
+#include <abyss/params/UI/Title/CursorParam.hpp>
 
 // SaveSelect
 #include <abyss/params/UI/SaveSelect/Param.hpp>
@@ -75,6 +76,7 @@ namespace
     {
         resource->loadToml<UI::Title::LogoParam>(U"UI/Title/LogoParam.toml");
         resource->loadToml<UI::Title::BgParam>(U"UI/Title/BgParam.toml");
+        resource->loadToml<UI::Title::CursorParam>(U"UI/Title/CursorParam.toml");
     }
     void LoadSaveSelectToml(const Assets* resource)
     {
