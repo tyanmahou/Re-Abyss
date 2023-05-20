@@ -51,10 +51,10 @@ namespace abyss::UI::Title::Cursor
     }
     void CursorCtrl::onUpdate()
     {
-        if (m_isGameStart) {
+        if (m_isSelected) {
             m_shot->update();
             if (m_gameStartTimer.reachedZero()) {
-                const auto& event = m_events[static_cast<size_t>(Mode::GameStart)];
+                const auto& event = m_events[static_cast<size_t>(m_mode)];
                 if (event) {
                     event();
                     m_isDone = true;
@@ -71,18 +71,10 @@ namespace abyss::UI::Title::Cursor
 
         // 決定
         if (InputManager::A.down() || InputManager::Start.down()) {
-            if (m_mode == Mode::GameStart) {
-                // shot effect
-                 m_shot->addShotFiringEffect();
-                m_gameStartTimer.start();
-                m_isGameStart = true;
-            } else {
-                const auto& event = m_events[static_cast<size_t>(m_mode)];
-                if (event) {
-                    event();
-                    m_isDone = true;
-                }
-            }
+            // shot effect
+            m_shot->addShotFiringEffect();
+            m_gameStartTimer.start();
+            m_isSelected = true;
         }
     }
 
@@ -104,7 +96,7 @@ namespace abyss::UI::Title::Cursor
         for (const auto& param : viewParams) {
             FontAsset(FontName::SceneName)(param.name).drawAt(AnchorUtil::FromCc(0, param.posY));
         }
-        if (m_isGameStart) {
+        if (m_isSelected) {
             m_shot->draw();
         }
     }

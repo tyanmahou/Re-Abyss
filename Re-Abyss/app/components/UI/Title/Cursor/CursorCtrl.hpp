@@ -54,7 +54,7 @@ namespace abyss::UI::Title::Cursor
         std::unique_ptr<CursorVM> m_view;
 
         s3d::Timer m_gameStartTimer;
-        bool m_isGameStart = false;
+        bool m_isSelected = false;
         std::unique_ptr<Shot> m_shot;
 
         bool m_isDone = false;
