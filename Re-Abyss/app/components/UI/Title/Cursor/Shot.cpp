@@ -55,9 +55,9 @@ namespace abyss::UI::Title::Cursor
             );
 
     }
-    void Shot::setPosFromCc(const s3d::Vec2& pos, const s3d::Vec2& offset)
+    void Shot::setPos(const s3d::Vec2& pos, const s3d::Vec2& offset)
     {
-        m_pos = AnchorUtil::FromCc(pos + offset);
+        m_pos = pos + offset;
     }
 }
 

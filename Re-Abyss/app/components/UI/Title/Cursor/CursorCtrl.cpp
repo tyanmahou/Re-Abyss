@@ -11,25 +11,24 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Title/Master.hpp>
-
+#include <abyss/params/UI/Title/CursorParam.hpp>
 #include <Siv3D.hpp>
 
+namespace
+{
+    using namespace abyss;
+    using namespace abyss::UI::Title;
+    Vec2 CursorPos(size_t modeIndex)
+    {
+        return AnchorUtil::FromCc(CursorParam::ViewParam::Pos(modeIndex));
+    }
+    Vec2 CursorPosModeName(size_t modeIndex)
+    {
+        return AnchorUtil::FromCc(0, CursorParam::ViewParam::PosY(modeIndex));
+    }
+}
 namespace abyss::UI::Title::Cursor
 {
-    namespace
-    {
-
-        struct CursorViewParam
-        {
-            MsgUtil::Text name;
-            double posY;
-        };
-        static const std::array<CursorViewParam, CursorCtrl::ModeTerm> viewParams
-        {
-            CursorViewParam{MsgUtil::Title_GameStart, 90.0},
-            CursorViewParam{MsgUtil::Title_Exit, 140.0},
-        };
-    }
     CursorCtrl::Mode& operator ++(CursorCtrl::Mode& mode)
     {
         mode = (mode == CursorCtrl::Mode::Max) ?
@@ -65,10 +64,12 @@ namespace abyss::UI::Title::Cursor
     }
     void CursorCtrl::onUpdate()
     {
+        const size_t modeIndex = static_cast<size_t>(m_mode);
+
         if (m_isSelected) {
             m_shot->update();
             if (m_gameStartTimer.reachedZero()) {
-                const auto& event = m_events[static_cast<size_t>(m_mode)];
+                const auto& event = m_events[modeIndex];
                 if (event) {
                     event();
                     m_isDone = true;
@@ -85,7 +86,7 @@ namespace abyss::UI::Title::Cursor
 
         // 決定
         if (InputManager::A.down() || InputManager::Start.down()) {
-            m_shot->setPosFromCc(Vec2{ -130.0 , viewParams[static_cast<size_t>(m_mode)].posY });
+            m_shot->setPos(::CursorPos(modeIndex));
             // shot effect
             m_shot->addShotFiringEffect();
             m_gameStartTimer.start();
@@ -95,11 +96,16 @@ namespace abyss::UI::Title::Cursor
 
     void CursorCtrl::onDraw() const
     {
-        size_t modeIndex = static_cast<size_t>(m_mode);
-        m_view->setPos(AnchorUtil::FromCc(-130, viewParams[modeIndex].posY)).draw();
+        const size_t modeIndex = static_cast<size_t>(m_mode);
+        m_view->setPos(::CursorPos(modeIndex)).draw();
 
-        for (const auto& param : viewParams) {
-            FontAsset(FontName::SceneName)(param.name).drawAt(AnchorUtil::FromCc(0, param.posY));
+        constexpr const std::array<MsgUtil::Text, ModeTerm> modeName
+        {
+            MsgUtil::Title_GameStart,
+            MsgUtil::Title_Exit
+        };
+        for (size_t index = 0; index < ModeTerm; ++index) {
+            FontAsset(FontName::SceneName)(modeName[index]).drawAt(::CursorPosModeName(modeIndex));
         }
         if (m_isSelected) {
             m_shot->draw();

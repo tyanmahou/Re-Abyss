@@ -2,6 +2,7 @@
 #include <memory>
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/utils/TimeLite/IntervalTimer.hpp>
+#include <abyss/params/UI/Title/CursorParam.hpp>
 #include <Siv3D/Vector2D.hpp>
 
 namespace abyss::UI::Title::Cursor
@@ -19,7 +20,7 @@ namespace abyss::UI::Title::Cursor
 
         void addShotFiringEffect() const;
 
-        void setPosFromCc(const s3d::Vec2& pos, const s3d::Vec2& offset = { 30, -1 });
+        void setPos(const s3d::Vec2& pos, const s3d::Vec2& offset = CursorParam::ViewParam::ShotOffset);
     private:
         UIObj* m_pUi;
         s3d::Vec2 m_pos;
