@@ -1,7 +1,6 @@
 #include <abyss/modules/Sound/Sound.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <Siv3D.hpp>
-#include "Sound.hpp"
 
 namespace abyss
 {
@@ -40,20 +39,20 @@ namespace abyss
     {
         m_pSceneSound->bgm.setVolume(volume);
     }
-    void Sound::fadeBgmVolume(double volume, const s3d::Duration& time)
+    void Sound::setBgmVolume(double volume, const s3d::Duration& time)
     {
-        m_pSceneSound->bgm.fadeVolume(volume, time);
+        m_pSceneSound->bgm.setVolume(volume, time);
     }
     void Sound::playSe(const s3d::String& path)
     {
         m_pSceneSound->se.play(path);
     }
+    void Sound::setMasterVolume(double volume)
+    {
+        GlobalAudio::SetVolume(volume);
+    }
     void Sound::setMasterVolume(double volume, const s3d::Duration& time)
     {
-        if (time == s3d::Duration::zero()) {
-            GlobalAudio::SetVolume(volume);
-        } else {
-            GlobalAudio::FadeVolume(volume, time);
-        }
+        GlobalAudio::FadeVolume(volume, time);
     }
 }

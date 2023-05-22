@@ -16,7 +16,7 @@ namespace abyss
     {
         GlobalAudio::BusSetVolume(MixBusKind::Se, volume);
     }
-    void SoundEffects::fadeVolume(double volume, const s3d::Duration& time)
+    void SoundEffects::setVolume(double volume, const s3d::Duration& time)
     {
         GlobalAudio::BusFadeVolume(MixBusKind::Se, volume, time);
     }

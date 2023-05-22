@@ -15,7 +15,7 @@ namespace abyss
         void play(const s3d::String& path);
 
         void setVolume(double volume);
-        void fadeVolume(double volume, const s3d::Duration& time);
+        void setVolume(double volume, const s3d::Duration& time);
     private:
         Resource::Assets* m_pAssets;
     };

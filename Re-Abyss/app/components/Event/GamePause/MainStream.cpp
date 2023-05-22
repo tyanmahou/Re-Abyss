@@ -24,13 +24,13 @@ namespace abyss::Event::GamePause
     {
         m_pEvent->getModule<GlobalTime>()->pause();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(true);
-        m_pEvent->getModule<Sound>()->fadeBgmVolume(0.1, 0.2s);
+        m_pEvent->getModule<Sound>()->setBgmVolume(0.1, 0.2s);
     }
     void MainStream::onEnd()
     {
         m_pEvent->getModule<GlobalTime>()->resume();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(false);
-        m_pEvent->getModule<Sound>()->fadeBgmVolume(1.0, 0.5s);
+        m_pEvent->getModule<Sound>()->setBgmVolume(1.0, 0.5s);
     }
     Coro::Fiber<> MainStream::onExecute()
     {

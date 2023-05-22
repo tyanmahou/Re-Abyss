@@ -25,11 +25,12 @@ namespace abyss
         const s3d::Optional<s3d::String>& currentBgmPath()const;
 
         void setBgmVolume(double volume);
-        void fadeBgmVolume(double volume, const s3d::Duration& time);
+        void setBgmVolume(double volume, const s3d::Duration& time);
 
         void playSe(const s3d::String& path);
 
-        void setMasterVolume(double volume, const s3d::Duration& time = 0s);
+        void setMasterVolume(double volume);
+        void setMasterVolume(double volume, const s3d::Duration& time);
     private:
         SceneSound* m_pSceneSound = nullptr;
     };

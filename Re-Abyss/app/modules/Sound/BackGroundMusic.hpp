@@ -44,7 +44,7 @@ namespace abyss
         void stashPop(const s3d::Duration& sec = 2s);
 
         void setVolume(double volume);
-        void fadeVolume(double volume, const s3d::Duration& time);
+        void setVolume(double volume, const s3d::Duration& time);
     private:
         Resource::Assets* m_pAssets;
 
