@@ -1,5 +1,6 @@
 #include <abyss/modules/Sound/SoundEffects.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
+#include "SoundEffects.hpp"
 
 namespace abyss
 {
@@ -11,5 +12,13 @@ namespace abyss
     {
         auto audio = m_pAssets->loadAudio(path, Path::Root);
         audio.playOneShot(MixBusKind::Se, 0.4);
+    }
+    void SoundEffects::setVolume(double volume)
+    {
+        GlobalAudio::BusSetVolume(MixBusKind::Se, volume);
+    }
+    void SoundEffects::fadeVolume(double volume, const s3d::Duration& time)
+    {
+        GlobalAudio::BusFadeVolume(MixBusKind::Se, volume, time);
     }
 }

@@ -5,6 +5,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
+#include "BackGroundMusic.hpp"
 
 namespace abyss
 {
@@ -64,5 +65,13 @@ namespace abyss
             this->play(m_stash.top(), sec);
             m_stash.pop();
         }
+    }
+    void BackGroundMusic::setVolume(double volume)
+    {
+        GlobalAudio::BusSetVolume(MixBusKind::Bgm, volume);
+    }
+    void BackGroundMusic::fadeVolume(double volume, const s3d::Duration& time)
+    {
+        GlobalAudio::BusFadeVolume(MixBusKind::Bgm, volume, time);
     }
 }
