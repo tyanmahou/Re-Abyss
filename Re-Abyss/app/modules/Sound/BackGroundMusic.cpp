@@ -5,7 +5,6 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
-#include "BackGroundMusic.hpp"
 
 namespace abyss
 {
