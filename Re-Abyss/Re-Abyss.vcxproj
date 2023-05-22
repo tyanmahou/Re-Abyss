@@ -371,6 +371,7 @@
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
     <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Sound\SceneSound.cpp" />
+    <ClCompile Include="app\modules\Sound\SoundEffects.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\modules\User\Storage.cpp" />
     <ClCompile Include="app\components\Fade\IrisOut\IrisOutFade.cpp" />
@@ -1387,6 +1388,7 @@
     <ClInclude Include="app\modules\Fade\Fader.hpp" />
     <ClInclude Include="app\modules\Fade\SceneFader.hpp" />
     <ClInclude Include="app\modules\Sound\SceneSound.hpp" />
+    <ClInclude Include="app\modules\Sound\SoundEffects.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
     <ClInclude Include="app\modules\User\RuntimeData.hpp" />
     <ClInclude Include="app\modules\User\Storage.hpp" />

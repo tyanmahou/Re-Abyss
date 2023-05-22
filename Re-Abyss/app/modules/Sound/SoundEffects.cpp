@@ -1,6 +1,5 @@
 #include <abyss/modules/Sound/SoundEffects.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
-#include "SoundEffects.hpp"
 
 namespace abyss
 {

@@ -2513,6 +2513,9 @@
     <ClCompile Include="app\modules\Sound\SceneSound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sound\SoundEffects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6555,6 +6558,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\UI\Title\CursorParam.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\SoundEffects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
