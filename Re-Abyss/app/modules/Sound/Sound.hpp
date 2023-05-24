@@ -31,6 +31,9 @@ namespace abyss
 
         void setMasterVolume(double volume);
         void setMasterVolume(double volume, const s3d::Duration& time);
+
+        BackGroundMusic* bgm() const;
+        SoundEffects* se() const;
     private:
         SceneSound* m_pSceneSound = nullptr;
     };

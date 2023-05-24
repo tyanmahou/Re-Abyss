@@ -4,9 +4,21 @@
 
 namespace abyss
 {
-    struct SceneSound
+    class SceneSound
     {
-        BackGroundMusic bgm;
-        SoundEffects se;
+    public:
+        SceneSound(Resource::Assets* pAssets = Resource::Assets::Norelease());
+
+        BackGroundMusic* bgm()
+        {
+            return &m_bgm;
+        }
+        SoundEffects* se()
+        {
+            return &m_se;
+        }
+    private:
+        BackGroundMusic m_bgm;
+        SoundEffects m_se;
     };
 }

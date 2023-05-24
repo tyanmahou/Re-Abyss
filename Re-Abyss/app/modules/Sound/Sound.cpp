@@ -13,39 +13,39 @@ namespace abyss
     }
     void Sound::play(const s3d::String& path, const s3d::Duration& sec)
     {
-        m_pSceneSound->bgm.play(path, sec);
+        bgm()->play(path, sec);
     }
     void Sound::stop(const Duration& sec)
     {
-        m_pSceneSound->bgm.stop(sec);
+        bgm()->stop(sec);
     }
     void Sound::stash(const s3d::Duration& sec)
     {
-        m_pSceneSound->bgm.stash(sec);
+        bgm()->stash(sec);
     }
     void Sound::stashPop(const s3d::Duration& sec)
     {
-        m_pSceneSound->bgm.stashPop(sec);
+        bgm()->stashPop(sec);
     }
     void Sound::release()
     {
-        m_pSceneSound->bgm.release();
+        bgm()->release();
     }
     const s3d::Optional<s3d::String>& Sound::currentBgmPath() const
     {
-        return m_pSceneSound->bgm.getCurrentPath();
+        return bgm()->getCurrentPath();
     }
     void Sound::setBgmVolume(double volume)
     {
-        m_pSceneSound->bgm.setVolume(volume);
+        bgm()->setVolume(volume);
     }
     void Sound::setBgmVolume(double volume, const s3d::Duration& time)
     {
-        m_pSceneSound->bgm.setVolume(volume, time);
+        bgm()->setVolume(volume, time);
     }
     void Sound::playSe(const s3d::String& path)
     {
-        m_pSceneSound->se.play(path);
+        se()->play(path);
     }
     void Sound::setMasterVolume(double volume)
     {
@@ -54,5 +54,13 @@ namespace abyss
     void Sound::setMasterVolume(double volume, const s3d::Duration& time)
     {
         GlobalAudio::FadeVolume(volume, time);
+    }
+    BackGroundMusic* abyss::Sound::bgm() const
+    {
+        return m_pSceneSound->bgm();
+    }
+    SoundEffects* Sound::se() const
+    {
+        return m_pSceneSound->se();
     }
 }
