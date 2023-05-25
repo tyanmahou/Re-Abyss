@@ -35,7 +35,6 @@ namespace abyss
 	}
 	using Physics::PhysicsManager;
 
-	class Events;
 	class Stage;
 	class StageData;
 	class Light;
@@ -82,7 +81,9 @@ namespace abyss
 	namespace Event
 	{
 		class EventObj;
+        class Events;
 	}
+    using Event::Events;
 
     /// <summary>
     /// Modules/Adv

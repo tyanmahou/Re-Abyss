@@ -1,6 +1,6 @@
 #include <abyss/modules/Event/Events.hpp>
 
-namespace abyss
+namespace abyss::Event
 {
     bool Events::init()
     {
@@ -45,12 +45,12 @@ namespace abyss
     {
         return !m_events.empty() && m_events.front()->isWorldStop();
     }
-    Ref<Event::EventObj> Events::create()
+    Ref<EventObj> Events::create()
     {
-        return this->regist(std::make_shared<Event::EventObj>());
+        return this->regist(std::make_shared<EventObj>());
     }
 
-    Ref<Event::EventObj> Events::regist(const std::shared_ptr<Event::EventObj>& event)
+    Ref<EventObj> Events::regist(const std::shared_ptr<EventObj>& event)
     {
         event->setManager(m_pManager);
         m_events.push(event);

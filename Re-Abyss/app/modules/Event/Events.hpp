@@ -4,10 +4,10 @@
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/commons/Fwd.hpp>
 
-namespace abyss
+namespace abyss::Event
 {
     template<class Type, class... Args>
-    concept EventBuildable = requires(Event::EventObj * pEvent, Args&&... args)
+    concept EventBuildable = requires(EventObj * pEvent, Args&&... args)
     {
         Type::Build(pEvent, std::forward<Args>(args)...);
     };
@@ -37,13 +37,13 @@ namespace abyss
         /// イベントの生成
         /// </summary>
         /// <returns></returns>
-        Ref<Event::EventObj> create();
+        Ref<EventObj> create();
 
         /// <summary>
         /// ビルダーからイベントの生成
         /// </summary>
         template<class BuilerType, class... Args>
-        Ref<Event::EventObj> create(Args&& ... args)
+        Ref<EventObj> create(Args&& ... args)
             requires EventBuildable<BuilerType, Args...>
         {
             auto event = this->create();
@@ -56,10 +56,10 @@ namespace abyss
         /// </summary>
         /// <param name="event"></param>
         /// <returns></returns>
-        Ref<Event::EventObj> regist(const std::shared_ptr<Event::EventObj>& event);
+        Ref<EventObj> regist(const std::shared_ptr<EventObj>& event);
 
     private:
-        std::queue<std::shared_ptr<Event::EventObj>> m_events;
+        std::queue<std::shared_ptr<EventObj>> m_events;
         bool m_doneCurrentInit = false;
         Manager* m_pManager = nullptr;
     };
