@@ -7,7 +7,7 @@
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Player
@@ -23,7 +23,7 @@ namespace abyss::Actor::Player
         m_damageCtrl->setInvincibleTime(0);
 
         // サウンド停止
-        m_pActor->getModule<Sound>()->stop(0.5s);
+        m_pActor->getModule<Sounds>()->stop(0.5s);
 
         // 地震
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);

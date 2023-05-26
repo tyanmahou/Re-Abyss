@@ -6,7 +6,7 @@
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     BackGroundMusic::BackGroundMusic(Resource::Assets* pAssets):
         m_pAssets(pAssets)

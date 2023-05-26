@@ -22,7 +22,7 @@
 #include <abyss/modules/Room/RoomManager.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/UI/UIs.hpp>
@@ -61,7 +61,7 @@ namespace abyss::Sys
         RoomManager,
         SpecialEffects,
         PostEffects,
-        Sound,
+        Sounds,
         Stage,
         Temporary,
         UIs,

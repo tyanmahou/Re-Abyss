@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     class SoundEffects
     {

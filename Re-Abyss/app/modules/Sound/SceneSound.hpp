@@ -2,7 +2,7 @@
 #include <abyss/modules/Sound/BackGroundMusic.hpp>
 #include <abyss/modules/Sound/SoundEffects.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     class SceneSound
     {

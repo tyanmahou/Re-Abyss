@@ -3,16 +3,16 @@
 #include <Siv3D/Audio.hpp>
 #include <abyss/modules/Sound/SceneSound.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     /// <summary>
     /// サウンド関連
     /// </summary>
-    class Sound
+    class Sounds
     {
     public:
-        Sound(SceneSound* pSceneSound);
-        ~Sound();
+        Sounds(SceneSound* pSceneSound);
+        ~Sounds();
         void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
 
         void stop(const s3d::Duration& sec = 0.2s);

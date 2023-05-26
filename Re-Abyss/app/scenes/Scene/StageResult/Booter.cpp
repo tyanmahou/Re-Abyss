@@ -4,7 +4,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/components/Cycle/StageResult/Builder.hpp>
 #include <abyss/components/UI/StageResult/Builder.hpp>
 #include <abyss/components/Sound/BgmPath.hpp>
@@ -36,7 +36,7 @@ namespace abyss::Scene::StageResult
         }
         // Sound
         {
-            pManager->getModule<Sound>()->play(BgmPath::StageResult);
+            pManager->getModule<Sounds>()->play(BgmPath::StageResult);
         }
         return true;
     }

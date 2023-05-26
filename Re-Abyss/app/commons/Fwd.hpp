@@ -38,7 +38,6 @@ namespace abyss
 	class Stage;
 	class StageData;
 	class Light;
-	class Sound;
 	class Temporary;
 	class TemporaryData;
 	class DrawManager;
@@ -142,6 +141,12 @@ namespace abyss
 	}
 	using Sfx::SpecialEffects;
 	using Sfx::PostEffects;
+
+    namespace Sound
+    {
+        class Sounds;
+    }
+    using Sound::Sounds;
 
 	namespace Devs
 	{

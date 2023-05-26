@@ -17,7 +17,7 @@
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Stage/StageTranslator.hpp>
 #include <abyss/modules/Cron/Crons.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Light/Light.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Temporary/RestartInfo/RestartInfo.hpp>
@@ -178,7 +178,7 @@ namespace abyss
         // サウンド初期化
         {
             auto temporary = m_pManager->getModule<Temporary>();
-            auto sound = m_pManager->getModule<Sound>();
+            auto sound = m_pManager->getModule<Sounds>();
             if (auto&& bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks())) {
                 sound->play(*bgm);
             } else if (auto&& restartBgm = temporary->getRestartBgm()) {
@@ -229,7 +229,7 @@ namespace abyss
 
         // サウンドが変わる場合は停止
         if (nextRoom) {
-            auto sound = m_pManager->getModule<Sound>();
+            auto sound = m_pManager->getModule<Sounds>();
             if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && *bgm != sound->currentBgmPath()) {
                 sound->stop();
             }
@@ -260,7 +260,7 @@ namespace abyss
         }
 
         // Sound
-        auto sound = m_pManager->getModule<Sound>();
+        auto sound = m_pManager->getModule<Sounds>();
         {
             if (auto bgm = ::NextBgm(room, m_stageData->getGimmicks())) {
                 sound->play(*bgm);

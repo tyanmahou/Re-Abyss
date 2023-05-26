@@ -1,7 +1,7 @@
 #include <abyss/modules/Sound/SoundEffects.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     SoundEffects::SoundEffects(Resource::Assets* pAssets):
         m_pAssets(pAssets)

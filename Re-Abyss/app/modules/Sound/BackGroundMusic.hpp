@@ -4,7 +4,7 @@
 #include <Siv3D/Audio.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     /// <summary>
     /// BGM制御

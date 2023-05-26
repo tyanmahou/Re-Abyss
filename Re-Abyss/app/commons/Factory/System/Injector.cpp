@@ -36,7 +36,7 @@ namespace
             c->bind<DrawManager>()
                 .asCached();
 
-            c->bind<Sound>()
+            c->bind<Sounds>()
                 .withArgs(&m_pData->sound)
                 .asCached();
 

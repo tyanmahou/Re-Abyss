@@ -1,7 +1,7 @@
 #include <abyss/components/Adv/Common/Command/Bgm.hpp>
 
 #include <abyss/commons/Path.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 
 namespace abyss::Adv
@@ -19,7 +19,7 @@ namespace abyss::Adv
     {}
     void Bgm::onStart()
     {
-        auto* pSound = m_pObj->getModule<Sound>();
+        auto* pSound = m_pObj->getModule<Sounds>();
         switch (m_kind)
         {
         case Kind::Play:

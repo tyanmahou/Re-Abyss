@@ -47,7 +47,7 @@ namespace
         void onStart() override
         {
             m_locator = m_pActor->find<Locator>();
-            m_audio.play(MixBusKind::Se);
+            m_audio.play(Sound::MixBusKind::Se);
         }
 
         void onUpdate() override
@@ -147,7 +147,7 @@ namespace abyss::Actor
         auto [volume, pan] = ::CalcVolume(pos, listener);
         audio.setVolume(volume);
         audio.setPan(pan);
-        audio.play(MixBusKind::Se);
+        audio.play(Sound::MixBusKind::Se);
         m_audios.push_back(audio);
     }
     void AudioSource::playAtDirect(s3d::FilePathView path) const

@@ -23,7 +23,7 @@ namespace abyss
         SceneKind fromScene{};
         SceneKind toScene{};
 
-        SceneSound sound;
+        Sound::SceneSound sound;
         Loading::Loader loader;
         Fade::SceneFader fader;
 

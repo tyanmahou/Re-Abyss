@@ -1,7 +1,7 @@
 #pragma once
 #include <Siv3D/MixBus.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     struct MixBusKind
     {

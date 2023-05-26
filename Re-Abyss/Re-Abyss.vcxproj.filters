@@ -1446,7 +1446,7 @@
     <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Sound\Sound.cpp">
+    <ClCompile Include="app\modules\Sound\Sounds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Stage\Stage.cpp">
@@ -4933,7 +4933,7 @@
     <ClInclude Include="app\modules\Sound\MixBus.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Sound\Sound.hpp">
+    <ClInclude Include="app\modules\Sound\Sounds.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Stage\Stage.hpp">

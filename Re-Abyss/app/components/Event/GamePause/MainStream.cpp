@@ -4,7 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Main/Master.hpp>
@@ -24,13 +24,13 @@ namespace abyss::Event::GamePause
     {
         m_pEvent->getModule<GlobalTime>()->pause();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(true);
-        m_pEvent->getModule<Sound>()->setBgmVolume(0.1, 0.2s);
+        m_pEvent->getModule<Sounds>()->setBgmVolume(0.1, 0.2s);
     }
     void MainStream::onEnd()
     {
         m_pEvent->getModule<GlobalTime>()->resume();
         m_pEvent->getModule<Sfx::PostEffects>()->getBlur()->setIsValid(false);
-        m_pEvent->getModule<Sound>()->setBgmVolume(1.0, 0.5s);
+        m_pEvent->getModule<Sounds>()->setBgmVolume(1.0, 0.5s);
     }
     Coro::Fiber<> MainStream::onExecute()
     {
@@ -46,7 +46,7 @@ namespace abyss::Event::GamePause
         } else {
             // ステージから出る
 
-            m_pEvent->getModule<Sound>()->stop(1s);
+            m_pEvent->getModule<Sounds>()->stop(1s);
 
             // フェード
             co_await FadeOut::WaitScreen(m_pEvent, s3d::ColorF(0, 1));
@@ -54,7 +54,7 @@ namespace abyss::Event::GamePause
             // ステージから出る
             m_pEvent->getModule<CycleMaster>()->find<Cycle::Main::Master>()->escape();
             // 音量戻す
-            m_pEvent->getModule<Sound>()->setBgmVolume(1.0);
+            m_pEvent->getModule<Sounds>()->setBgmVolume(1.0);
 
             while (true) {
                 co_yield{};

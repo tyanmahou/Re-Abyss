@@ -3,7 +3,7 @@
 
 #include <abyss/modules/Event/base/EventObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/components/Fade/FadeUtil.hpp>
 
@@ -30,7 +30,7 @@ namespace abyss::Event::GameClear
     Coro::Fiber<> MainStream::onExecute()
     {
         // クリアBGM
-        m_pEvent->getModule<Sound>()->play(BgmPath::StageResult, 0s);
+        m_pEvent->getModule<Sounds>()->play(BgmPath::StageResult, 0s);
         // 少し待つ
         co_await Coro::WaitForSeconds(3.42s);
 

@@ -5,7 +5,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/components/Cycle/SaveSelect/Builder.hpp>
 #include <abyss/components/UI/SaveSelect/Main/Builder.hpp>
 
@@ -30,7 +30,7 @@ namespace abyss::Scene::SaveSelect
         }
         // Sound
         {
-            pManager->getModule<Sound>()->stop();
+            pManager->getModule<Sounds>()->stop();
         }
         return true;
     }

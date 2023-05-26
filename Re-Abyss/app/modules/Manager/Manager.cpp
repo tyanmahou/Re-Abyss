@@ -52,9 +52,9 @@ namespace abyss
         m_pEnv = pEnv;
         return *this;
     }
-    Manager& Manager::set(Sound* pSound)
+    Manager& Manager::set(Sounds* pSounds)
     {
-        m_pSound = pSound;
+        m_pSounds = pSounds;
         return *this;
     }
     Manager& Manager::set(UIs* pUI)
@@ -177,8 +177,8 @@ namespace abyss
             return m_pEffects;
         } else if constexpr (std::is_same_v<Environment, T>) {
             return m_pEnv;
-        } else if constexpr (std::is_same_v<Sound, T>) {
-            return m_pSound;
+        } else if constexpr (std::is_same_v<Sounds, T>) {
+            return m_pSounds;
         } else if constexpr (std::is_same_v<UIs, T>) {
             return m_pUserInterface;
         } else if constexpr (std::is_same_v<Decors, T>) {
@@ -231,7 +231,7 @@ namespace abyss
     template Distortion* Manager::getModule<Distortion>() const;
     template Effects* Manager::getModule<Effects>() const;
     template Environment* Manager::getModule<Environment>() const;
-    template Sound* Manager::getModule<Sound>() const;
+    template Sounds* Manager::getModule<Sounds>() const;
     template UIs* Manager::getModule<UIs>() const;
     template Decors* Manager::getModule<Decors>() const;
     template Stage* Manager::getModule<Stage>() const;

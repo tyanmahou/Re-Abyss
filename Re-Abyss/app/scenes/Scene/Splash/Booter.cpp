@@ -4,7 +4,7 @@
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
 #include <abyss/modules/Fade/Fader.hpp>
-#include <abyss/modules/Sound/Sound.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/components/Cycle/Splash/Builder.hpp>
 #include <abyss/components/UI/Splash/Builder.hpp>
 
@@ -28,7 +28,7 @@ namespace abyss::Scene::Splash
         }
         // Sound
         {
-            pManager->getModule<Sound>()->stop();
+            pManager->getModule<Sounds>()->stop();
         }
         return true;
     }
