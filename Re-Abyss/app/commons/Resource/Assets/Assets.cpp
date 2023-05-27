@@ -169,6 +169,7 @@ namespace abyss::Resource
             s3d::HashTable<String, s3dTiled::TiledMap> m_tmxCache;
             s3d::HashTable<String, Texture> m_textureCache;
             s3d::HashTable<String, TexturePacker> m_texturePackerCache;
+            s3d::HashTable<String, Audio> m_audioCache;
             s3d::HashTable<String, Wave> m_waveCache;
             s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
             s3d::HashTable<String, VertexShader> m_vsCache;

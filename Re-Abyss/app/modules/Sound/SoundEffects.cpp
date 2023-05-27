@@ -9,7 +9,7 @@ namespace abyss::Sound
     }
     void SoundEffects::play(const s3d::String& path)
     {
-        auto audio = m_pAssets->loadAudio(path, Path::Root);
+        Audio audio = load(path);
         audio.playOneShot(MixBusKind::Se, 0.4);
     }
     void SoundEffects::setVolume(double volume)
@@ -19,5 +19,12 @@ namespace abyss::Sound
     void SoundEffects::setVolume(double volume, const s3d::Duration& time)
     {
         GlobalAudio::BusFadeVolume(MixBusKind::Se, volume, time);
+    }
+    s3d::Audio SoundEffects::load(const s3d::String& path)
+    {
+        if (auto it = m_cache.find(path); it != m_cache.end()) {
+            return it->second;
+        }
+        return m_cache[path] = m_pAssets->loadAudio(path, Path::Root);
     }
 }
