@@ -47,8 +47,8 @@ namespace abyss::Resource
         const Type& load(s3d::HashTable<String, Type>& cache, const s3d::FilePath& path, Args&&... args)
         {
             const auto fixPath = FileUtil::FixPath(path, m_isBuilded);
-            if (cache.find(fixPath) != cache.end()) {
-                return cache[fixPath];
+            if (auto it = cache.find(fixPath); it != cache.end()) {
+                return it->second;
             }
             ReadType rc = AssetLoadTraits<ReadType>{}.load(fixPath, std::forward<Args>(args)...);
 #if ABYSS_DEBUG
@@ -151,6 +151,7 @@ namespace abyss::Resource
             m_psCache.clear();
             m_csvCache.clear();
             m_tomlCache.clear();
+            m_audioCache.clear();
             m_waveCache.clear();
             m_audioGroupCache.clear();
         }
