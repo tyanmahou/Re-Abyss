@@ -1,4 +1,4 @@
-#include <abyss/modules/Sound/SoundEffects.hpp>
+#include <abyss/modules/Sound/Se/SoundEffects.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 
 namespace abyss::Sound

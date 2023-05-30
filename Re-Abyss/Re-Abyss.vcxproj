@@ -371,7 +371,7 @@
     <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
     <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Sound\SceneSound.cpp" />
-    <ClCompile Include="app\modules\Sound\SoundEffects.cpp" />
+    <ClCompile Include="app\modules\Sound\Se\SoundEffects.cpp" />
     <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
     <ClCompile Include="app\modules\User\Storage.cpp" />
     <ClCompile Include="app\components\Fade\IrisOut\IrisOutFade.cpp" />
@@ -809,7 +809,7 @@
     <ClCompile Include="app\modules\Sfx\Scanline\Scanline.cpp" />
     <ClCompile Include="app\modules\Sfx\SkipFade\SkipFade.cpp" />
     <ClCompile Include="app\modules\Sfx\SpecialEffects.cpp" />
-    <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp" />
+    <ClCompile Include="app\modules\Sound\Bgm\BackGroundMusic.cpp" />
     <ClCompile Include="app\modules\Sound\Sounds.cpp" />
     <ClCompile Include="app\modules\Stage\Stage.cpp" />
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
@@ -1388,7 +1388,7 @@
     <ClInclude Include="app\modules\Fade\Fader.hpp" />
     <ClInclude Include="app\modules\Fade\SceneFader.hpp" />
     <ClInclude Include="app\modules\Sound\SceneSound.hpp" />
-    <ClInclude Include="app\modules\Sound\SoundEffects.hpp" />
+    <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
     <ClInclude Include="app\modules\User\RuntimeData.hpp" />
     <ClInclude Include="app\modules\User\Storage.hpp" />
@@ -2028,7 +2028,7 @@
     <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
     <ClInclude Include="app\modules\Sfx\SkipFade\SkipFade.hpp" />
     <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp" />
-    <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp" />
+    <ClInclude Include="app\modules\Sound\Bgm\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
     <ClInclude Include="app\modules\Sound\Sounds.hpp" />
     <ClInclude Include="app\modules\Stage\Stage.hpp" />

@@ -1,4 +1,4 @@
-#include <abyss/modules/Sound/BackGroundMusic.hpp>
+#include <abyss/modules/Sound/Bgm/BackGroundMusic.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>

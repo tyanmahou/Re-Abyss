@@ -1443,7 +1443,7 @@
     <ClCompile Include="app\modules\Sfx\SpecialEffects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Sound\BackGroundMusic.cpp">
+    <ClCompile Include="app\modules\Sound\Bgm\BackGroundMusic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\modules\Sound\Sounds.cpp">
@@ -2513,7 +2513,7 @@
     <ClCompile Include="app\modules\Sound\SceneSound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Sound\SoundEffects.cpp">
+    <ClCompile Include="app\modules\Sound\Se\SoundEffects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -4927,7 +4927,7 @@
     <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Sound\BackGroundMusic.hpp">
+    <ClInclude Include="app\modules\Sound\Bgm\BackGroundMusic.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Sound\MixBus.hpp">
@@ -6560,7 +6560,7 @@
     <ClInclude Include="app\params\UI\Title\CursorParam.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Sound\SoundEffects.hpp">
+    <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

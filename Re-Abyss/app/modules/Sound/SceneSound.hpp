@@ -1,6 +1,6 @@
 #pragma once
-#include <abyss/modules/Sound/BackGroundMusic.hpp>
-#include <abyss/modules/Sound/SoundEffects.hpp>
+#include <abyss/modules/Sound/Bgm/BackGroundMusic.hpp>
+#include <abyss/modules/Sound/Se/SoundEffects.hpp>
 
 namespace abyss::Sound
 {
