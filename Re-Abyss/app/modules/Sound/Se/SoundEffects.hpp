@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/modules/Sound/Se/SeCaches.hpp>
 
 namespace abyss::Sound
 {
@@ -17,9 +17,7 @@ namespace abyss::Sound
         void setVolume(double volume);
         void setVolume(double volume, const s3d::Duration& time);
     private:
-        s3d::Audio load(const s3d::String& path);
-    private:
         Resource::Assets* m_pAssets;
-        s3d::HashTable<s3d::FilePath, s3d::Audio> m_cache;
+        SeCaches m_cache;
     };
 }
