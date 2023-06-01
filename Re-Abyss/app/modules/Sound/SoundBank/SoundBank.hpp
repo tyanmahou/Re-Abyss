@@ -4,15 +4,15 @@
 
 namespace abyss::Sound
 {
-    class ISoundService;
+    class ISoundBankService;
 
     class SoundBank : public ISoundBank
     {
     public:
-        INJECT_CTOR(SoundBank(std::shared_ptr<ISoundService> service));
+        INJECT_CTOR(SoundBank(std::shared_ptr<ISoundBankService> service));
 
         AudioSetting setting(const SoundLabel& label) const override;
     private:
-        std::shared_ptr<ISoundService> m_service;
+        std::shared_ptr<ISoundBankService> m_service;
     };
 }
