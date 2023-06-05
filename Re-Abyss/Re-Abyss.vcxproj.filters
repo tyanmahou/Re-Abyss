@@ -2516,6 +2516,18 @@
     <ClCompile Include="app\modules\Sound\Se\SoundEffects.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Sound\Se\SeCaches.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\modules\Sound\SoundBank\SoundBank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\services\Sound\SoundBankService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\datastores\Sound\TomlSoundBankDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6561,6 +6573,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\Se\SeCaches.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Sound\SoundBank\SoundLabel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Sound\base\ISoundBankService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\services\Sound\SoundBankService.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\datastores\Sound\TomlSoundBankDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
