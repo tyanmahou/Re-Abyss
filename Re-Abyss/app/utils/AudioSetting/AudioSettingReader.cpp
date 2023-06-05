@@ -1,14 +1,15 @@
 #include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
 #include <Siv3D.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
+#include "AudioSettingReader.hpp"
 
 namespace abyss
 {
-    AudioSetting abyss::AudioSettingReader::load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const
+    AudioSetting AudioSettingReader::load(const s3d::TOMLValue& toml) const
     {
         AudioSetting ret;
         if (auto audioPath = toml[U"path"].getOpt<String>()) {
-            ret.path = FileUtil::ParentPath(basePath) + *audioPath;
+            ret.path = *audioPath;
         }
         if (auto loop = toml[U"loop"].getOpt<bool>()) {
             ret.loop = s3d::Loop{ *loop };
@@ -29,6 +30,12 @@ namespace abyss
         } else {
             ret.streaming = false;
         }
+        return ret;
+    }
+    AudioSetting abyss::AudioSettingReader::load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const
+    {
+        AudioSetting ret = this->load(toml);
+        ret.path = FileUtil::ParentPath(basePath) + ret.path;
         return ret;
     }
 
