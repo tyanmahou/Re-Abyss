@@ -31,7 +31,7 @@ namespace abyss
         }
         return ret;
     }
-    AudioSetting abyss::AudioSettingReader::load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const
+    AudioSetting AudioSettingReader::load(const s3d::FilePath& basePath, const s3d::TOMLValue& toml) const
     {
         AudioSetting ret = this->load(toml);
         ret.path = FileUtil::ParentPath(basePath) + ret.path;
