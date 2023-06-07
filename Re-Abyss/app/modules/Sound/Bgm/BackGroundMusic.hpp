@@ -1,8 +1,9 @@
 #pragma once
 #include <stack>
+#include <abyss/commons/Resource/Assets/Assets.hpp>
+#include <abyss/modules/Sound/SoundBank/ISoundBank.hpp>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Audio.hpp>
-#include <abyss/commons/Resource/Assets/Assets.hpp>
 
 namespace abyss::Sound
 {
@@ -12,7 +13,7 @@ namespace abyss::Sound
     class BackGroundMusic
     {
     public:
-        BackGroundMusic(Resource::Assets* pAssets = Resource::Assets::Norelease());
+        BackGroundMusic(ISoundBank* pSoundBank, Resource::Assets* pAssets = Resource::Assets::Norelease());
 
         /// <summary>
         /// 再生
@@ -20,6 +21,7 @@ namespace abyss::Sound
         /// <param name="path"></param>
         /// <param name="sec"></param>
         void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
+        void play(const SoundLabel& label, const s3d::Duration& sec = 0.2s);
 
         /// <summary>
         /// 停止
@@ -46,6 +48,7 @@ namespace abyss::Sound
         void setVolume(double volume);
         void setVolume(double volume, const s3d::Duration& time);
     private:
+        ISoundBank* m_pSoundBank;
         Resource::Assets* m_pAssets;
 
         s3d::Audio m_prev;

@@ -5,13 +5,15 @@
 #include <abyss/commons/Resource/Msg/Manager.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
+#include <abyss/commons/Factory/Storage/Injector.hpp>
+#include <abyss/commons/Factory/Sound/Injector.hpp>
 
 namespace abyss::Scene::Boot
 {
     class Scene::Impl
     {
     public:
-        Impl([[maybe_unused]] const InitData& init)
+        Impl(const InitData& init)
         {
             // Boot時のローディングで即必要なものはココで初期化する
             {
@@ -21,9 +23,10 @@ namespace abyss::Scene::Boot
                 // 初期で必要なものロード
                 Resource::Preload::ParamStartup().preload();
             }
+            m_data = init._s;
 
             // ローディング
-            init._s->loader.startAsync(std::bind(&Impl::loading, this));
+            m_data->loader.startAsync(std::bind(&Impl::loading, this));
         }
         void loading()
         {
@@ -48,7 +51,15 @@ namespace abyss::Scene::Boot
                 Resource::Preload::Preloader norelease(U"Norelease");
                 norelease.preload(assets);
             }
+
+            // ロードが必要なシーンデータ初期化もここで行う
+            m_data->dataStore = Factory::Storage::Injector().instantiate<User::DataStore>();
+            m_data->sound = std::make_shared<Sound::SceneSound>(
+                Factory::Sound::SoundBank::Injector().resolve<Sound::ISoundBank>()
+            );
         }
+    private:
+        std::shared_ptr<SequecneData> m_data;
     };
     Scene::Scene(const InitData& init) :
         ISceneBase(init),

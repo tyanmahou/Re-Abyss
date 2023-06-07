@@ -1,5 +1,4 @@
 #include <abyss/scenes/SequenceManager.hpp>
-#include <abyss/commons/Factory/Storage/Injector.hpp>
 
 #include <abyss/scenes/Scene/Boot/Scene.hpp>
 #include <abyss/scenes/Scene/Demo/Scene.hpp>
@@ -39,7 +38,6 @@ namespace abyss
         });
 #endif
         data()->isRequestedSceneEnd = true;
-        data()->dataStore = Factory::Storage::Injector().instantiate<User::DataStore>();
     }
     bool SequenceManager::update()
     {

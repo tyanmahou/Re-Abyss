@@ -2,9 +2,10 @@
 
 namespace abyss::Sound
 {
-    SceneSound::SceneSound(Resource::Assets* pAssets):
-        m_bgm(pAssets),
-        m_se(pAssets)
+    SceneSound::SceneSound(std::shared_ptr<ISoundBank> pSoundBank, Resource::Assets* pAssets):
+        m_soundbank(pSoundBank),
+        m_bgm(pSoundBank.get(), pAssets),
+        m_se(pSoundBank.get(), pAssets)
     {
     }
 }

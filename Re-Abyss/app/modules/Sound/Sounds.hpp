@@ -14,6 +14,7 @@ namespace abyss::Sound
         Sounds(SceneSound* pSceneSound);
         ~Sounds();
         void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
+        void play(const SoundLabel& label, const s3d::Duration& sec = 0.2s);
 
         void stop(const s3d::Duration& sec = 0.2s);
 

@@ -2531,6 +2531,9 @@
     <ClCompile Include="tests\tests\Sound\SoundBankCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\commons\Factory\Sound\Injector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6566,7 +6569,7 @@
     <ClInclude Include="app\modules\Sound\SceneSound.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Sound\BgmPath.hpp">
+    <ClInclude Include="app\components\Sound\BgmLabel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Sound\SePath.hpp">
@@ -6600,6 +6603,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Factory\Sound\Injector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

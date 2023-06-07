@@ -3,7 +3,8 @@
 
 namespace abyss::Sound
 {
-    SoundEffects::SoundEffects(Resource::Assets* pAssets):
+    SoundEffects::SoundEffects(ISoundBank* pSoundBank, Resource::Assets* pAssets):
+        m_pSoundBank(pSoundBank),
         m_pAssets(pAssets)
     {
     }

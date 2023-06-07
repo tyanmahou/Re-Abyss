@@ -37,7 +37,7 @@ namespace
                 .asCached();
 
             c->bind<Sounds>()
-                .withArgs(&m_pData->sound)
+                .withArgs(m_pData->sound.get())
                 .asCached();
 
             c->bind<UIs>()

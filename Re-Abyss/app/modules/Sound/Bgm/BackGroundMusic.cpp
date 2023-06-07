@@ -8,7 +8,8 @@
 
 namespace abyss::Sound
 {
-    BackGroundMusic::BackGroundMusic(Resource::Assets* pAssets):
+    BackGroundMusic::BackGroundMusic(ISoundBank* pSoundBank, Resource::Assets* pAssets):
+        m_pSoundBank(pSoundBank),
         m_pAssets(pAssets)
     {
     }
@@ -26,6 +27,27 @@ namespace abyss::Sound
 
         // Bgm はストリーミング再生
         m_current = m_pAssets->loadAudio(s3d::Audio::Stream, fixPath, Path::Root);
+
+        if (m_prev.isPlaying()) {
+            m_prev.stop(sec);
+        }
+        m_current.setVolume(0.6);
+        m_current.play(MixBusKind::Bgm, sec);
+    }
+    void BackGroundMusic::play(const SoundLabel& label, const s3d::Duration& sec)
+    {
+        const auto& fixPath = label.key();
+        if (m_currentPath == fixPath) {
+            if (!m_current.isPlaying()) {
+                m_current.play(MixBusKind::Bgm, sec);
+            }
+            return;
+        }
+        m_currentPath = fixPath;
+        m_prev = m_current;
+
+        // Bgm はストリーミング再生
+        m_current = m_pAssets->loadAudio(s3d::Audio::Stream, m_pSoundBank->setting(label));
 
         if (m_prev.isPlaying()) {
             m_prev.stop(sec);

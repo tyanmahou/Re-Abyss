@@ -23,7 +23,7 @@ namespace abyss
         SceneKind fromScene{};
         SceneKind toScene{};
 
-        Sound::SceneSound sound;
+        std::shared_ptr<Sound::SceneSound> sound;
         Loading::Loader loader;
         Fade::SceneFader fader;
 

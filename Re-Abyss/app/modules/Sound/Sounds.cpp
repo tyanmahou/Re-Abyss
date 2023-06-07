@@ -15,6 +15,10 @@ namespace abyss::Sound
     {
         bgm()->play(path, sec);
     }
+    void Sounds::play(const SoundLabel& label, const s3d::Duration& sec)
+    {
+        bgm()->play(label, sec);
+    }
     void Sounds::stop(const Duration& sec)
     {
         bgm()->stop(sec);

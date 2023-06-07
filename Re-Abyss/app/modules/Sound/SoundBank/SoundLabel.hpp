@@ -1,19 +1,19 @@
 #pragma once
-#include <Siv3D/StringView.hpp>
+#include <Siv3D/String.hpp>
 
 namespace abyss::Sound
 {
     class SoundLabel
     {
     public:
-        constexpr SoundLabel(s3d::StringView key) :
+        SoundLabel(const s3d::String& key) :
             m_key(key)
         {}
-        s3d::StringView key() const
+        const s3d::String& key() const
         {
             return m_key;
         }
     private:
-        s3d::StringView m_key;
+        s3d::String m_key;
     };
 }

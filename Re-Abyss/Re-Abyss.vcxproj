@@ -247,6 +247,7 @@
     <ClCompile Include="app\commons\Factory\Adv\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Project\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Sound\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\System\Injector.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp" />
@@ -1251,6 +1252,7 @@
     <ClInclude Include="app\commons\Factory\Adv\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Sound\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\System\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\System\StageFactoryOption.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
@@ -1331,7 +1333,7 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
-    <ClInclude Include="app\components\Sound\BgmPath.hpp" />
+    <ClInclude Include="app\components\Sound\BgmLabel.hpp" />
     <ClInclude Include="app\components\Sound\SePath.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
