@@ -17,4 +17,9 @@ namespace abyss::Sound
     private:
         s3d::HashTable<s3d::String, AudioSetting> m_settingTable;
     };
+
+    struct SoundBankDataStoreInstaller : emaject::IInstaller
+    {
+        void onBinding(emaject::Container* container) const override;
+    };
 }

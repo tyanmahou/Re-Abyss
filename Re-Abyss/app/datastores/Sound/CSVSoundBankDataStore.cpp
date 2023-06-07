@@ -1,5 +1,6 @@
 #include <abyss/datastores/Sound/CSVSoundBankDataStore.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
+#include <abyss/commons/Path.hpp>
 
 namespace abyss::Sound
 {
@@ -16,7 +17,7 @@ namespace abyss::Sound
             }
             AudioSetting as{};
             if (auto&& audioPath = row[1]) {
-                as.path = audioPath;
+                as.path = Path::SoundPath + audioPath;
             }
             if (auto loop = s3d::ParseOpt<bool>(row[2])) {
                 as.loop = s3d::Loop{ *loop };
