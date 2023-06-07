@@ -4,7 +4,7 @@
 #include <Emaject.hpp>
 namespace abyss::Sound
 {
-    class CSVSoundBankDataStore : ISoundBankDataStore
+    class CSVSoundBankDataStore : public ISoundBankDataStore
     {
     public:
         CSVSoundBankDataStore(const s3d::FilePath& path, Resource::Assets* pAsset);

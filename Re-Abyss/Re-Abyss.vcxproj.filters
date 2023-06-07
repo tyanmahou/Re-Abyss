@@ -2525,7 +2525,10 @@
     <ClCompile Include="app\services\Sound\SoundBankService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\datastores\Sound\TomlSoundBankDataStore.cpp">
+    <ClCompile Include="app\datastores\Sound\CSVSoundBankDataStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tests\Sound\SoundBankCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6596,7 +6599,7 @@
     <ClInclude Include="app\services\Sound\SoundBankService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\datastores\Sound\TomlSoundBankDataStore.hpp">
+    <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

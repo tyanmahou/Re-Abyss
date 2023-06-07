@@ -8,10 +8,23 @@ namespace abyss::Math
     {
         return -Epsilon < x && x < Epsilon;
     }
-
-    inline bool IsZeroLoose(const s3d::Vec2& v)
+    inline bool IsZeroLoose(const s3d::Duration& x)
+    {
+        return IsZeroLoose(x.count());
+    }
+    template<class Type>
+    inline bool IsZeroLoose(const s3d::Vector2D<Type>& v)
     {
         return IsZeroLoose(v.x) && IsZeroLoose(v.y);
+    }
+    inline bool IsEqualLoose(const s3d::Duration& a, const s3d::Duration& b)
+    {
+        return IsZeroLoose(a - b);
+    }
+    template<class Type>
+    inline bool IsEqualLoose(const s3d::Vector2D<Type>& a, const s3d::Vector2D<Type>& b)
+    {
+        return IsZeroLoose(a - b);
     }
 
     /// <summary>

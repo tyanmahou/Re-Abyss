@@ -14,7 +14,7 @@ namespace abyss::Sound
         }
         return {};
     }
-    void SoundBankDataStoreInstaller::onBinding(emaject::Container* container) const
+    void SoundBankServiceInstaller::onBinding(emaject::Container* container) const
     {
         container->bind<ISoundBankService>()
             .to<SoundBankService>()

@@ -323,7 +323,7 @@
     <ClCompile Include="app\components\UI\StageResult\Builder.cpp" />
     <ClCompile Include="app\components\UI\StageResult\Main.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
-    <ClCompile Include="app\datastores\Sound\TomlSoundBankDataStore.cpp" />
+    <ClCompile Include="app\datastores\Sound\CSVSoundBankDataStore.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
@@ -1030,6 +1030,7 @@
     <ClCompile Include="tests\tests\Collision\TagCatch.cpp" />
     <ClCompile Include="tests\tests\Component\ComponentCatch.cpp" />
     <ClCompile Include="tests\tests\Sample\SampleCatch.cpp" />
+    <ClCompile Include="tests\tests\Sound\SoundBankCatch.cpp" />
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\Temporary\TempFlag\TempFlagCatch.cpp" />
     <ClCompile Include="tests\tests\testing.ixx" />
@@ -1345,7 +1346,7 @@
     <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp" />
-    <ClInclude Include="app\datastores\Sound\TomlSoundBankDataStore.hpp" />
+    <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\modules\Adv\base\Process.hpp" />
     <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp" />
