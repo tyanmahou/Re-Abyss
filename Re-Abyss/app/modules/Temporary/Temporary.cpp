@@ -31,7 +31,7 @@ namespace abyss
         return m_tempData->popReservedRestartId();
     }
 
-    void Temporary::setRestartInfo(s3d::int32 startId, const s3d::Optional<s3d::String>& bgm) const
+    void Temporary::setRestartInfo(s3d::int32 startId, const s3d::Optional<Sound::SoundLabel>& bgm) const
     {
         RestartInfo info;
         info.setStartId(startId);
@@ -57,7 +57,7 @@ namespace abyss
         return s3d::none;
     }
 
-    s3d::Optional<s3d::String> Temporary::getRestartBgm() const
+    s3d::Optional<Sound::SoundLabel> Temporary::getRestartBgm() const
     {
         if (auto&& info = this->getRestartInfo()) {
             return info->getBgm();

@@ -13,7 +13,6 @@ namespace abyss::Sound
     public:
         Sounds(SceneSound* pSceneSound);
         ~Sounds();
-        void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
         void play(const SoundLabel& label, const s3d::Duration& sec = 0.2s);
 
         void stop(const s3d::Duration& sec = 0.2s);
@@ -23,7 +22,7 @@ namespace abyss::Sound
 
         void release();
 
-        const s3d::Optional<s3d::String>& currentBgmPath()const;
+        const s3d::Optional<SoundLabel>& currentBgmLabel()const;
 
         void setBgmVolume(double volume);
         void setBgmVolume(double volume, const s3d::Duration& time);

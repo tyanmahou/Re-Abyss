@@ -61,7 +61,7 @@ namespace
                 it->event = obj.getProperty(U"event").value_or(U"");
             });
             PARSE_GIMMICK(BgmChanger, {
-                it->bgm = obj.getProperty(U"bgm").value_or(U"");
+                it->bgm = Sound::SoundLabel(obj.getProperty(U"bgm").value_or(U""));
             });
             PARSE_GIMMICK(CodeZeroBack, {
             });

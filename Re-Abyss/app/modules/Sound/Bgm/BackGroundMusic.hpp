@@ -20,7 +20,6 @@ namespace abyss::Sound
         /// </summary>
         /// <param name="path"></param>
         /// <param name="sec"></param>
-        void play(const s3d::String& path, const s3d::Duration& sec = 0.2s);
         void play(const SoundLabel& label, const s3d::Duration& sec = 0.2s);
 
         /// <summary>
@@ -34,9 +33,9 @@ namespace abyss::Sound
         /// </summary>
         void release();
 
-        const s3d::Optional<s3d::String>& getCurrentPath()const
+        const s3d::Optional<SoundLabel>& getCurrentLabel()const
         {
-            return m_currentPath;
+            return m_currentLabel;
         }
 
         /// <summary>
@@ -53,7 +52,7 @@ namespace abyss::Sound
 
         s3d::Audio m_prev;
         s3d::Audio m_current;
-        s3d::Optional<s3d::String> m_currentPath;
-        std::stack<s3d::String> m_stash;
+        s3d::Optional<SoundLabel> m_currentLabel;
+        std::stack<SoundLabel> m_stash;
     };
 }

@@ -11,10 +11,6 @@ namespace abyss::Sound
     Sounds::~Sounds()
     {
     }
-    void Sounds::play(const s3d::String& path, const s3d::Duration& sec)
-    {
-        bgm()->play(path, sec);
-    }
     void Sounds::play(const SoundLabel& label, const s3d::Duration& sec)
     {
         bgm()->play(label, sec);
@@ -35,9 +31,9 @@ namespace abyss::Sound
     {
         bgm()->release();
     }
-    const s3d::Optional<s3d::String>& Sounds::currentBgmPath() const
+    const s3d::Optional<SoundLabel>& Sounds::currentBgmLabel() const
     {
-        return bgm()->getCurrentPath();
+        return bgm()->getCurrentLabel();
     }
     void Sounds::setBgmVolume(double volume)
     {

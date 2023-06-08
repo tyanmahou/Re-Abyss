@@ -6,6 +6,7 @@ namespace abyss::Sound
     class SoundLabel
     {
     public:
+        SoundLabel() = default;
         SoundLabel(const s3d::String& key) :
             m_key(key)
         {}
@@ -13,6 +14,8 @@ namespace abyss::Sound
         {
             return m_key;
         }
+
+        bool operator==(const Sound::SoundLabel& other)const = default;
     private:
         s3d::String m_key;
     };

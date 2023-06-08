@@ -3,6 +3,7 @@
 #include <Siv3D/Optional.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempKey.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempLevel.hpp>
+#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
@@ -52,11 +53,11 @@ namespace abyss
         /// <returns></returns>
         s3d::Optional<s3d::int32> popReservedRestartId() const;
 
-        void setRestartInfo(s3d::int32 startId, const s3d::Optional<s3d::String>& bgm) const;
+        void setRestartInfo(s3d::int32 startId, const s3d::Optional<Sound::SoundLabel> & bgm) const;
         void setRestartInfo(const RestartInfo& info) const;
         const s3d::Optional<RestartInfo>& getRestartInfo() const;
         s3d::Optional<s3d::int32> getRestartId()const;
-        s3d::Optional<s3d::String> getRestartBgm()const;
+        s3d::Optional<Sound::SoundLabel> getRestartBgm()const;
     private:
         std::shared_ptr<TemporaryData> m_tempData;
     };

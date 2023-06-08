@@ -1,6 +1,6 @@
 #pragma once
+#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
 #include <Siv3D/Fwd.hpp>
-#include <Siv3D/String.hpp>
 #include <Siv3D/Optional.hpp>
 
 namespace abyss
@@ -16,20 +16,20 @@ namespace abyss
         {
             m_startId = startId;
         }
-        const s3d::Optional<s3d::String>& getBgm() const
+        const s3d::Optional<Sound::SoundLabel>& getBgm() const
         {
             return m_bgm;
         }
-        void setBgm(const s3d::String& bgm)
+        void setBgm(const Sound::SoundLabel& bgm)
         {
             m_bgm = bgm;
         }
-        void setBgm(const s3d::Optional<s3d::String>& bgm)
+        void setBgm(const s3d::Optional<Sound::SoundLabel>& bgm)
         {
             m_bgm = bgm;
         }
     private:
         s3d::int32 m_startId = 0;
-        s3d::Optional<s3d::String> m_bgm;
+        s3d::Optional<Sound::SoundLabel> m_bgm;
     };
 }

@@ -68,7 +68,7 @@ namespace
         }
         return ret;
     }
-    Optional<FilePath> NextBgm(const Room::RoomData& nextRoom, const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
+    Optional<Sound::SoundLabel> NextBgm(const Room::RoomData& nextRoom, const s3d::Array<std::shared_ptr<Actor::Gimmick::GimmickEntity>>& gimmicks)
     {
         for (const auto& gimmick : gimmicks) {
             if (gimmick->type != Actor::Gimmick::GimmickType::BgmChanger) {
@@ -186,7 +186,7 @@ namespace abyss
             }
 
             // 初期情報をリスタート情報として残す
-            temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmPath());
+            temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmLabel());
         }
 
         // UI初期化
@@ -230,7 +230,7 @@ namespace abyss
         // サウンドが変わる場合は停止
         if (nextRoom) {
             auto sound = m_pManager->getModule<Sounds>();
-            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && *bgm != sound->currentBgmPath()) {
+            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && bgm != sound->currentBgmLabel()) {
                 sound->stop();
             }
         }
@@ -271,7 +271,7 @@ namespace abyss
         {
             auto temporary = m_pManager->getModule<Temporary>();
             if (auto reservedRestartId = temporary->popReservedRestartId()) {
-                temporary->setRestartInfo(*reservedRestartId, sound->currentBgmPath());
+                temporary->setRestartInfo(*reservedRestartId, sound->currentBgmLabel());
             }
         }
 
