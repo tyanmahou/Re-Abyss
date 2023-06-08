@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Adv/base/ICommand.hpp>
-#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 #include <Siv3D/Duration.hpp>
 
 namespace abyss::Adv

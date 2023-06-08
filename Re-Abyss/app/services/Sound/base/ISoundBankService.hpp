@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
 
 namespace abyss::Sound

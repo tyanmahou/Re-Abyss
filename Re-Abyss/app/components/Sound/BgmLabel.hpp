@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 
 namespace abyss::Sound
 {

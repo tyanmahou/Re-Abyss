@@ -6593,7 +6593,7 @@
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Sound\SoundBank\SoundLabel.hpp">
+    <ClInclude Include="app\values\Sound\SoundLabel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\services\Sound\base\ISoundBankService.hpp">

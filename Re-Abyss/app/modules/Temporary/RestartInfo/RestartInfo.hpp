@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 #include <Siv3D/Fwd.hpp>
 #include <Siv3D/Optional.hpp>
 

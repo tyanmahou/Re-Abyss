@@ -3,7 +3,7 @@
 #include <Siv3D/Optional.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempKey.hpp>
 #include <abyss/modules/Temporary/TempFrag/TempLevel.hpp>
-#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 #include <Emaject.hpp>
 
 namespace abyss
