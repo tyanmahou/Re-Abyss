@@ -7,7 +7,7 @@ namespace abyss::Sound
     {
     public:
         SoundLabel() = default;
-        SoundLabel(const s3d::String& key) :
+        explicit SoundLabel(const s3d::String& key) :
             m_key(key)
         {}
         const s3d::String& key() const

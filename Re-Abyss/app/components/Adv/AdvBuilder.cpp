@@ -125,11 +125,11 @@ namespace
             } else if (command == U"bgm") {
                 Duration fade{ 0.2s };
                 Bgm::Kind kind{};
-                String path = U"";
+                Sound::SoundLabel label{ U"" };
                 for (const auto& [key, value] : statement.params) {
                     if (key == U"play" && value) {
                         kind = Bgm::Kind::Play;
-                        path = *value;
+                        label = Sound::SoundLabel{ *value };
                     }if (key == U"stop") {
                         kind = Bgm::Kind::Stop;
                     } else if (key == U"stash") {
@@ -140,7 +140,7 @@ namespace
                         fade = Duration(s3d::Parse<double>(*value));
                     }
                 }
-                m_pProcess->addCommand<Bgm>(kind, path, fade);
+                m_pProcess->addCommand<Bgm>(kind, label, fade);
             }
         }
         void eval(const TextStatement& statement) override

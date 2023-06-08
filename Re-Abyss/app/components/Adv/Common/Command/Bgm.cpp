@@ -1,6 +1,5 @@
 #include <abyss/components/Adv/Common/Command/Bgm.hpp>
 
-#include <abyss/commons/Path.hpp>
 #include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 
@@ -9,12 +8,12 @@ namespace abyss::Adv
     Bgm::Bgm(
         AdvObj* pObj,
         Kind kind,
-        const s3d::String& path,
+        const Sound::SoundLabel& label,
         const Duration& fade
     ):
         m_pObj(pObj),
         m_kind(kind),
-        m_path(path),
+        m_label(label),
         m_fade(fade)
     {}
     void Bgm::onStart()
@@ -23,7 +22,7 @@ namespace abyss::Adv
         switch (m_kind)
         {
         case Kind::Play:
-            pSound->play(Path::SoundPath + m_path, m_fade);
+            pSound->play(m_label, m_fade);
             break;
         case Kind::Stop:
             pSound->stop(m_fade);

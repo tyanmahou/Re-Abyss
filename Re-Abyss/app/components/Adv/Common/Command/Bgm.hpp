@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/Adv/base/ICommand.hpp>
-#include <Siv3D/String.hpp>
+#include <abyss/modules/Sound/SoundBank/SoundLabel.hpp>
 #include <Siv3D/Duration.hpp>
 
 namespace abyss::Adv
@@ -21,7 +21,7 @@ namespace abyss::Adv
         Bgm(
             AdvObj* pObj,
             Kind kind,
-            const s3d::String& path,
+            const Sound::SoundLabel& label,
             const Duration& fade
         );
 
@@ -30,7 +30,7 @@ namespace abyss::Adv
     private:
         AdvObj* m_pObj = nullptr;
         Kind m_kind;
-        s3d::String m_path;
+        Sound::SoundLabel m_label;
         s3d::Duration m_fade;
     };
 }
