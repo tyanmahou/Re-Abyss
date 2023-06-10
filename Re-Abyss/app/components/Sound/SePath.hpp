@@ -1,11 +1,11 @@
 #pragma once
-#include <abyss/commons/Path.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 
-namespace abyss
+namespace abyss::Sound
 {
     class SePath
     {
     public:
-        inline static s3d::FilePath TitleDecide = Path::SePath + U"Actor/Player/Shot/shot3.ogg";
+        inline static SoundLabel TitleDecide{ U"Se/Actor/Player/Shot/Shot3" };
     };
 }

@@ -12,8 +12,7 @@ namespace abyss::Sound
         /// <summary>
         /// 再生
         /// </summary>
-        /// <param name="path"></param>
-        void play(const s3d::String& path);
+        void play(const SoundLabel& label);
 
         void setVolume(double volume);
         void setVolume(double volume, const s3d::Duration& time);

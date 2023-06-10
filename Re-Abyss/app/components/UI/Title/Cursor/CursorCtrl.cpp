@@ -94,7 +94,7 @@ namespace abyss::UI::Title::Cursor
             m_gameStartTimer.start();
             m_isSelected = true;
 
-            m_pUi->getModule<Sounds>()->playSe(SePath::TitleDecide);
+            m_pUi->getModule<Sounds>()->playSe(Sound::SePath::TitleDecide);
         }
     }
 

@@ -20,3 +20,14 @@ namespace abyss::Sound
         s3d::String m_key;
     };
 }
+namespace std
+{
+    template<>
+    struct hash<abyss::Sound::SoundLabel>
+    {
+        [[nodiscard]] std::size_t operator()(const abyss::Sound::SoundLabel& key) const
+        {
+            return std::hash<s3d::String>{}(key.key());
+        }
+    };
+}

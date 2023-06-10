@@ -27,7 +27,7 @@ namespace abyss::Sound
         void setBgmVolume(double volume);
         void setBgmVolume(double volume, const s3d::Duration& time);
 
-        void playSe(const s3d::String& path);
+        void playSe(const SoundLabel& label);
 
         void setMasterVolume(double volume);
         void setMasterVolume(double volume, const s3d::Duration& time);

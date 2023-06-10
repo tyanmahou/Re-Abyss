@@ -8,9 +8,9 @@ namespace abyss::Sound
         m_pAssets(pAssets)
     {
     }
-    void SoundEffects::play(const s3d::String& path)
+    void SoundEffects::play(const SoundLabel& label)
     {
-        Audio audio = m_cache.load(m_pAssets, path);
+        Audio audio = m_cache.load(m_pAssets, m_pSoundBank, label);
         audio.playOneShot(MixBusKind::Se, 0.4);
     }
     void SoundEffects::setVolume(double volume)

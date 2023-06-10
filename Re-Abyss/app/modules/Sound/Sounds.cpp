@@ -43,9 +43,9 @@ namespace abyss::Sound
     {
         bgm()->setVolume(volume, time);
     }
-    void Sounds::playSe(const s3d::String& path)
+    void Sounds::playSe(const SoundLabel& label)
     {
-        se()->play(path);
+        se()->play(label);
     }
     void Sounds::setMasterVolume(double volume)
     {
