@@ -63,4 +63,8 @@ namespace abyss::Sound
     {
         return m_pSceneSound->se();
     }
+    AudioSetting Sounds::setting(const SoundLabel& label) const
+    {
+        return m_pSceneSound->setting(label);
+    }
 }

@@ -34,6 +34,7 @@ namespace abyss::Sound
 
         BackGroundMusic* bgm() const;
         SoundEffects* se() const;
+        AudioSetting setting(const SoundLabel& label) const;
     private:
         SceneSound* m_pSceneSound = nullptr;
     };

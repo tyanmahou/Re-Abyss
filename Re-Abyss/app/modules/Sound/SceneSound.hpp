@@ -18,6 +18,7 @@ namespace abyss::Sound
         {
             return &m_se;
         }
+        AudioSetting setting(const SoundLabel& label) const;
     private:
         std::shared_ptr<ISoundBank> m_soundbank;
         BackGroundMusic m_bgm;

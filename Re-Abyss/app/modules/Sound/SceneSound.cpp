@@ -8,4 +8,8 @@ namespace abyss::Sound
         m_se(pSoundBank.get(), pAssets)
     {
     }
+    AudioSetting SceneSound::setting(const SoundLabel& label) const
+    {
+        return m_soundbank->setting(label);
+    }
 }
