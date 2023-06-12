@@ -67,4 +67,8 @@ namespace abyss::Sound
     {
         return m_pSceneSound->setting(label);
     }
+    s3d::Audio Sounds::load(const SoundLabel& label, Resource::Assets* pAssets) const
+    {
+        return m_pSceneSound->load(label, pAssets);
+    }
 }

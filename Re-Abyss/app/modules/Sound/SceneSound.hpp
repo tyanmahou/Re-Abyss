@@ -19,6 +19,7 @@ namespace abyss::Sound
             return &m_se;
         }
         AudioSetting setting(const SoundLabel& label) const;
+        s3d::Audio load(const SoundLabel& label, Resource::Assets* pAssets) const;
     private:
         std::shared_ptr<ISoundBank> m_soundbank;
         BackGroundMusic m_bgm;
