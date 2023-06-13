@@ -19,7 +19,6 @@ namespace abyss::Actor
         AudioSource(ActorObj* pActor);
         void onStart() override;
 
-        void load(const s3d::FilePath& path);
         void onUpdate() override;
 
         void play(const s3d::String& key);

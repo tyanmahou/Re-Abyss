@@ -58,7 +58,6 @@ namespace abyss::Actor::Item::Recovery
             .setInitPos(pos)
             .setBodySize(setting.size)
             .setBodyPivot(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
-            .setAudioSettingGroupPath(U"Item/Recovery/Recovery.aase")
         );
 
         {

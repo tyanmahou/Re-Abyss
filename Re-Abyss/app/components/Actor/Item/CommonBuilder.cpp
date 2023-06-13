@@ -13,8 +13,7 @@ namespace abyss::Actor::Item
 {
     BuildOption::BuildOption():
         pos(0, 0),
-        bodySize(40, 40),
-        audioSettingGroupPath(U"Item/Item.aase")
+        bodySize(40, 40)
     {}
 
     void CommonBuilder::Build(ActorObj* pActor, const BuildOption& opt)
@@ -52,8 +51,7 @@ namespace abyss::Actor::Item
         }
         // 音源
         {
-            pActor->attach<AudioSource>(pActor)
-                ->load(opt.audioSettingGroupPath);
+            pActor->attach<AudioSource>(pActor);
         }
         // 状態管理
         {

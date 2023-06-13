@@ -35,7 +35,6 @@ namespace abyss::Actor::Enemy::BabyDux
                 .setInitHp(Param::Base::Hp)
                 .setIsEnableMapCollider(false)
                 .setIsEnableItemDrop(false)
-                .setAudioSettingGroupPath(U"Enemy/BabyDux/BabyDux.aase")
                 .setInitState(initState)
                 .setVModelPresenter<Presenter>(pActor)
             );

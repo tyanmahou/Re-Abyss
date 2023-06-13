@@ -26,7 +26,6 @@ namespace abyss::Actor::Enemy::BazookaKun
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
-            .setAudioSettingGroupPath(U"Enemy/BazookaKun/BazookaKun.aase")
             .setInitState<WaitState>()
             .setVModelPresenter<Presenter>(pActor)
             .setIsEnableBreathing(false)

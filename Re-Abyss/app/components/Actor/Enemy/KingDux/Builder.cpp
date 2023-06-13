@@ -53,7 +53,6 @@ namespace abyss::Actor::Enemy::KingDux
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
-            .setAudioSettingGroupPath(U"Enemy/KingDux/KingDux.aase")
             .setIsEnableItemDrop(false)
             .setUseInvincibleColor(true)
             .setIsEnableDeadCallback(false)

@@ -30,7 +30,6 @@ namespace abyss::Actor::Enemy::RollingTako
             .setBodyPivot(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
             .setIsEnableRoomHit(true)
-            .setAudioSettingGroupPath(U"Enemy/RollingTako/RollingTako.aase")
             .setVModelPresenter<Presenter>(pActor)
         );
 

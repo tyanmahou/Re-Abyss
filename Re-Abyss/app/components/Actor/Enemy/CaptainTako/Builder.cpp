@@ -26,7 +26,6 @@ namespace abyss::Actor::Enemy::CaptainTako
             .setBodySize(Param::Base::Size)
             .setBodyPivot(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
-            .setAudioSettingGroupPath(U"Enemy/CaptainTako/CaptainTako.aase")
             .setInitState<WaitState>()
             .setVModelPresenter<Presenter>(pActor)
         );

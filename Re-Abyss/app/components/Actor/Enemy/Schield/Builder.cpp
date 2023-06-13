@@ -30,7 +30,6 @@ namespace abyss::Actor::Enemy::Schield
             .setBodySize(Param::Base::Size)
             .setInitHp(Param::Base::Hp)
             .setCollider<FaceCollider>(pActor)
-            .setAudioSettingGroupPath(U"Enemy/Schield/Schield.aase")
             .setInitState<WaitState>()
             .setVModelPresenter<Presenter>(pActor)
         );

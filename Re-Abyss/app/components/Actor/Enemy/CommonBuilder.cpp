@@ -96,8 +96,7 @@ namespace abyss::Actor::Enemy
 		}
 		// 音源
 		{
-			pActor->attach<AudioSource>(pActor)
-				->load(opt.audioSettingGroupPath);
+			pActor->attach<AudioSource>(pActor);
 		}
 		// 呼吸
 		if (opt.isEnableBreathing) {
@@ -148,7 +147,6 @@ namespace abyss::Actor::Enemy
         bodySize(40, 40),
         bodyPivot(0, 0),
         forward(Forward::Left()),
-        initHp(1),
-        audioSettingGroupPath(U"Enemy/Enemy.aase")
+        initHp(1)
     {}
 }

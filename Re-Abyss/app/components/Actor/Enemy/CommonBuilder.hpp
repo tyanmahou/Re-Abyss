@@ -86,11 +86,6 @@ namespace abyss::Actor::Enemy
             this->roomHitStrict = strict;
             return *this;
         }
-        BuildOption& setAudioSettingGroupPath(const s3d::String& path)
-        {
-            this->audioSettingGroupPath = path;
-            return *this;
-        }
         BuildOption& setIsEnableDamage(bool enable)
         {
             this->isEnableDamage = enable;
@@ -167,9 +162,6 @@ namespace abyss::Actor::Enemy
         bool isEnableMapCollider = true;
         bool isEnableRoomHit = false;
         s3d::Optional<ColDirection> roomHitStrict;
-
-        // audio sourece
-        s3d::String audioSettingGroupPath;
 
         // damage
         bool isEnableDamage = true;

@@ -60,8 +60,7 @@ namespace abyss::Actor::Enemy::LaunShark::Shot
         }
         // 音源
         {
-            pActor->attach<AudioSource>(pActor)
-                ->load(U"Enemy/LaunShark/Shot.aase");
+            pActor->attach<AudioSource>(pActor);
         }
 
         // 衝突

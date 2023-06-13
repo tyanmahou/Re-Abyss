@@ -86,8 +86,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         }
         // 音源
         {
-            pActor->attach<AudioSource>(pActor)
-                ->load(U"Gimmick/ShutterWall/ShutterWall.aase");
+            pActor->attach<AudioSource>(pActor);
         }
     }
 }

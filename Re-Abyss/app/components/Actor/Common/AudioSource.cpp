@@ -90,12 +90,6 @@ namespace abyss::Actor
             m_locator = m_pActor->find<ILocator>();
         }
     }
-
-    void AudioSource::load(const s3d::FilePath& path)
-    {
-        // TODO いらない
-    }
-
     void AudioSource::onUpdate()
     {
         m_audios.remove_if([](const Audio& audio) {
