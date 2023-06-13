@@ -2,7 +2,6 @@
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <abyss/utils/AudioSetting/AudioSettingReader.hpp>
-#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 #include <Siv3D.hpp>
 #include <S3DTiled.hpp>
 
@@ -129,10 +128,6 @@ namespace abyss::Resource
                 return ret;
             }
         }
-        const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path)
-        {
-            return this->load<AudioSettingGroup>(m_audioGroupCache, path);
-        }
         const VertexShader& loadVs(const s3d::FilePath& path)
         {
             return this->load<VertexShader>(m_vsCache, path);
@@ -161,7 +156,6 @@ namespace abyss::Resource
             m_tomlCache.clear();
             m_audioCache.clear();
             m_waveCache.clear();
-            m_audioGroupCache.clear();
         }
 
         void setIsBuilded(bool isBuilded)
@@ -181,7 +175,6 @@ namespace abyss::Resource
             s3d::HashTable<String, Audio> m_audioCache;
             // NOTE: AudioでキャッシュするとAudioSoreceで複数SE制御できないのでWaveでキャッシュしてる
             s3d::HashTable<String, Wave> m_waveCache;
-            s3d::HashTable<String, AudioSettingGroup> m_audioGroupCache;
             s3d::HashTable<String, VertexShader> m_vsCache;
             s3d::HashTable<String, PixelShader> m_psCache;
             s3d::HashTable<String, CSV> m_csvCache;
@@ -244,12 +237,6 @@ namespace abyss::Resource
     {
         return m_pImpl->loadAudio(streaming, prefix + path);
     }
-
-    const AudioSettingGroup& Assets::loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix) const
-    {
-        return m_pImpl->loadAudioSettingGroup(prefix + path);
-    }
-
     const s3d::VertexShader& Assets::loadVs(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadVs(prefix + path);
@@ -335,13 +322,6 @@ namespace abyss::Resource
             return m_asset.loadAudio(m_path, *m_prefix);
         }
         return m_asset.loadAudio(m_path);
-    }
-    AssetLoadProxy::operator const AudioSettingGroup& () const
-    {
-        if (m_prefix) {
-            return m_asset.loadAudioSettingGroup(m_path, *m_prefix);
-        }
-        return m_asset.loadAudioSettingGroup(m_path);
     }
     AssetLoadProxy::operator const s3d::VertexShader& () const
     {

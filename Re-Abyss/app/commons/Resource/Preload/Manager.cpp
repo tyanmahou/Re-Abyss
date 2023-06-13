@@ -33,11 +33,7 @@ namespace
             } else if (kind == U"ps") {
                 ret.pixelShader << path;
             } else if (kind == U"snd") {
-                if (FileSystem::Extension(path) == U"aase") {
-                    ret.audioSettingGroup << path;
-                } else {
-                    ret.audio << path;
-                }
+                ret.audio << path;
             } else if (kind == U"csv") {
                 ret.csv << path;
             } else if (kind == U"toml") {

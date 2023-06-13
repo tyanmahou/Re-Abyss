@@ -1539,9 +1539,6 @@
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\AudioSetting\AudioSettingGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -5186,9 +5183,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\AudioSetting\AudioSettingGroup.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp">

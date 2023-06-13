@@ -93,7 +93,7 @@ namespace abyss::Actor
 
     void AudioSource::load(const s3d::FilePath& path)
     {
-        m_audioSettingGroup = Resource::Assets::Main()->load(ActorSePathPrefix + path);
+        // TODO いらない
     }
 
     void AudioSource::onUpdate()
@@ -114,10 +114,11 @@ namespace abyss::Actor
 
     void AudioSource::play(const s3d::String& key)
     {
-        auto as = m_audioSettingGroup(key);
-        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
-            this->playDirect(audio);
-        }
+        // TODO Bank経由にする
+        //auto as = m_audioSettingGroup(key);
+        //if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
+        //    this->playDirect(audio);
+        //}
     }
 
     void AudioSource::playAt(const s3d::String& key) const
@@ -128,10 +129,11 @@ namespace abyss::Actor
 
     void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
     {
-        auto as = m_audioSettingGroup(key);
-        if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
-            this->playAtDirect(audio, pos);
-        }
+        // TODO Bank経由にする
+        //auto as = m_audioSettingGroup(key);
+        //if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
+        //    this->playAtDirect(audio, pos);
+        //}
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {

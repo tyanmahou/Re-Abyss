@@ -272,6 +272,7 @@ namespace abyss::Adv
     {
         // スクリプトからロード
         {
+            // TODO: fixPathの処理がいる
             Nept::Script script(path);
             Evaluator eval(pObj);
             script.eval(&eval);

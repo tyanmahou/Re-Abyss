@@ -1,6 +1,5 @@
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Manager.hpp>
-#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 #include <S3DTiled.hpp>
 
 namespace abyss::Resource::Preload
@@ -30,11 +29,6 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(vertexShader, Vs);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
-            for (const auto& [key, as] : it) {
-                assets->loadAudio(as);
-            }
-        });
         LOAD_ASSET(csv, CSV);
         LOAD_ASSET(toml, Toml);
 
@@ -68,11 +62,6 @@ namespace abyss::Resource::Preload
         LOAD_ASSET(vertexShader, Vs);
         LOAD_ASSET(pixelShader, Ps);
         LOAD_ASSET(audio, Audio);
-        LOAD_ASSET(audioSettingGroup, AudioSettingGroup, {
-            for (const auto& [key, as] : it) {
-                assets->loadAudio(as);
-            }
-        });
         LOAD_ASSET(csv, CSV);
         LOAD_ASSET(toml, Toml);
 

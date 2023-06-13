@@ -255,7 +255,7 @@
   </object>
   <object id="38" gid="50" x="-1056.36" y="113.939" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="../../../../resources/sounds/bgm/Main/Stage0/stage0.aas"/>
+    <property name="bgm" value="Bgm/Main/Stage0/Stage0"/>
    </properties>
   </object>
  </objectgroup>

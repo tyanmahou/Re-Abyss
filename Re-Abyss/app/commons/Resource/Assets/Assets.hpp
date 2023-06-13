@@ -47,8 +47,6 @@ namespace abyss::Resource
         s3d::Audio loadAudio(s3d::Audio::FileStreaming, const AudioSetting& as) const;
         s3d::Audio loadAudio(s3d::Audio::FileStreaming, const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
 
-        const AudioSettingGroup& loadAudioSettingGroup(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::SoundPath) const;
-
         const s3d::VertexShader& loadVs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
         const s3d::PixelShader& loadPs(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::ShaderPath) const;
 
@@ -102,7 +100,6 @@ namespace abyss::Resource
         operator const s3d::Texture& () const;
         operator const TexturePacker& () const;
         operator s3d::Audio () const;
-        operator const AudioSettingGroup& () const;
         operator const s3d::VertexShader& () const;
         operator const s3d::PixelShader& () const;
         operator const s3d::CSV& () const;

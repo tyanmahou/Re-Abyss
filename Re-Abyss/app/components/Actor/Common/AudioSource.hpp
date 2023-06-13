@@ -8,7 +8,6 @@
 #include <abyss/modules/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
-#include <abyss/utils/AudioSetting/AudioSettingGroup.hpp>
 
 namespace abyss::Actor
 {
@@ -41,7 +40,6 @@ namespace abyss::Actor
         ActorObj* m_pActor;
         Ref<ILocator> m_locator;
         s3d::Array<s3d::Audio> m_audios;
-        AudioSettingGroup m_audioSettingGroup;
     };
 }
 

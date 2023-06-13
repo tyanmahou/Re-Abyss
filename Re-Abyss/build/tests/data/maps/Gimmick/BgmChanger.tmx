@@ -221,17 +221,17 @@
   <object id="2" gid="48" x="160" y="560" width="40" height="80"/>
   <object id="55" gid="50" x="120" y="360" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="Bgm/Main/Common/Stage0/Stage0"/>
+    <property name="bgm" value="Bgm/Main/Stage0/Stage0"/>
    </properties>
   </object>
   <object id="56" gid="50" x="1520" y="360" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="Bgm/Main/Common/Stage0/Stage0"/>
+    <property name="bgm" value="Bgm/Main/Stage0/Stage0"/>
    </properties>
   </object>
   <object id="58" gid="50" x="-200" y="320" width="40" height="40">
    <properties>
-    <property name="bgm" type="file" value="Bgm/Main/Common/Stage0/Stage0"/>
+    <property name="bgm" value="Bgm/Main/Stage0/Stage0"/>
    </properties>
   </object>
  </objectgroup>
