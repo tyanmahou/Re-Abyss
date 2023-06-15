@@ -43,6 +43,8 @@ namespace abyss
         {
             return std::atan2(imag, real);
         }
+
+
         constexpr Complex operator+() const
         {
             return *this;
@@ -86,4 +88,32 @@ namespace abyss
             return { complex.real, complex.imag };
         }
     };
+
+    inline Complex Slerp(const Complex& start, const Complex& end, double t)
+    {
+        double dot = start.real * end.real + start.imag * end.imag;
+
+        // 回転角度を計算
+        double theta = acos(dot);
+
+        // 開始点と終点が逆方向にある場合は回転角度を補正
+        if (theta > s3d::Math::Pi / 2.0) {
+            theta = s3d::Math::Pi - theta;
+        }
+
+        double sinTheta = s3d::Sin(theta);
+        double weightStart = s3d::Sin((1.0 - t) * theta) / sinTheta;
+        double weightEnd = s3d::Sin(t * theta) / sinTheta;
+
+        Complex interpolated = start * weightStart + end * weightEnd;
+        return interpolated;
+    }
+
+    inline s3d::Vec2 Slerp(const s3d::Vec2& start, const s3d::Vec2& end, double t)
+    {
+        Complex startComplex(start.x, start.y);
+        Complex endComplex(end.x, end.y);
+        Complex erp = Slerp(startComplex, endComplex, t);
+        return s3d::Vec2(erp.real, erp.imag);
+    }
 }
