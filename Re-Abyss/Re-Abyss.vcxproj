@@ -1400,6 +1400,7 @@
     <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
+    <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
     <ClInclude Include="app\modules\User\RuntimeData.hpp" />
