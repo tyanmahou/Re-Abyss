@@ -15,7 +15,7 @@ namespace abyss
         }
         static DualComplex Rotate(double angle)
         {
-            return { {std::cos(angle * 0.5), std::sin(angle * 0.5)}, {0, 0} };
+            return { {s3d::Cos(angle * 0.5), s3d::Sin(angle * 0.5)}, {0, 0} };
         }
     public:
         DualComplex() = default;

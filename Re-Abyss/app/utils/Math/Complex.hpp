@@ -11,7 +11,7 @@ namespace abyss
     public:
         static Complex Rotate(double angle)
         {
-            return { std::cos(angle), std::sin(angle)};
+            return { s3d::Cos(angle), s3d::Sin(angle)};
         }
     public:
         Complex() = default;
@@ -37,11 +37,11 @@ namespace abyss
         }
         constexpr double abs() const
         {
-            return std::sqrt(absSq());
+            return s3d::Sqrt(absSq());
         }
         double angle() const
         {
-            return std::atan2(imag, real);
+            return s3d::Atan2(imag, real);
         }
 
 
@@ -94,7 +94,7 @@ namespace abyss
         double dot = start.real * end.real + start.imag * end.imag;
 
         // 回転角度を計算
-        double theta = acos(dot);
+        double theta = s3d::Acos(dot);
 
         // 開始点と終点が逆方向にある場合は回転角度を補正
         if (theta > s3d::Math::Pi / 2.0) {
