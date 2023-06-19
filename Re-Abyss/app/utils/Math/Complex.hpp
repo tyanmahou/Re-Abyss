@@ -9,9 +9,15 @@ namespace abyss
         double real;
         double imag;
     public:
-        static Complex Rotate(double angle)
+        constexpr static Complex Rotate(double angle)
         {
-            return { s3d::Cos(angle), s3d::Sin(angle)};
+            // if consteval
+            if constexpr (std::is_constant_evaluated()) {
+                auto sc = s3d::FastMath::SinCos(angle);
+                return { static_cast<double>(sc.second),static_cast<double>(sc.first) };
+            } else {
+                return { s3d::Cos(angle), s3d::Sin(angle) };
+            }
         }
     public:
         Complex() = default;
@@ -39,6 +45,12 @@ namespace abyss
         {
             return s3d::Sqrt(absSq());
         }
+        Complex normalized() const
+        {
+            double mag = abs();
+            return { real / mag, imag / mag };
+        }
+
         double angle() const
         {
             return s3d::Atan2(imag, real);
@@ -91,22 +103,8 @@ namespace abyss
 
     inline Complex Slerp(const Complex& start, const Complex& end, double t)
     {
-        double dot = start.real * end.real + start.imag * end.imag;
-
-        // 回転角度を計算
-        double theta = s3d::Acos(dot);
-
-        // 開始点と終点が逆方向にある場合は回転角度を補正
-        if (theta > s3d::Math::Pi / 2.0) {
-            theta = s3d::Math::Pi - theta;
-        }
-
-        double sinTheta = s3d::Sin(theta);
-        double weightStart = s3d::Sin((1.0 - t) * theta) / sinTheta;
-        double weightEnd = s3d::Sin(t * theta) / sinTheta;
-
-        Complex interpolated = start * weightStart + end * weightEnd;
-        return interpolated;
+        // TODO 実装
+        return start;
     }
 
     inline s3d::Vec2 Slerp(const s3d::Vec2& start, const s3d::Vec2& end, double t)
