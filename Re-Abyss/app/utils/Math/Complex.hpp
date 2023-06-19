@@ -19,6 +19,14 @@ namespace abyss
                 return { s3d::Cos(angle), s3d::Sin(angle) };
             }
         }
+        constexpr static Complex RotateDeg(double degree)
+        {
+            return Rotate(s3d::ToRadians(degree));
+        }
+        constexpr static Complex Polar(double r, double theta)
+        {
+            return Rotate(theta) * r;
+        }
     public:
         Complex() = default;
         constexpr Complex(double _real = 0.0, double _imag = 0.0):
@@ -56,7 +64,34 @@ namespace abyss
             return s3d::Atan2(imag, real);
         }
 
+        constexpr Complex lerp(const Complex& other, double t) const
+        {
+            return { real * (1 - t) + other.real * t, imag * (1 - t) + other.imag * t };
+        }
+        Complex slerp(const Complex& to, double t) const
+        {
+            auto cos = dot(to);
+            if (s3d::Abs(cos) > 0.9999) {
+                auto fromAngle = angle();
+                auto toAngle = to.angle();
+                return Rotate(s3d::Math::Lerp(fromAngle, toAngle, t));
+            } else {
+                auto theta = s3d::Acos(cos);
+                auto sinTheta = s3d::Sin(theta);
+                double scale0 = s3d::Sin((1 - t) * theta) / sinTheta;
+                double scale1 = s3d::Sin(t * theta) / sinTheta;
 
+                return (*this) * scale0 + to * scale1;
+            }
+        }
+        Complex nlerp(const Complex& to, double t) const
+        {
+            return lerp(to, t).normalized();
+        }
+        constexpr double dot(const Complex& other) const
+        {
+            return real * other.real + imag * other.imag;
+        }
         constexpr Complex operator+() const
         {
             return *this;
@@ -89,6 +124,10 @@ namespace abyss
         {
             return { real * s, imag * s };
         }
+        friend constexpr Complex operator*(double s, const Complex& c)
+        {
+            return c * s;
+        }
         constexpr Complex operator/(double s) const
         {
             return { real / s, imag / s };
@@ -100,18 +139,37 @@ namespace abyss
             return { complex.real, complex.imag };
         }
     };
-
     inline Complex Slerp(const Complex& start, const Complex& end, double t)
     {
-        // TODO 実装
-        return start;
+        return start.slerp(end, t);
     }
 
     inline s3d::Vec2 Slerp(const s3d::Vec2& start, const s3d::Vec2& end, double t)
     {
-        Complex startComplex(start.x, start.y);
-        Complex endComplex(end.x, end.y);
-        Complex erp = Slerp(startComplex, endComplex, t);
+        Complex cstart(start.x, start.y);
+        Complex cend(end.x, end.y);
+
+        auto startLen = start.length();
+        auto endLen = end.length();
+        if (startLen == 0 || endLen == 0) [[unlikely]] {
+            return start.lerp(end, t);
+        }
+        auto mag = s3d::Math::Lerp(start.length(), end.length(), t);
+        auto erp = cstart.normalized().slerp(cend.normalized(), t) * mag;
+        return s3d::Vec2(erp.real, erp.imag);
+    }
+    inline s3d::Vec2 Nlerp(const s3d::Vec2& start, const s3d::Vec2& end, double t)
+    {
+        Complex cstart(start.x, start.y);
+        Complex cend(end.x, end.y);
+
+        auto startLen = start.length();
+        auto endLen = end.length();
+        if (startLen == 0 || endLen == 0) [[unlikely]] {
+            return start.lerp(end, t);
+        }
+        auto mag = s3d::Math::Lerp(start.length(), end.length(), t);
+        auto erp = cstart.normalized().nlerp(cend.normalized(), t) * mag;
         return s3d::Vec2(erp.real, erp.imag);
     }
 }

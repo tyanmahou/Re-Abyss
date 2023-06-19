@@ -24,19 +24,24 @@ namespace abyss::Scene::Experiment
         void draw()
         {
             m_font(U"[Experiment] Push Enter Start").draw();
+            Vec2 s{ 0, -100 };
+            Vec2 e{ 100, 100 };
+            auto t = s3d::Periodic::Triangle0_1(2s);
             {
-                Vec2 pos{ 300, 200 };
-                Vec2 posEnd{ 400, 300 };
-
-                s3d::Circle(pos.lerp(posEnd, s3d::Periodic::Triangle0_1(2s)), 10).draw();
-                s3d::Circle({300, 300}, 100).drawFrame();
+                Vec2 center = { 200, 300 };
+                s3d::Circle(center + s.lerp(e, t), 10).draw();
+                s3d::Circle(center, 100).drawFrame();
+            }
+            auto r = Complex::RotateDeg(180);
+            {
+                Vec2 center = { 350, 300 };
+                s3d::Circle(center + Slerp(s, e, t), 10).draw();
+                s3d::Circle(center, 100).drawFrame();
             }
             {
-                Vec2 pos{ 500, 200 };
-                Vec2 posEnd{ 600, 300 };
-
-                s3d::Circle(Slerp(pos, posEnd, s3d::Periodic::Triangle0_1(2s)), 10).draw();
-                s3d::Circle({ 500, 300 }, 100).drawFrame();
+                Vec2 center = { 500, 300 };
+                s3d::Circle(center + Nlerp(s, e, t), 10).draw();
+                s3d::Circle(center, 100).drawFrame();
             }
         }
     private:
