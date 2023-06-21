@@ -3,7 +3,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 #include <abyss/utils/Shake/SimpleShake.hpp>
 #include <Siv3D.hpp>

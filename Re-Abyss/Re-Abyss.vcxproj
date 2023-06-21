@@ -908,7 +908,7 @@
     <ClCompile Include="app\utils\DebugMenu\RadioButton.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
-    <ClCompile Include="app\utils\Interp\InterpUtil.cpp" />
+    <ClCompile Include="app\utils\Math\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\Component.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\GrabCtrl.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\ScrollCtrl.cpp" />
@@ -2227,7 +2227,7 @@
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
     <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
-    <ClInclude Include="app\utils\Interp\InterpUtil.hpp" />
+    <ClInclude Include="app\utils\Math\InterpUtil.hpp" />
     <ClInclude Include="app\utils\Layout\Window\detail\Component.hpp" />
     <ClInclude Include="app\utils\Layout\Window\detail\Constants.hpp" />
     <ClInclude Include="app\utils\Layout\Window\detail\GrabCtrl.hpp" />

@@ -5,7 +5,7 @@
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/Math/Math.hpp>
 
 #include <abyss/params/Actor/Player/Param.hpp>

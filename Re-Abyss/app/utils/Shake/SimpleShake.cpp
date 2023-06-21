@@ -1,5 +1,5 @@
 #include <abyss/utils/Shake/SimpleShake.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 
 namespace abyss::Shake
 {

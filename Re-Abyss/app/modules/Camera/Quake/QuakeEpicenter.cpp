@@ -1,5 +1,5 @@
 #include <abyss/modules/Camera/Quake/QuakeEpicenter.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss

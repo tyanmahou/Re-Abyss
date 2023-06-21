@@ -4,6 +4,8 @@
 #include <Siv3D.hpp>
 
 #include <abyss/utils/Math/Complex.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
+
 namespace abyss::Scene::Experiment
 {
     class Scene::Impl
@@ -24,8 +26,8 @@ namespace abyss::Scene::Experiment
         void draw()
         {
             m_font(U"[Experiment] Push Enter Start").draw();
-            Vec2 s{ 0, -100 };
-            Vec2 e{ 100, 100 };
+            Vec2 s = s3d::Circular0(100, s3d::ToRadians(0));
+            Vec2 e = s3d::Circular0(100, s3d::ToRadians(170));
             auto t = s3d::Periodic::Triangle0_1(2s);
             {
                 Vec2 center = { 200, 300 };
@@ -34,13 +36,13 @@ namespace abyss::Scene::Experiment
             }
             auto r = Complex::RotateDeg(180);
             {
-                Vec2 center = { 350, 300 };
-                s3d::Circle(center + Slerp(s, e, t), 10).draw();
+                Vec2 center = { 450, 300 };
+                s3d::Circle(center + InterpUtil::Slerp(s, e, t), 10).draw();
                 s3d::Circle(center, 100).drawFrame();
             }
             {
-                Vec2 center = { 500, 300 };
-                s3d::Circle(center + Nlerp(s, e, t), 10).draw();
+                Vec2 center = { 700, 300 };
+                s3d::Circle(center + InterpUtil::Nlerp(s, e, t), 10).draw();
                 s3d::Circle(center, 100).drawFrame();
             }
         }

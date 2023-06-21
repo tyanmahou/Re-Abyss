@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor

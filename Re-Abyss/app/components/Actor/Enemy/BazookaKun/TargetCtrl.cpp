@@ -2,7 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/Axis2/Axis2.hpp>
 #include <abyss/utils/Math/Math.hpp>
 

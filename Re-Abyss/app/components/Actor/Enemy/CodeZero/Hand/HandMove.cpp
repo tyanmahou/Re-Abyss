@@ -10,7 +10,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/ShockWaveCtrl.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
 

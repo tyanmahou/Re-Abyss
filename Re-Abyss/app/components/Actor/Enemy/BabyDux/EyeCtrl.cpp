@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/Enemy/BabyDux/ForwardCtrl.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/BabyDux/Param.hpp>
-#include <abyss/utils/Interp/InterpUtil.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <Siv3D.hpp>
 
