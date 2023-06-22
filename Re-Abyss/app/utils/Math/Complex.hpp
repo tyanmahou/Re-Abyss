@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
 
 namespace abyss
 {
@@ -67,6 +68,11 @@ namespace abyss
         constexpr Complex lerp(const Complex& other, double t) const
         {
             return { real * (1 - t) + other.real * t, imag * (1 - t) + other.imag * t };
+        }
+        constexpr Complex slerp(const Complex& other, double t) const
+        {
+            auto v = InterpUtil::Slerp<double>({real, imag}, {other.real, other.imag}, t);
+            return { v.x, v.y };
         }
         constexpr double dot(const Complex& other) const
         {
