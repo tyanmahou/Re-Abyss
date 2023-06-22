@@ -27,7 +27,7 @@ namespace abyss::Scene::Experiment
         {
             m_font(U"[Experiment] Push Enter Start").draw();
             Vec2 s = s3d::Circular0(100, s3d::ToRadians(0));
-            Vec2 e = s3d::Circular0(100, s3d::ToRadians(170));
+            Vec2 e = s3d::Circular0(100, s3d::ToRadians(180));
             auto t = s3d::Periodic::Triangle0_1(2s);
             {
                 Vec2 center = { 200, 300 };
@@ -37,7 +37,7 @@ namespace abyss::Scene::Experiment
             auto r = Complex::RotateDeg(180);
             {
                 Vec2 center = { 450, 300 };
-                s3d::Circle(center + InterpUtil::Slerp(s, e, t), 10).draw();
+                s3d::Circle(center + InterpUtil::AngleSlerp(s, e, t), 10).draw();
                 s3d::Circle(center, 100).drawFrame();
             }
             {

@@ -46,19 +46,14 @@ namespace abyss
             }
         }
         template <class T>
-        static inline s3d::Vector2D<T> AngleLerpNorm(const s3d::Vector2D<T>& start, const s3d::Vector2D<T>& end, double t)
+        static inline s3d::Vector2D<T> AngleSlerp(const s3d::Vector2D<T>& start, const s3d::Vector2D<T>& end, double t)
         {
-            auto cos = start.dot(end);
-            if (s3d::Abs(cos) > 0.9999) {
-                return start.lerp(end, t);
-            } else {
-                auto theta = s3d::Acos(cos);
-                auto sinTheta = s3d::Sin(theta);
-                double scale0 = s3d::Sin((1 - t) * theta) / sinTheta;
-                double scale1 = s3d::Sin(t * theta) / sinTheta;
+            auto mag = s3d::Math::Lerp(start.length(), end.length(), t);
 
-                return start * scale0 + end * scale1;
-            }
+            const auto fromAngle = s3d::Atan2(start.y, start.x);
+            const auto toAngle = s3d::Atan2(end.y, end.x);
+            auto angle = s3d::Math::Lerp(fromAngle, toAngle, t);
+            return mag * s3d::Vector2D<T>{s3d::Cos(angle), s3d::Sin(angle) };
         }
         template <class T>
         static inline s3d::Vector2D<T> Nlerp(const s3d::Vector2D<T>& start, const s3d::Vector2D<T>& end, double t)

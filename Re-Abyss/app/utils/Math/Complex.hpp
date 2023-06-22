@@ -69,7 +69,7 @@ namespace abyss
         {
             return { real * (1 - t) + other.real * t, imag * (1 - t) + other.imag * t };
         }
-        constexpr Complex slerp(const Complex& other, double t) const
+        Complex slerp(const Complex& other, double t) const
         {
             auto v = InterpUtil::Slerp<double>({real, imag}, {other.real, other.imag}, t);
             return { v.x, v.y };
