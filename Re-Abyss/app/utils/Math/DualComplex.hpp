@@ -11,11 +11,11 @@ namespace abyss
     public:
         static constexpr DualComplex Translate(const s3d::Vec2& v)
         {
-            return { {1.0, 0.0}, {v.x , v.y }};
+            return { {1.0, 0.0}, {v.x / 2.0, v.y / 2.0 }};
         }
         static constexpr DualComplex Rotate(double angle)
         {
-            return { {s3d::Cos(angle), s3d::Sin(angle)}, {0, 0} };
+            return { {s3d::Cos(angle / 2.0), s3d::Sin(angle / 2.0)}, {0, 0} };
         }
         static constexpr DualComplex RotateDeg(double degree)
         {
@@ -30,29 +30,60 @@ namespace abyss
 
         constexpr DualComplex conjugate() const
         {
-            return { real, -dual };
+            return {real.conjugate(), dual };
         }
-        constexpr DualComplex inverse() const
+        constexpr double absSq() const
         {
-            Complex divisor = real * real.conjugate();
-            Complex newReal = real.conjugate() / divisor;
-            Complex newDual = -dual * real.conjugate() / divisor;
-            return { newReal, newDual };
+            return real.absSq();
         }
-        constexpr Complex translate() const
+        constexpr double abs() const
         {
-            return dual * real.conjugate();
+            return s3d::Sqrt(absSq());
         }
-        constexpr s3d::Vec2 translateVec() const
+        constexpr DualComplex normalized() const
         {
-            auto trans = translate();
+            return (*this) / abs();
+        }
+        constexpr s3d::Vec2 translate() const
+        {
+            auto trans = dual * real.conjugate() * 2;
             return { trans.real, trans.imag };
         }
-        constexpr Complex rotate() const
+        double angle() const
         {
-            return real;
+            return (real * real).angle();
         }
-
+        constexpr DualComplex lerp(const DualComplex& other, double t) const
+        {
+            return ((*this) + (other - (*this)) * t);
+        }
+        constexpr DualComplex log() const
+        {
+            double lenSq = real.absSq();
+            return {real.log() / lenSq, real.conjugate() * dual / lenSq };
+        }
+        constexpr DualComplex exp() const
+        {
+            auto e = real.exp();
+            return { e, e * dual };
+        }
+        constexpr DualComplex pow(double t) const
+        {
+            return (this->log() * t).exp();
+        }
+        constexpr DualComplex sclerp(const DualComplex& other, double t) const
+        {
+            return (other * this->conjugate()).pow(t) * (*this);
+        }
+        constexpr DualComplex blend(const DualComplex& other, double t) const
+        {
+            return lerp(other, t).normalized();
+        }
+        constexpr s3d::Vec2 transform(const s3d::Vec2& v) const
+        {
+            auto result = this->conjugate() * DualComplex { {1, 0}, { v.x, v.y } } * (*this);
+            return { result.dual.real, result.dual.imag };
+        }
         constexpr DualComplex operator+() const
         {
             return *this;
@@ -72,7 +103,7 @@ namespace abyss
         constexpr DualComplex operator*(const DualComplex& other) const
         {
             Complex r = real * other.real;
-            Complex d = real * other.dual + dual * other.real;
+            Complex d = real.conjugate() * other.dual + dual * other.real;
             return { r, d };
         }
         constexpr DualComplex operator/(const DualComplex& other) const
@@ -97,13 +128,6 @@ namespace abyss
         constexpr DualComplex operator/(const Complex& scalar) const
         {
             return { real / scalar, dual / scalar };
-        }
-        constexpr s3d::Vec2 transform(const s3d::Vec2& v) const
-        {
-            return (v * rotate()) + translateVec();
-            //DualComplex p({ point.x, point.y }, { 0.0, 0.0 });
-            //DualComplex result = *this * p * this->conjugate();
-            //return s3d::Vec2{ result.real.real, result.real.imag } + translateVec();
         }
     };
 }

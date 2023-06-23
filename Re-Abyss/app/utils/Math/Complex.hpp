@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/Math/InterpUtil.hpp>
+#include <complex>
 
 namespace abyss
 {
@@ -54,13 +55,13 @@ namespace abyss
         {
             return s3d::Sqrt(absSq());
         }
-        Complex normalized() const
+        constexpr Complex normalized() const
         {
             double mag = abs();
             return { real / mag, imag / mag };
         }
 
-        double angle() const
+        constexpr double angle() const
         {
             return s3d::Atan2(imag, real);
         }
@@ -71,12 +72,23 @@ namespace abyss
         }
         Complex slerp(const Complex& other, double t) const
         {
-            auto v = InterpUtil::Slerp<double>({real, imag}, {other.real, other.imag}, t);
-            return { v.x, v.y };
+            return (other * this->conjugate()).pow(t) * (*this);
         }
         constexpr double dot(const Complex& other) const
         {
             return real * other.real + imag * other.imag;
+        }
+        constexpr Complex log() const
+        {
+            return { s3d::Log(abs()), angle()};
+        }
+        constexpr Complex exp() const
+        {
+            return s3d::Exp(real) * Complex { s3d::Cos(imag), s3d::Sin(imag)};
+        }
+        constexpr Complex pow(double t) const
+        {
+            return (this->log() * t).exp();
         }
         constexpr Complex operator+() const
         {
