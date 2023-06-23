@@ -9,13 +9,17 @@ namespace abyss
         Complex real;
         Complex dual;
     public:
-        static DualComplex Translate(const s3d::Vec2& v)
+        static constexpr DualComplex Translate(const s3d::Vec2& v)
         {
-            return { {1.0, 0.0}, {v.x * 0.5, v.y * 0.5}};
+            return { {1.0, 0.0}, {v.x , v.y }};
         }
-        static DualComplex Rotate(double angle)
+        static constexpr DualComplex Rotate(double angle)
         {
-            return { {s3d::Cos(angle * 0.5), s3d::Sin(angle * 0.5)}, {0, 0} };
+            return { {s3d::Cos(angle), s3d::Sin(angle)}, {0, 0} };
+        }
+        static constexpr DualComplex RotateDeg(double degree)
+        {
+            return Rotate(s3d::ToRadians(degree));
         }
     public:
         DualComplex() = default;
@@ -24,13 +28,25 @@ namespace abyss
             dual(_dual)
         {}
 
-        const DualComplex conjugate() const
+        constexpr DualComplex conjugate() const
         {
             return { real, -dual };
         }
+        constexpr DualComplex inverse() const
+        {
+            Complex divisor = real * real.conjugate();
+            Complex newReal = real.conjugate() / divisor;
+            Complex newDual = -dual * real.conjugate() / divisor;
+            return { newReal, newDual };
+        }
         constexpr Complex translate() const
         {
-            return dual * real.conjugate() * 2.0;
+            return dual * real.conjugate();
+        }
+        constexpr s3d::Vec2 translateVec() const
+        {
+            auto trans = translate();
+            return { trans.real, trans.imag };
         }
         constexpr Complex rotate() const
         {
@@ -82,18 +98,12 @@ namespace abyss
         {
             return { real / scalar, dual / scalar };
         }
+        constexpr s3d::Vec2 transform(const s3d::Vec2& v) const
+        {
+            return (v * rotate()) + translateVec();
+            //DualComplex p({ point.x, point.y }, { 0.0, 0.0 });
+            //DualComplex result = *this * p * this->conjugate();
+            //return s3d::Vec2{ result.real.real, result.real.imag } + translateVec();
+        }
     };
-    constexpr DualComplex ScLerp(const DualComplex& start, const DualComplex& end, double t)
-    {
-        Complex primaryInterpolated = Slerp(start.real, end.real, t);
-        Complex dualInterpolated = Slerp(start.dual, end.dual, t);
-        return DualComplex(primaryInterpolated, dualInterpolated);
-    }
-    constexpr s3d::Vec2 ScLerp(const s3d::Vec2& start, const s3d::Vec2& end, double t)
-    {
-        DualComplex startDualComplex(Complex(start.x, start.y), Complex{0, 0});
-        DualComplex endDualComplex(Complex(end.x, end.y), Complex{0, 0});
-        DualComplex interpolatedPoint = ScLerp(startDualComplex, endDualComplex, t);
-        return Vec2(interpolatedPoint.real.real, interpolatedPoint.real.imag);
-    }
 }

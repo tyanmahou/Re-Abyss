@@ -4,6 +4,7 @@
 #include <Siv3D.hpp>
 
 #include <abyss/utils/Math/Complex.hpp>
+#include <abyss/utils/Math/DualComplex.hpp>
 #include <abyss/utils/Math/InterpUtil.hpp>
 
 namespace abyss::Scene::Experiment
@@ -43,6 +44,13 @@ namespace abyss::Scene::Experiment
             {
                 Vec2 center = { 700, 300 };
                 s3d::Circle(center + InterpUtil::Nlerp(s, e, t), 10).draw();
+                s3d::Circle(center, 100).drawFrame();
+            }
+
+            {
+                Vec2 center = { 950, 300 };
+                auto test = DualComplex::RotateDeg(30) * DualComplex::Translate({100* t, 0}) * DualComplex::RotateDeg(60);
+                s3d::Circle(center + test.transform(s), 10).draw();
                 s3d::Circle(center, 100).drawFrame();
             }
         }
