@@ -26,64 +26,64 @@ namespace abyss::Scene::Experiment
         }
         void draw()
         {
-            //Vec2 p0 = { 50, -200 };
-            //Vec2 p1 = { 200, -50 };
-            //auto t = s3d::Periodic::Triangle0_1(8s);
-            //{
-            //    Vec2 center = { 750-200, 300 };
-            //    auto transformer = DualComplex::RotateDeg(0).blend(DualComplex::Translate({200, 100}) * DualComplex::RotateDeg(180), t);
-            //    Vec2 cx = transformer.transform({0, 0});
-            //    Vec2 p0x = transformer.transform(p0);
-            //    Vec2 p1x = transformer.transform(p1);
-            //    Triangle(center + cx, center + p0x, center + p1x).draw(ColorF(1, 1));
-            //}
-            //{
-            //    Vec2 center = { 750 - 200, 300 };
-            //    auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::Translate({ 200, 100 }) * DualComplex::RotateDeg(180), t);
-            //    Vec2 cx = transformer.transform({ 0, 0 });
-            //    Vec2 p0x = transformer.transform(p0);
-            //    Vec2 p1x = transformer.transform(p1);
-            //    Triangle(center + cx, center + p0x, center + p1x).draw(ColorF(Palette::Red, 0.5));
-            //}
-            //{
-            //    Vec2 center = { 350 + 600, 300 };
-            //    auto before = Mat3x2::Rotate(0);
-            //    auto after = Mat3x2::Translate({ 0, 100 }) * Mat3x2::Rotate(s3d::Math::Pi);
-
-            //    auto transformer = Mat3x2{
-            //        s3d::Math::Lerp<float>(before._11, after._11, (float)t),
-            //        s3d::Math::Lerp<float>(before._12, after._12, (float)t),
-            //        s3d::Math::Lerp<float>(before._21, after._21, (float)t),
-            //        s3d::Math::Lerp<float>(before._22, after._22, (float)t),
-            //        s3d::Math::Lerp<float>(before._31, after._31, (float)t),
-            //        s3d::Math::Lerp<float>(before._32, after._32, (float)t)
-            //    };
-            //    Vec2 p0x = transformer.transformPoint(p0);
-            //    Vec2 p1x = transformer.transformPoint(p1);
-            //    Triangle(center, center + p0x, center + p1x).draw();
-            //}
-            m_font(U"[Experiment] Push Enter Start").draw();
-            Vec2 s = s3d::Circular0(100, s3d::ToRadians(0));
-            Vec2 e = s3d::Circular0(100, s3d::ToRadians(170));
+            Vec2 p0 = { 50, -200 };
+            Vec2 p1 = { 200, -50 };
             auto t = s3d::Periodic::Triangle0_1(8s);
             {
-                Vec2 center = { 750, 300 };
-                auto color = Palette::White;
-                auto cp = Complex::RotateDeg(0).lerp(Complex::RotateDeg(360), t);
-                auto pos = center + s * cp;
-                s3d::Circle(pos, 10).draw(color);
-
-                s3d::Circle(center, 100).drawFrame();
+                Vec2 center = { 750-200, 300 };
+                auto transformer = DualComplex::RotateDeg(0).blend(DualComplex::Translate({200, 100}) * DualComplex::RotateDeg(180), t);
+                Vec2 cx = transformer.transform({0, 0});
+                Vec2 p0x = transformer.transform(p0);
+                Vec2 p1x = transformer.transform(p1);
+                Triangle(center + cx, center + p0x, center + p1x).draw(ColorF(1, 1));
             }
             {
-                Vec2 center = { 750, 300 };
-                auto color = Palette::White;
-                auto cp = Complex::RotateDeg(0).slerp(Complex::RotateDeg(360), t);
-                auto pos = center + s * cp;
-                s3d::Circle(pos, 10).draw(color);
-
-                s3d::Circle(center, 100).drawFrame();
+                Vec2 center = { 750 - 200, 300 };
+                auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::Translate({ 200, 100 }) * DualComplex::RotateDeg(180), t);
+                Vec2 cx = transformer.transform({ 0, 0 });
+                Vec2 p0x = transformer.transform(p0);
+                Vec2 p1x = transformer.transform(p1);
+                Triangle(center + cx, center + p0x, center + p1x).draw(ColorF(Palette::Red, 0.5));
             }
+            {
+                Vec2 center = { 350 + 600, 300 };
+                auto before = Mat3x2::Rotate(0);
+                auto after = Mat3x2::Translate({ 0, 100 }) * Mat3x2::Rotate(s3d::Math::Pi);
+
+                auto transformer = Mat3x2{
+                    s3d::Math::Lerp<float>(before._11, after._11, (float)t),
+                    s3d::Math::Lerp<float>(before._12, after._12, (float)t),
+                    s3d::Math::Lerp<float>(before._21, after._21, (float)t),
+                    s3d::Math::Lerp<float>(before._22, after._22, (float)t),
+                    s3d::Math::Lerp<float>(before._31, after._31, (float)t),
+                    s3d::Math::Lerp<float>(before._32, after._32, (float)t)
+                };
+                Vec2 p0x = transformer.transformPoint(p0);
+                Vec2 p1x = transformer.transformPoint(p1);
+                Triangle(center, center + p0x, center + p1x).draw();
+            }
+            //m_font(U"[Experiment] Push Enter Start").draw();
+            //Vec2 s = s3d::Circular0(100, s3d::ToRadians(0));
+            //Vec2 e = s3d::Circular0(100, s3d::ToRadians(170));
+            //auto t = s3d::Periodic::Triangle0_1(8s);
+            //{
+            //    Vec2 center = { 750, 300 };
+            //    auto color = Palette::White;
+            //    auto cp = Complex::RotateDeg(0).lerp(Complex::RotateDeg(190), t);
+            //    auto pos = center + s * cp;
+            //    s3d::Circle(pos, 10).draw(color);
+
+            //    s3d::Circle(center, 100).drawFrame();
+            //}
+            //{
+            //    Vec2 center = { 750, 300 };
+            //    auto color = Palette::White;
+            //    auto cp = Complex::RotateDeg(0).slerp(Complex::RotateDeg(190), t);
+            //    auto pos = center + s * cp;
+            //    s3d::Circle(pos, 10).draw(color);
+
+            //    s3d::Circle(center, 100).drawFrame();
+            //}
         }
     private:
         std::shared_ptr<Data_t> m_data;
