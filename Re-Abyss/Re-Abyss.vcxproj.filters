@@ -6608,6 +6608,9 @@
     <ClInclude Include="app\utils\Math\DualComplex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Actor\Player\SeUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

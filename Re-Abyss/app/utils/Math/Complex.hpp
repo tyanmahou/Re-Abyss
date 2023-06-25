@@ -70,6 +70,10 @@ namespace abyss
         {
             return { real * (1 - t) + other.real * t, imag * (1 - t) + other.imag * t };
         }
+        constexpr Complex nlerp(const Complex& other, double t) const
+        {
+            return lerp(other, t).normalized();
+        }
         Complex slerp(const Complex& other, double t) const
         {
             return (other * this->conjugate()).pow(t) * (*this);
@@ -89,6 +93,11 @@ namespace abyss
         constexpr Complex pow(double t) const
         {
             return (this->log() * t).exp();
+        }
+        constexpr s3d::Vec2 transform(const s3d::Vec2& v) const
+        {
+            auto result = (*this) * Complex { v.x, v.y };
+            return { result.real, result.imag };
         }
         constexpr Complex operator+() const
         {

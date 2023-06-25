@@ -31,7 +31,7 @@ namespace abyss::Scene::Experiment
             auto t = s3d::Periodic::Triangle0_1(8s);
             {
                 Vec2 center = { 750-200, 300 };
-                auto transformer = DualComplex::RotateDeg(0).blend(DualComplex::Translate({200, 100}) * DualComplex::RotateDeg(180), t);
+                auto transformer = Complex::RotateDeg(0).slerp(Complex::RotateDeg(180), t);
                 Vec2 cx = transformer.transform({0, 0});
                 Vec2 p0x = transformer.transform(p0);
                 Vec2 p1x = transformer.transform(p1);
@@ -39,7 +39,7 @@ namespace abyss::Scene::Experiment
             }
             {
                 Vec2 center = { 750 - 200, 300 };
-                auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::Translate({ 200, 100 }) * DualComplex::RotateDeg(180), t);
+                auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::RotateDeg(180) * 2, t);
                 Vec2 cx = transformer.transform({ 0, 0 });
                 Vec2 p0x = transformer.transform(p0);
                 Vec2 p1x = transformer.transform(p1);
@@ -48,7 +48,7 @@ namespace abyss::Scene::Experiment
             {
                 Vec2 center = { 350 + 600, 300 };
                 auto before = Mat3x2::Rotate(0);
-                auto after = Mat3x2::Translate({ 0, 100 }) * Mat3x2::Rotate(s3d::Math::Pi);
+                auto after = Mat3x2::Rotate(s3d::Math::Pi);
 
                 auto transformer = Mat3x2{
                     s3d::Math::Lerp<float>(before._11, after._11, (float)t),
