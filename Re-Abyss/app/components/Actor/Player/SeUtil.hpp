@@ -5,6 +5,6 @@ namespace abyss::Actor::Player
 {
     class SeUtil
     {
-
+        static const SoundLabel Swim{""};
     };
 }
