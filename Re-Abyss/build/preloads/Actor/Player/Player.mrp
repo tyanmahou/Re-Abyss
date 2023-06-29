@@ -5,8 +5,8 @@
 [Actor/Player/Common]
 - img"Actor/Player/Player.json"
 - img"Actor/Player/Face.json"
-- snd"se/Actor/Player/Player.aase"
+
 
 [Actor/Player/Shot]
 - img"Actor/Player/PlayerShot.png"
-- snd"se/Actor/Player/Shot/PlayerShot.aase"
+
