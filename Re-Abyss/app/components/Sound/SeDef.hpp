@@ -3,7 +3,7 @@
 
 namespace abyss::Sound
 {
-    class SePath
+    class SeDef
     {
     public:
         inline static SoundLabel TitleDecide{ U"Se/Actor/Player/Shot/ShotBig" };

@@ -6566,7 +6566,7 @@
     <ClInclude Include="app\components\Sound\BgmDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Sound\SePath.hpp">
+    <ClInclude Include="app\components\Sound\SeDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\params\UI\Title\CursorParam.hpp">

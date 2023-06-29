@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/Enemy/BossHpBarTarget.hpp>
 #include <abyss/components/UI/BossHPBar/Builder.hpp>
 #include <abyss/components/UI/BossHPBar/HPGaugeCtrl.hpp>
-#include <abyss/components/Sound/SePath.hpp>
+#include <abyss/components/Sound/SeDef.hpp>
 
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
@@ -53,7 +53,7 @@ namespace abyss::Adv::BossCommon
         auto* globalTime = m_pObj->getModule<GlobalTime>();
         // ゲージ上昇
         {
-            m_chargeSe = m_pObj->getModule<Sounds>()->load(Sound::SePath::ChargeBossHp);
+            m_chargeSe = m_pObj->getModule<Sounds>()->load(Sound::SeDef::ChargeBossHp);
             m_chargeSe.play();
             while (m_hpGauge && !m_hpGauge->isFull()) {
                 co_yield{};

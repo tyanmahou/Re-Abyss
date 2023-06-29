@@ -10,7 +10,7 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Sound/Sounds.hpp>
-#include <abyss/components/Sound/SePath.hpp>
+#include <abyss/components/Sound/SeDef.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/components/Cycle/Title/Master.hpp>
 #include <abyss/params/UI/Title/CursorParam.hpp>
@@ -94,7 +94,7 @@ namespace abyss::UI::Title::Cursor
             m_gameStartTimer.start();
             m_isSelected = true;
 
-            m_pUi->getModule<Sounds>()->playSe(Sound::SePath::TitleDecide);
+            m_pUi->getModule<Sounds>()->playSe(Sound::SeDef::TitleDecide);
         }
     }
 
