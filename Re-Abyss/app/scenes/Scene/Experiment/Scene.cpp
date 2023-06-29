@@ -51,12 +51,12 @@ namespace abyss::Scene::Experiment
                 auto after = Mat3x2::Rotate(s3d::Math::Pi);
 
                 auto transformer = Mat3x2{
-                    s3d::Math::Lerp<float>(before._11, after._11, (float)t),
-                    s3d::Math::Lerp<float>(before._12, after._12, (float)t),
-                    s3d::Math::Lerp<float>(before._21, after._21, (float)t),
-                    s3d::Math::Lerp<float>(before._22, after._22, (float)t),
-                    s3d::Math::Lerp<float>(before._31, after._31, (float)t),
-                    s3d::Math::Lerp<float>(before._32, after._32, (float)t)
+                    s3d::Math::Lerp<float>(before._11, after._11, static_cast<float>(t)),
+                    s3d::Math::Lerp<float>(before._12, after._12, static_cast<float>(t)),
+                    s3d::Math::Lerp<float>(before._21, after._21, static_cast<float>(t)),
+                    s3d::Math::Lerp<float>(before._22, after._22, static_cast<float>(t)),
+                    s3d::Math::Lerp<float>(before._31, after._31, static_cast<float>(t)),
+                    s3d::Math::Lerp<float>(before._32, after._32, static_cast<float>(t))
                 };
                 Vec2 p0x = transformer.transformPoint(p0);
                 Vec2 p1x = transformer.transformPoint(p1);
