@@ -186,7 +186,7 @@ namespace abyss
             }
 
             // 初期情報をリスタート情報として残す
-            temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmLabel());
+            temporary->setRestartInfo(temporary->getRestartId().value_or(0), sound->currentBgmDef());
         }
 
         // UI初期化
@@ -230,7 +230,7 @@ namespace abyss
         // サウンドが変わる場合は停止
         if (nextRoom) {
             auto sound = m_pManager->getModule<Sounds>();
-            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && bgm != sound->currentBgmLabel()) {
+            if (auto bgm = ::NextBgm(*nextRoom, m_stageData->getGimmicks());bgm && bgm != sound->currentBgmDef()) {
                 sound->stop();
             }
         }
@@ -271,7 +271,7 @@ namespace abyss
         {
             auto temporary = m_pManager->getModule<Temporary>();
             if (auto reservedRestartId = temporary->popReservedRestartId()) {
-                temporary->setRestartInfo(*reservedRestartId, sound->currentBgmLabel());
+                temporary->setRestartInfo(*reservedRestartId, sound->currentBgmDef());
             }
         }
 

@@ -3,10 +3,10 @@
 
 namespace abyss::Sound
 {
-    class BgmLabel
+    class BgmDef
     {
     public:
         inline static SoundLabel Title{ U"Bgm/Title/Title" };
-        inline static SoundLabel StageResult{ U"Main/Common/clear.aas" };
+        inline static SoundLabel StageResult{ U"Bgm/Main/Common/Clear" };
     };
 }

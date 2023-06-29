@@ -22,7 +22,7 @@ namespace abyss::Sound
 
         void release();
 
-        const s3d::Optional<SoundLabel>& currentBgmLabel()const;
+        const s3d::Optional<SoundLabel>& currentBgmDef()const;
 
         void setBgmVolume(double volume);
         void setBgmVolume(double volume, const s3d::Duration& time);

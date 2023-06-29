@@ -6563,7 +6563,7 @@
     <ClInclude Include="app\modules\Sound\SceneSound.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Sound\BgmLabel.hpp">
+    <ClInclude Include="app\components\Sound\BgmDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Sound\SePath.hpp">

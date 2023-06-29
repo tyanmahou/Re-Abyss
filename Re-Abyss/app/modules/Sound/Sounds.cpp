@@ -31,7 +31,7 @@ namespace abyss::Sound
     {
         bgm()->release();
     }
-    const s3d::Optional<SoundLabel>& Sounds::currentBgmLabel() const
+    const s3d::Optional<SoundLabel>& Sounds::currentBgmDef() const
     {
         return bgm()->getCurrentLabel();
     }

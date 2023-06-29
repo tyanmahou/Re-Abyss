@@ -1341,7 +1341,7 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
-    <ClInclude Include="app\components\Sound\BgmLabel.hpp" />
+    <ClInclude Include="app\components\Sound\BgmDef.hpp" />
     <ClInclude Include="app\components\Sound\SePath.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
