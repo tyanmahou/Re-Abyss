@@ -8,6 +8,7 @@
 #include <abyss/modules/Actor/base/IUpdate.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
+#include <abyss/values/Sound/SoundLabel.hpp>
 
 namespace abyss::Actor
 {
@@ -21,11 +22,11 @@ namespace abyss::Actor
 
         void onUpdate() override;
 
-        void play(const s3d::String& key);
+        void play(const Sound::SoundLabel& label);
 
-        void playAt(const s3d::String& key) const;
-        void playAt(const s3d::String& key, const s3d::Vec2& pos) const;
-
+        void playAt(const Sound::SoundLabel& label) const;
+        void playAt(const Sound::SoundLabel& label, const s3d::Vec2& pos) const;
+    private:
         void playDirect(s3d::FilePathView path);
         void playDirect(const s3d::Audio& audio);
 

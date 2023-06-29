@@ -1,5 +1,6 @@
 #include <abyss/components/Actor/Player/State/DamageState.hpp>
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
+#include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
@@ -15,7 +16,7 @@ namespace abyss::Actor::Player
         m_motion->set(Motion::Damage);
 
         BaseState::start();
-        m_audio->play(U"Damage");
+        m_audio->play(SeDef::Damage);
 
         auto nextForward = m_body->getForward();
         if (m_velocity.x > 0) {

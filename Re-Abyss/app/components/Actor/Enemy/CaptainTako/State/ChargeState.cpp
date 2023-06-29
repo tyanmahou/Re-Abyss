@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/CaptainTako/State/ChargeState.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/AttackState.hpp>
-
+#include <abyss/components/Actor/Enemy/CaptainTako/SeDef.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
 
 namespace abyss::Actor::Enemy::CaptainTako
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     }
     Fiber<> ChargeState::task()
     {
-        m_audio->play(U"Charge");
+        m_audio->play(SeDef::Charge);
 
         while (!m_chargeTimer.isEnd()) {
             co_yield{};

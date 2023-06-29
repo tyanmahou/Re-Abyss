@@ -2,6 +2,7 @@
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Enemy/SeDef.hpp>
 
 namespace abyss::Actor::Enemy
 {
@@ -17,7 +18,7 @@ namespace abyss::Actor::Enemy
     {
         m_pActor
             ->find<AudioSource>()
-            ->playAt(U"Damage");
+            ->playAt(SeDef::Damage);
     }
 
 }

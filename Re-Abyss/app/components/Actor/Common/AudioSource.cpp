@@ -9,6 +9,7 @@
 
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/Sound/MixBus.hpp>
 #include <abyss/commons/Constants.hpp>
 
@@ -106,28 +107,24 @@ namespace abyss::Actor
 
     }
 
-    void AudioSource::play(const s3d::String& key)
+    void AudioSource::play(const Sound::SoundLabel& label)
     {
-        // TODO Bank経由にする
-        //auto as = m_audioSettingGroup(key);
-        //if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
-        //    this->playDirect(audio);
-        //}
+        if (Audio audio = m_pActor->getModule<Sounds>()->load(label)) {
+            this->playDirect(audio);
+        }
     }
 
-    void AudioSource::playAt(const s3d::String& key) const
+    void AudioSource::playAt(const Sound::SoundLabel& label) const
     {
         const auto pos = m_locator->getCenterPos();
-        this->playAt(key, pos);
+        this->playAt(label, pos);
     }
 
-    void AudioSource::playAt(const s3d::String & key, const s3d::Vec2 & pos) const
+    void AudioSource::playAt(const Sound::SoundLabel& label, const s3d::Vec2 & pos) const
     {
-        // TODO Bank経由にする
-        //auto as = m_audioSettingGroup(key);
-        //if (Audio audio = Resource::Assets::Main()->loadAudio(as)) {
-        //    this->playAtDirect(audio, pos);
-        //}
+        if (Audio audio = m_pActor->getModule<Sounds>()->load(label)) {
+            this->playAtDirect(audio, pos);
+        }
     }
     void AudioSource::playDirect(s3d::FilePathView path)
     {

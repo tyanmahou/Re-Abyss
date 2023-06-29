@@ -8,7 +8,7 @@
 #include <abyss/components/Actor/Common/BodyUpdater.hpp>
 #include <abyss/components/Actor/Common/Foot.hpp>
 #include <abyss/components/Actor/Player/ForwardCtrl.hpp>
-
+#include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 
 namespace abyss::Actor::Player
@@ -41,7 +41,7 @@ namespace abyss::Actor::Player
         // ジャンプ
         if (InputManager::Jump.down()) {
             m_body->jumpToHeight(Param::Swim::JumpHeight);
-            m_pActor->find<AudioSource>()->play(U"Swim");
+            m_pActor->find<AudioSource>()->play(SeDef::Swim);
         }
         if (InputManager::Down.pressed()) {
             m_body->setMaxVelocityY(Param::Swim::DiveSpeed);

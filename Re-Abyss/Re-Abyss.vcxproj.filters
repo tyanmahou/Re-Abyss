@@ -6608,7 +6608,19 @@
     <ClInclude Include="app\utils\Math\DualComplex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\components\Actor\Player\SeUtil.hpp">
+    <ClInclude Include="app\components\Actor\Player\SeDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\SeDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\SeDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Enemy\Slime\SeDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Actor\Item\Recovery\SeDef.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

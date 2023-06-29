@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/FallChecker.hpp>
 #include <abyss/components/Actor/Common/DamageCtrl.hpp>
+#include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/params/Actor/Player/Param.hpp>
 #include <abyss/views/Actor/Player/PlayerVM.hpp>
 
@@ -28,7 +29,7 @@ namespace abyss::Actor::Player
         // 地震
         m_pActor->getModule<Camera>()->startQuake(5.0, 0.5);
 
-        m_audio->play(U"Dead");
+        m_audio->play(SeDef::Dead);
 
         m_stateChecker->setIsDeadState(true);
         m_body

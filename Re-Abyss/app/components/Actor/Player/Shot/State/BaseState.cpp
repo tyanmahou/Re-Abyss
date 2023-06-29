@@ -2,6 +2,7 @@
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/components/Actor/Common/Collider.hpp>
+#include <abyss/components/Actor/Player/SeDef.hpp>
 
 namespace abyss::Actor::Player::Shot
 {
@@ -14,11 +15,11 @@ namespace abyss::Actor::Player::Shot
     void BaseState::start()
     {
         if (m_shot->isBig()) {
-            m_pActor->find<AudioSource>()->playAt(U"ShotBig");
+            m_pActor->find<AudioSource>()->playAt(SeDef::ShotBig);
         } else if (m_shot->isMedium()) {
-            m_pActor->find<AudioSource>()->playAt(U"ShotMedium");
+            m_pActor->find<AudioSource>()->playAt(SeDef::ShotMedium);
         } else {
-            m_pActor->find<AudioSource>()->playAt(U"ShotSmall");
+            m_pActor->find<AudioSource>()->playAt(SeDef::ShotSmall);
         }
     }
 

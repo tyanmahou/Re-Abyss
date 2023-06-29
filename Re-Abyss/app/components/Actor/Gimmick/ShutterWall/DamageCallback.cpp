@@ -6,7 +6,7 @@
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
-
+#include <abyss/components/Actor/Enemy/SeDef.hpp>
 #include <abyss/components/Effect/Actor/Gimmick/ShutterWall/Break/Builder.hpp>
 
 namespace
@@ -39,7 +39,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
     void DamageCallback::onDamaged([[maybe_unused]]const DamageData& damage) 
     {
         // ダメージ音
-        m_pActor->find<AudioSource>()->playAt(U"Damage");
+        m_pActor->find<AudioSource>()->playAt(Enemy::SeDef::Damage);
     }
 
     void DamageCallback::onDead()

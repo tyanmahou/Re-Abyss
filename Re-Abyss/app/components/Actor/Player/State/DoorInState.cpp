@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Player/State/DoorInState.hpp>
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
-
+#include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/components/Event/RoomMove/DoorMove/Builder.hpp>
@@ -19,7 +19,7 @@ namespace abyss::Actor::Player
         m_motion->set(Motion::Door);
 
         // SE
-        m_audio->play(U"DoorMove");
+        m_audio->play(SeDef::DoorMove);
 
         // 攻撃タイマーリセット
         m_attackCtrl->reset();

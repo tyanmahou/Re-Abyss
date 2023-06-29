@@ -9,14 +9,15 @@
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/BossFadeMask.hpp>
 #include <abyss/components/Actor/Common/ColorAnim/BossDeadColor.hpp>
+#include <abyss/components/Actor/Enemy/SeDef.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
 #include <abyss/components/Effect/Common/EmissiveCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/MultiFibers.hpp>
 #include <abyss/utils/Coro/Fiber/Wait.hpp>
-
 #include <Siv3D.hpp>
+
 namespace abyss::Actor::Enemy
 {
 	Coro::Fiber<> BossUtil::DeadDemo(ActorObj* pActor)
@@ -46,7 +47,7 @@ namespace abyss::Actor::Enemy
 					auto effectPos = s3d::RandomVec2(region);
 					RequestDeadEffect(pActor, effectPos);
 
-					pActor->find<AudioSource>()->playAt(U"Damage", effectPos);
+					pActor->find<AudioSource>()->playAt(SeDef::Damage, effectPos);
 
 					co_await BehaviorUtil::WaitForSeconds(pActor, 0.2);
 				}

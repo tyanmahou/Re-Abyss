@@ -3,6 +3,7 @@
 #include <abyss/components/Actor/Common/ILocator.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/components/Actor/Common/AudioSource.hpp>
+#include <abyss/components/Actor/Item/Recovery/SeDef.hpp>
 #include <abyss/params/Actor/Item/Recovery/Param.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Stage/Stage.hpp>
@@ -78,7 +79,7 @@ namespace abyss::Actor::Item::Recovery
         }
 
         m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::Item::Recovery::Builder>(player->find<ILocator>());
-        m_pActor->find<AudioSource>()->playAt(U"Gained");
+        m_pActor->find<AudioSource>()->playAt(SeDef::Gained);
         // 体力回復
         playerHp->heal(::RecoveryValue(m_kind));
     }

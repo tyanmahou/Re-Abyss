@@ -9,6 +9,7 @@
 #include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/components/Actor/Common/TerrainProxy.hpp>
 #include <abyss/components/Actor/Enemy/MidBossDeadCtrl.hpp>
+#include <abyss/components/Actor/Enemy/SeDef.hpp>
 #include <abyss/components/Effect/Actor/Common/EnemyDead/Builder.hpp>
 #include <abyss/components/Adv/Common/EventCtrl.hpp>
 #include <Siv3D.hpp>
@@ -89,7 +90,7 @@ namespace abyss::Actor::Enemy::KingDux
                 }
                 auto effectPos = s3d::RandomVec2(region);
                 m_pActor->getModule<Effects>()->createWorldFront<Effect::Actor::EnemyDead::Builder>(effectPos);
-                m_audioSource->playAt(U"Damage", effectPos);
+                m_audioSource->playAt(SeDef::Damage, effectPos);
 
                 co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.2);
             }
