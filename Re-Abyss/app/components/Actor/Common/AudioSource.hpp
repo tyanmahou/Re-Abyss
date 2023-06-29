@@ -27,11 +27,7 @@ namespace abyss::Actor
         void playAt(const Sound::SoundLabel& label) const;
         void playAt(const Sound::SoundLabel& label, const s3d::Vec2& pos) const;
     private:
-        void playDirect(s3d::FilePathView path);
         void playDirect(const s3d::Audio& audio);
-
-        void playAtDirect(s3d::FilePathView path) const;
-        void playAtDirect(s3d::FilePathView path, const s3d::Vec2& pos) const;
 
         void playAtDirect(const s3d::Audio& audio) const;
         void playAtDirect(const s3d::Audio& audio, const s3d::Vec2& pos) const;
