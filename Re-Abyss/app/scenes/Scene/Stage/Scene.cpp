@@ -156,7 +156,9 @@ namespace abyss::Scene::Stage
             m_system = this->createSystem();
 
             BooterNormal booter(this);
-            booter.setPlayerDesc(desc);
+            booter
+                .setPlayerDesc(desc)
+                .setIsStopBgm(false);
 
             m_system->boot(booter);
             co_yield{};

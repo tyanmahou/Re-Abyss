@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" nextlayerid="11" nextobjectid="8">
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="40" tileheight="40" infinite="1" nextlayerid="11" nextobjectid="9">
  <tileset firstgid="1" source="../../../../resources/maps/Tileset/TileStage0.tsx"/>
  <tileset firstgid="46" source="../../../../resources/maps/Tileset/Gimmick.tsx"/>
  <tileset firstgid="57" source="../../../../resources/maps/Tileset/Enemy.tsx"/>
@@ -71,6 +71,11 @@
   <object id="6" gid="2147483696" x="920" y="560" width="40" height="80">
    <properties>
     <property name="start_id" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="8" gid="50" x="80" y="80" width="40" height="40">
+   <properties>
+    <property name="bgm" value="Bgm/Main/Stage0/Stage0"/>
    </properties>
   </object>
  </objectgroup>

@@ -30,11 +30,17 @@ namespace abyss::Scene::Stage
             m_initEvent = event;
             return *this;
         }
+        Booter& setIsStopBgm(bool isStopBgm)
+        {
+            m_isStopBgm = isStopBgm;
+            return *this;
+        }
     private:
         Cycle::Main::IMasterObserver* m_pObserver;
 
         Actor::Player::PlayerDesc m_playerDesc;
         std::shared_ptr<Event::EventObj> m_initEvent;
+        bool m_isStopBgm = true;
     };
 
     using BooterNormal = Booter<BootKind::Normal>;

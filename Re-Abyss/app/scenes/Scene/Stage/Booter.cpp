@@ -103,7 +103,7 @@ namespace abyss::Scene::Stage
             cron->create<Cron::FishGenerator::BuildOnce>();
         }
         // Sound
-        {
+        if (m_isStopBgm) {
             pManager->getModule<Sounds>()->stop();
         }
         return stage->init();
