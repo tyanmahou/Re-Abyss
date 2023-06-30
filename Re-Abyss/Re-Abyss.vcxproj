@@ -362,6 +362,7 @@
     <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp" />
     <ClCompile Include="app\modules\Adv\Project\Project.cpp" />
     <ClCompile Include="app\modules\Adv\TagString.cpp" />
+    <ClCompile Include="app\modules\Camera\CameraErp\CameraErpCtrl.cpp" />
     <ClCompile Include="app\modules\Devs\Project\base\Tasks.cpp" />
     <ClCompile Include="app\modules\Devs\Project\Project.cpp" />
     <ClCompile Include="app\modules\Devs\Project\TaskBoard.cpp" />
@@ -1399,6 +1400,7 @@
     <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
     <ClInclude Include="app\models\Adv\Chara.hpp" />
     <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraErp\CameraErpCtrl.hpp" />
     <ClInclude Include="app\modules\Fade\base\IFadeColor.hpp" />
     <ClInclude Include="app\modules\Fade\base\ISceneFade.hpp" />
     <ClInclude Include="app\modules\Fade\Fader.hpp" />

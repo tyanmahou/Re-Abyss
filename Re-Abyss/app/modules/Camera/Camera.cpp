@@ -3,6 +3,7 @@
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
+#include <abyss/modules/Camera/CameraErp/CameraErpCtrl.hpp>
 #include <abyss/modules/Camera/CameraFix/CameraFixCtrl.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
@@ -12,10 +13,10 @@
 namespace abyss
 {
 	Camera::Camera():
-		m_camera(std::make_unique<CameraParam>()),
 		m_target(std::make_unique<CameraTargetCtrl>()),
 		m_fixCtrl(std::make_unique<CameraFixCtrl>()),
-		m_quake(std::make_unique<Quake>()),
+        m_erpCtrl(std::make_unique<CameraErpCtrl>()),
+        m_quake(std::make_unique<Quake>()),
 		m_snapshot(std::make_unique<SnapshotView>())
 	{}
 
@@ -38,15 +39,20 @@ namespace abyss
 			// 地震適用
 			m_quake->update(dt);
 
-            m_camera->setPos(cameraPos);
-			m_camera->setTargetPos(targetPos);
-            m_camera->setZoomScale(m_target->zoomScale());
+            CameraParam nextParam;
+            nextParam.setPos(cameraPos);
+            nextParam.setTargetPos(targetPos);
+            nextParam.setZoomScale(m_target->zoomScale());
+            nextParam.updateDirty();
+
+            auto erpRate = m_erpCtrl->rate(dt);
+            m_camera.interp(nextParam, erpRate);
         }
 	}
 
 	const s3d::Vec2& Camera::getPos() const
 	{
-		return m_camera->getPos();
+		return m_camera.getPos();
 	}
 
 	void Camera::addTarget(const std::shared_ptr<ICameraTarget>& target)
@@ -86,19 +92,15 @@ namespace abyss
 
 	double Camera::getZoomScale() const
 	{
-		return m_camera->getZoomScale();
-	}
-	void Camera::setZoomScale(double scale) const
-	{
-		m_camera->setZoomScale(scale);
+		return m_camera.getZoomScale();
 	}
 	s3d::RectF Camera::screenRegion() const
 	{
-		return m_camera->screenRegion();
+		return m_camera.screenRegion();
 	}
 	s3d::Vec2 Camera::transform(const s3d::Vec2& pos) const
 	{
-		return m_camera->getMat().transformPoint(pos);
+		return m_camera.getMat().transformPoint(pos);
 	}
 	SnapshotView* Camera::getSnapshot() const
 	{

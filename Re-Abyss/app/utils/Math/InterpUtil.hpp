@@ -83,5 +83,7 @@ namespace abyss
             }
             return vec;
         }
+
+        static s3d::Mat3x2 Lerp(const Mat3x2& start, const Mat3x2& end, double t);
     };
 }

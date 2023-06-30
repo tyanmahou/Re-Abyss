@@ -2528,6 +2528,9 @@
     <ClCompile Include="app\commons\Factory\Sound\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\modules\Camera\CameraErp\CameraErpCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6615,6 +6618,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\Actor\Item\Recovery\SeDef.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\modules\Camera\CameraErp\CameraErpCtrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

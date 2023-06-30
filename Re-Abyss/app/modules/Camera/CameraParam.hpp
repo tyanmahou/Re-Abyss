@@ -37,11 +37,16 @@ namespace abyss
         s3d::RectF resolutionRegion() const;
 
         s3d::Vec2 adjustTargetPos() const;
-        s3d::Mat3x2 getMat() const;
+        const s3d::Mat3x2& getMat() const;
         s3d::Transformer2D getTransformer() const;
+
+        void updateDirty();
+        CameraParam& interp(const CameraParam& other, double rate);
     private:
         s3d::Vec2 m_pos;
         s3d::Vec2 m_targetPos;
         double m_zoomScale = 1.0;
+
+        s3d::Mat3x2 m_viewMat;
 	};
 }

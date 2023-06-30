@@ -1,5 +1,7 @@
 #include <abyss/modules/Camera/CameraParam.hpp>
 #include <abyss/commons/Constants.hpp>
+#include <abyss/utils/Math/InterpUtil.hpp>
+
 using namespace s3d;
 
 namespace abyss
@@ -65,15 +67,36 @@ namespace abyss
         }
         return targetPos;
     }
-    s3d::Mat3x2 CameraParam::getMat() const
+    const s3d::Mat3x2& CameraParam::getMat() const
     {
-        auto targetPos = this->adjustTargetPos();
-        auto cameraPos = -targetPos + (Constants::GameScreenSize / 2);
-        return s3d::Mat3x2::Scale(getZoomScale(), s3d::Round(targetPos))
-            .translated(s3d::Round(cameraPos));
+        return m_viewMat;
     }
     s3d::Transformer2D CameraParam::getTransformer() const
     {
         return Transformer(this->getMat());
+    }
+    void CameraParam::updateDirty()
+    {
+        auto targetPos = this->adjustTargetPos();
+        auto cameraPos = -targetPos + (Constants::GameScreenSize / 2);
+        m_viewMat = s3d::Mat3x2::Scale(getZoomScale(), s3d::Round(targetPos))
+            .translated(s3d::Round(cameraPos));
+    }
+    CameraParam& CameraParam::interp(const CameraParam& other, double rate)
+    {
+        if (rate >= 1.0) {
+            m_pos = other.m_pos;
+            m_targetPos = other.m_targetPos;
+            m_zoomScale = other.m_zoomScale;
+            m_viewMat = other.m_viewMat;
+        } else if (rate <= 0) {
+
+        } else {
+            m_pos = s3d::Math::Lerp(m_pos, other.m_pos, rate);
+            m_targetPos = s3d::Math::Lerp(m_targetPos, other.m_targetPos, rate);
+            m_zoomScale = s3d::Math::Lerp(m_zoomScale, other.m_zoomScale, rate);
+            m_viewMat = InterpUtil::Lerp(m_viewMat, other.m_viewMat, rate);
+        }
+        return *this;
     }
 }

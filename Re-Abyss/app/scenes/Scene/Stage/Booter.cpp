@@ -7,13 +7,12 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/modules/Sfx/PostEffects.hpp>
-
 #include <abyss/modules/Stage/Stage.hpp>
 #include <abyss/modules/Stage/StageData.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
-
 #include <abyss/modules/Adv/Adventures.hpp>
 #include <abyss/modules/Adv/Project/Project.hpp>
+#include <abyss/modules/Sound/Sounds.hpp>
 
 #include <abyss/components/Actor/Player/Builder.hpp>
 #include <abyss/components/Actor/God/Builder.hpp>
@@ -102,6 +101,10 @@ namespace abyss::Scene::Stage
 
             // 魚
             cron->create<Cron::FishGenerator::BuildOnce>();
+        }
+        // Sound
+        {
+            pManager->getModule<Sounds>()->stop();
         }
         return stage->init();
     }

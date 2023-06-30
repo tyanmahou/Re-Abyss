@@ -11,6 +11,7 @@ namespace abyss
 {
 	class ICameraTarget;
 	class CameraTargetCtrl;
+    class CameraErpCtrl;
 	class ICameraFix;
 	class CameraFixCtrl;
 	class SnapshotView;
@@ -19,10 +20,11 @@ namespace abyss
     {
 	private:
 		Manager* m_pManager = nullptr;
-		std::unique_ptr<CameraParam> m_camera;
+        CameraParam m_camera;
 		std::unique_ptr<CameraTargetCtrl> m_target;
 		std::unique_ptr<CameraFixCtrl> m_fixCtrl;
-		std::unique_ptr<Quake> m_quake;
+        std::unique_ptr<CameraErpCtrl> m_erpCtrl;
+        std::unique_ptr<Quake> m_quake;
 		std::unique_ptr<SnapshotView> m_snapshot;
 	public:
 		Camera();
@@ -81,12 +83,6 @@ namespace abyss
 		/// <returns></returns>
 		double getZoomScale() const;
 
-		/// <summary>
-		/// ズームスケールを設定
-		/// </summary>
-		/// <param name="scale"></param>
-		void setZoomScale(double scale) const;
-
 		template<class T>
 		bool inScreen(const T& shape)const
 		{
@@ -108,7 +104,7 @@ namespace abyss
 
         const CameraParam* getViewParam() const
         {
-            return m_camera.get();
+            return &m_camera;
         }
 		SnapshotView* getSnapshot() const;
     };
