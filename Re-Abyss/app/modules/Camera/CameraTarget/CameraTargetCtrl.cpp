@@ -3,7 +3,6 @@
 #include <abyss/commons/Constants.hpp>
 #include <abyss/modules/Camera/CameraTarget/base/ICameraTarget.hpp>
 #include <abyss/utils/Clock/Clock.hpp>
-#include <abyss/utils/Math/InterpUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace  abyss
@@ -36,19 +35,8 @@ namespace  abyss
         }
         // ターゲット座標更新
         if (current) {
-            auto interpRate = current->interpRate();
-            if (interpRate >= 1.0) {
-                m_targetPos = current->targetPos();
-                m_zoomScale = current->zoomScale();
-            } else if(interpRate <= 0.0){
-                // 更新なし
-                // m_targetPos = m_targetPos
-                // m_zoomScale = m_zoomScale
-            } else {
-                double damp = InterpUtil::DampRatio(current->interpRate(), dt, 120_fps);
-                m_targetPos = s3d::Math::Lerp(m_targetPos, current->targetPos(), damp);
-                m_zoomScale = s3d::Math::Lerp(m_zoomScale, current->zoomScale(), damp);
-            }
+            m_targetPos = current->targetPos();
+            m_zoomScale = current->zoomScale();
         }
         return m_targetPos;
     }
