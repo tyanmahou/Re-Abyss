@@ -30,7 +30,7 @@ namespace abyss
 
 	void Camera::update(double dt)
 	{
-		const Vec2& targetPos = m_target->update(dt);
+		const Vec2& targetPos = m_target->update();
 
 		// カメラ座標調整
 		{

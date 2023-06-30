@@ -16,7 +16,7 @@ namespace  abyss
     {
         m_targets.push_back(target);
     }
-    const s3d::Vec2& CameraTargetCtrl::update(double dt)
+    const s3d::Vec2& CameraTargetCtrl::update()
     {
         // 不要なもの削除
         m_targets.remove_if([](const Ref<ICameraTarget>& elm) {
