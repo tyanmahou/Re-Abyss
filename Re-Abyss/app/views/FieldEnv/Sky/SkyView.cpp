@@ -1,7 +1,6 @@
 #include <abyss/views/FieldEnv/Sky/SkyView.hpp>
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
 
 namespace abyss::FieldEnv
 {

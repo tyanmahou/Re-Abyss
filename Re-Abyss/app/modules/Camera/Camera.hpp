@@ -73,6 +73,8 @@ namespace abyss
 		/// </summary>	
 		bool isQuake() const;
 
+        const s3d::Vec2& getQuakeOffset() const;
+
 		/// <summary>
 		/// ズームスケール取得
 		/// </summary>
@@ -92,12 +94,6 @@ namespace abyss
 		}
 
 		/// <summary>
-		/// View作成
-		/// </summary>
-		/// <returns></returns>
-		CameraView createView() const;
-
-		/// <summary>
 		/// スクリーンの範囲取得
 		/// </summary>
 		/// <returns></returns>
@@ -110,6 +106,10 @@ namespace abyss
 		/// <returns></returns>
 		s3d::Vec2 transform(const s3d::Vec2& pos) const;
 
+        const CameraParam* getViewParam() const
+        {
+            return m_camera.get();
+        }
 		SnapshotView* getSnapshot() const;
     };
 }

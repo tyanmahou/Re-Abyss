@@ -963,7 +963,6 @@
     <ClCompile Include="app\views\Actor\Player\PlayerVM.cpp" />
     <ClCompile Include="app\views\Actor\Player\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Adv\TagString\TagStringView.cpp" />
-    <ClCompile Include="app\views\Camera\CameraView.cpp" />
     <ClCompile Include="app\views\Camera\SnapshotView.cpp" />
     <ClCompile Include="app\views\Decor\City\StreetLight\LightVM.cpp" />
     <ClCompile Include="app\views\Decor\Map\TileMapView.cpp" />
@@ -2332,7 +2331,6 @@
     <ClInclude Include="app\views\Actor\Player\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Player\Xto\XtoAtkVM.hpp" />
     <ClInclude Include="app\views\Adv\TagString\TagStringView.hpp" />
-    <ClInclude Include="app\views\Camera\CameraView.hpp" />
     <ClInclude Include="app\views\Camera\SnapshotView.hpp" />
     <ClInclude Include="app\views\Decor\City\StreetLight\LightVM.hpp" />
     <ClInclude Include="app\views\Decor\Map\TileMapView.hpp" />

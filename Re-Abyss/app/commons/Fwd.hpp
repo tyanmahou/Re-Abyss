@@ -235,9 +235,4 @@ namespace abyss
 	/// </summary>
 	struct CShape;
 	class ColDirection;
-
-	/// <summary>
-	/// Views
-	/// </summary>
-	class CameraView;
 }

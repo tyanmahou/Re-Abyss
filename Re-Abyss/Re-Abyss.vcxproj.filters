@@ -1707,9 +1707,6 @@
     <ClCompile Include="app\views\Actor\Player\PlayerVM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\views\Camera\CameraView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\views\Camera\SnapshotView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -5531,9 +5528,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Actor\Player\PlayerVM.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\views\Camera\CameraView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Camera\SnapshotView.hpp">

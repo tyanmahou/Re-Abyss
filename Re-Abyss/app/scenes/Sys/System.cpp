@@ -1,5 +1,4 @@
 #include <abyss/scenes/Sys/System.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
 #include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
@@ -127,8 +126,8 @@ namespace abyss::Sys
         Debug::DebugUtil::AlertDrawerCount(drawer);
 #endif
         auto* camera = mod<Camera>();
-        auto cameraView = camera->createView();
-        auto cameraMat = cameraView.getMat();
+        auto* cameraView = camera->getViewParam();
+        auto cameraMat = cameraView->getMat();
         auto* snapshot = camera->getSnapshot();
         {
             auto sceneRender = snapshot->startSceneRender();
@@ -136,7 +135,7 @@ namespace abyss::Sys
             // in camera
             {
                 auto worldRender = snapshot->startWorldRender();
-                auto t2d = CameraView::Transformer(cameraMat);
+                auto t2d = CameraParam::Transformer(cameraMat);
 
                 auto* env = mod<Environment>();
                 auto getEnv = [env](auto func) {
@@ -145,7 +144,7 @@ namespace abyss::Sys
                 // 背面
                 const auto bgDrawer = [&] {
                     if (auto bg = getEnv(&Environment::getBg)) {
-                        bg->draw(cameraView.screenRegion());
+                        bg->draw(cameraView->screenRegion());
                     }
                     drawer->draw(DrawLayer::BackGround);
                 };
@@ -158,17 +157,17 @@ namespace abyss::Sys
                     {
                         auto scopedShader = decorFar->start();
                         snapshot->getDecorFarTexture().draw(
-                            cameraView.tl()
+                            cameraView->tl()
                         );
                     }
                 } else {
                     bgDrawer();
                 }
                 if (auto sky = getEnv(&Environment::getSky)) {
-                    sky->draw(cameraView.tl());
+                    sky->draw(cameraView->tl());
                 }
                 if (auto caustics = getEnv(&Environment::getCaustics)) {
-                    caustics->drawBack(cameraView.getCameraPos());
+                    caustics->drawBack(cameraView->getPos());
                 }
                 drawer->draw(DrawLayer::DecorBack);
 
@@ -183,7 +182,7 @@ namespace abyss::Sys
                 // 全面
                 drawer->draw(DrawLayer::DecorFront);
                 if (auto caustics = getEnv(&Environment::getCaustics)) {
-                    caustics->drawFront(cameraView.getCameraPos());
+                    caustics->drawFront(cameraView->getPos());
                 }
                 // Distortion Map更新
                 call(&Distortion::render);
@@ -238,14 +237,14 @@ namespace abyss::Sys
                     .apply(negaPosiInv != nullptr && negaPosiInv->isValid(), [=] { return negaPosiInv->start(); })
                     .apply(deadEffect != nullptr && deadEffect->isValid(), [=] { return deadEffect->start(); })
                     .apply(blur != nullptr && blur->isValid(), [=] { return blur->start(); })
-                    .drawWorld(cameraView.getQuakeOffset())
+                    .drawWorld(camera->getQuakeOffset())
                     ;
 
             }
             // UI
             {
 #if ABYSS_DEBUG
-                auto t2d = CameraView::Transformer(cameraMat);
+                auto t2d = CameraParam::Transformer(cameraMat);
                 call(&WorldComment::draw);
 #endif
             }

@@ -5,9 +5,8 @@
 #include <abyss/modules/Camera/CameraTarget/CameraTargetCtrl.hpp>
 #include <abyss/modules/Camera/CameraFix/CameraFixCtrl.hpp>
 #include <abyss/modules/Camera/Quake/Quake.hpp>
-#include <abyss/views/Camera/CameraView.hpp>
 #include <abyss/views/Camera/SnapshotView.hpp>
-
+#include <abyss/commons/Constants.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -36,12 +35,11 @@ namespace abyss
 		{
 			// カメラ座標を補正
 			Vec2 cameraPos = m_fixCtrl->apply(targetPos);
-
 			// 地震適用
 			m_quake->update(dt);
 
-			m_camera->setPos(Math::Round(cameraPos));
-			m_camera->setTargetPos(Math::Round(targetPos));
+            m_camera->setPos(cameraPos);
+			m_camera->setTargetPos(targetPos);
             m_camera->setZoomScale(m_target->zoomScale());
         }
 	}
@@ -81,6 +79,11 @@ namespace abyss
 		return !m_quake->isEnd();
 	}
 
+    const s3d::Vec2& Camera::getQuakeOffset() const
+    {
+        return m_quake->getOffset();
+    }
+
 	double Camera::getZoomScale() const
 	{
 		return m_camera->getZoomScale();
@@ -89,18 +92,13 @@ namespace abyss
 	{
 		m_camera->setZoomScale(scale);
 	}
-
-	CameraView Camera::createView() const
-	{
-		return CameraView(m_camera.get(), m_quake->getOffset());
-	}
 	s3d::RectF Camera::screenRegion() const
 	{
-		return this->createView().screenRegion();
+		return m_camera->screenRegion();
 	}
 	s3d::Vec2 Camera::transform(const s3d::Vec2& pos) const
 	{
-		return this->createView().getMat().transformPoint(pos);
+		return m_camera->getMat().transformPoint(pos);
 	}
 	SnapshotView* Camera::getSnapshot() const
 	{
