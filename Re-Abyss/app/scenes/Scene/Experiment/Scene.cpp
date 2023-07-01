@@ -39,7 +39,7 @@ namespace abyss::Scene::Experiment
             }
             {
                 Vec2 center = { 750 - 200, 300 };
-                auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::RotateDeg(180) * 2, t);
+                auto transformer = DualComplex::RotateDeg(0).sclerp(DualComplex::RotateDeg(180), t);
                 Vec2 cx = transformer.transform({ 0, 0 });
                 Vec2 p0x = transformer.transform(p0);
                 Vec2 p1x = transformer.transform(p1);

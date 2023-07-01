@@ -53,7 +53,7 @@ namespace abyss
 		void addCameraFix(const std::shared_ptr<ICameraFix>& fix);
 
 		/// <summary>
-		/// カメラ補正追加
+		/// カメラ補正削除
 		/// </summary>
 		/// <param name="target"></param>
 		void removeCameraFix(const std::shared_ptr<ICameraFix>& fix);
