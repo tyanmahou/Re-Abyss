@@ -13,6 +13,7 @@ namespace abyss::Resource::Msg
     public:
         void load(const Language& lang, Assets* pAssets)
         {
+            m_table.clear();
             if (auto service = Factory::Message::Injector(lang, pAssets).resolve<IMessageService>()) {
                 this->load(U"Chara", service);
                 this->load(U"Common", service);

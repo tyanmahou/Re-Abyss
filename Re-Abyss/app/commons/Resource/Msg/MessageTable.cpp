@@ -15,4 +15,8 @@ namespace abyss::Resource::Msg
         // NOTE: Stringのアロケーションなしでいけてる？
         return m_table[label.category][label.key];
     }
+    void MessageTable::clear()
+    {
+        m_table.clear();
+    }
 }

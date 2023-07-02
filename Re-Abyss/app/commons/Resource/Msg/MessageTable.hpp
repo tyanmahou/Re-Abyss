@@ -21,6 +21,11 @@ namespace abyss::Resource::Msg
         /// <param name="label"></param>
         /// <returns></returns>
         const s3d::String& get(const Label& label);
+
+        /// <summary>
+        /// 削除
+        /// </summary>
+        void clear();
     private:
         s3d::HashTable<s3d::String, s3d::HashTable<s3d::String, s3d::String>> m_table;
     };
