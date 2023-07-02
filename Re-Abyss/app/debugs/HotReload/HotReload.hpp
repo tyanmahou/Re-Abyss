@@ -7,6 +7,8 @@
 
 namespace abyss::Debug
 {
+    using FileChanges = s3d::Optional<s3d::Array<s3d::FileChange>>;
+
     class HotReload
     {
     public:
@@ -16,7 +18,7 @@ namespace abyss::Debug
         HotReload();
 #endif
         HotReload& setMessage(const s3d::String& message);
-        HotReload& setCallback(const std::function<void()>& callback);
+        HotReload& setCallback(const std::function<void(FileChanges)>& callback);
         HotReload& setSuperCallback(const std::function<void()>& callback);
 
         [[nodiscard]] bool onModify() const;
@@ -27,7 +29,7 @@ namespace abyss::Debug
         s3d::DirectoryWatcher m_watcher;
 #endif
         s3d::String m_message;
-        std::function<void()> m_callback;
+        std::function<void(FileChanges)> m_callback;
         std::function<void()> m_superCallback;
     };
 }

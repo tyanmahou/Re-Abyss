@@ -52,9 +52,9 @@ namespace abyss::Scene::Stage
             co_yield 1.0;
         }
 #if ABYSS_DEBUG
-        void reload()
+        void reload(const Debug::FileChanges& changes)
         {
-            Debug::HotReloadUtil::ReloadAssetCommon();
+            Debug::HotReloadUtil::ReloadAssetCommon(changes);
             this->init(true);
         }
         void superReload()
@@ -203,8 +203,8 @@ namespace abyss::Scene::Stage
 #if ABYSS_DEBUG
         m_reloader
             .setMessage(U"Stage")
-            .setCallback([this]() {
-                m_pImpl->reload();
+            .setCallback([this](const Debug::FileChanges& changes) {
+                m_pImpl->reload(changes);
             })
             .setSuperCallback([this] {
                 m_pImpl->superReload();

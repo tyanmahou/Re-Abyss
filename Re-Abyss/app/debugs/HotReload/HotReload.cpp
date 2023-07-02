@@ -23,7 +23,7 @@ namespace abyss::Debug
         return *this;
     }
 
-    HotReload& HotReload::setCallback(const std::function<void()>& callback)
+    HotReload& HotReload::setCallback(const std::function<void(FileChanges)>& callback)
     {
         m_callback = callback;
         return *this;
@@ -52,7 +52,7 @@ namespace abyss::Debug
             if (m_superCallback) {
                 m_superCallback();
             } else if (m_callback) {
-                m_callback();
+                m_callback(s3d::none);
             }
             return true;
         }
@@ -61,7 +61,12 @@ namespace abyss::Debug
             Debug::Log::Info(U"Reload: {}"_fmt(m_message));
 
             if (m_callback) {
-                m_callback();
+#if ABYSS_NO_BUILD_RESOURCE
+                auto changes = m_watcher.retrieveChanges();
+                m_callback(changes.size() > 0 ? changes : FileChanges{s3d::none});
+#else
+                m_callback(s3d::none);
+#endif
             }
             return true;
         }

@@ -75,8 +75,8 @@ namespace abyss::Scene::Title
 #if ABYSS_DEBUG
         m_reloader
             .setMessage(U"Title")
-            .setCallback([this, init]() {
-                Debug::HotReloadUtil::ReloadAssetCommon();
+            .setCallback([this, init](const Debug::FileChanges& changes) {
+                Debug::HotReloadUtil::ReloadAssetCommon(changes);
                 m_pImpl = std::make_unique<Impl>(init);
                 m_pImpl->loading();
             });
