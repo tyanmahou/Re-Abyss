@@ -8,9 +8,14 @@
 
 namespace abyss::Debug
 {
+#if ABYSS_NO_BUILD_RESOURCE
     HotReload::HotReload(const s3d::FilePath& path):
         m_watcher(s3d::FileSystem::FullPath(path))
     {}
+#else
+    HotReload::HotReload()
+    {}
+#endif
 
     HotReload& HotReload::setMessage(const s3d::String & message)
     {
@@ -32,7 +37,11 @@ namespace abyss::Debug
 
     bool HotReload::onModify() const
     {
-        return s3d::KeyF5.down() || m_watcher.retrieveChanges().size() > 0;
+#if ABYSS_NO_BUILD_RESOURCE
+        return m_watcher.retrieveChanges().size() > 0;
+#else
+        return false;
+#endif
     }
 
     bool HotReload::detection() const
@@ -42,20 +51,22 @@ namespace abyss::Debug
 
             if (m_superCallback) {
                 m_superCallback();
+            } else if (m_callback) {
+                m_callback();
             }
             return true;
         }
 
-        if (!this->onModify()) {
-            return false;
-        }
-        Debug::Log::Info(U"Reload: {}"_fmt(m_message));
+        if (s3d::KeyF5.down() || this->onModify()) {
+            Debug::Log::Info(U"Reload: {}"_fmt(m_message));
 
-        if (m_callback) {
-            m_callback();
+            if (m_callback) {
+                m_callback();
+            }
+            return true;
         }
 
-        return true;
+        return false;
     }
 
 }

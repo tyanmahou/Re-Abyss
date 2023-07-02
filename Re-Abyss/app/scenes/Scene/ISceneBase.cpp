@@ -9,7 +9,7 @@ namespace abyss
             // ローディング
             return;
         }
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_DEBUG
         m_reloader.detection();
 #endif
         this->onSceneUpdate();

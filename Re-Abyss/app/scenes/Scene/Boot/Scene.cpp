@@ -34,6 +34,7 @@ namespace abyss::Scene::Boot
             // マイグレーション適用
             UserData::Migration::Update();
 
+            // Temporray
             {
                 auto* pAssets = Assets::Temporray();
                 // 最初にParam全部ロード

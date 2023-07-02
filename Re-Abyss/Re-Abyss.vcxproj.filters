@@ -2537,6 +2537,9 @@
     <ClCompile Include="app\commons\Factory\Scene\Injector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\debugs\HotReload\HotReloadUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6636,6 +6639,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Factory\Scene\Injector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

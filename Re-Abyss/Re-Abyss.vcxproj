@@ -331,6 +331,7 @@
     <ClCompile Include="app\components\UI\StageResult\Main.cpp" />
     <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\datastores\Sound\CSVSoundBankDataStore.cpp" />
+    <ClCompile Include="app\debugs\HotReload\HotReloadUtil.cpp" />
     <ClCompile Include="app\modules\Adv\base\Process.cpp" />
     <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
     <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
@@ -1361,6 +1362,7 @@
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp" />
     <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp" />
+    <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\modules\Adv\base\Process.hpp" />
     <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp" />

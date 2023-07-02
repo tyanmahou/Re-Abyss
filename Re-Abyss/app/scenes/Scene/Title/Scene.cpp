@@ -25,15 +25,6 @@ namespace abyss::Scene::Title
 
             this->init();
         }
-
-#if ABYSS_NO_BUILD_RESOURCE
-        void reload()
-        {
-            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
-            Resource::Assets::Norelease()->release();
-            this->loading();
-        }
-#endif
         void init()
         {
             m_system = Factory::System::Title(m_data.get())
@@ -81,14 +72,14 @@ namespace abyss::Scene::Title
         // ローディング
         m_pImpl->loading();
 
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_DEBUG
         m_reloader
             .setMessage(U"Title")
-            .setCallback([this]() {
-            this->m_pImpl->reload();
-        }).setSuperCallback([this] {
-            this->m_pImpl->reload();
-        });
+            .setCallback([this, init]() {
+                Debug::HotReloadUtil::ReloadAssetCommon();
+                m_pImpl = std::make_unique<Impl>(init);
+                m_pImpl->loading();
+            });
 #endif
     }
     Scene::~Scene()

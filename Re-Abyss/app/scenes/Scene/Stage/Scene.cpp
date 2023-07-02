@@ -51,21 +51,15 @@ namespace abyss::Scene::Stage
             this->init();
             co_yield 1.0;
         }
-#if ABYSS_NO_BUILD_RESOURCE
-        void resourceReload()
-        {
-            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
-            Resource::Assets::Norelease()->release();
-            Resource::Assets::Main()->release();
-        }
+#if ABYSS_DEBUG
         void reload()
         {
-            this->resourceReload();
+            Debug::HotReloadUtil::ReloadAssetCommon();
             this->init(true);
         }
         void superReload()
         {
-            this->resourceReload();
+            Debug::HotReloadUtil::ReloadAssetCommon();
             m_tempData->clearFlag(abyss::TempLevel::Exit);
             this->init();
         }
@@ -206,11 +200,11 @@ namespace abyss::Scene::Stage
     {
         getData().loader.startAsync(m_pImpl->loading());
 
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_DEBUG
         m_reloader
-            .setMessage(U"stage0")
+            .setMessage(U"Stage")
             .setCallback([this]() {
-            m_pImpl->reload();
+                m_pImpl->reload();
             })
             .setSuperCallback([this] {
                 m_pImpl->superReload();

@@ -25,16 +25,6 @@ namespace abyss::Scene::Home
 
             this->init();
         }
-#if ABYSS_NO_BUILD_RESOURCE
-        void reload()
-        {
-            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
-            Resource::Assets::Norelease()->release();
-            Resource::Assets::Main()->release();
-
-            this->init();
-        }
-#endif
         void init()
         {
             m_system = Factory::System::Home(m_data.get())
@@ -80,14 +70,14 @@ namespace abyss::Scene::Home
         // ローディング
         m_pImpl->loading();
 
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_DEBUG
         m_reloader
             .setMessage(U"Home")
-            .setCallback([this]() {
-            this->m_pImpl->reload();
-        }).setSuperCallback([this] {
-            this->m_pImpl->reload();
-        });
+            .setCallback([this, init]() {
+                Debug::HotReloadUtil::ReloadAssetCommon();
+                m_pImpl = std::make_unique<Impl>(init);
+                m_pImpl->loading();
+            });
 #endif
     }
     Scene::~Scene()

@@ -31,7 +31,7 @@ namespace abyss
         void update() final;
         void draw() const final;
     protected:
-#if ABYSS_NO_BUILD_RESOURCE && ABYSS_DEBUG
+#if ABYSS_DEBUG
         Debug::HotReload m_reloader;
 #endif
     };

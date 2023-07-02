@@ -28,15 +28,6 @@ namespace abyss::Scene::SaveSelect
 
             this->init();
         }
-#if ABYSS_NO_BUILD_RESOURCE
-        void reload()
-        {
-            Resource::Preload::ParamAll().preload(Resource::Assets::Norelease());
-            Resource::Assets::Norelease()->release();
-
-            this->loading();
-        }
-#endif
         void init()
         {
             m_system = Factory::System::SaveSelect(m_data.get())
@@ -90,16 +81,14 @@ namespace abyss::Scene::SaveSelect
         // ローディング
         m_pImpl->loading();
 
-#if ABYSS_NO_BUILD_RESOURCE
+#if ABYSS_DEBUG
         m_reloader
             .setMessage(U"SaveSelect")
-            .setCallback([this]() {
-            m_pImpl->reload();
-        })
-            .setSuperCallback([this] {
-            m_pImpl->init();
-        })
-            ;
+            .setCallback([this, init]() {
+                Debug::HotReloadUtil::ReloadAssetCommon();
+                m_pImpl = std::make_unique<Impl>(init);
+                m_pImpl->loading();
+            });
 #endif
     }
     Scene::~Scene()
