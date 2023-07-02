@@ -10,6 +10,12 @@ namespace abyss::Factory::Storage
         using namespace abyss::User;
 
         emaject::Injector injector;
+        Install(injector);
+        return injector;
+    }
+    void Install(emaject::Injector& injector)
+    {
+        using namespace abyss::User;
         injector
             // other
             .install<DBInstaller>()
@@ -18,6 +24,5 @@ namespace abyss::Factory::Storage
             // service
             .install<UserServiceInstaller>()
             ;
-        return injector;
     }
 }

@@ -5,8 +5,7 @@
 #include <abyss/commons/Resource/Msg/Manager.hpp>
 #include <abyss/commons/Resource/Preload/Preloader.hpp>
 #include <abyss/commons/Resource/Preload/Param.hpp>
-#include <abyss/commons/Factory/Storage/Injector.hpp>
-#include <abyss/commons/Factory/Sound/Injector.hpp>
+#include <abyss/commons/Factory/Scene/Injector.hpp>
 
 namespace abyss::Scene::Boot
 {
@@ -59,10 +58,11 @@ namespace abyss::Scene::Boot
             }
 
             // ロードが必要なシーンデータ初期化もここで行う
-            m_data->dataStore = Factory::Storage::Injector().instantiate<User::DataStore>();
-            m_data->sound = std::make_shared<Sound::SceneSound>(
-                Factory::Sound::SoundBank::Injector().resolve<Sound::ISoundBank>()
-            );
+            {
+                auto injector = Factory::Scene::SequenceData::Injector();
+                m_data->dataStore = injector.resolve<User::DataStore>();
+                m_data->sound = injector.resolve<Sound::SceneSound>();
+            }
         }
     private:
         std::shared_ptr<SequecneData> m_data;

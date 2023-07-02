@@ -8,19 +8,24 @@ namespace abyss::Factory::Sound
 {
     emaject::Injector SoundBank::Injector()
     {
-        using namespace abyss::Sound;
-
         emaject::Injector injector;
+        Install(injector);
+        return injector;
+    }
+    void SoundBank::Install(emaject::Injector& injector)
+    {
+        using namespace abyss::Sound;
         injector
             // datastore
-            .install<CSVSoundBankDataStoreInstaller> (Path::SoundPath + U"soundbank.csv", Resource::Assets::Norelease())
+            .install<CSVSoundBankDataStoreInstaller>(Path::SoundPath + U"soundbank.csv", Resource::Assets::Norelease())
             // service
             .install<SoundBankServiceInstaller>()
             // module
             .install([](emaject::Container* c) {
-                c->bind<ISoundBank>().to<abyss::Sound::SoundBank>().asCached();
+                c->bind<ISoundBank>()
+                    .to<abyss::Sound::SoundBank>()
+                    .asCached();
             })
             ;
-        return injector;
     }
 }
