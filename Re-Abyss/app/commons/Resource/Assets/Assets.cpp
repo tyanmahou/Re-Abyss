@@ -87,8 +87,12 @@ namespace abyss::Resource
         }
         s3d::Audio loadAudio(const AudioSetting& as)
         {
-            const Wave& wave = this->loadWave(as.path);
-            return as.apply(wave);
+            if (as.streaming) {
+                return this->loadAudio(Audio::Stream, as);
+            } else {
+                const Wave& wave = this->loadWave(as.path);
+                return as.apply(wave);
+            }
         }
         s3d::Audio loadAudio(const s3d::FilePath& path)
         {
@@ -287,6 +291,22 @@ namespace abyss::Resource
     {
         static Assets instance;
         return &instance;
+    }
+#if ABYSS_DO_TEST
+    Assets* Assets::Test()
+    {
+        static Assets instance;
+        return &instance;
+    }
+#endif
+    void Assets::FreeAll()
+    {
+        Main()->free();
+        Norelease()->free();
+        Temporray()->free();
+#if ABYSS_DO_TEST
+        Test()->free();
+#endif
     }
     // -------------------------------------------------
 

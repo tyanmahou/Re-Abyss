@@ -22,7 +22,7 @@ namespace abyss::Scene::Boot
                 FontRegister::Load();
 
                 // 初期で必要なものロード
-                Preload::ParamStartup().preload();
+                Preload::ParamStartup().preload(Assets::Norelease());
             }
             m_data = init._s;
 

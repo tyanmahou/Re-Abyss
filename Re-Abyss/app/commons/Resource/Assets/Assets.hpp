@@ -86,6 +86,17 @@ namespace abyss::Resource
         /// </summary>
         /// <returns></returns>
         static Assets* Temporray();
+#if ABYSS_DO_TEST
+        /// <summary>
+        /// テスト用アセット
+        /// </summary>
+        /// <returns></returns>
+        static Assets* Test();
+#endif
+        /// <summary>
+        /// 全て解放
+        /// </summary>
+        static void FreeAll();
     };
 
     /// <summary>

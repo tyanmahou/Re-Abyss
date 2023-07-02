@@ -11,7 +11,7 @@ namespace abyss::tests
         using namespace abyss::Sound;
 
         emaject::Injector injector;
-        Resource::Assets* assets = Resource::Assets::Temporray();
+        Resource::Assets* assets = Resource::Assets::Test();
 
         injector.install<CSVSoundBankDataStoreInstaller>(Path::TestDataPath + U"sounds/soundbank.csv", assets);
         injector.install<SoundBankServiceInstaller>();
