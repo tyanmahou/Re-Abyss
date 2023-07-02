@@ -1,3 +1,6 @@
+[Startup]
+- @"Common/Loading"
+
 [Norelease]
 - @"Common/Shader"
 - @"Common/Loading"

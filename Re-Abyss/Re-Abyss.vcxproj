@@ -260,6 +260,7 @@
     <ClCompile Include="app\commons\Resource\Msg\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Msg\MessageTable.cpp" />
     <ClCompile Include="app\commons\Resource\Font\FontRegister.cpp" />
+    <ClCompile Include="app\commons\Resource\Preload\Presets.cpp" />
     <ClCompile Include="app\components\Actor\Common\BossFadeHider.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeployId.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
@@ -830,6 +831,7 @@
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
+    <ClCompile Include="app\scenes\Scene\Boot\Initializer.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
@@ -1273,6 +1275,7 @@
     <ClInclude Include="app\commons\Resource\Msg\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\MessageTable.hpp" />
     <ClInclude Include="app\commons\Resource\Font\FontRegister.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Presets.hpp" />
     <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp" />
     <ClInclude Include="app\components\Actor\Common\DeployId.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
@@ -1417,6 +1420,7 @@
     <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
     <ClInclude Include="app\Preprocess.hpp" />
+    <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
     <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\utils\Math\DualComplex.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />

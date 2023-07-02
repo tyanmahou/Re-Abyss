@@ -2540,6 +2540,12 @@
     <ClCompile Include="app\debugs\HotReload\HotReloadUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Scene\Boot\Initializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\commons\Resource\Preload\Presets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6642,6 +6648,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\commons\Resource\Preload\Presets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
