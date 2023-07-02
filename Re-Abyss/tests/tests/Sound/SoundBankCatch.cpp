@@ -16,6 +16,7 @@ namespace abyss::tests
         injector.install<CSVSoundBankDataStoreInstaller>(Path::TestDataPath + U"sounds/soundbank.csv", assets);
         injector.install<SoundBankServiceInstaller>();
         auto service = injector.resolve<ISoundBankService>();
+        assets->release();
 
         SECTION("Test1") {
             auto test = service->setting(SoundLabel(U"Test1"));

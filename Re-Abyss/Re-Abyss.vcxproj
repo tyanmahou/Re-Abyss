@@ -319,6 +319,7 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Fade\FadeUtil.cpp" />
+    <ClCompile Include="app\components\UI\BossArrival\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
@@ -1343,6 +1344,7 @@
     <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
     <ClInclude Include="app\components\Sound\BgmDef.hpp" />
     <ClInclude Include="app\components\Sound\SeDef.hpp" />
+    <ClInclude Include="app\components\UI\BossArrival\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
@@ -1410,6 +1412,7 @@
     <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
+    <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\utils\Math\DualComplex.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
