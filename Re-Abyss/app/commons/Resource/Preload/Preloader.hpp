@@ -31,6 +31,12 @@ namespace abyss::Resource::Preload
             return m_info.size();
         }
 
+        /// <summary>
+        /// プリロード対象を追加する
+        /// </summary>
+        /// <param name="preloadName"></param>
+        void append(const s3d::String& preloadName);
+
         Preloader& operator << (Preloader&& other);
     private:
         PreloadInfo m_info;

@@ -10,6 +10,8 @@
 
 namespace abyss::Scene::Boot
 {
+    using namespace abyss::Resource;
+
     class Scene::Impl
     {
     public:
@@ -18,10 +20,10 @@ namespace abyss::Scene::Boot
             // Boot時のローディングで即必要なものはココで初期化する
             {
                 // フォントロード
-                Resource::FontRegister::Load();
+                FontRegister::Load();
 
                 // 初期で必要なものロード
-                Resource::Preload::ParamStartup().preload();
+                Preload::ParamStartup().preload();
             }
             m_data = init._s;
 
@@ -31,25 +33,29 @@ namespace abyss::Scene::Boot
         void loading()
         {
             // マイグレーション適用
-            Resource::UserData::Migration::Update();
+            UserData::Migration::Update();
 
-            auto* assets = Resource::Assets::Norelease();
-            // 最初にParam全部ロード
             {
-                auto param = Resource::Preload::ParamAll();
-                param.preload(assets);
+                auto* pAssets = Assets::Temporray();
+                // 最初にParam全部ロード
+                {
+                    auto preloader = Preload::ParamAll();
+                    preloader.append(U"Common/Message"); // Message
+                    preloader.preload(pAssets);
+                }
+                // Message
+                {
+                    Msg::Manager::Load(Msg::Language::Ja(), pAssets);
+                }
+                // キャッシュ削除
+                pAssets->release();
             }
-            // Meesage
-            {
-                Resource::Msg::Manager::Load();
-            }
-            // 一度キャッシュ削除
-            assets->release();
 
             // Norelease
             {
+                auto* pAssets = Assets::Norelease();
                 Resource::Preload::Preloader norelease(U"Norelease");
-                norelease.preload(assets);
+                norelease.preload(pAssets);
             }
 
             // ロードが必要なシーンデータ初期化もここで行う

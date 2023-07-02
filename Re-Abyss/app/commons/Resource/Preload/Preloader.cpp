@@ -78,6 +78,10 @@ namespace abyss::Resource::Preload
 
         co_yield 1.0;
     }
+    void Preloader::append(const s3d::String& preloadName)
+    {
+        this->m_info << Manager::GetInfo(preloadName);
+    }
     Preloader& Preloader::operator<<(Preloader&& other)
     {
         this->m_info << std::move(other.m_info);

@@ -1,3 +1,4 @@
 [Norelease]
 - @"Common/Shader"
 - @"Common/Loading"
+- csv"sounds/soundbank.csv"

@@ -11,13 +11,8 @@ namespace abyss::Resource::Msg
     class Manager::Impl
     {
     public:
-        void load(const Language& lang)
+        void load(const Language& lang, Assets* pAssets)
         {
-            auto* pAssets = Assets::Temporray();
-            {
-                Preload::Preloader preload(U"Common/Message");
-                preload.preload(pAssets);
-            }
             if (auto service = Factory::Message::Injector(lang, pAssets).resolve<IMessageService>()) {
                 this->load(U"Chara", service);
                 this->load(U"Common", service);
@@ -25,7 +20,6 @@ namespace abyss::Resource::Msg
                 this->load(U"Title", service);
                 this->load(U"Home", service);
             }
-            pAssets->release();
         }
         void load(s3d::StringView category, const std::shared_ptr<IMessageService>& service)
         {
@@ -45,9 +39,9 @@ namespace abyss::Resource::Msg
         m_pImpl(std::make_unique<Impl>())
     {}
 
-    void Manager::Load(const Language& lang)
+    void Manager::Load(const Language& lang, Assets* pAssets)
     {
-        return Instance()->m_pImpl->load(lang);
+        return Instance()->m_pImpl->load(lang, pAssets);
     }
 
     const s3d::String& Manager::Get(const Label& label)
