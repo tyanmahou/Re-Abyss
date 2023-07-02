@@ -52,7 +52,7 @@ namespace abyss::Debug
             if (m_superCallback) {
                 m_superCallback();
             } else if (m_callback) {
-                m_callback(s3d::none);
+                m_callback({});
             }
             return true;
         }
@@ -62,10 +62,9 @@ namespace abyss::Debug
 
             if (m_callback) {
 #if ABYSS_NO_BUILD_RESOURCE
-                auto changes = m_watcher.retrieveChanges();
-                m_callback(changes.size() > 0 ? changes : FileChanges{s3d::none});
+                m_callback(m_watcher.retrieveChanges());
 #else
-                m_callback(s3d::none);
+                m_callback({});
 #endif
             }
             return true;

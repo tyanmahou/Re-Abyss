@@ -7,8 +7,11 @@ namespace abyss::Debug
 {
     using namespace abyss::Resource;
 
-    void HotReloadUtil::ReloadAssetCommon(const s3d::Optional<s3d::Array<s3d::FileChange>>& changes)
+    void HotReloadUtil::ReloadAssetCommon(const Debug::FileChanges& changes)
     {
+        if (changes.empty()) {
+            return;
+        }
         // TODO changesで必要なものだけリロード
         Assets::Main()->release();
         Assets::Norelease()->release();

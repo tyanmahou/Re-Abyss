@@ -7,8 +7,6 @@
 
 namespace abyss::Debug
 {
-    using FileChanges = s3d::Optional<s3d::Array<s3d::FileChange>>;
-
     class HotReload
     {
     public:

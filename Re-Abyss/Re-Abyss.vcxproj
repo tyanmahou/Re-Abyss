@@ -1365,6 +1365,7 @@
     <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp" />
     <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp" />
+    <ClInclude Include="app\debugs\HotReload\FileChanges.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp" />
     <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\modules\Adv\base\Process.hpp" />
