@@ -1,7 +1,0 @@
-[Startup]
-- @"Common/Loading"
-
-[NoRelease]
-- @"Common/Shader"
-- @"Common/Loading"
-- csv"sounds/soundbank.csv"
