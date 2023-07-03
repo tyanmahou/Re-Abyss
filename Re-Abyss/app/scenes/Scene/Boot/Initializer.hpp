@@ -6,5 +6,9 @@ namespace abyss::Scene::Boot
     {
     public:
         static void LoadAsset();
+
+        static void ReloadParamAll();
+        static void ReloadMsg();
+        static void ReloadNorelease();
     };
 }

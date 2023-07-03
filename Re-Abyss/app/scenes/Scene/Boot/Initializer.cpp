@@ -33,4 +33,25 @@ namespace abyss::Scene::Boot
             norelease.preload(pAssets);
         }
     }
+    void Initializer::ReloadParamAll()
+    {
+        auto* pAssets = Assets::Temporray();
+        auto preloader = Preload::ParamAll();
+        preloader.preload(pAssets);
+        pAssets->release();
+    }
+    void Initializer::ReloadMsg()
+    {
+        auto* pAssets = Assets::Temporray();
+        Preload::Preloader preloader{U"Common/Message"};
+        preloader.preload(pAssets);
+        Msg::Manager::Load(Msg::Language::Ja(), pAssets);
+        pAssets->release();
+    }
+    void Initializer::ReloadNoRelease()
+    {
+        auto* pAssets = Assets::Norelease();
+        Resource::Preload::Preloader norelease(U"Norelease");
+        norelease.preload(pAssets);
+    }
 }

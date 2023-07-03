@@ -3,6 +3,23 @@
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/scenes/Scene/Boot/Initializer.hpp>
 
+namespace
+{
+    using namespace abyss;
+
+    bool IsShaderAsset(const s3d::FileChange& c)
+    {
+        return c.path.includes(Path::ShaderPath);
+    }
+    bool IsParamAsset(const s3d::FileChange& c)
+    {
+        return c.path.includes(Path::ParamPath);
+    }
+    bool IsMsgAsset(const s3d::FileChange& c)
+    {
+        return c.path.includes(Path::MsgPath);
+    }
+}
 namespace abyss::Debug
 {
     using namespace abyss::Resource;
@@ -12,11 +29,19 @@ namespace abyss::Debug
         if (changes.empty()) {
             return;
         }
-        // TODO changesで必要なものだけリロード
+        // changesに合わせて必要なものだけリロード
         Assets::Main()->release();
-        Assets::Norelease()->release();
+        if (changes.any(::IsShaderAsset)) {
+            Assets::Norelease()->release();
+            Scene::Boot::Initializer::ReloadNoRelease();
+        }
         Assets::Temporray()->release();
-        Scene::Boot::Initializer::LoadAsset();
+        if (changes.any(::IsParamAsset)) {
+            Scene::Boot::Initializer::ReloadParamAll();
+        }
+        if (changes.any(::IsMsgAsset)) {
+            Scene::Boot::Initializer::ReloadMsg();
+        }
     }
 }
 #endif
