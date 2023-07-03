@@ -35,10 +35,10 @@ namespace abyss::Debug
         return *this;
     }
 
-    bool HotReload::onModify() const
+    bool HotReload::onModify(FileChanges& out) const
     {
 #if ABYSS_NO_BUILD_RESOURCE
-        return m_watcher.retrieveChanges().size() > 0;
+        return m_watcher.retrieveChanges(out);
 #else
         return false;
 #endif
@@ -57,12 +57,13 @@ namespace abyss::Debug
             return true;
         }
 
-        if (s3d::KeyF5.down() || this->onModify()) {
+        FileChanges changes{};
+        if (s3d::KeyF5.down() || this->onModify(changes)) {
             Debug::Log::Info(U"Reload: {}"_fmt(m_message));
 
             if (m_callback) {
 #if ABYSS_NO_BUILD_RESOURCE
-                m_callback(m_watcher.retrieveChanges());
+                m_callback(changes);
 #else
                 m_callback({});
 #endif

@@ -19,7 +19,7 @@ namespace abyss::Debug
         HotReload& setCallback(const std::function<void(FileChanges)>& callback);
         HotReload& setSuperCallback(const std::function<void()>& callback);
 
-        [[nodiscard]] bool onModify() const;
+        [[nodiscard]] bool onModify(FileChanges& out) const;
 
         bool detection() const;
     private:
