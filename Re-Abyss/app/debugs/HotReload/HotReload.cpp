@@ -62,11 +62,7 @@ namespace abyss::Debug
             Debug::Log::Info(U"Reload: {}"_fmt(m_message));
 
             if (m_callback) {
-#if ABYSS_NO_BUILD_RESOURCE
                 m_callback(changes);
-#else
-                m_callback({});
-#endif
             }
             return true;
         }
