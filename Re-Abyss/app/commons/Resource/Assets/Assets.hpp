@@ -80,7 +80,7 @@ namespace abyss::Resource
         /// リリースしないアセット
         /// </summary>
         /// <returns></returns>
-        static Assets* Norelease();
+        static Assets* NoRelease();
         /// <summary>
         /// 一時使用アセット
         /// </summary>

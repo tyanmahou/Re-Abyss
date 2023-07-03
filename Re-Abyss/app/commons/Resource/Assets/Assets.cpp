@@ -282,7 +282,7 @@ namespace abyss::Resource
         static Assets instance;
         return &instance;
     }
-    Assets* Assets::Norelease()
+    Assets* Assets::NoRelease()
     {
         static Assets instance;
         return &instance;
@@ -302,7 +302,7 @@ namespace abyss::Resource
     void Assets::FreeAll()
     {
         Main()->free();
-        Norelease()->free();
+        NoRelease()->free();
         Temporray()->free();
 #if ABYSS_DO_TEST
         Test()->free();

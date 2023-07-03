@@ -18,7 +18,7 @@ namespace abyss
         static constexpr Point Size = Constants::GameScreenSize.asPoint();
     public:
         Impl():
-            m_ps(Resource::Assets::Norelease()->load(U"bloom_brightness.hlsl")),
+            m_ps(Resource::Assets::NoRelease()->load(U"bloom_brightness.hlsl")),
             m_blurA(Size),
             m_blurB(Size)
         {}

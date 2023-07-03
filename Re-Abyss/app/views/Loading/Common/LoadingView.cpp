@@ -9,7 +9,7 @@
 namespace abyss::Loading::Common
 {
     LoadingView::LoadingView():
-        m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::Norelease()))
+        m_slime(std::make_unique<Actor::Enemy::Slime::SlimeVM>(Resource::Assets::NoRelease()))
     {}
     void LoadingView::draw() const
     {

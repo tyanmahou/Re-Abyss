@@ -32,7 +32,7 @@ namespace abyss::Debug
         // changesに合わせて必要なものだけリロード
         Assets::Main()->release();
         if (changes.any(::IsShaderAsset)) {
-            Assets::Norelease()->release();
+            Assets::NoRelease()->release();
             Scene::Boot::Initializer::ReloadNoRelease();
         }
         Assets::Temporray()->release();

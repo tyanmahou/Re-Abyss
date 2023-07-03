@@ -26,8 +26,8 @@ namespace abyss
     {
     public:
         Impl() :
-            m_vs(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl")),
-            m_ps(Resource::Assets::Norelease()->load(U"school_of_fish.hlsl"))
+            m_vs(Resource::Assets::NoRelease()->load(U"school_of_fish.hlsl")),
+            m_ps(Resource::Assets::NoRelease()->load(U"school_of_fish.hlsl"))
         {
             this->setTexture(Resource::Assets::Main()->loadTexturePacker(U"Effect/Misc/Fish/Fish.json")(U"fish_1"));
         }

@@ -16,7 +16,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"scanline.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"scanline.hlsl"))
         {
             m_cb->textureSize = static_cast<Float2>(Scene::Size());
         }

@@ -7,7 +7,7 @@ namespace abyss::Sound
     class SoundEffects
     {
     public:
-        SoundEffects(ISoundBank* pSoundBank, Resource::Assets* pAssets = Resource::Assets::Norelease());
+        SoundEffects(ISoundBank* pSoundBank, Resource::Assets* pAssets = Resource::Assets::NoRelease());
 
         /// <summary>
         /// 再生

@@ -17,7 +17,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"blend.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"blend.hlsl"))
         {}
         void setColor(const s3d::ColorF& color)
         {

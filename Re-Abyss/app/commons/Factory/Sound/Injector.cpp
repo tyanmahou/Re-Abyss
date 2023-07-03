@@ -17,7 +17,7 @@ namespace abyss::Factory::Sound
         using namespace abyss::Sound;
         injector
             // datastore
-            .install<CSVSoundBankDataStoreInstaller>(Path::SoundPath + U"soundbank.csv", Resource::Assets::Norelease())
+            .install<CSVSoundBankDataStoreInstaller>(Path::SoundPath + U"soundbank.csv", Resource::Assets::NoRelease())
             // service
             .install<SoundBankServiceInstaller>()
             // module

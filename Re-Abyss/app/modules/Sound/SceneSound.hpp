@@ -8,7 +8,7 @@ namespace abyss::Sound
     class SceneSound
     {
     public:
-        SceneSound(std::shared_ptr<ISoundBank> pSoundBank, Resource::Assets* pAssets = Resource::Assets::Norelease());
+        SceneSound(std::shared_ptr<ISoundBank> pSoundBank, Resource::Assets* pAssets = Resource::Assets::NoRelease());
 
         BackGroundMusic* bgm()
         {

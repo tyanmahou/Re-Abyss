@@ -9,6 +9,6 @@ namespace abyss::Scene::Boot
 
         static void ReloadParamAll();
         static void ReloadMsg();
-        static void ReloadNorelease();
+        static void ReloadNoRelease();
     };
 }

@@ -15,7 +15,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"decor_far.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"decor_far.hlsl"))
         {
         }
         void setTime(double time)

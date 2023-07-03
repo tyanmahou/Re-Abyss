@@ -8,7 +8,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"rgb_shift.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"rgb_shift.hlsl"))
         {
         }
         ScopedCustomShader2D start()

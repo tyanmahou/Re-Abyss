@@ -7,7 +7,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"negaposi_inv.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"negaposi_inv.hlsl"))
         {}
         void setMaskTexture(const s3d::Texture& mask)
         {

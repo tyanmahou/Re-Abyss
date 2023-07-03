@@ -13,7 +13,7 @@ namespace abyss::Sound
     class BackGroundMusic
     {
     public:
-        BackGroundMusic(ISoundBank* pSoundBank, Resource::Assets* pAssets = Resource::Assets::Norelease());
+        BackGroundMusic(ISoundBank* pSoundBank, Resource::Assets* pAssets = Resource::Assets::NoRelease());
 
         /// <summary>
         /// 再生

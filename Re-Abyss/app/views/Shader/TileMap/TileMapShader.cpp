@@ -20,7 +20,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"tilemap.hlsl"))
+            m_ps(Resource::Assets::NoRelease()->load(U"tilemap.hlsl"))
         {}
 
         void setTextureSize(const Vec2& size)

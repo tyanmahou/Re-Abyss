@@ -19,7 +19,7 @@ namespace abyss
     {
     public:
         Impl() :
-            m_ps(Resource::Assets::Norelease()->load(U"fog.hlsl")),
+            m_ps(Resource::Assets::NoRelease()->load(U"fog.hlsl")),
             m_dither(BayerMatrix::Texture())
         {
             m_cb->z = 0;
