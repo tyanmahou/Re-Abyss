@@ -29,8 +29,8 @@ namespace abyss::Scene::Boot
         // NoRelease
         {
             auto* pAssets = Assets::NoRelease();
-            Resource::Preload::Preloader NoRelease(U"NoRelease");
-            NoRelease.preload(pAssets);
+            Resource::Preload::Preloader preloader(U"NoRelease");
+            preloader.preload(pAssets);
         }
     }
     void Initializer::ReloadParamAll()
@@ -51,7 +51,7 @@ namespace abyss::Scene::Boot
     void Initializer::ReloadNoRelease()
     {
         auto* pAssets = Assets::NoRelease();
-        Resource::Preload::Preloader NoRelease(U"NoRelease");
-        NoRelease.preload(pAssets);
+        Resource::Preload::Preloader preloader(U"NoRelease");
+        preloader.preload(pAssets);
     }
 }
