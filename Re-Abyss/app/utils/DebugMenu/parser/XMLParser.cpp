@@ -4,6 +4,7 @@
 #include <abyss/utils/DebugMenu/BoolItem.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
 #include <abyss/utils/DebugMenu/RadioButton.hpp>
+#include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <abyss/utils/Reflection/Reflection.hpp>
 
 #include <Siv3D.hpp>
@@ -41,7 +42,7 @@ namespace
             for (auto e = xml.firstChild(); e; e = e.nextSibling()) {
                 auto key = e.name();
                 if (key == U"hr") {
-                    // @todo
+                    ret.add(this->parseHr());
                     continue;
                 }
                 auto label = e.attribute(U"label").value_or(key);
@@ -68,6 +69,10 @@ namespace
                 m_callbackPathStack.pop();
             }
             return ret;
+        }
+        Node parseHr()
+        {
+            return Node::Create<HrItem>();
         }
         Node parseValue(const XMLElement& xml)
         {

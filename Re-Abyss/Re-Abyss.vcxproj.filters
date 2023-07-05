@@ -2546,6 +2546,9 @@
     <ClCompile Include="app\commons\Resource\Preload\Presets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\BossArrival\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6657,6 +6660,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\debugs\HotReload\FileChanges.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\BossArrival\Main.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\DebugMenu\HrItem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
