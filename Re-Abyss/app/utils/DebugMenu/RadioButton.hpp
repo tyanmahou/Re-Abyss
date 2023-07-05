@@ -35,6 +35,7 @@ namespace abyss::DebugMenu
 
 		void addList(const s3d::String& value);
 		void addList(const s3d::String& value, const s3d::String& label);
+        void addHr();
 
 		void close();
 

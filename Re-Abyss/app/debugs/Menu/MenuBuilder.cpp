@@ -12,6 +12,7 @@
 #include <abyss/debugs/Menu/MenuUtil.hpp>
 #include <abyss/utils/DebugMenu/Folder.hpp>
 #include <abyss/utils/DebugMenu/Button.hpp>
+#include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/FPS/FrameRateHz.hpp>
 #include <Siv3D.hpp>
@@ -98,7 +99,7 @@ namespace abyss::Debug
 		{
 			auto mainFolder = Node::Create<DebugMenu::Folder>(U"Stage");
 			::BuildMainSceneChangeButtons(mainFolder, Path::MapPath);
-			//child.createSeperator();
+            mainFolder.add(Node::Create<DebugMenu::HrItem>());
 			::BuildMainSceneChangeButtons(mainFolder, Path::TestMapPath);
 
 			folder.add(mainFolder);

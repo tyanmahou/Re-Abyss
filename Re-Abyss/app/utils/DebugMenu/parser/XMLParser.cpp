@@ -111,6 +111,10 @@ namespace
             }
             auto radioButton = std::make_shared<RadioButton>(key, label, callback);
             for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
+                if (item.name() == U"hr") {
+                    radioButton->addHr();
+                    continue;
+                }
                 auto itemValue = item.attribute(U"value").value_or(U"");
                 auto itemLabel = item.attribute(U"label").value_or(itemValue);
 

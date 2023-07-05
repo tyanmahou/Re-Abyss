@@ -1,4 +1,5 @@
 #include <abyss/utils/DebugMenu/RadioButton.hpp>
+#include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::DebugMenu
@@ -65,6 +66,10 @@ namespace abyss::DebugMenu
 		auto item = std::make_shared<Item>(this, value, label);
 		m_items << item;
 		m_childs << item;
+	}
+	void RadioButton::addHr()
+	{
+        m_childs << std::make_shared<HrItem>();
 	}
 	void RadioButton::close()
 	{
