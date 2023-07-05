@@ -3,6 +3,7 @@
 #include <abyss/utils/DebugMenu/IValue.hpp>
 #include <abyss/utils/DebugMenu/RadioButton.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
+#include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::DebugMenu
@@ -24,12 +25,17 @@ namespace abyss::DebugMenu
 
 		s3d::Array<IItem*> pItems;
 		s3d::Array<StringView> labels;
-		for (auto&& pNode : pFolder->childNodes()) {
-			if (auto pItem = std::dynamic_pointer_cast<IItem>(pNode)) {
-				pItems << pItem.get();
-				labels << pItem->label();
-			}
-		}
+        s3d::HashSet<size_t> hrIndexes;
+        size_t itemIndex = 0;
+        for (auto pNode : pFolder->childNodes()) {
+            if (auto pItem = std::dynamic_pointer_cast<IItem>(pNode)) {
+                pItems << pItem.get();
+                labels << pItem->label();
+                ++itemIndex;
+            } else if (auto pHr = std::dynamic_pointer_cast<HrItem>(pNode)) {
+                hrIndexes.insert(itemIndex);
+            }
+        }
 		// ウィンドウサイズを確定
 		Vec2 size{ 100, 0 };
 		{
@@ -49,6 +55,8 @@ namespace abyss::DebugMenu
 			size.x = s3d::Max(ls.x + checkIconSize.x + openIconOffseted.x, size.x);
 			size.y += ls.y;
 		}
+        constexpr double hrHeight = 8.0;
+        size.y += hrIndexes.size() * hrHeight;
 		size.y = s3d::Max(size.y, 10.0);
 
 		bool isActive = true;
@@ -87,6 +95,15 @@ namespace abyss::DebugMenu
 		auto* pRadioButton = dynamic_cast<const RadioButton*>(pFolder);
 
 		for (auto [index, label] : s3d::Indexed(labels)) {
+
+            if (hrIndexes.contains(index)) {
+                auto ls = m_font(label).region().size;
+                ls.x = s3d::Max(ls.x + checkIconSize.x, size.x);
+                offset.y += hrHeight / 2;
+                Line(offset, offset + Vec2{ls.x, 0}).draw(1, headerColor);
+                offset.y += hrHeight / 2;
+            }
+
 			bool isSelected = selectIndex && *selectIndex == index;
 			if (isSelected) {
 				auto ls = m_font(label).region().size;
