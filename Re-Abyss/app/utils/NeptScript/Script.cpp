@@ -21,6 +21,11 @@ namespace abyss::Nept
                 evalImpl->error(m_parser.errors());
             }
         }
+
+        bool isValid() const
+        {
+            return !m_lexer.getTokens().isEmpty();
+        }
     private:
         Lexer m_lexer;
         Parser m_parser;
@@ -34,5 +39,12 @@ namespace abyss::Nept
             return;
         }
         m_pImpl->eval(evaluator);
+    }
+    Script::operator bool() const noexcept
+    {
+        if (!m_pImpl) {
+            return false;
+        }
+        return m_pImpl->isValid();
     }
 }

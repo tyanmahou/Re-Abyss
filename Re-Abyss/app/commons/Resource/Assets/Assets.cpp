@@ -148,7 +148,10 @@ namespace abyss::Resource
         {
             return this->load<TOMLValue, TOMLReader>(m_tomlCache, path);
         }
-
+        const Nept::Script& loadAdv(const s3d::FilePath& path)
+        {
+            return this->load<Nept::Script>(m_advCache, path);
+        }
         void release()
         {
             m_tmxCache.clear();
@@ -160,6 +163,7 @@ namespace abyss::Resource
             m_tomlCache.clear();
             m_audioCache.clear();
             m_waveCache.clear();
+            m_advCache.clear();
         }
 
         void setIsBuilded(bool isBuilded)
@@ -183,6 +187,7 @@ namespace abyss::Resource
             s3d::HashTable<String, PixelShader> m_psCache;
             s3d::HashTable<String, CSV> m_csvCache;
             s3d::HashTable<String, TOMLValue> m_tomlCache;
+            s3d::HashTable<String, Nept::Script> m_advCache;
 #if ABYSS_NO_BUILD_RESOURCE
             bool m_isBuilded = false;
 #else
@@ -259,6 +264,11 @@ namespace abyss::Resource
     const s3d::TOMLValue& Assets::loadToml(const s3d::FilePath& path, const s3d::FilePath& prefix) const
     {
         return m_pImpl->loadToml(prefix + path);
+    }
+
+    const Nept::Script& Assets::loadAdv(const s3d::FilePath& path, const s3d::FilePath& prefix) const
+    {
+        return m_pImpl->loadAdv(prefix + path);
     }
 
     void Assets::release() const

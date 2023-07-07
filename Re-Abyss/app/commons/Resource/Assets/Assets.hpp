@@ -9,7 +9,7 @@
 #include <abyss/commons/Path.hpp>
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 #include <abyss/utils/AudioSetting/AudioSetting.hpp>
-
+#include <abyss/utils/NeptScript/Script.hpp>
 #include <abyss/utils/TOML/TOMLUtil.hpp>
 
 namespace s3dTiled
@@ -59,6 +59,8 @@ namespace abyss::Resource
         {
             return TOMLUtil::FromTOML<Entity>(this->loadToml(path, prefix));
         }
+
+        const Nept::Script& loadAdv(const s3d::FilePath& path, const s3d::FilePath& prefix = Path::AdvPath) const;
 
         void release() const;
 
