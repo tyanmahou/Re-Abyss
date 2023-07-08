@@ -38,6 +38,8 @@ namespace
                 ret.csv << path;
             } else if (kind == U"toml") {
                 ret.toml << path;
+            } else if (kind == U"adv") {
+                ret.adv << path;
             }
         }
         return ret;

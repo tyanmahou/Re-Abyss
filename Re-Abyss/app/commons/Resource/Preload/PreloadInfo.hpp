@@ -23,6 +23,7 @@ namespace abyss::Resource::Preload
         s3d::Array<s3d::FilePath> audio;
         s3d::Array<s3d::FilePath> csv;
         s3d::Array<s3d::FilePath> toml;
+        s3d::Array<s3d::FilePath> adv;
         s3d::Array<CustomPreload> custom;
 
         PreloadInfo& unique();
@@ -40,7 +41,8 @@ namespace abyss::Resource::Preload
         &PreloadInfo::vertexShader,
         &PreloadInfo::pixelShader,
         &PreloadInfo::audio,
-        & PreloadInfo::csv,
-        &PreloadInfo::toml
+        &PreloadInfo::csv,
+        &PreloadInfo::toml,
+        &PreloadInfo::adv,
     };
 }
