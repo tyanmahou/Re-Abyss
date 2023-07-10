@@ -11,7 +11,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	void StabPrevState::end()
 	{
 	}
-	Coro::Fiber<> StabPrevState::task()
+	Coro::Fiber<> StabPrevState::updateAsync()
 	{
 		m_shake->request(10.0, 1.0);
 

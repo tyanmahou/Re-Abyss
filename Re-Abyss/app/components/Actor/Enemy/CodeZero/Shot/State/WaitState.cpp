@@ -83,7 +83,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
             }
         }
     }
-    Fiber<> WaitState::task()
+    Fiber<> WaitState::updateAsync()
     {
         auto shot = m_pActor->find<ShotProxy>();
 

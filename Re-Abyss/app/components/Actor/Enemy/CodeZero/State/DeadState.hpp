@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::CodeZero
     public:
         void start() override;
         void end() override;
-        Coro::Fiber<> task() override;
+        Coro::Fiber<> updateAsync() override;
         void update() override;
     private:
         Fiber<> onEvent(Ref<Adv::CodeZeroDemo::SignalCtrl> signalCtrl);

@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::KingDux
 		m_modelUpdater->setTimeScale(1.0);
 	}
 
-	Coro::Fiber<> DanceState::task()
+	Coro::Fiber<> DanceState::updateAsync()
 	{
 		auto babyCtrl = m_pActor->find<BabyCtrl>();
 		for (const auto& desc : KingDux::BabyDuxParam::Convene::Baby) {

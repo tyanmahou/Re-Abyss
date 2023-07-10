@@ -6,7 +6,7 @@ namespace abyss::Actor::Player
     class DamageState final : public BaseState
     {
         void start()override;
-        Fiber<> task()override;
+        Fiber<> updateAsync()override;
         void update()override;
     public:
         DamageState(const s3d::Vec2& velocity);

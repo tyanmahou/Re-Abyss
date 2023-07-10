@@ -39,7 +39,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	void DeadState::end()
 	{
 	}
-	Coro::Fiber<> DeadState::task()
+	Coro::Fiber<> DeadState::updateAsync()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
 			co_await this->onEvent(signalCtrl);

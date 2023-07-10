@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CaptainTako
         m_motion->set(Motion::Charge);
         m_charge->setRate(0);
     }
-    Fiber<> ChargeState::task()
+    Fiber<> ChargeState::updateAsync()
     {
         m_audio->play(SeDef::Charge);
 

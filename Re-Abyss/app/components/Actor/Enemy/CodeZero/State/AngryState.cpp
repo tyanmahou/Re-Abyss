@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::CodeZero
         m_pActor->find<ColorAnim::InvincibleColor>()->endAnim();
     }
 
-    Coro::Fiber<> AngryState::task()
+    Coro::Fiber<> AngryState::updateAsync()
     {
         co_await BehaviorUtil::WaitForSeconds(m_pActor, 2.0);
 

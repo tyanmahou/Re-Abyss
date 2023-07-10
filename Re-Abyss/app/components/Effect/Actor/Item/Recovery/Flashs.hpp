@@ -24,7 +24,7 @@ namespace abyss::Effect::Actor::Item::Recovery
     public:
         Flashs(EffectObj* pObj);
 
-        Coro::Fiber<void> task();
+        Coro::Fiber<void> updateAsync();
     public:
         void onStart() override;
 

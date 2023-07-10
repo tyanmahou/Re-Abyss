@@ -12,7 +12,7 @@ namespace abyss::Actor::Enemy::KingDux
 
         void start() override;
         void end() override;
-        Fiber<void> task() override;
+        Fiber<void> updateAsync() override;
     private:
         const s3d::Array<TentacleDesc>& m_tentacleDesc;
         s3d::Array<Ref<ActorObj>> m_tentacles;

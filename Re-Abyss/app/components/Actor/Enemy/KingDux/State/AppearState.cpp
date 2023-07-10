@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::KingDux
 	{
 		KingDuxUtil::SetVisible(m_pActor, true);
 	}
-	Coro::Fiber<> AppearState::task()
+	Coro::Fiber<> AppearState::updateAsync()
 	{
         if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
             co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));

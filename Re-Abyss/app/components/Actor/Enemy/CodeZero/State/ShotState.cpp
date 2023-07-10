@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero
     void ShotState::end()
     {
     }
-    Coro::Fiber<> ShotState::task()
+    Coro::Fiber<> ShotState::updateAsync()
     {
         // チャージ開始
         m_parts->getRightHand()->tryShotCharge();

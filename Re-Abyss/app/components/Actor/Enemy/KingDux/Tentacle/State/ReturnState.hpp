@@ -10,6 +10,6 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
         static void Change(ActorObj* pActor);
     public:
         void start() override;
-        Coro::Fiber<> task() override;
+        Coro::Fiber<> updateAsync() override;
     };
 }

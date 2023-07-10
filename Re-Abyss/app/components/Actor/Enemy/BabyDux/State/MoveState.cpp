@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::BabyDux
 	{
 		m_startPos = m_body->getPos();
 	}
-	Fiber<> MoveState::task()
+	Fiber<> MoveState::updateAsync()
 	{
 		while (true) {
 			// ため

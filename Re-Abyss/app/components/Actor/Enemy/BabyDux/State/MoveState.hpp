@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::BabyDux
     {
     public:
         void start() override;
-        Fiber<> task() override;
+        Fiber<> updateAsync() override;
 
         void update() override;
     private:

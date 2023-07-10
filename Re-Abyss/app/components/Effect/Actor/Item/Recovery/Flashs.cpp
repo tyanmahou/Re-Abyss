@@ -23,10 +23,10 @@ namespace abyss::Effect::Actor::Item::Recovery
 	Flashs::Flashs(EffectObj* pObj):
 		m_pObj(pObj)
 	{
-		m_task.reset(std::bind(&Flashs::task, this));
+		m_task.reset(std::bind(&Flashs::updateAsync, this));
 	}
 
-	Coro::Fiber<void> Flashs::task()
+	Coro::Fiber<void> Flashs::updateAsync()
 	{
 		for ([[maybe_unused]] auto count : step(1, 10)) {
 			m_flashs.emplace_back();

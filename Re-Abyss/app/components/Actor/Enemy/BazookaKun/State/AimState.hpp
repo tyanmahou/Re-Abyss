@@ -9,7 +9,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     public:
         void start() override;
         void update() override;
-        Fiber<> task() override;
+        Fiber<> updateAsync() override;
     private:
     };
 }

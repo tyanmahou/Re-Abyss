@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 	void DeadState::end()
 	{
 	}
-	Coro::Fiber<> DeadState::task()
+	Coro::Fiber<> DeadState::updateAsync()
 	{
         // フェード開始を待つ
         auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();

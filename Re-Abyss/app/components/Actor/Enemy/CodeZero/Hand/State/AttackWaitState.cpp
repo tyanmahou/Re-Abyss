@@ -17,7 +17,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_motion->set(Motion::Wait);
     }
 
-    Fiber<> AttackWaitState::task()
+    Fiber<> AttackWaitState::updateAsync()
     {
         m_handMove->startForAttackWait();
 

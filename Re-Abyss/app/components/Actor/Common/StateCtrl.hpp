@@ -1,14 +1,14 @@
 #pragma once
-# include <Siv3D/Optional.hpp>
-# include <Siv3D/Uncopyable.hpp>
+#include <Siv3D/Optional.hpp>
+#include <Siv3D/Uncopyable.hpp>
 
-# include <abyss/modules/Actor/base/ActorObj.hpp>
-# include <abyss/modules/GameObject/IComponent.hpp>
-# include <abyss/modules/Actor/base/IPostCollision.hpp>
-# include <abyss/modules/Actor/base/IPreUpdate.hpp>
-# include <abyss/modules/Actor/base/IPostUpdate.hpp>
-# include <abyss/modules/Actor/base/ILastUpdate.hpp>
-# include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
+#include <abyss/modules/GameObject/IComponent.hpp>
+#include <abyss/modules/Actor/base/IPostCollision.hpp>
+#include <abyss/modules/Actor/base/IPreUpdate.hpp>
+#include <abyss/modules/Actor/base/IPostUpdate.hpp>
+#include <abyss/modules/Actor/base/ILastUpdate.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::Actor
 {
@@ -38,7 +38,7 @@ namespace abyss::Actor
         virtual void onCache() {}
 
         virtual void start() {}
-        virtual Fiber<void> task() { co_return; }
+        virtual Fiber<void> updateAsync() { co_return; }
         virtual void update() {}
         virtual void lastUpdate() {}
         virtual void end() {}
@@ -53,12 +53,6 @@ namespace abyss::Actor
     {
     private:
         using State_t = std::shared_ptr<IState>;
-        State_t m_current;
-        std::pair<StatePriorityType, State_t> m_next;
-        std::shared_ptr<IPostCollision> m_collisionReact;
-        std::unique_ptr<Fiber<void>> m_task;
-        bool m_doneOnStart = false;
-        ActorObj* const  m_pActor;
     public:
         StateCtrl(ActorObj* pActor);
         
@@ -99,6 +93,14 @@ namespace abyss::Actor
         {
             return dynamic_cast<State*>(m_current.get()) != nullptr;
         }
+
+    private:
+        ActorObj* const  m_pActor;
+        State_t m_current;
+        std::pair<StatePriorityType, State_t> m_next;
+        std::shared_ptr<IPostCollision> m_collisionReact;
+        Coro::FiberHolder<void> m_task;
+        bool m_doneOnStart = false;
     };
 
     template<class State, class... Args>

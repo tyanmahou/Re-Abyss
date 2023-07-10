@@ -37,7 +37,7 @@ namespace abyss::Actor::Enemy::KingDux
 	void DeadState::end()
 	{
 	}
-	Coro::Fiber<> DeadState::task()
+	Coro::Fiber<> DeadState::updateAsync()
 	{
         if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
             co_await this->onDemo(signalCtrl);

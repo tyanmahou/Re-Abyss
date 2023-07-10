@@ -33,7 +33,7 @@ namespace abyss::Actor::Enemy::CodeZero
 		eye->flush(0.0);
 		m_pActor->find<HideCtrl>()->setVisible(true);
 	}
-	Coro::Fiber<> AppearState::task()
+	Coro::Fiber<> AppearState::updateAsync()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
             co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));

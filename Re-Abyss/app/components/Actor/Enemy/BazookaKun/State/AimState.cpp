@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
     }
 
-    Fiber<> AimState::task()
+    Fiber<> AimState::updateAsync()
     {
         // バズーカ登場
         TimeLite::Timer timer{ 0.65 };

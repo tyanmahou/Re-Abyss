@@ -10,7 +10,7 @@ namespace abyss::Actor::Enemy::CaptainTako
     public:
         AttackState();
         void start() override;
-        Fiber<> task() override;
+        Fiber<> updateAsync() override;
         void update() override;
     };
 }

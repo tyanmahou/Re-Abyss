@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	void StabState::end()
 	{
 	}
-	Coro::Fiber<> StabState::task()
+	Coro::Fiber<> StabState::updateAsync()
 	{
 		TimeLite::Timer moveTimer{ 0.2 };
 		Vec2 startPos = m_body->getPos();

@@ -14,7 +14,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
     void AngryEndState::end()
     {
     }
-    Fiber<> AngryEndState::task()
+    Fiber<> AngryEndState::updateAsync()
     {
         m_handMove->startAngryEnd();
 

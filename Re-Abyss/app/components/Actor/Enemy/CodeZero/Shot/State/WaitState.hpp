@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::CodeZero::Shot
     public:
         void start()override;
         void end()override;
-        Fiber<> task() override;
+        Fiber<> updateAsync() override;
         void update() override;
     private:
         Ref<QuakeEpicenter> m_quake;

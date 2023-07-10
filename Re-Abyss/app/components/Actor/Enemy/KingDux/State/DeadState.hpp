@@ -18,7 +18,7 @@ namespace abyss::Actor::Enemy::KingDux
     public:
         void start() override;
         void end() override;
-        Coro::Fiber<> task() override;
+        Coro::Fiber<> updateAsync() override;
         void update() override;
     private:
         Fiber<> onDemo(Ref<Adv::RoomGarder::SignalCtrl> signalCtrl);
