@@ -25,6 +25,8 @@ namespace abyss::Debug
         void close();
 
         bool isOpend() const;
+
+        void save() const;
     private:
         class Impl;
     public:

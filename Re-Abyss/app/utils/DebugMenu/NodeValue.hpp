@@ -20,6 +20,7 @@ namespace abyss::DebugMenu
 		bool toBool() const;
 		s3d::Optional<bool> toBoolOpt() const;
 
+        bool isIndexed() const;
 		std::pair<size_t, s3d::StringView> toIndexedString() const;
 		s3d::Optional<std::pair<size_t, s3d::StringView>> toIndexedStringOpt() const;
 		size_t toIndex() const;

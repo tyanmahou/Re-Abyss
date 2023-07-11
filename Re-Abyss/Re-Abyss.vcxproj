@@ -884,6 +884,7 @@
     <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\Save\JSONSave.cpp" />
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
     <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
     <ClCompile Include="app\utils\Env\Env.cpp" />
@@ -1425,6 +1426,8 @@
     <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
     <ClInclude Include="app\utils\DebugMenu\HrItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Save\IMenuSave.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp" />
     <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\utils\Math\DualComplex.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />

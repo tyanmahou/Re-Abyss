@@ -2549,6 +2549,9 @@
     <ClCompile Include="app\components\UI\BossArrival\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\Save\JSONSave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6666,6 +6669,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\DebugMenu\HrItem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\DebugMenu\Save\IMenuSave.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

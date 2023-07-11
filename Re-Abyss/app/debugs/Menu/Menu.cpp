@@ -8,11 +8,16 @@ namespace abyss::Debug
 {
     class Menu::Impl
     {
-        inline static const String MenuPath = Path::DebugPath + U"menu.xml";
+        inline static const FilePath MenuPath = Path::DebugPath + U"menu.xml";
+        inline static const FilePath SavePath = Path::UserDataPath + U"DebugMenu/Root.json";
     public:
         Impl():
             m_menu(DebugMenu::Menu::FromXML(MenuPath))
         {}
+        ~Impl()
+        {
+            this->save();
+        }
         void update()
         {
             if (!m_isOpend) {
@@ -42,6 +47,10 @@ namespace abyss::Debug
         bool isOpend() const
         {
             return m_isOpend;
+        }
+        void save() const
+        {
+            m_menu.save(SavePath);
         }
     private:
         DebugMenu::Menu m_menu;
@@ -75,6 +84,10 @@ namespace abyss::Debug
     bool Menu::isOpend() const
     {
         return m_pImpl->isOpend();
+    }
+    void Menu::save() const
+    {
+        m_pImpl->save();
     }
 }
 #endif

@@ -27,6 +27,10 @@ namespace abyss::DebugMenu
 		}
 		return s3d::none;
 	}
+	bool NodeValue::isIndexed() const
+	{
+		return std::holds_alternative<std::pair<size_t, s3d::StringView>>(m_value);
+	}
 	std::pair<size_t, s3d::StringView> NodeValue::toIndexedString() const
 	{
 		return this->toIndexedStringOpt().value_or(std::pair<size_t, s3d::StringView>{0, U""});

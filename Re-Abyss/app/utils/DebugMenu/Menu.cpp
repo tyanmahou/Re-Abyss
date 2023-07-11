@@ -2,6 +2,7 @@
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
 #include <abyss/utils/DebugMenu/parser/MenuParser.hpp>
+#include <abyss/utils/DebugMenu/Save/JSONSave.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::DebugMenu
@@ -40,7 +41,12 @@ namespace abyss::DebugMenu
 	{
 		m_skin->draw(dynamic_cast<RootFolder*>(m_root.raw()));
 	}
-	Menu::Menu(Node rootNode):
+    void Menu::save(const s3d::FilePath& path) const
+    {
+        JSONSave saver(path);
+        saver.save(dynamic_cast<RootFolder*>(m_root.raw()));
+    }
+    Menu::Menu(Node rootNode):
 		m_root(rootNode),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
