@@ -244,6 +244,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\commons\Application\AppRunner.cpp" />
     <ClCompile Include="app\commons\Application\base\BaseApp.cpp" />
     <ClCompile Include="app\commons\Application\MainApp.cpp" />
     <ClCompile Include="app\commons\Application\WindowCtrl.cpp" />
@@ -1255,6 +1256,7 @@
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
+    <ClInclude Include="app\commons\Application\AppRunner.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\Concepts.hpp" />

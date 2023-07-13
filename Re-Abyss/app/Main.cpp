@@ -1,4 +1,5 @@
 #include <abyss/commons/Application/MainApp.hpp>
+
 import abyss.tests;
 
 void Main()

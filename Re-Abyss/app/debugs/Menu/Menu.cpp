@@ -16,7 +16,6 @@ namespace abyss::Debug
         {}
         ~Impl()
         {
-            this->save();
         }
         void update()
         {

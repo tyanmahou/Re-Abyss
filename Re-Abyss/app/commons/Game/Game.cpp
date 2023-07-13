@@ -4,6 +4,7 @@
 #include <abyss/commons/Game/RenderStateInitializer.hpp>
 #include <abyss/scenes/SequenceManager.hpp>
 #include <abyss/debugs/System/System.hpp>
+#include <abyss/debugs/Menu/MenuUtil.hpp>
 
 #if ABYSS_DEVELOP
 #include <abyss/utils/Env/Env.hpp>
@@ -36,6 +37,12 @@ namespace abyss
 			return m_sequence.update();
 #endif
 		}
+        void onEnd()
+        {
+#if ABYSS_DEBUG
+            Debug::MenuUtil::Save();
+#endif
+        }
 	private:
         SequenceManager m_sequence;
     };
@@ -51,5 +58,9 @@ namespace abyss
 	bool Game::update()
 	{
 		return m_pImpl->update();
+	}
+	void Game::onEnd()
+	{
+        m_pImpl->onEnd();
 	}
 }

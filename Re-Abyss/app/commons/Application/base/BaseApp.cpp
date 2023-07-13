@@ -1,8 +1,5 @@
-// Windowのサイズをスケーリング可能にするか
-// #define USE_SCALABLE_WINDOW
-
 #include <abyss/commons/Application/base/BaseApp.hpp>
-
+#include <abyss/commons/Application/AppRunner.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss
@@ -10,19 +7,9 @@ namespace abyss
     BaseApp::BaseApp(const s3d::String& appName, s3d::Size windowSize):
 		m_windowCtrl(appName, windowSize)
 	{}
-
-	bool BaseApp::run()
-	{
-		while (System::Update()) {
-
-			if (KeyF4.down()) {
-				m_windowCtrl.changeWindowSizeNext();
-			}
-
-			if (!this->update()) {
-				return false;
-			}
-		}
-		return true;
-	}
+    bool BaseApp::run()
+    {
+        AppRunner runner;
+        return runner.run(this);
+    }
 }

@@ -3,11 +3,6 @@
 
 namespace abyss
 {
-	bool MainApp::update()
-	{
-		return m_game.update();
-	}
-
     MainApp::MainApp() :
 		BaseApp(Constants::AppName, Constants::AppResolution)
 	{
@@ -16,4 +11,21 @@ namespace abyss
     MainApp::~MainApp()
 	{
 	}
+
+    void MainApp::onStartup()
+    {
+    }
+
+    bool MainApp::onUpdate()
+    {
+        if (KeyF4.down()) {
+            m_windowCtrl.changeWindowSizeNext();
+        }
+        return m_game.update();
+    }
+
+    void MainApp::onShutdown()
+    {
+        m_game.onEnd();
+    }
 }

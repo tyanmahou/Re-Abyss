@@ -13,5 +13,9 @@ namespace abyss::Debug
     {
         Debug::System::GetMenu().close();
     }
+    void MenuUtil::Save()
+    {
+        Debug::System::GetMenu().save();
+    }
 }
 #endif

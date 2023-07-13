@@ -10,6 +10,8 @@ namespace abyss
 		IApplication() = default;
 		virtual ~IApplication() = default;
 
-		virtual bool run() = 0;
+        virtual void onStartup() = 0;
+        virtual bool onUpdate() = 0;
+        virtual void onShutdown() = 0;
 	};
 }

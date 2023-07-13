@@ -21,6 +21,8 @@ namespace abyss::Debug
         /// メニュー閉じる
         /// </summary>
         static void RequestClose();
+
+        static void Save();
     };
 }
 #endif
