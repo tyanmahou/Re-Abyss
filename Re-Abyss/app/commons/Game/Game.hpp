@@ -8,7 +8,8 @@ namespace abyss
 	public:
 		Game();
 		~Game();
-		bool update();
+        void onStart();
+        bool update();
         void onEnd();
 	private:
 		class Impl;

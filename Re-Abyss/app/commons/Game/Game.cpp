@@ -8,6 +8,7 @@
 
 #if ABYSS_DEVELOP
 #include <abyss/utils/Env/Env.hpp>
+#include "Game.hpp"
 #endif
 
 namespace abyss
@@ -24,7 +25,9 @@ namespace abyss
             // 初期設定
             RenderStateInitializer::Init();
 		}
-
+        void onStart()
+        {
+        }
 		bool update()
 		{
 			InputManager::Update();
@@ -54,6 +57,11 @@ namespace abyss
 
 	Game::~Game()
 	{}
+
+    void Game::onStart()
+    {
+        m_pImpl->onStart();
+    }
 
 	bool Game::update()
 	{

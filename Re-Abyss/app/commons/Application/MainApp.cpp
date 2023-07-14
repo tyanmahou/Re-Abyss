@@ -14,6 +14,7 @@ namespace abyss
 
     void MainApp::onStartup()
     {
+        m_game.onStart();
     }
 
     bool MainApp::onUpdate()
