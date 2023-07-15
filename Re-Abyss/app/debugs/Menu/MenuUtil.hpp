@@ -22,6 +22,7 @@ namespace abyss::Debug
         /// </summary>
         static void RequestClose();
 
+        static void Load();
         static void Save();
     };
 }

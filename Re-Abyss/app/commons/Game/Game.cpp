@@ -27,6 +27,9 @@ namespace abyss
 		}
         void onStart()
         {
+#if ABYSS_DEBUG
+            Debug::MenuUtil::Load();
+#endif
         }
 		bool update()
 		{

@@ -47,6 +47,9 @@ namespace abyss::Debug
         {
             return m_isOpend;
         }
+        void load()
+        {
+        }
         void save() const
         {
             m_menu.save(SavePath);
@@ -83,6 +86,10 @@ namespace abyss::Debug
     bool Menu::isOpend() const
     {
         return m_pImpl->isOpend();
+    }
+    void Menu::load()
+    {
+        m_pImpl->load();
     }
     void Menu::save() const
     {
