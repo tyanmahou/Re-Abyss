@@ -9,6 +9,10 @@ namespace abyss::DebugMenu
         m_savePath(savePath)
     {
     }
+    bool JSONSave::load(const RootFolder* pRoot) const
+    {
+        return false;
+    }
     bool JSONSave::save(const RootFolder* pRoot) const
     {
         auto saveFolder = [&](this auto&& self, const IFolder* pFolder)->JSON

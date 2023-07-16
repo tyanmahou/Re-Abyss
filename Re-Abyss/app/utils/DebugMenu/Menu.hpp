@@ -20,7 +20,8 @@ namespace abyss::DebugMenu
 			return m_root;
 		}
 
-        void save(const s3d::FilePath& path) const;
+        bool load(const s3d::FilePath& load);
+        bool save(const s3d::FilePath& path) const;
 	private:
 		Menu(Node rootNode);
 	private:

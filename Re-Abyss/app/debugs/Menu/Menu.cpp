@@ -47,12 +47,13 @@ namespace abyss::Debug
         {
             return m_isOpend;
         }
-        void load()
+        bool load()
         {
+            return m_menu.load(SavePath);
         }
-        void save() const
+        bool save() const
         {
-            m_menu.save(SavePath);
+            return m_menu.save(SavePath);
         }
     private:
         DebugMenu::Menu m_menu;
@@ -87,13 +88,13 @@ namespace abyss::Debug
     {
         return m_pImpl->isOpend();
     }
-    void Menu::load()
+    bool Menu::load()
     {
-        m_pImpl->load();
+        return m_pImpl->load();
     }
-    void Menu::save() const
+    bool Menu::save() const
     {
-        m_pImpl->save();
+        return m_pImpl->save();
     }
 }
 #endif

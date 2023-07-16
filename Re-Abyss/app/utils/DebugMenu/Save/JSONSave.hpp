@@ -9,6 +9,7 @@ namespace abyss::DebugMenu
     {
     public:
         JSONSave(const s3d::FilePath& savePath);
+        bool load(const RootFolder* pRoot)const override;
         bool save(const RootFolder* pRoot)const override;
     private:
         s3d::FilePath m_savePath;

@@ -13,13 +13,13 @@ namespace abyss::Debug
     {
         Debug::System::GetMenu().close();
     }
-    void MenuUtil::Load()
+    bool MenuUtil::Load()
     {
-        Debug::System::GetMenu().load();
+        return Debug::System::GetMenu().load();
     }
-    void MenuUtil::Save()
+    bool MenuUtil::Save()
     {
-        Debug::System::GetMenu().save();
+        return Debug::System::GetMenu().save();
     }
 }
 #endif

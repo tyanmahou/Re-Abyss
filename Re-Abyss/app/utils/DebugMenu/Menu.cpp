@@ -41,10 +41,15 @@ namespace abyss::DebugMenu
 	{
 		m_skin->draw(dynamic_cast<RootFolder*>(m_root.raw()));
 	}
-    void Menu::save(const s3d::FilePath& path) const
+    bool Menu::load(const s3d::FilePath& path)
     {
         JSONSave saver(path);
-        saver.save(dynamic_cast<RootFolder*>(m_root.raw()));
+        return saver.load(dynamic_cast<RootFolder*>(m_root.raw()));
+    }
+    bool Menu::save(const s3d::FilePath& path) const
+    {
+        JSONSave saver(path);
+        return saver.save(dynamic_cast<RootFolder*>(m_root.raw()));
     }
     Menu::Menu(Node rootNode):
 		m_root(rootNode),
