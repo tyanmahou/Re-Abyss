@@ -11,7 +11,11 @@ namespace abyss::DebugMenu
     }
     bool JSONSave::load(const RootFolder* pRoot) const
     {
-        return false;
+        JSON json(m_savePath);
+        if (!json) {
+            return false;
+        }
+        return true;
     }
     bool JSONSave::save(const RootFolder* pRoot) const
     {
