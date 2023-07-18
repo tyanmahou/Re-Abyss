@@ -109,7 +109,7 @@ namespace
             } else if (auto c3 = this->findCallback<void(size_t, s3d::StringView)>(xml.attribute(U"callback"))) {
                 callback = c3;
             }
-            auto radioButton = std::make_shared<RadioButton>(key, label, callback);
+            auto radioButton = std::make_shared<RadioButton>(key, label, initSelect, callback);
             for (auto item = xml.firstChild(); item; item = item.nextSibling()) {
                 if (item.name() == U"hr") {
                     radioButton->addHr();
@@ -120,7 +120,6 @@ namespace
 
                 radioButton->addList(itemValue, itemLabel);
             }
-            radioButton->setSelect(initSelect);
 
             return Node(radioButton);
         }

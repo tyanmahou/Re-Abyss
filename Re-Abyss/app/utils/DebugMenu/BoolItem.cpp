@@ -11,6 +11,7 @@ namespace abyss::DebugMenu
 	) :
 		m_key(key),
 		m_label(label),
+        m_initValue(initValue),
 		m_value(initValue),
 		m_callback(callback)
 	{
@@ -19,10 +20,18 @@ namespace abyss::DebugMenu
 	void BoolItem::onFoucsUpdate()
 	{
 		if (KeyZ.down()) {
-			m_value = !m_value;
-			if (m_callback) {
-				m_callback(m_value);
-			}
+            this->setValue(!m_value);
 		}
 	}
+	void BoolItem::reset()
+	{
+        this->setValue(m_initValue);
+    }
+    void BoolItem::setValue(bool value)
+    {
+        m_value = !value;
+        if (m_callback) {
+            m_callback(m_value);
+        }
+    }
 }

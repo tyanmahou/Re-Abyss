@@ -35,7 +35,9 @@ namespace abyss::DebugMenu
 		{
 			return { m_value };
 		}
+        void reset() override;
 
+        void setValue(bool value);
 	public:
 		s3d::StringView key() const override
 		{
@@ -44,7 +46,8 @@ namespace abyss::DebugMenu
 
 	private:
 		s3d::String m_key, m_label;
-		bool m_value = false;
+        bool m_initValue = false;
+        bool m_value = false;
 		std::function<void(bool)> m_callback;
 	};
 }

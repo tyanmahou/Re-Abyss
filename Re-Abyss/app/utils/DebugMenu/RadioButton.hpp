@@ -25,12 +25,14 @@ namespace abyss::DebugMenu
 		RadioButton() = default;
 		RadioButton(
 			const s3d::String& key,
-			const CallbackType& callback = {}
+            size_t initSelect = 0,
+            const CallbackType& callback = {}
 		);
 		RadioButton(
 			const s3d::String & key,
 			const s3d::String & label,
-			const CallbackType& callback = {}
+            size_t initSelect = 0,
+            const CallbackType& callback = {}
 		);
 
 		void addList(const s3d::String& value);
@@ -39,10 +41,7 @@ namespace abyss::DebugMenu
 
 		void close();
 
-		void setSelect(size_t select)
-		{
-			m_selectIndex = select;
-		}
+        void setSelect(size_t select);
 	public:
 		void onOpendUpdate() override;
 
@@ -63,6 +62,7 @@ namespace abyss::DebugMenu
 
 	public:
 		NodeValue value() const override;
+        void reset() override;
 	public:
 		s3d::StringView key() const override
 		{
@@ -74,8 +74,9 @@ namespace abyss::DebugMenu
 		s3d::Array<std::shared_ptr<INode>> m_childs;
 		bool m_isOpened = false;
 
+        size_t m_initSelectIndex = 0;
 		size_t m_focusIndex = 0;
 		size_t m_selectIndex = 0;
-		CallbackType m_callback;
+        CallbackType m_callback;
 	};
 }

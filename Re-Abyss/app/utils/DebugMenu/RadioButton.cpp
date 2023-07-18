@@ -43,19 +43,22 @@ namespace abyss::DebugMenu
 	};
 	RadioButton::RadioButton(
 		const s3d::String& key,
+        size_t initSelect,
 		const CallbackType& callback
 	): 
-		RadioButton(key, key, callback)
+		RadioButton(key, key, initSelect, callback)
 	{}
 
 	RadioButton::RadioButton(
 		const s3d::String& key,
 		const s3d::String& label,
+         size_t initSelect,
 		const CallbackType& callback
 	) :
 		m_key(key),
 		m_label(label),
-		m_callback(callback)
+		m_callback(callback),
+        m_initSelectIndex(initSelect)
 	{}
 	void RadioButton::addList(const s3d::String & value)
 	{
@@ -94,6 +97,10 @@ namespace abyss::DebugMenu
 			}
 		}
 	}
+    void RadioButton::setSelect(size_t select)
+    {
+        m_selectIndex = select;
+    }
 	void RadioButton::onOpendUpdate()
 	{
 		if (m_isOpened && KeyX.down()) {
@@ -142,4 +149,8 @@ namespace abyss::DebugMenu
 		const s3d::String& value = std::dynamic_pointer_cast<const Item>(m_items[m_selectIndex])->value();
 		return std::pair<size_t, s3d::StringView>{m_selectIndex, value};
 	}
+    void RadioButton::reset()
+    {
+        this->setSelect(m_initSelectIndex);
+    }
 }

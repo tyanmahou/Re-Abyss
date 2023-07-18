@@ -8,5 +8,6 @@ namespace abyss::DebugMenu
 	public:
 		virtual ~IValue() = default;
 		virtual NodeValue value() const = 0;
+        virtual void reset() = 0;
 	};
 }
