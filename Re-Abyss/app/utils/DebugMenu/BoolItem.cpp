@@ -29,7 +29,7 @@ namespace abyss::DebugMenu
     }
     void BoolItem::setValue(bool value)
     {
-        m_value = !value;
+        m_value = value;
         if (m_callback) {
             m_callback(m_value);
         }

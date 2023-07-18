@@ -17,6 +17,9 @@ namespace abyss::DebugMenu
 		if (auto pItem = std::dynamic_pointer_cast<IItem>(child)) {
 			m_items << pItem;
 		}
+        if (auto pFindable = std::dynamic_pointer_cast<IFindable>(child)) {
+            m_findChild.emplace(pFindable->key(), child);
+        }
 	}
 	void Folder::onFoucsUpdate()
 	{
@@ -53,4 +56,12 @@ namespace abyss::DebugMenu
 		}
 		return m_focusIndex;
 	}
+    std::shared_ptr<INode> Folder::findChild(const s3d::String& key) const
+    {
+        auto it = m_findChild.find(key);
+        if (it != m_findChild.end()) {
+            return it->second;
+        }
+        return nullptr;
+    }
 }

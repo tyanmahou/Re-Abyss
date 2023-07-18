@@ -48,10 +48,12 @@ namespace abyss::DebugMenu
 		{
 			return m_childs;
 		}
+        std::shared_ptr<INode> findChild(const s3d::String& key) const;
 	private:
 		s3d::String m_key, m_label;
 		s3d::Array<std::shared_ptr<IItem>> m_items;
 		s3d::Array<std::shared_ptr<INode>> m_childs;
+        s3d::HashTable<s3d::String, std::shared_ptr<INode>> m_findChild;
 		bool m_isOpened = false;
 		size_t m_focusIndex = 0;
 	};

@@ -11,10 +11,31 @@ namespace abyss::DebugMenu
     }
     bool JSONSave::load(const RootFolder* pRoot) const
     {
-        JSON json(m_savePath);
+        JSON json = JSON::Load(m_savePath);
         if (!json) {
             return false;
         }
+        auto loadeFolder = [](this auto&& self, const Folder* pFolder, const JSON& jsonObj)->void
+        {
+            for (auto&& [key, item] : jsonObj) {
+                if (auto child = pFolder->findChild(key)) {
+                    if (item.isObject()) {
+                        if (auto folder = std::dynamic_pointer_cast<Folder>(child)) {
+                            self(folder.get(), item);
+                        }
+                    } else if (item.isBool()) {
+                        if (auto boolItem = std::dynamic_pointer_cast<BoolItem>(child)) {
+                            boolItem->setValue(item.get<bool>());
+                        }
+                    } else if (item.isNumber()) {
+                        if (auto radioButton = std::dynamic_pointer_cast<RadioButton>(child)) {
+                            radioButton->setSelect(item.get<size_t>());
+                        }
+                    }
+                }
+            }
+        };
+        loadeFolder(pRoot, json);
         return true;
     }
     bool JSONSave::save(const RootFolder* pRoot) const
