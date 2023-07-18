@@ -77,29 +77,28 @@ namespace abyss::DebugMenu
 	void RadioButton::close()
 	{
 		m_isOpened = false;
-		m_selectIndex = m_focusIndex;
-
-		if (auto valueOpt = this->value().toIndexedStringOpt()) {
-			auto [index, v] = *valueOpt;
-			if (std::holds_alternative<std::function<void(size_t)>>(m_callback)) {
-				if (auto&& callback = std::get<std::function<void(size_t)>>(m_callback)) {
-					callback(index);
-				}
-			} else if (std::holds_alternative<std::function<void(s3d::StringView)>>(m_callback)) {
-				if (auto&& callback = std::get<std::function<void(s3d::StringView)>>(m_callback)) {
-					callback(v);
-				}
-
-			} else if (std::holds_alternative<std::function<void(size_t, s3d::StringView)>>(m_callback)) {
-				if (auto&& callback = std::get<std::function<void(size_t, s3d::StringView)>>(m_callback)) {
-					callback(index, v);
-				}
-			}
-		}
+        this->setSelect(m_focusIndex);
 	}
     void RadioButton::setSelect(size_t select)
     {
         m_selectIndex = select;
+        if (auto valueOpt = this->value().toIndexedStringOpt()) {
+            auto [index, v] = *valueOpt;
+            if (std::holds_alternative<std::function<void(size_t)>>(m_callback)) {
+                if (auto&& callback = std::get<std::function<void(size_t)>>(m_callback)) {
+                    callback(index);
+                }
+            } else if (std::holds_alternative<std::function<void(s3d::StringView)>>(m_callback)) {
+                if (auto&& callback = std::get<std::function<void(s3d::StringView)>>(m_callback)) {
+                    callback(v);
+                }
+
+            } else if (std::holds_alternative<std::function<void(size_t, s3d::StringView)>>(m_callback)) {
+                if (auto&& callback = std::get<std::function<void(size_t, s3d::StringView)>>(m_callback)) {
+                    callback(index, v);
+                }
+            }
+        }
     }
 	void RadioButton::onOpendUpdate()
 	{
