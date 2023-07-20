@@ -49,8 +49,8 @@ namespace abyss::DebugMenu
                 } else if (auto radioButton = std::dynamic_pointer_cast<RadioButton>(child)) {
                     json[radioButton->key()] = radioButton->value().toIndex();
                 } else if (auto folder = std::dynamic_pointer_cast<Folder>(child)) {
-                    if (auto&& child = self(folder.get()); !child.isNull()) {
-                        json[folder->key()] = std::move(child);
+                    if (auto&& grandchild = self(folder.get()); !grandchild.isNull()) {
+                        json[folder->key()] = std::move(grandchild);
                     }
                 }
             }

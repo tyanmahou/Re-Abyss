@@ -9,7 +9,7 @@ namespace abyss::DebugMenu
 	class IFolder : public IItem
 	{
 	public:
-		virtual void onOpendUpdate() = 0;
+		virtual void onOpendUpdate(const IInputController* input) = 0;
 
 		virtual bool isOpened() const = 0;
 		virtual Ref<IItem> focusItem() const = 0;

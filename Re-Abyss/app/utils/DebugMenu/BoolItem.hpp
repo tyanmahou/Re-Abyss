@@ -28,7 +28,7 @@ namespace abyss::DebugMenu
 			return m_label;
 		}
 
-		void onFoucsUpdate() override;
+		void onFoucsUpdate(const IInputController* input) override;
 
 	public:
 		NodeValue value() const override

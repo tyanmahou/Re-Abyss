@@ -17,9 +17,9 @@ namespace abyss::DebugMenu
 	{
 	}
 
-	void BoolItem::onFoucsUpdate()
+	void BoolItem::onFoucsUpdate(const IInputController* input)
 	{
-		if (KeyZ.down()) {
+		if (input->decide()) {
             this->setValue(!m_value);
 		}
 	}

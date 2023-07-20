@@ -8,9 +8,9 @@ namespace abyss::DebugMenu
 	public:
 		using Folder::Folder;
 	public:
-		void onOpendUpdate() override
+		void onOpendUpdate(const IInputController* input) override
 		{
-			Folder::onOpendUpdate();
+			Folder::onOpendUpdate(input);
 		}
 		bool isOpened() const override
 		{

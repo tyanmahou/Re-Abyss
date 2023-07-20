@@ -19,9 +19,9 @@ namespace abyss::DebugMenu
 		m_callback(callback)
 	{
 	}
-	void Button::onFoucsUpdate()
+	void Button::onFoucsUpdate(const IInputController* input)
 	{
-		if (KeyZ.down()) {
+		if (input->decide()) {
 			if (m_callback) {
 				m_callback();
 			}

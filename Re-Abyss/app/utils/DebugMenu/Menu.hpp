@@ -1,6 +1,6 @@
 #pragma once
-#include <memory>
 #include <abyss/utils/DebugMenu/ISkin.hpp>
+#include <abyss/utils/DebugMenu/IInputController.hpp>
 #include <abyss/utils/DebugMenu/Node.hpp>
 
 namespace abyss::DebugMenu
@@ -26,6 +26,7 @@ namespace abyss::DebugMenu
 		Menu(Node rootNode);
 	private:
 		Node m_root;
-		std::unique_ptr<ISkin> m_skin;
+        std::unique_ptr<IInputController> m_input;
+        std::unique_ptr<ISkin> m_skin;
 	};
 }

@@ -34,9 +34,9 @@ namespace abyss::DebugMenu
 		{
 			return m_label;
 		}
-		void onFoucsUpdate() override;
+		void onFoucsUpdate(const IInputController* input) override;
 	public:
-		void onOpendUpdate() override;
+		void onOpendUpdate(const IInputController* input) override;
 
 		bool isOpened() const override
 		{

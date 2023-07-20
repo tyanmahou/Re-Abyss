@@ -35,7 +35,7 @@ namespace abyss::DebugMenu
 			return m_label;
 		}
 
-		void onFoucsUpdate() override;
+		void onFoucsUpdate(const IInputController* input) override;
 
 	private:
 		s3d::String m_key, m_label;

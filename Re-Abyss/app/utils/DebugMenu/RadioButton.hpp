@@ -43,7 +43,7 @@ namespace abyss::DebugMenu
 
         void setSelect(size_t select);
 	public:
-		void onOpendUpdate() override;
+		void onOpendUpdate(const IInputController* input) override;
 
 		bool isOpened() const override
 		{
@@ -58,7 +58,7 @@ namespace abyss::DebugMenu
 	public:
 		s3d::StringView label() const override;
 
-		void onFoucsUpdate() override;
+		void onFoucsUpdate(const IInputController* input) override;
 
 	public:
 		NodeValue value() const override;

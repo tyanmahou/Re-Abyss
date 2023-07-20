@@ -1,4 +1,5 @@
 #include <abyss/utils/DebugMenu/Menu.hpp>
+#include <abyss/utils/DebugMenu/DefaultController.hpp>
 #include <abyss/utils/DebugMenu/DefaultSkin.hpp>
 #include <abyss/utils/DebugMenu/RootFolder.hpp>
 #include <abyss/utils/DebugMenu/parser/MenuParser.hpp>
@@ -12,8 +13,7 @@ namespace abyss::DebugMenu
 		return Menu(MenuParser::FromXML(path, true));
 	}
 	Menu::Menu():
-		m_root(std::make_shared<RootFolder>(U"DebugMenu")),
-		m_skin(std::make_unique<DefaultSkin>())
+        Menu(Node(std::make_shared<RootFolder>(U"DebugMenu")))
 	{
 	}
 	void Menu::update()
@@ -31,9 +31,9 @@ namespace abyss::DebugMenu
 			break;
 		}
 		if (folder) {
-			folder->onOpendUpdate();
+			folder->onOpendUpdate(m_input.get());
 			if (auto focus = folder->focusItem()) {
-				focus->onFoucsUpdate();
+				focus->onFoucsUpdate(m_input.get());
 			}
 		}
 	}
@@ -53,6 +53,7 @@ namespace abyss::DebugMenu
     }
     Menu::Menu(Node rootNode):
 		m_root(rootNode),
+        m_input(std::make_unique<DefaultController>()),
 		m_skin(std::make_unique<DefaultSkin>())
 	{
 	}

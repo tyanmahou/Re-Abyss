@@ -2555,6 +2555,9 @@
     <ClCompile Include="app\commons\Application\AppRunner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\utils\DebugMenu\DefaultController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6681,6 +6684,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\commons\Application\AppRunner.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\DebugMenu\IInputController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

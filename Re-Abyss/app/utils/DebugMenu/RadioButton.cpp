@@ -31,9 +31,9 @@ namespace abyss::DebugMenu
 			return m_label;
 		}
 
-		void onFoucsUpdate() override
+		void onFoucsUpdate(const IInputController* input) override
 		{
-			if (KeyZ.down()) {
+			if (input->decide()) {
 				m_parent->close();
 			}
 		}
@@ -100,16 +100,16 @@ namespace abyss::DebugMenu
             }
         }
     }
-	void RadioButton::onOpendUpdate()
+	void RadioButton::onOpendUpdate(const IInputController* input)
 	{
-		if (m_isOpened && KeyX.down()) {
+		if (m_isOpened && input->back()) {
 			m_isOpened = false;			
 			return;
 		}
 		if (!m_items.isEmpty()) {
-			if (KeyUp.down() && m_focusIndex > 0) {
+			if (input->up() && m_focusIndex > 0) {
 				m_focusIndex -= 1;
-			} else if (KeyDown.down() && m_focusIndex < m_items.size() - 1) {
+			} else if (input->down() && m_focusIndex < m_items.size() - 1) {
 				m_focusIndex += 1;
 			}
 			m_focusIndex = s3d::Clamp<size_t>(m_focusIndex, 0, m_items.size() - 1);
@@ -133,9 +133,9 @@ namespace abyss::DebugMenu
 	{
 		return m_label;
 	}
-	void RadioButton::onFoucsUpdate()
+	void RadioButton::onFoucsUpdate(const IInputController* input)
 	{
-		if (!m_isOpened && KeyZ.down()) {
+		if (!m_isOpened && input->decide()) {
 			m_isOpened = true;
 			m_focusIndex = m_selectIndex;
 		}
