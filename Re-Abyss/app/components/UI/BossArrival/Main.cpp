@@ -1,5 +1,6 @@
 #include <abyss/components/UI/BossArrival/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
+#include "Main.hpp"
 
 namespace abyss::UI::BossArrival
 {
@@ -16,5 +17,9 @@ namespace abyss::UI::BossArrival
 
     void Main::onUpdate()
     {
+    }
+    Coro::Fiber<void> Main::updateAsync()
+    {
+        co_return;
     }
 }
