@@ -13,10 +13,12 @@ namespace abyss::UI::BossArrival
     }
     void Main::onStart()
     {
+        m_fiber.reset(std::bind(&Main::updateAsync, this));
     }
 
     void Main::onUpdate()
     {
+        m_fiber.resume();
     }
     Coro::Fiber<void> Main::updateAsync()
     {

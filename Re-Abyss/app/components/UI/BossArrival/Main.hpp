@@ -1,7 +1,7 @@
 #pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/UI/base/IUpdate.hpp>
-#include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace abyss::UI::BossArrival
 {
@@ -21,5 +21,6 @@ namespace abyss::UI::BossArrival
         Coro::Fiber<void> updateAsync();
     private:
         UIObj* m_pUi;
+        Coro::FiberHolder<> m_fiber;
     };
 }
