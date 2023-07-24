@@ -1,6 +1,5 @@
 #include <abyss/components/UI/BossArrival/Main.hpp>
 #include <abyss/modules/UI/base/UIObj.hpp>
-#include "Main.hpp"
 
 namespace abyss::UI::BossArrival
 {
