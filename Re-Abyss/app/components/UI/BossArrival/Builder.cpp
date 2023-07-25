@@ -6,6 +6,7 @@ namespace abyss::UI::BossArrival
 {
     void  Builder::Build(UIObj* pUi)
     {
+        pUi->setFilter(Filter::Game | Filter::Event);
         pUi->attach<Main>(pUi);
     }
 }

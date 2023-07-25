@@ -23,6 +23,10 @@ namespace abyss::Actor::Enemy
         {
             return m_damageCtrl;
         }
+        ActorObj* actor() const
+        {
+            return m_pActor;
+        }
     public:
         void onStart() override;
     private:
