@@ -2558,6 +2558,9 @@
     <ClCompile Include="app\utils\DebugMenu\DefaultController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\Adv\BossCommon\Command\BossArrival.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6690,6 +6693,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\Adv\BossCommon\Command\BossArrival.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

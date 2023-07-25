@@ -8,6 +8,7 @@ namespace abyss::Sfx
     public:
         DeadEffect();
         DeadEffect& setColor(const s3d::ColorF& color);
+        DeadEffect& resetColor();
         DeadEffect& setIsValid(bool isValid)
         {
             m_isValid = isValid;

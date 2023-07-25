@@ -62,12 +62,5 @@ namespace abyss::Adv::BossCommon
 
             co_await Coro::WaitForSeconds(1.0s, globalTime);
         }
-
-        // 少しだけ停止
-        {
-            auto globalTimeScale = m_pObj->getModule<GlobalTime>()->createAddTimeScale();
-            globalTimeScale->setScale(0.0);
-            co_await Coro::WaitForSeconds(0.25s);
-        }
     }
 }

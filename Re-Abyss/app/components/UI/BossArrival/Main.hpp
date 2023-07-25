@@ -24,3 +24,11 @@ namespace abyss::UI::BossArrival
         Coro::FiberHolder<> m_fiber;
     };
 }
+namespace abyss
+{
+    template<>
+    struct ComponentTree<UI::BossArrival::Main>
+    {
+        using Base = MultiComponents<UI::IUpdate>;
+    };
+}
