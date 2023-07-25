@@ -16,6 +16,7 @@ namespace abyss::UI
         void draw() const;
 
         double deltaTime() const;
+        s3d::ISteadyClock* getClock() const;
 
         bool isActive(const Filter& filter) const;
 

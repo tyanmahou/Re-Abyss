@@ -35,6 +35,10 @@ namespace abyss::UI
     {
         return this->getModule<GlobalTime>()->deltaTime();
     }
+    s3d::ISteadyClock* UIObj::getClock() const
+    {
+        return this->getModule<GlobalTime>();
+    }
     bool UIObj::isActive(const Filter& filter) const
     {
         return GameObject::isActive() && m_filter.isActive(filter);
