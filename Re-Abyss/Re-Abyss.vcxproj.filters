@@ -2564,6 +2564,9 @@
     <ClCompile Include="app\utils\Coro\Fiber\Tween.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\Coro\FiberCest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">

@@ -19,7 +19,7 @@ namespace abyss::Coro
     /// <summary>
     /// 指定フレーム待つ
     /// </summary>
-    [[nodiscard]] Fiber<> WaitForFrame(s3d::int32 frame);
+    [[nodiscard]] Fiber<> WaitForFrame(s3d::uint32 frame);
 
     /// <summary>
     /// 条件をみたすまで待つ

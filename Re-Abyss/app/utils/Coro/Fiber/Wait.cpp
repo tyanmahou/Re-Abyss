@@ -20,11 +20,9 @@ namespace abyss::Coro
             co_yield{};
         }
     }
-    Fiber<> WaitForFrame(s3d::int32 frame)
+    Fiber<> WaitForFrame(s3d::uint32 frame)
     {
-        for (int32 count = 0; count < frame; ++count) {
-            co_yield{};
-        }
+        co_yield{ frame };
     }
     Fiber<> Stop()
     {

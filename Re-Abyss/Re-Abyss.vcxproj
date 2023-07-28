@@ -1049,6 +1049,7 @@
     <ClCompile Include="tests\tests\Stage\StageCatch.cpp" />
     <ClCompile Include="tests\tests\Temporary\TempFlag\TempFlagCatch.cpp" />
     <ClCompile Include="tests\tests\testing.ixx" />
+    <ClCompile Include="tests\tests\utils\Coro\FiberCest.cpp" />
     <ClCompile Include="tests\tests\utils\DateTime\DateTimeUtilCatch.cpp" />
     <ClCompile Include="tests\tests\utils\DB\DBBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Env\EnvCatch.cpp" />
