@@ -148,10 +148,6 @@ namespace abyss::Coro
         {
             using FiberType = Fiber<T>;
 
-            static FiberType get_return_object_on_allocation_failure()
-            {
-                return FiberType{ nullptr };
-            }
             auto get_return_object() { return FiberType{ FiberType::Handle::from_promise(*this) }; }
             auto initial_suspend() { return std::suspend_always{}; }
             auto final_suspend() noexcept { return std::suspend_always{}; }
