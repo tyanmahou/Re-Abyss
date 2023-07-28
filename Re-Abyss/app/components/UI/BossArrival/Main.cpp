@@ -26,10 +26,10 @@ namespace abyss::UI::BossArrival
     {
         auto* deadEffect = m_pUi->getModule<PostEffects>()->getDeadEffect();
         deadEffect->setIsValid(true);
-
-        co_await Coro::Tween::Linear0_1(3s, m_pUi->getClock(), [&](double rate) {
-            deadEffect->setColor(ColorF(1, 1 - 1 * Periodic::Triangle0_1(0.5s, rate), 0, 0.8 * Periodic::Triangle0_1(0.5s, rate)));
-        });
+        co_await Coro::Tween::Linear(3s, [&](double rate) {
+            auto c = Periodic::Triangle0_1(0.5s, rate);
+            deadEffect->setColor(ColorF(1, 1 - 1 * c, 0, 0.8 * c));
+        }, m_pUi->getClock());
         deadEffect->setIsValid(false);
         deadEffect->resetColor();
         m_pUi->destroy();

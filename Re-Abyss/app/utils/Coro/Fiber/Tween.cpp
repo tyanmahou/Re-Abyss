@@ -1,18 +1,9 @@
 #include <abyss/utils/Coro/Fiber/Tween.hpp>
-#include "Tween.hpp"
 
 namespace abyss::Coro
 {
-    Fiber<> Tween::Linear0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
-    {
-        s3d::Timer timer(duration, StartImmediately::Yes, clock);
-        while (!timer.reachedZero()) {
-            callback(timer.progress0_1());
-            co_yield{};
-        }
-        callback(1);
-    }
-    AsyncGenerator<double> Tween::Linear0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock)
+
+    AsyncGenerator<double> Tween::Linear(const s3d::Duration& duration, s3d::ISteadyClock* clock)
     {
         s3d::Timer timer(duration, StartImmediately::Yes, clock);
         while (!timer.reachedZero()) {
@@ -21,36 +12,58 @@ namespace abyss::Coro
         }
         co_yield 1.0;
     }
-    Fiber<> Tween::Periodic(const s3d::Duration& duration, s3d::ISteadyClock* clock, double(*periodic)(const s3d::Duration&, double), std::function<void(double)> callback)
+    Fiber<> Tween::Linear(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Linear0_1(duration, clock, [periodic, callback](double v) {
+        co_await Linear(duration, clock).each(callback);
+    }
+    Fiber<> Tween::EaseIn(const s3d::Duration& duration, double(easing)(double), std::function<void(double)> callback, s3d::ISteadyClock* clock)
+    {
+        return Linear(duration, [easing, callback](double v) {
+            callback(s3d::EaseIn(easing, v));
+        }, clock);
+    }
+    Fiber<> Tween::EaseOut(const s3d::Duration& duration, double(easing)(double), std::function<void(double)> callback, s3d::ISteadyClock* clock)
+    {
+        return Linear(duration, [easing, callback](double v) {
+            callback(s3d::EaseOut(easing, v));
+        }, clock);
+    }
+    Fiber<> Tween::EaseInOut(const s3d::Duration& duration, double(easing)(double), std::function<void(double)> callback, s3d::ISteadyClock* clock)
+    {
+        return Linear(duration, [easing, callback](double v) {
+            callback(s3d::EaseInOut(easing, v));
+        }, clock);
+    }
+    Fiber<> Tween::Periodic(const s3d::Duration& duration, double(periodic)(const s3d::Duration&, double), std::function<void(double)> callback, s3d::ISteadyClock* clock)
+    {
+        return Linear(duration, [periodic, callback](double v) {
             callback(periodic(1.0s, v));
-        });
+        }, clock);
     }
-    Fiber<> Tween::Sine0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Sine(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Periodic(duration, clock, &s3d::Periodic::Sine0_1, callback);
+        return Periodic(duration, s3d::Periodic::Sine0_1, callback, clock);
     }
-    Fiber<> Tween::Square0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Square(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Periodic(duration, clock, &s3d::Periodic::Square0_1, callback);
+        return Periodic(duration, s3d::Periodic::Square0_1, callback, clock);
     }
-    Fiber<> Tween::Pulse0_1(const s3d::Duration& duration, double dutyCycle, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Pulse(const s3d::Duration& duration, double dutyCycle, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Linear0_1(duration, clock, [dutyCycle, callback](double v) {
+        return Linear(duration, [dutyCycle, callback](double v) {
             callback(s3d::Periodic::Pulse0_1(1.0s, dutyCycle, v));
-        });
+        }, clock);
     }
-    Fiber<> Tween::Triangle0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Triangle(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Periodic(duration, clock, &s3d::Periodic::Triangle0_1, callback);
+        return Periodic(duration, s3d::Periodic::Triangle0_1, callback, clock);
     }
-    Fiber<> Tween::Sawtooth0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Sawtooth(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Periodic(duration, clock, &s3d::Periodic::Sawtooth0_1, callback);
+        return Periodic(duration, s3d::Periodic::Sawtooth0_1, callback, clock);
     }
-    Fiber<> Tween::Jump0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock, std::function<void(double)> callback)
+    Fiber<> Tween::Jump(const s3d::Duration& duration, std::function<void(double)> callback, s3d::ISteadyClock* clock)
     {
-        return Periodic(duration, clock, &s3d::Periodic::Jump0_1, callback);
+        return Periodic(duration, s3d::Periodic::Jump0_1, callback, clock);
     }
 }
