@@ -1,4 +1,5 @@
 #include <abyss/utils/Coro/Fiber/Tween.hpp>
+#include "Tween.hpp"
 
 namespace abyss::Coro
 {
@@ -10,6 +11,15 @@ namespace abyss::Coro
             co_yield{};
         }
         callback(1);
+    }
+    AsyncGenerator<double> Tween::Linear0_1(const s3d::Duration& duration, s3d::ISteadyClock* clock)
+    {
+        s3d::Timer timer(duration, StartImmediately::Yes, clock);
+        while (!timer.reachedZero()) {
+            co_yield timer.progress0_1();
+            co_await Coro::Yield{};
+        }
+        co_yield 1.0;
     }
     Fiber<> Tween::Periodic(const s3d::Duration& duration, s3d::ISteadyClock* clock, double(*periodic)(const s3d::Duration&, double), std::function<void(double)> callback)
     {
