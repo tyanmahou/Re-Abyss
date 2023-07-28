@@ -32,19 +32,9 @@ namespace abyss::Coro
         }
         // Yield
         {
-            auto& yield = m_coro.promise().yield;
-            if (yield.count > 0 && yield.count-- > 0) {
-                // カウンタが残ってるなら
-                return true;
-            }
-        }
-        // 割り込み別タスク
-        {
-            auto& next = m_coro.promise().next;
-            if (next) {
-
-                if (!next.resume()) {
-                    next.clear();
+            if (auto& pAwaiter = m_coro.promise().pAwaiter) {
+                if (!pAwaiter->resume()) {
+                    pAwaiter = nullptr;
                 } else {
                     return true;
                 }
@@ -126,52 +116,6 @@ namespace abyss::Coro
     namespace detail
     {
         /// <summary>
-        /// NextFiberHandler
-        /// </summary>
-        struct NextFiberHandler
-        {
-        public:
-            NextFiberHandler() = default;
-            template<class T>
-            NextFiberHandler(const Fiber<T>& fiber) :
-                m_holder(std::make_unique<Holder<T>>(fiber))
-            {}
-
-            bool resume() const
-            {
-                return m_holder->resume();
-            }
-            void clear()
-            {
-                m_holder = nullptr;
-            }
-            explicit operator bool() const
-            {
-                return static_cast<bool>(m_holder);
-            }
-        private:
-            struct IHolder
-            {
-                virtual ~IHolder() = default;
-                virtual bool resume() const = 0;
-            };
-            template<class T>
-            struct Holder final : IHolder
-            {
-                Holder(const Fiber<T>& fiber) :
-                    m_fiber(fiber)
-                {}
-                bool resume() const override
-                {
-                    return m_fiber.resume();
-                }
-            private:
-                const Fiber<T>& m_fiber;
-            };
-            std::unique_ptr<IHolder> m_holder;
-        };
-
-        /// <summary>
         /// Promise
         /// </summary>
         template<class T>
@@ -217,38 +161,38 @@ namespace abyss::Coro
             {
                 return operator co_await(_yield);
             }
-            Yield yield{ 0 };
-            NextFiberHandler next;
-        };
-
-        template<class Handle>
-        concept FiberAwaitableHandle = requires(Handle handle)
-        {
-            requires std::same_as<NextFiberHandler, decltype(handle.promise().next)>;
-            requires std::convertible_to<Handle, std::coroutine_handle<>>;
+            IAwaiter* pAwaiter = nullptr;
         };
 
         /// <summary>
         /// Awaiter
         /// </summary>
         template<class T>
-        struct FiberAwaiter
+        struct FiberAwaiter : IAwaiter
         {
-            Fiber<T> fiber;
+            FiberAwaiter(Fiber<T>&& f):
+                fiber(std::move(f))
+            {}
 
             bool await_ready() const
             {
                 return !fiber.resume();
             }
+            template<AwaitableHandler Handle>
+            void await_suspend(Handle handle)
+            {
+                handle.promise().pAwaiter = this;
+            }
             decltype(auto) await_resume() const
             {
                 return fiber.get();
             }
-            template<FiberAwaitableHandle Handle>
-            void await_suspend(Handle handle) const
+            bool resume() override
             {
-                handle.promise().next = std::move(fiber);
+                return fiber.resume();
             }
+
+            Fiber<T> fiber;
         };
     }
 }

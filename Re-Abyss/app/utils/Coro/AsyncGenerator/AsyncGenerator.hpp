@@ -24,8 +24,7 @@ namespace abyss::Coro
             }
             void unhandled_exception() { std::terminate(); }
             void return_void() {}
-            Yield yield{ 0 };
-            detail::NextFiberHandler next;
+            IAwaiter* pAwaiter = nullptr;
             bool isFindValue = false;
         };
 
@@ -34,7 +33,7 @@ namespace abyss::Coro
             const AsyncGenerator* owner;
             Fiber<iterator> operator++() const
             {
-                owner->coro.promise().isFindValue = false;
+                owner->m_coro.promise().isFindValue = false;
                 while (owner->findValue()) {
                     co_yield{};
                 }
@@ -42,17 +41,17 @@ namespace abyss::Coro
             }
             decltype(auto) operator*() const
             {
-                return owner->coro.promise().value;
+                return owner->m_coro.promise().value;
             }
             bool operator!=(const iterator&) const
             {
-                return (!owner || !owner->coro.done());
+                return (!owner || !owner->m_coro.done());
             }
         };
     public:
         Fiber<iterator> begin() const
         {
-            coro.promise().isFindValue = false;
+            m_coro.promise().isFindValue = false;
             while (this->findValue()) {
                 co_yield{};
             }
@@ -71,56 +70,46 @@ namespace abyss::Coro
         }
     public:
         explicit AsyncGenerator(handle h)
-            : coro(h)
+            : m_coro(h)
         {}
 
         AsyncGenerator(const AsyncGenerator&) = delete;
 
         AsyncGenerator(AsyncGenerator&& rhs) noexcept
-            : coro(std::move(rhs.coro))
+            : m_coro(std::move(rhs.m_coro))
         {
-            rhs.coro = nullptr;
+            rhs.m_coro = nullptr;
         }
 
         ~AsyncGenerator()
         {
-            if (coro) {
-                coro.destroy();
+            if (m_coro) {
+                m_coro.destroy();
             }
         }
     private:
         bool findValue() const
         {
-            if (!coro) {
+            if (!m_coro) {
                 return false;
             }
-            if (coro.done()) {
+            if (m_coro.done()) {
                 return false;
             }
             // Yield
             {
-                auto& yield = coro.promise().yield;
-                if (yield.count > 0 && yield.count-- > 0) {
-                    // カウンタが残ってるなら
-                    return true;
-                }
-            }
-            // 割り込み別タスク
-            {
-                auto& next = coro.promise().next;
-                if (next) {
-
-                    if (!next.resume()) {
-                        next.clear();
+                if (auto& pAwaiter = m_coro.promise().pAwaiter) {
+                    if (!pAwaiter->resume()) {
+                        pAwaiter = nullptr;
                     } else {
                         return true;
                     }
                 }
             }
-            coro.resume();
-            return !coro.promise().isFindValue && !coro.done();
+            m_coro.resume();
+            return !m_coro.promise().isFindValue && !m_coro.done();
         }
     private:
-        handle coro;
+        handle m_coro;
     };
 }

@@ -1432,6 +1432,7 @@
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
     <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp" />
     <ClInclude Include="app\utils\DebugMenu\HrItem.hpp" />

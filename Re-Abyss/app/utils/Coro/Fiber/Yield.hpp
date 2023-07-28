@@ -1,5 +1,6 @@
 #pragma once
 #include <coroutine>
+#include <abyss/utils/Coro/Fiber/IAwaiter.hpp>
 
 namespace abyss::Coro
 {
@@ -21,27 +22,27 @@ namespace abyss::Coro
 
     namespace detail
     {
-        template<class Handle>
-        concept YieldAwaitableHandle = requires(Handle handle)
+        struct YieldAwaiter : IAwaiter
         {
-            requires std::same_as<Yield, decltype(handle.promise().yield)>;
-            requires std::convertible_to<Handle, std::coroutine_handle<>>;
-        };
-
-        struct YieldAwaiter
-        {
+            YieldAwaiter(const Yield& y):
+                yield(y)
+            {}
             bool await_ready() const noexcept
             {
                 return yield.count == 0;
             }
 
-            template<YieldAwaitableHandle Handle>
+            template<AwaitableHandler Handle>
             void await_suspend(Handle handle)
             {
-                --(handle.promise().yield = yield).count;
+                handle.promise().pAwaiter = this;
             }
             void await_resume() {}
 
+            bool resume() override
+            {
+                return --yield.count > 0;
+            }
             Yield yield;
         };
     }

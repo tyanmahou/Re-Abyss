@@ -6707,6 +6707,9 @@
     <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
