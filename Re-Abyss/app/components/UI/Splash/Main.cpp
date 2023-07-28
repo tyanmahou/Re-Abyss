@@ -5,7 +5,7 @@
 #include <abyss/components/UI/Splash/Logo/Builder.hpp>
 #include <abyss/components/UI/Splash/Logo/LogoCtrl.hpp>
 #include <abyss/components/Cycle/Splash/Master.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::UI::Splash
 {
@@ -36,7 +36,7 @@ namespace abyss::UI::Splash
         auto logoCtrl = pLogo->find<Logo::LogoCtrl>();
 
         // ロゴ演出待機
-        co_await Coro::WaitUntil([&logoCtrl]() {
+        co_await Coro::FiberUtil::WaitUntil([&logoCtrl]() {
             return !logoCtrl || logoCtrl->isEnd();
         });
 

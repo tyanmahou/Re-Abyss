@@ -7,7 +7,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/RetireCtrl.hpp>
 #include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -44,7 +44,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Fiber<void> KingDuxUtil::WaitTillTentacleRetire(const s3d::Array<Ref<ActorObj>>& tentacles, s3d::int32 count)
     {
-        return Coro::WaitUntil([&tentacles, count] {
+        return Coro::FiberUtil::WaitUntil([&tentacles, count] {
             int32 retireCount = 0;
             for (auto&& obj : tentacles) {
                 if (!obj || obj->find<Tentacle::RetireCtrl>()->isRetire()) {
@@ -67,7 +67,7 @@ namespace abyss::Actor::Enemy::KingDux
     }
     Coro::Fiber<void> KingDuxUtil::WaitTillTentacle(const s3d::Array<Ref<ActorObj>>& tentacles)
     {
-        co_await Coro::WaitUntil([&] {
+        co_await Coro::FiberUtil::WaitUntil([&] {
             return tentacles.all([](const Ref<ActorObj>& obj) {
                 return !obj;
             });

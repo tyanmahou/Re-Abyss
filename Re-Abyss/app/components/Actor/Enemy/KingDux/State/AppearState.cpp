@@ -8,7 +8,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/KingDuxUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux
@@ -25,7 +25,7 @@ namespace abyss::Actor::Enemy::KingDux
 	Coro::Fiber<> AppearState::updateAsync()
 	{
         if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::RoomGarder::SignalCtrl>()) {
-            co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
+            co_await(Coro::FiberUtil::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
         }
 		this->changeState<WaitState>();
 		co_return;
@@ -53,7 +53,7 @@ namespace abyss::Actor::Enemy::KingDux
             auto* const flush = m_pActor->getModule<SpecialEffects>()->flush();
             flush->start(0.5);
 
-            co_await Coro::WaitUntil([=] {
+            co_await Coro::FiberUtil::WaitUntil([=] {
                 return flush->isFadeInEnd();
             });
         }

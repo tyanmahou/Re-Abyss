@@ -1,7 +1,7 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::tests
 {
@@ -10,7 +10,7 @@ namespace abyss::tests
         {
             *a = 1;
             co_yield{};
-            co_await Coro::WaitForFrame(2);
+            co_await Coro::FiberUtil::WaitForFrame(2);
             *a = 2;
             co_yield{};
             *a = 3;

@@ -9,7 +9,7 @@
 #include <abyss/components/UI/Title/Cursor/Builder.hpp>
 #include <abyss/components/UI/Title/Cursor/CursorCtrl.hpp>
 #include <abyss/components/UI/Title/BackGround/Builder.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::UI::Title
 {
@@ -38,7 +38,7 @@ namespace abyss::UI::Title
         // ロゴ演出
         auto logoCtrl = uis->create<Logo::Builder>()
             ->find<Logo::LogoCtrl>();
-        co_await Coro::WaitUntil([&logoCtrl]() {
+        co_await Coro::FiberUtil::WaitUntil([&logoCtrl]() {
             return !logoCtrl || logoCtrl->isEnd();
         });
 
@@ -50,7 +50,7 @@ namespace abyss::UI::Title
         uis->create<UI::Title::BackGround::Builder>();
 
         // 停止
-        co_await Coro::WaitUntil([&cursor]() {
+        co_await Coro::FiberUtil::WaitUntil([&cursor]() {
             return !cursor || cursor->isDone();
         });
     }

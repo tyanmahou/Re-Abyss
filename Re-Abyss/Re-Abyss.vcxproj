@@ -886,7 +886,7 @@
     <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
     <ClCompile Include="app\utils\Coro\Fiber\Tween.cpp" />
-    <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\FiberUtil.cpp" />
     <ClCompile Include="app\utils\DebugMenu\DefaultController.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Save\JSONSave.cpp" />
     <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
@@ -2205,7 +2205,7 @@
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
     <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\FiberUtil.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp" />
     <ClInclude Include="app\utils\Env\detail\EnvParser.hpp" />
     <ClInclude Include="app\utils\Env\Env.hpp" />

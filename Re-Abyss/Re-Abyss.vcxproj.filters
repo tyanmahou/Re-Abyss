@@ -2078,7 +2078,7 @@
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\Coro\Fiber\Wait.cpp">
+    <ClCompile Include="app\utils\Coro\Fiber\FiberUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp">
@@ -6010,7 +6010,7 @@
     <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\Coro\Fiber\Wait.hpp">
+    <ClInclude Include="app\utils\Coro\Fiber\FiberUtil.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp">

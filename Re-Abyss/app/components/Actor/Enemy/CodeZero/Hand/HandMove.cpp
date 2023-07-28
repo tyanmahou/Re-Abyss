@@ -12,7 +12,7 @@
 #include <abyss/params/Actor/Enemy/CodeZero/HandParam.hpp>
 #include <abyss/utils/Math/InterpUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 #include <Siv3D.hpp>
 
@@ -102,7 +102,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         Vec2 initPos = m_body->getPos();
         bool isLeft = m_pActor->find<KindCtrl>()->isLeftHand();
         TimeLite::Timer timer{ 2.0 };
-        co_await Coro::Loop([&] {
+        co_await Coro::FiberUtil::Loop([&] {
             timer.update(m_pActor->deltaTime());
             m_body->setPos(initPos + Vec2{ -20 * (isLeft ? -1.0 : 1.0) , -20 } * timer.rate());
         });

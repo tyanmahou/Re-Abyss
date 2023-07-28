@@ -1,5 +1,5 @@
 #include <abyss/components/Adv/Common/Command/WaitTime.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 
 namespace abyss::Adv
@@ -15,7 +15,7 @@ namespace abyss::Adv
 
     Coro::Fiber<> WaitTime::wait()
     {
-        co_await Coro::WaitForSeconds(m_waitTime);
+        co_await Coro::FiberUtil::WaitForSeconds(m_waitTime);
     }
     Coro::Fiber<> WaitTime::skip()
     {

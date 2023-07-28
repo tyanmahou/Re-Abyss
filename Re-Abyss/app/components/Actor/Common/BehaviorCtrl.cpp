@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Common/BehaviorCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Actor
 {
@@ -29,7 +29,7 @@ namespace abyss::Actor
     }
     Coro::Fiber<> BehaviorCtrl::WaitDoneBehavior() const
     {
-        co_await Coro::WaitUntil([this] {
+        co_await Coro::FiberUtil::WaitUntil([this] {
             return this->isDoneBehavior();
         });
     }

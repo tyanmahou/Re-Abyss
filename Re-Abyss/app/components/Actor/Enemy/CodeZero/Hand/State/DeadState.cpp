@@ -4,7 +4,7 @@
 #include <abyss/components/Actor/utils/BehaviorUtil.hpp>
 #include <abyss/components/Actor/Common/ShakeCtrl.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/KindCtrl.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <Siv3D.hpp>
 
@@ -29,7 +29,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
 	{
         // フェード開始を待つ
         auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();
-        co_await Coro::WaitUntil([bossFade] {return bossFade->isActive(); });
+        co_await Coro::FiberUtil::WaitUntil([bossFade] {return bossFade->isActive(); });
 
         // 左右でタイミングをずらす
         bool isLeft = m_pActor->find<KindCtrl>()->isLeftHand();

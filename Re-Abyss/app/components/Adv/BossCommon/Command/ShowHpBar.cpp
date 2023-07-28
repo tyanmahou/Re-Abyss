@@ -11,7 +11,7 @@
 #include <abyss/modules/Sound/Sounds.hpp>
 #include <abyss/modules/UI/UIs.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Adv::BossCommon
 {
@@ -60,7 +60,7 @@ namespace abyss::Adv::BossCommon
             }
             m_chargeSe.stop();
 
-            co_await Coro::WaitForSeconds(1.0s, globalTime);
+            co_await Coro::FiberUtil::WaitForSeconds(1.0s, globalTime);
         }
     }
 }

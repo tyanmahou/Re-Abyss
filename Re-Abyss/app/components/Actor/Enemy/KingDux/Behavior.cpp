@@ -16,7 +16,7 @@
 
 #include <abyss/components/Adv/RoomGarder/SignalCtrl.hpp>
 
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::KingDux

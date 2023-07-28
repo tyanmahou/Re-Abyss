@@ -4,7 +4,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Cron
 {
@@ -17,7 +17,7 @@ namespace abyss::Cron
     {
         auto time = m_pManager->getModule<GlobalTime>();
         while (true) {
-            co_await Coro::WaitForSeconds(m_duration, time);
+            co_await Coro::FiberUtil::WaitForSeconds(m_duration, time);
             co_await task();
         }
     }

@@ -1,7 +1,7 @@
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabPrevState.hpp>
 #include <abyss/components/Actor/Enemy/KingDux/Tentacle/State/StabState.hpp>
 
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Actor::Enemy::KingDux::Tentacle
 {
@@ -15,7 +15,7 @@ namespace abyss::Actor::Enemy::KingDux::Tentacle
 	{
 		m_shake->request(10.0, 1.0);
 
-		co_await Coro::WaitWhile([&] {
+		co_await Coro::FiberUtil::WaitWhile([&] {
 			return m_shake->isShakeing();
 		});
 

@@ -1,6 +1,6 @@
 #include <abyss/debugs/Pause/Pause.hpp>
 #if ABYSS_DEBUG
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Debug
@@ -26,11 +26,11 @@ namespace abyss::Debug
 	Coro::Fiber<> Pause::taskPause()
 	{
 		while (true) {
-			co_await Coro::WaitUntil([this] {return m_eventTrigger->isPauseTrigger(); });
+			co_await Coro::FiberUtil::WaitUntil([this] {return m_eventTrigger->isPauseTrigger(); });
 			co_yield{};
             m_eventTrigger->onPause();
 			m_isPause = true;
-			co_await Coro::WaitUntil([this] {return m_eventTrigger->isResumeTrigger(); });
+			co_await Coro::FiberUtil::WaitUntil([this] {return m_eventTrigger->isResumeTrigger(); });
 			co_yield{};
 			m_eventTrigger->onResume();
 			m_isPause = false;

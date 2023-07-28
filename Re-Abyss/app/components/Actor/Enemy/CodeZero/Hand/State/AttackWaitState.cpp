@@ -1,6 +1,6 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackWaitState.hpp>
 #include <abyss/components/Actor/Enemy/CodeZero/Hand/State/AttackState.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero::Hand
 {
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::CodeZero::Hand
         m_handMove->startForAttackWait();
 
         // 一定時間追従
-        co_await Coro::WaitUntil([this] {
+        co_await Coro::FiberUtil::WaitUntil([this] {
             return m_handMove->isMoveEnd();
         });
 

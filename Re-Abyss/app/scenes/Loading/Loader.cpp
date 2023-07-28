@@ -1,6 +1,6 @@
 #include <abyss/scenes/Loading/Loader.hpp>
 #include <abyss/scenes/Loading/Common/Loading.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
 
 namespace
@@ -35,13 +35,13 @@ namespace
         Coro::Fiber<> load(std::function<void()> task)
         {
             m_progress = 0.0;
-            co_await Coro::Aysnc(std::move(task));
+            co_await Coro::FiberUtil::Aysnc(std::move(task));
             m_progress = 1.0;
         }
         Coro::Fiber<> loadAsync(Coro::Generator<double> task)
         {
             m_progress = 0.0;
-            co_await Coro::Aysnc([&] {
+            co_await Coro::FiberUtil::Aysnc([&] {
                 for (auto progress : task) {
                     m_progress = progress;
                 }

@@ -16,7 +16,7 @@
 #include <abyss/components/Adv/CodeZeroDemo/SignalCtrl.hpp>
 
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 #include <Siv3D.hpp>
 
@@ -228,7 +228,7 @@ namespace abyss::Actor::Enemy::CodeZero
     Coro::Fiber<> Behavior::WaitPursuitHands(ActorObj* pActor)
     {
         auto parts = pActor->find<PartsCtrl>();
-        co_await Coro::WaitUntil([parts] {
+        co_await Coro::FiberUtil::WaitUntil([parts] {
             return parts->getLeftHand()->isPursuit() &&
                 parts->getRightHand()->isPursuit();
         });

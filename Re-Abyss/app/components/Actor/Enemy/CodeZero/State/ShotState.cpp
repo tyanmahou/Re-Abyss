@@ -6,7 +6,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/Shot/ShotProxy.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
 {
@@ -31,7 +31,7 @@ namespace abyss::Actor::Enemy::CodeZero
             ->find<Shot::ShotProxy>();
 
         // 待機
-        co_await Coro::WaitWhile([&] {
+        co_await Coro::FiberUtil::WaitWhile([&] {
             return shot && !shot->isStartedPursuit();
         });
 

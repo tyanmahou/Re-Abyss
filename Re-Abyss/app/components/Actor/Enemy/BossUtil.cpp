@@ -15,7 +15,7 @@
 #include <abyss/components/Effect/Common/BossFadeMask.hpp>
 #include <abyss/components/Effect/Common/EmissiveCtrl.hpp>
 #include <abyss/utils/Coro/Fiber/MultiFibers.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy
@@ -51,7 +51,7 @@ namespace abyss::Actor::Enemy
 
 					co_await BehaviorUtil::WaitForSeconds(pActor, 0.2);
 				}
-				co_await Coro::WaitUntil([&] {
+				co_await Coro::FiberUtil::WaitUntil([&] {
 					return bossFade->isFadeOutEnd();
 				});
 			});

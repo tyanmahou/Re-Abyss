@@ -3,7 +3,7 @@
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 #include <abyss/modules/Adv/base/SentenceCtrl.hpp>
 #include <abyss/components/Adv/Common/MessageBox.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Adv
 {
@@ -30,7 +30,7 @@ namespace abyss::Adv
     Coro::Fiber<> ShowHideMessage::onCommand()
     {
         auto messageBox = m_pObj->find<MessageBox>();
-        co_await Coro::WaitWhile([&] {
+        co_await Coro::FiberUtil::WaitWhile([&] {
             return messageBox && messageBox->isBusyAnim();
         });
     }

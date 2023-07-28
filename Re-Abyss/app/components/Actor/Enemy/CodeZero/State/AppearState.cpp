@@ -12,7 +12,7 @@
 #include <abyss/components/Actor/Enemy/CodeZero/EyeCtrl.hpp>
 #include <abyss/components/Effect/Actor/Enemy/CodeZero/Kiran/Builder.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor::Enemy::CodeZero
@@ -36,7 +36,7 @@ namespace abyss::Actor::Enemy::CodeZero
 	Coro::Fiber<> AppearState::updateAsync()
 	{
 		if (auto signalCtrl = m_pActor->getModule<Adventures>()->find<Adv::CodeZeroDemo::SignalCtrl>()) {
-            co_await(Coro::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
+            co_await(Coro::FiberUtil::WaitWhile([signalCtrl] {return signalCtrl.isValid(); }) | this->onDemo(signalCtrl));
 		}
 		this->changeState<WaitState>();
 		co_return;
@@ -58,7 +58,7 @@ namespace abyss::Actor::Enemy::CodeZero
                 }
             });
         }
-        co_await(Coro::WaitWhile([this] {return !m_isSkip; }) | this->onAppear(signalCtrl));
+        co_await(Coro::FiberUtil::WaitWhile([this] {return !m_isSkip; }) | this->onAppear(signalCtrl));
 
         // スキップ後始末
         {

@@ -10,7 +10,7 @@
 #include <abyss/components/Effect/Misc/Fish/Builder.hpp>
 #include <abyss/components/Effect/Misc/Fish/Main.hpp>
 #include <abyss/utils/Coro/Fiber/Fiber.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <Siv3D/Array.hpp>
 
 namespace
@@ -51,7 +51,7 @@ namespace abyss::Cron::FishGenerator
 
 		while (true) {
 			this->buildFish();
-			co_await Coro::WaitForSeconds(s3d::Duration(period), time);
+			co_await Coro::FiberUtil::WaitForSeconds(s3d::Duration(period), time);
 		}
 		co_return;
     }

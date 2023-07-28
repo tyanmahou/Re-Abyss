@@ -8,7 +8,7 @@
 #include <abyss/components/Fade/FadeUtil.hpp>
 
 #include <abyss/components/Cycle/Main/Master.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 #include <Siv3D.hpp>
 
@@ -32,7 +32,7 @@ namespace abyss::Event::GameClear
         // クリアBGM
         m_pEvent->getModule<Sounds>()->play(Sound::BgmDef::StageResult, 0s);
         // 少し待つ
-        co_await Coro::WaitForSeconds(3.42s);
+        co_await Coro::FiberUtil::WaitForSeconds(3.42s);
 
         // フェード
         co_await FadeOut::WaitIrisOutByPlayerPos(m_pEvent);

@@ -4,7 +4,7 @@
 #include <abyss/modules/Cycle/CycleMaster.hpp>
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/components/Cycle/StageResult/Master.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::UI::StageResult
 {
@@ -28,7 +28,7 @@ namespace abyss::UI::StageResult
     }
     Coro::Fiber<> Main::onExecute()
     {
-        co_await Coro::WaitUntil([] {
+        co_await Coro::FiberUtil::WaitUntil([] {
             return InputManager::A.down();
         });
         m_pUi->getModule<CycleMaster>()->find<Cycle::StageResult::Master>()->nextScene();

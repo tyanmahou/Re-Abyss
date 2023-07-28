@@ -1,5 +1,5 @@
 #include <abyss/components/Adv/Common/Command/MessageStream.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/modules/Adv/base/AdvObj.hpp>
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/modules/Adv/base/SentenceCtrl.hpp>
@@ -34,7 +34,7 @@ namespace abyss::Adv
         for (char32_t ch : m_message) {
             m_done = index;
             sentence->append(ch);
-            co_await Coro::WaitForSeconds(60ms, globalTime);
+            co_await Coro::FiberUtil::WaitForSeconds(60ms, globalTime);
             ++index;
         }
         co_return;

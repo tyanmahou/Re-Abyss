@@ -1,10 +1,10 @@
-#include <abyss/utils/Coro/Fiber/Fiber.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Coro
 {
-    Fiber<> WaitForSeconds(const s3d::Duration& duration)
+    Fiber<> FiberUtil::WaitForSeconds(const s3d::Duration& duration)
     {
         TimeLite::Timer timer(duration.count());
         while (!timer.isEnd()) {
@@ -13,31 +13,31 @@ namespace abyss::Coro
         }
     }
 
-    Fiber<> WaitForSeconds(const s3d::Duration& duration, s3d::ISteadyClock* clock)
+    Fiber<> FiberUtil::WaitForSeconds(const s3d::Duration& duration, s3d::ISteadyClock* clock)
     {
         s3d::Timer timer(duration, StartImmediately::Yes, clock);
         while (!timer.reachedZero()) {
             co_yield{};
         }
     }
-    Fiber<> WaitForFrame(s3d::uint32 frame)
+    Fiber<> FiberUtil::WaitForFrame(s3d::uint32 frame)
     {
         co_yield{ frame };
     }
-    Fiber<> Stop()
+    Fiber<> FiberUtil::Stop()
     {
         while (true) {
             co_yield{};
         }
     }
-    Fiber<> Loop(std::function<void()> func)
+    Fiber<> FiberUtil::Loop(std::function<void()> func)
     {
         while (true) {
             func();
             co_yield{};
         }
     }
-    Fiber<> Loop(std::function<bool()> func)
+    Fiber<> FiberUtil::Loop(std::function<bool()> func)
     {
         while (true) {
             if (!func()) {
@@ -46,14 +46,14 @@ namespace abyss::Coro
             co_yield{};
         }
     }
-    Fiber<> Loop(std::function<Fiber<>()> func)
+    Fiber<> FiberUtil::Loop(std::function<Fiber<>()> func)
     {
         while (true) {
             co_await func();
             co_yield{};
         }
     }
-    Fiber<> Loop(std::function<Fiber<bool>()> func)
+    Fiber<> FiberUtil::Loop(std::function<Fiber<bool>()> func)
     {
         while (true) {
             if (bool result = co_await func(); !result) {

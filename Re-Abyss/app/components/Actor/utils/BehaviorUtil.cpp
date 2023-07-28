@@ -3,7 +3,7 @@
 #include <abyss/modules/GlobalTime/GlobalTime.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
 #include <abyss/utils/TimeLite/Timer.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 
 namespace abyss::Actor
 {
@@ -37,7 +37,7 @@ namespace abyss::Actor
 		if (!hp) {
 			co_return;
 		}
-		co_await Coro::WaitUntil([hp, rate] {
+		co_await Coro::FiberUtil::WaitUntil([hp, rate] {
 			return hp->isLessThanRate(rate);
 		});
 	}

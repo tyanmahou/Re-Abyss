@@ -4,7 +4,7 @@
 #include <abyss/modules/Sfx/SpecialEffects.hpp>
 #include <abyss/params/Actor/Enemy/CodeZero/Param.hpp>
 #include <abyss/utils/Math/InterpUtil.hpp>
-#include <abyss/utils/Coro/Fiber/Wait.hpp>
+#include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/utils/Shake/SimpleShake.hpp>
 #include <Siv3D.hpp>
 
@@ -55,7 +55,7 @@ namespace abyss::Actor::Enemy::CodeZero
         m_localTargetL = Vec2{ 0, 0 };
         m_localTargetR = Vec2{ 0, 0 };
         auto moveV = [&]()->Coro::Fiber<> {
-            return Coro::Loop([this] {
+            return Coro::FiberUtil::Loop([this] {
                 auto dt = m_pActor->deltaTime();
                 auto dampRatio = InterpUtil::DampRatio(0.1, dt);
                 m_localL.y = s3d::Math::Lerp(m_localL.y, m_localTargetL.y, dampRatio);
@@ -79,7 +79,7 @@ namespace abyss::Actor::Enemy::CodeZero
     }
     Coro::Fiber<> WingCtrl::stateWait()
     {
-        return Coro::Loop([this] {
+        return Coro::FiberUtil::Loop([this] {
             double dt = m_pActor->deltaTime();
             if (dt <= 0) {
                 // 更新不要
@@ -120,7 +120,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         m_localTargetL = Param::Wing::InitLocalPos * Vec2{ -1, 1 };
         m_localTargetR = Param::Wing::InitLocalPos;
-        return Coro::Loop([this] {
+        return Coro::FiberUtil::Loop([this] {
             auto dt = m_pActor->deltaTime();
             auto dampRatio = InterpUtil::DampRatio(0.02, dt);
 
@@ -132,7 +132,7 @@ namespace abyss::Actor::Enemy::CodeZero
     {
         // フェード開始を待つ
         auto* bossFade = m_pActor->getModule<SpecialEffects>()->bossFade();
-        co_await Coro::WaitUntil([bossFade] {return bossFade->isActive(); });
+        co_await Coro::FiberUtil::WaitUntil([bossFade] {return bossFade->isActive(); });
 
         auto wingUpdate = [this](Vec2& wingLocalPos, double waitSec)->Coro::Fiber<>{
             Vec2 initPos = wingLocalPos;
@@ -141,17 +141,17 @@ namespace abyss::Actor::Enemy::CodeZero
             // 揺れる
             Shake::SimpleShake shake;
             shake.request(5.0, 0.4);
-            auto shakeUpdater = Coro::Loop([&] {
+            auto shakeUpdater = Coro::FiberUtil::Loop([&] {
                 shake.update(m_pActor->deltaTime());
             });
             auto mover = [&]()->Coro::Fiber<> {
                 co_await BehaviorUtil::WaitForSeconds(m_pActor, 0.65);
                 shake.request(2.0, -1);
-                co_await Coro::Loop([&] {
+                co_await Coro::FiberUtil::Loop([&] {
                     move.y += 100.0 * m_pActor->deltaTime();
                 });
             };
-            auto updater = Coro::Loop([&] {
+            auto updater = Coro::FiberUtil::Loop([&] {
                 wingLocalPos = initPos + move + shake.getShakeOffset();
             });
             co_await (std::move(shakeUpdater) | mover() | std::move(updater));
