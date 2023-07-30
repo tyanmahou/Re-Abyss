@@ -19,7 +19,7 @@ namespace abyss::UI::Home::Top
             m_view->setLock(mode, m_modeLocked[mode]);
         });
 
-        m_fiber.reset(std::bind(& Main::onUpdateAysnc, this));
+        m_fiber.reset(std::bind(& Main::onUpdateAsync, this));
     }
     Main::~Main()
     {
@@ -35,7 +35,7 @@ namespace abyss::UI::Home::Top
             m_time += m_pUi->deltaTime();
         }
     }
-    Coro::Fiber<> Main::onUpdateAysnc()
+    Coro::Fiber<> Main::onUpdateAsync()
     {
         // Inアニメ再生
         while (!m_inAnime.isEnd())

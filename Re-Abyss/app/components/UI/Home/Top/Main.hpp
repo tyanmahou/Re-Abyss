@@ -27,7 +27,7 @@ namespace abyss::UI::Home::Top
         void onUpdate() override;
         void onDraw() const override;
     private:
-        Coro::Fiber<> onUpdateAysnc();
+        Coro::Fiber<> onUpdateAsync();
 
         Coro::Fiber<> onSeek();
         Coro::Fiber<> onGuild();

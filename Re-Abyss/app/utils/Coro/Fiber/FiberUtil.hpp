@@ -50,7 +50,7 @@ namespace abyss::Coro
         /// 別スレッドで処理し完了するまで待機
         /// </summary>
         template<class Fty, class... Args>
-        [[nodiscard]] static auto Aysnc(Fty func, Args&&... args) -> Fiber<decltype(func(std::forward<Args>(args)...))>
+        [[nodiscard]] static auto Async(Fty func, Args&&... args) -> Fiber<decltype(func(std::forward<Args>(args)...))>
         {
             auto f = std::async(std::launch::async, std::move(func), std::forward<Args>(args)...);
             while (f.wait_for(0s) != std::future_status::ready) {

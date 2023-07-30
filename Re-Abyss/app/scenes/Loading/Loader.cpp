@@ -35,13 +35,13 @@ namespace
         Coro::Fiber<> load(std::function<void()> task)
         {
             m_progress = 0.0;
-            co_await Coro::FiberUtil::Aysnc(std::move(task));
+            co_await Coro::FiberUtil::Async(std::move(task));
             m_progress = 1.0;
         }
         Coro::Fiber<> loadAsync(Coro::Generator<double> task)
         {
             m_progress = 0.0;
-            co_await Coro::FiberUtil::Aysnc([&] {
+            co_await Coro::FiberUtil::Async([&] {
                 for (auto progress : task) {
                     m_progress = progress;
                 }
