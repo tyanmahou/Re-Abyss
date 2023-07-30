@@ -41,17 +41,14 @@ namespace abyss
     }
     bool SequenceManager::update()
     {
-        auto data = m_scene.get();
-        if (data->isRequestedSceneEnd) {
-            data->isRequestedSceneEnd = false;
-            if (!this->changeNext()) {
-                return false;
-            }
-        }
-        if (m_isExit) {
+        if (!updateScene())
+        {
             return false;
         }
-        return m_scene.update();
+
+        drawScene();
+
+        return true;
     }
     const SceneResultHolder& SequenceManager::getResult() const
     {
@@ -64,6 +61,39 @@ namespace abyss
     const SequecneData* SequenceManager::data() const
     {
         return m_scene.get().get();
+    }
+    bool SequenceManager::updateScene()
+    {
+        auto data = m_scene.get();
+        data->fader.update(s3d::Scene::DeltaTime());
+        if (data->loader.update()) {
+            // ローディング
+            return true;
+        }
+        if (data->isRequestedSceneEnd) {
+            data->isRequestedSceneEnd = false;
+            if (!this->changeNext()) {
+                return false;
+            }
+        }
+        if (m_isExit) {
+            return false;
+        }
+        return m_scene.updateScene();
+    }
+    void SequenceManager::drawScene() const
+    {
+        auto data = m_scene.get();
+        bool isLoading = data->loader.isLoading();
+        if (!isLoading) {
+            m_scene.drawScene();
+        }
+        data->fader.draw();
+
+        if (isLoading) {
+            data->loader.draw();
+            return;
+        }
     }
     bool SequenceManager::changeNext()
     {

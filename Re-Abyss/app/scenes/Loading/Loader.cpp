@@ -8,11 +8,47 @@ namespace
     using namespace abyss;
     using namespace abyss::Loading;
 
+    class LoadBlock
+    {
+    public:
+        LoadBlock(std::function<void(std::stop_token)> task):
+            _pr(),
+            _f(_pr.get_future()),
+            _thread([&, task = std::move(task)](std::stop_token token) {
+                try {
+                    task(token);
+                    _pr.set_value();
+                }
+                catch (...) {
+                    _pr.set_exception(std::current_exception());
+                }
+            })
+        {
+        }
+        Coro::Fiber<> get()
+        {
+            while (_f.wait_for(0s) != std::future_status::ready) {
+                co_yield{};
+            }
+            co_return _f.get();
+        }
+        void cancel()
+        {
+            _thread.request_stop();
+        }
+    private:
+        std::promise<void> _pr;
+        std::future<void> _f;
+        std::jthread _thread;
+    };
     class AsyncLoading
     {
     public:
         AsyncLoading(std::function<void()> task) :
-            m_task(this->load(std::move(task)))
+            m_loadBlock(std::make_shared<LoadBlock>([task = std::move(task)](std::stop_token) {
+                task();
+            })),
+            m_task(this->load())
         {}
 
         AsyncLoading(Coro::Generator<double> task):
@@ -32,6 +68,12 @@ namespace
             return m_task.isDone();
         }
     private:
+        Coro::Fiber<> load()
+        {
+            m_progress = 0.0;
+            co_await m_loadBlock->get();
+            m_progress = 1.0;
+        }
         Coro::Fiber<> load(std::function<void()> task)
         {
             m_progress = 0.0;
@@ -49,6 +91,7 @@ namespace
             m_progress = 1.0;
         }
     private:
+        std::shared_ptr<LoadBlock> m_loadBlock;
         double m_progress = 0.0;
         Coro::Fiber<void> m_task;
     };

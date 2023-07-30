@@ -64,6 +64,8 @@ namespace abyss
             }
         }
     private:
+        bool updateScene();
+        void drawScene() const;
         bool changeNext();
 
         void changeSequence(std::shared_ptr<ISequence> child);

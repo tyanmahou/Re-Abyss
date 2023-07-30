@@ -4,9 +4,7 @@ namespace abyss
 {
     void ISceneBase::update()
     {
-        fader().update(s3d::Scene::DeltaTime());
-        if (loader().update()) {
-            // ローディング
+        if (loader().isLoading()) {
             return;
         }
 #if ABYSS_DEBUG
@@ -16,15 +14,6 @@ namespace abyss
     }
     void ISceneBase::draw() const
     {
-        bool isLoading = loader().isLoading();
-        if (!isLoading) {
-            this->onSceneDraw();
-        }
-        fader().draw();
-
-        if (isLoading) {
-            loader().draw();
-            return;
-        }
+        this->onSceneDraw();
     }
 }
