@@ -27,7 +27,7 @@ namespace abyss::Loading
         /// 非同期でロード開始
         /// </summary>
         /// <param name="task"></param>
-        void startAsync(std::function<void()> task);
+        void startAsync(std::function<void(std::stop_token)> task);
         void startAsync(Coro::Generator<double> task);
 
         /// <summary>

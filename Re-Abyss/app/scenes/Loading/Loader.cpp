@@ -44,10 +44,8 @@ namespace
     class AsyncLoading
     {
     public:
-        AsyncLoading(std::function<void()> task) :
-            m_loadBlock(std::make_shared<LoadBlock>([task = std::move(task)](std::stop_token) {
-                task();
-            })),
+        AsyncLoading(std::function<void(std::stop_token)> task) :
+            m_loadBlock(std::make_shared<LoadBlock>(std::move(task))),
             m_task(this->load())
         {}
 
@@ -210,7 +208,7 @@ namespace abyss::Loading
     {
         m_pImpl->start(std::move(task));
     }
-    void Loader::startAsync(std::function<void()> task)
+    void Loader::startAsync(std::function<void(std::stop_token)> task)
     {
         m_pImpl->startAsync(
             std::make_unique<AsyncLoading>(std::move(task)),
