@@ -2,7 +2,7 @@
 #include <memory>
 #include <functional>
 #include <abyss/scenes/Loading/ILoading.hpp>
-#include <abyss/utils/Coro/Generator/Generator.hpp>
+#include <abyss/scenes/Loading/LoadingTask.hpp>
 
 namespace abyss::Loading
 {
@@ -20,15 +20,13 @@ namespace abyss::Loading
         /// ロード開始
         /// </summary>
         /// <param name="task"></param>
-        void start(std::function<void()> task);
-        void start(Coro::Generator<double> task);
+        void start(LoadingTask task);
 
         /// <summary>
         /// 非同期でロード開始
         /// </summary>
         /// <param name="task"></param>
-        void startAsync(std::function<void(std::stop_token)> task);
-        void startAsync(Coro::Generator<double> task);
+        void startAsync(LoadingTask task);
 
         /// <summary>
         /// 更新

@@ -2567,6 +2567,9 @@
     <ClCompile Include="tests\tests\utils\Coro\FiberCest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\scenes\Loading\LoadingTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6708,6 +6711,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\scenes\Loading\LoadingTask.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

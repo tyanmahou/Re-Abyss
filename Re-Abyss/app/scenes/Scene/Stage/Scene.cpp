@@ -33,6 +33,8 @@ namespace abyss::Scene::Stage
             } else {
                 m_context.stage = StageDef::Stage0();
             }
+
+            m_data->loader.startAsync(std::bind(&Impl::loading, this));
         }
         Coro::Generator<double> preloadAsset()
         {
@@ -159,7 +161,7 @@ namespace abyss::Scene::Stage
         }
         bool onMoveStage(const s3d::String& link, s3d::int32 startId) override
         {
-            m_data->loader.startAsync(loadingOnMove(link, startId));
+            m_data->loader.startAsync(std::bind(&Impl::loadingOnMove, this, link, startId));
             return true;
         }
         bool onEscape() override
@@ -198,8 +200,6 @@ namespace abyss::Scene::Stage
         ISceneBase(init),
         m_pImpl(std::make_unique<Impl>(init))
     {
-        getData().loader.startAsync(m_pImpl->loading());
-
 #if ABYSS_DEBUG
         m_reloader
             .setMessage(U"Stage")

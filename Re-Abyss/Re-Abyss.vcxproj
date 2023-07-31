@@ -834,6 +834,7 @@
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
+    <ClCompile Include="app\scenes\Loading\LoadingTask.cpp" />
     <ClCompile Include="app\scenes\Scene\Boot\Initializer.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp" />
@@ -1432,6 +1433,7 @@
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
     <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
+    <ClInclude Include="app\scenes\Loading\LoadingTask.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp" />

@@ -8,20 +8,19 @@ namespace
     using namespace abyss;
     using namespace abyss::Loading;
 
-    class LoadBlock
+    class LoadingThread
     {
     public:
-        LoadBlock(std::function<void(std::stop_token)> task):
+        LoadingThread(std::function<void(std::stop_token)> task) :
             _pr(),
             _f(_pr.get_future()),
             _thread([&, task = std::move(task)](std::stop_token token) {
-                try {
-                    task(token);
-                    _pr.set_value();
-                }
-                catch (...) {
-                    _pr.set_exception(std::current_exception());
-                }
+            try {
+                task(token);
+                _pr.set_value();
+            } catch (...) {
+                _pr.set_exception(std::current_exception());
+            }
             })
         {
         }
@@ -41,15 +40,10 @@ namespace
         std::future<void> _f;
         std::jthread _thread;
     };
-    class AsyncLoading
+    class AsyncLoader
     {
     public:
-        AsyncLoading(std::function<void(std::stop_token)> task) :
-            m_loadBlock(std::make_shared<LoadBlock>(std::move(task))),
-            m_task(this->load())
-        {}
-
-        AsyncLoading(Coro::Generator<double> task):
+        AsyncLoader(LoadingTask task) :
             m_task(this->loadAsync(std::move(task)))
         {}
 
@@ -66,42 +60,30 @@ namespace
             return m_task.isDone();
         }
     private:
-        Coro::Fiber<> load()
+        Coro::Fiber<> loadAsync(LoadingTask task)
         {
             m_progress = 0.0;
-            co_await m_loadBlock->get();
-            m_progress = 1.0;
-        }
-        Coro::Fiber<> load(std::function<void()> task)
-        {
-            m_progress = 0.0;
-            co_await Coro::FiberUtil::Async(std::move(task));
-            m_progress = 1.0;
-        }
-        Coro::Fiber<> loadAsync(Coro::Generator<double> task)
-        {
-            m_progress = 0.0;
-            co_await Coro::FiberUtil::Async([&] {
-                for (auto progress : task) {
+            LoadingThread loadingThread([&](std::stop_token token) {
+                for (auto progress : task.loadProgress(token)) {
                     m_progress = progress;
                 }
             });
+            co_await loadingThread.get();
             m_progress = 1.0;
         }
     private:
-        std::shared_ptr<LoadBlock> m_loadBlock;
         double m_progress = 0.0;
         Coro::Fiber<void> m_task;
     };
 
-    struct LoadTask
+    class AsyncLoading
     {
     public:
-        LoadTask(std::unique_ptr<AsyncLoading> task, std::unique_ptr<ILoading> loading) :
+        AsyncLoading(std::unique_ptr<AsyncLoader> task, std::unique_ptr<ILoading> loading) :
             m_task(std::move(task)),
             m_loading(std::move(loading))
         {
-            m_fiber.reset(std::bind(&LoadTask::updateAsync, this));
+            m_fiber.reset(std::bind(&AsyncLoading::updateAsync, this));
         }
         bool update()
         {
@@ -140,7 +122,7 @@ namespace
         }
     private:
         Coro::FiberHolder<void> m_fiber;
-        std::unique_ptr<AsyncLoading> m_task;
+        std::unique_ptr<AsyncLoader> m_task;
         std::unique_ptr<ILoading> m_loading;
     };
 }
@@ -153,16 +135,11 @@ namespace abyss::Loading
         {
 
         }
-        void start(std::function<void()> task)
+        void startSync(LoadingTask task)
         {
-            task();
+            task.load();
         }
-        void start(Coro::Generator<double> task)
-        {
-            for ([[maybe_unused]]auto progress : task) {
-            }
-        }
-        void startAsync(std::unique_ptr<AsyncLoading> task, std::unique_ptr<ILoading> loading)
+        void startAsync(std::unique_ptr<AsyncLoader> task, std::unique_ptr<ILoading> loading)
         {
             m_loadingTasks.emplace(std::move(task), std::move(loading));
         }
@@ -192,7 +169,7 @@ namespace abyss::Loading
             return m_loadingTasks.empty();
         }
     private:
-        std::queue<LoadTask> m_loadingTasks;
+        std::queue<AsyncLoading> m_loadingTasks;
     };
     Loader::Loader() :
         m_pImpl(std::make_unique<Impl>())
@@ -200,25 +177,14 @@ namespace abyss::Loading
     }
     Loader::~Loader()
     {}
-    void Loader::start(std::function<void()> task)
+    void Loader::start(LoadingTask task)
     {
-        m_pImpl->start(std::move(task));
+        m_pImpl->startSync(std::move(task));
     }
-    void Loader::start(Coro::Generator<double> task)
-    {
-        m_pImpl->start(std::move(task));
-    }
-    void Loader::startAsync(std::function<void(std::stop_token)> task)
+    void Loader::startAsync(LoadingTask task)
     {
         m_pImpl->startAsync(
-            std::make_unique<AsyncLoading>(std::move(task)),
-            std::make_unique<Common::Loading>()
-            );
-    }
-    void Loader::startAsync(Coro::Generator<double> task)
-    {
-        m_pImpl->startAsync(
-            std::make_unique<AsyncLoading>(std::move(task)),
+            std::make_unique<AsyncLoader>(std::move(task)),
             std::make_unique<Common::Loading>()
         );
     }
