@@ -3,9 +3,33 @@
 #include <functional>
 #include <abyss/scenes/Loading/ILoading.hpp>
 #include <abyss/scenes/Loading/LoadingTask.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Loading
 {
+    class ILoadingOperation
+    {
+    public:
+        virtual ~ILoadingOperation() = default;
+        virtual void requestCancel() = 0;
+    };
+    struct LoadingHundler
+    {
+    public:
+        LoadingHundler(std::shared_ptr<ILoadingOperation> operation):
+            m_operation(operation)
+        {}
+
+        void requestCancel()
+        {
+            if (m_operation) {
+                m_operation->requestCancel();
+            }
+        }
+    private:
+        Ref<ILoadingOperation> m_operation;
+    };
+
     /// <summary>
     /// ローダー
     /// </summary>
@@ -26,7 +50,7 @@ namespace abyss::Loading
         /// 非同期でロード開始
         /// </summary>
         /// <param name="task"></param>
-        void startAsync(LoadingTask task);
+        LoadingHundler startAsync(LoadingTask task);
 
         /// <summary>
         /// 更新

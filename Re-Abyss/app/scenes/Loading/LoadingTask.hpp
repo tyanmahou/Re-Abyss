@@ -14,6 +14,8 @@ namespace abyss::Loading
             LoadingTask(0, std::forward<T>(task))
         {}
 
+        LoadingTask(LoadingTask&& other);
+
         void load() const;
         Coro::Generator<double> loadProgress(std::stop_token token) const;
     private:

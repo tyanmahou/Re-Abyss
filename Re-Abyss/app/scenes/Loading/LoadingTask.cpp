@@ -10,6 +10,10 @@ namespace abyss::Loading
         m_task(std::move(task))
     {
     }
+    LoadingTask::LoadingTask(LoadingTask&& other):
+        m_task(std::move(other.m_task))
+    {
+    }
     void LoadingTask::load() const
     {
         if (std::holds_alternative<FuncType>(m_task)) {
