@@ -2570,6 +2570,9 @@
     <ClCompile Include="app\scenes\Loading\LoadingTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\Thread\TaskCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6714,6 +6717,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\scenes\Loading\LoadingTask.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Thread\Task.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1060,6 +1060,7 @@
     <ClCompile Include="tests\tests\utils\NameOf\NameOfCatch.cpp" />
     <ClCompile Include="tests\tests\utils\NeptScript\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\NeptScript\ParserCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\Thread\TaskCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp" />
@@ -1443,6 +1444,7 @@
     <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp" />
     <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\utils\Math\DualComplex.hpp" />
+    <ClInclude Include="app\utils\Thread\Task.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
     <ClInclude Include="app\modules\User\RuntimeData.hpp" />
