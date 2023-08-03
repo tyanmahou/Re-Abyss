@@ -1,6 +1,7 @@
 #if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
 #include <abyss/utils/Thread/Task.hpp>
+#include <abyss/utils/Coro/Fiber/Fiber.hpp>
 
 namespace abyss::tests
 {
@@ -23,6 +24,11 @@ namespace abyss::tests
             {
                 std::this_thread::sleep_for(3ms);
             }
+        }
+        Coro::Fiber<int> Coroutine(std::launch policy)
+        {
+            int result = co_await Thread::Task(policy, [] {return 3; });
+            co_return result;
         }
     }
     TEST_CASE("utils::Thread::Task. Test")
@@ -66,7 +72,7 @@ namespace abyss::tests
         SECTION("test deferred")
         {
             Thread::Task task(std::launch::deferred, Test);
-            REQUIRE(task.isBusy());
+            REQUIRE(!task.isBusy());
 
             int result = task.get();
             REQUIRE(result == 1);
@@ -78,6 +84,24 @@ namespace abyss::tests
             Thread::Task task(Test2);
             REQUIRE(task.isBusy());
             REQUIRE(task.isTimeout(1ms));
+        }
+        SECTION("test coroutine")
+        {
+            auto fiber = Coroutine(std::launch::async);
+            while (fiber.resume())
+            {
+                std::this_thread::sleep_for(1ms);
+            }
+            REQUIRE(fiber.get() == 3);
+        }
+        SECTION("test coroutine deferred")
+        {
+            auto fiber = Coroutine(std::launch::deferred);
+            while (fiber.resume())
+            {
+                std::this_thread::sleep_for(1ms);
+            }
+            REQUIRE(fiber.get() == 3);
         }
     }
 }

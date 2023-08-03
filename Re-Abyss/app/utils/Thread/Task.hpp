@@ -54,7 +54,7 @@ namespace abyss::Thread
             if (!isValid()) {
                 return false;
             }
-            return !isReady();
+            return isTimeout(0s);
         }
 
         bool isReady() const
