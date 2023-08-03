@@ -12,16 +12,7 @@ namespace
     {
     public:
         LoadingThread(std::function<void(std::stop_token)> task) :
-            _pr(),
-            _f(_pr.get_future()),
-            _thread([&, task = std::move(task)](std::stop_token token) {
-            try {
-                task(token);
-                _pr.set_value();
-            } catch (...) {
-                _pr.set_exception(std::current_exception());
-            }
-            })
+            _f(std::async(std::launch::async, task, _stopSource.get_token()))
         {
         }
         Coro::Fiber<> get()
@@ -33,12 +24,11 @@ namespace
         }
         void cancel()
         {
-            _thread.request_stop();
+            _stopSource.request_stop();
         }
     private:
-        std::promise<void> _pr;
+        std::stop_source _stopSource;
         std::future<void> _f;
-        std::jthread _thread;
     };
     class AsyncLoader
     {
