@@ -2,32 +2,37 @@
 #include <future>
 #include <stop_token>
 #include <Siv3D/Duration.hpp>
+#include <abyss/utils/Coro/Fiber/IAwaiter.hpp>
 
 namespace abyss::Thread
 {
-    template<class T>
+    template<class Type>
     class Task
     {
     public:
         Task() = default;
-        template<class Func, class... Args> requires std::is_invocable_r_v<T, Func, Args...>
+        Task(Task&& task):
+            m_stopSource(std::move(task.m_stopSource)),
+            m_future(std::move(task.m_future))
+        {}
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, Args...>
         Task(Func&& func, Args&&... args) :
-            _future(std::async(std::launch::async, std::forward<Func>(func), std::forward<Args>(args)...))
+            m_future(std::async(std::launch::async, std::forward<Func>(func), std::forward<Args>(args)...))
         {
         }
-        template<class Func, class... Args> requires std::is_invocable_r_v<T, Func, Args...>
-        Task(Func&& func, std::launch policy, Args&&... args) :
-            _future(std::async(policy, std::forward<Func>(func), std::forward<Args>(args)...))
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, Args...>
+        Task(std::launch policy, Func&& func, Args&&... args) :
+            m_future(std::async(policy, std::forward<Func>(func), std::forward<Args>(args)...))
         {
         }
-        template<class Func, class... Args> requires std::is_invocable_r_v<T, Func, std::stop_token, Args...>
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
         Task(Func&& func, Args&&... args):
-            _future(std::async(std::launch::async, std::forward<Func>(func), _stopSource.get_token(), std::forward<Args>(args)...))
+            m_future(std::async(std::launch::async, std::forward<Func>(func), m_stopSource.get_token(), std::forward<Args>(args)...))
         {
         }
-        template<class Func, class... Args> requires std::is_invocable_r_v<T, Func, std::stop_token, Args...>
-        Task(Func&& func, std::launch policy, Args&&... args) :
-            _future(std::async(policy, std::forward<Func>(func), _stopSource.get_token(), std::forward<Args>(args)...))
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
+        Task(std::launch policy, Func&& func, Args&&... args) :
+            m_future(std::async(policy, std::forward<Func>(func), m_stopSource.get_token(), std::forward<Args>(args)...))
         {
         }
 
@@ -37,12 +42,12 @@ namespace abyss::Thread
         }
         inline decltype(auto) get()
         {
-            return _future.get();
+            return m_future.get();
         }
 
         std::future_status wait_for(s3d::Duration duration) const
         {
-            return _future.wait_for(duration);
+            return m_future.wait_for(duration);
         }
         bool isBusy() const
         {
@@ -66,14 +71,73 @@ namespace abyss::Thread
         }
         inline bool requestStop() noexcept
         {
-            return _stopSource.request_stop();
+            return m_stopSource.request_stop();
         }
         inline bool isValid() const noexcept
         {
-            return _future.valid();
+            return m_future.valid();
         }
     private:
-        std::stop_source _stopSource;
-        std::future<T> _future;
+        std::stop_source m_stopSource;
+        std::future<Type> m_future;
     };
+
+    namespace detail
+    {
+        template<class T, class... Args>
+        struct TaskResult
+        {
+        };
+        template<class Func, class... Args> requires std::is_invocable_v<Func, Args...>
+        struct TaskResult<Func, Args...>
+        {
+            using Type = std::invoke_result_t<Func, Args...>;
+        };
+        template<class Func, class... Args> requires std::is_invocable_v<Func, std::stop_token, Args...>
+        struct TaskResult<Func, Args...>
+        {
+            using Type = std::invoke_result_t<Func, std::stop_token, Args...>;
+        };
+        template<class Func, class... Args>
+        using TaskResult_t = typename TaskResult<Func, Args...>::Type;
+    }
+    template<class Func, class... Args>
+    Task(Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
+
+    template<class Func, class... Args>
+    Task(std::launch, Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
+
+    template<class T>
+    struct TaskAwaiter : Coro::IAwaiter
+    {
+        TaskAwaiter(Task<T>&& _task) :
+            task(std::move(_task))
+        {}
+        bool await_ready() noexcept
+        {
+            return resume();
+        }
+
+        template<Coro::AwaitableHandler Handle>
+        void await_suspend(Handle handle)
+        {
+            handle.promise().pAwaiter = this;
+        }
+        decltype(auto) await_resume()
+        {
+            return task.get();
+        }
+
+        bool resume() override
+        {
+            return task.isBusy();
+        }
+        Task<T> task;
+    };
+
+    template<class T>
+    inline auto operator co_await(Task<T> task)
+    {
+        return TaskAwaiter{ std::move(task) };
+    }
 }

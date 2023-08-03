@@ -2,34 +2,13 @@
 #include <abyss/scenes/Loading/Common/Loading.hpp>
 #include <abyss/utils/Coro/Fiber/FiberUtil.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/utils/Thread/Task.hpp>
 
 namespace
 {
     using namespace abyss;
     using namespace abyss::Loading;
 
-    class LoadingThread
-    {
-    public:
-        LoadingThread(std::function<void(std::stop_token)> task) :
-            _f(std::async(std::launch::async, task, _stopSource.get_token()))
-        {
-        }
-        Coro::Fiber<> get()
-        {
-            while (_f.wait_for(0s) != std::future_status::ready) {
-                co_yield{};
-            }
-            co_return _f.get();
-        }
-        void cancel()
-        {
-            _stopSource.request_stop();
-        }
-    private:
-        std::stop_source _stopSource;
-        std::future<void> _f;
-    };
     class AsyncLoader
     {
     public:
@@ -65,14 +44,13 @@ namespace
     private:
         Coro::Fiber<> loadAsync(LoadingTask task)
         {
-            LoadingThread loadingThread([&](std::stop_token token) {
+            co_await Thread::Task([&](std::stop_token token) {
                 m_progress = 0.0;
                 for (auto progress : task.loadProgress(token)) {
                     m_progress = progress;
                 }
                 m_progress = 1.0;
             });
-            co_await loadingThread.get();
         }
     private:
         double m_progress = 0.0;

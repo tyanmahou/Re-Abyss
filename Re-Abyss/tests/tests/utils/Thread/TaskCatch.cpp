@@ -34,7 +34,7 @@ namespace abyss::tests
         }
         SECTION("test normal")
         {
-            Thread::Task<int> task(Test);
+            Thread::Task task(Test);
             REQUIRE(task.isValid());
 
             int result = task.get();
@@ -45,7 +45,7 @@ namespace abyss::tests
         }
         SECTION("test stop")
         {
-            Thread::Task<int> task(Test2);
+            Thread::Task task(Test2);
             REQUIRE(task.isBusy());
 
             task.requestStop();
@@ -56,7 +56,7 @@ namespace abyss::tests
         }
         SECTION("test stop2")
         {
-            Thread::Task<void> task(Test3);
+            Thread::Task task(Test3);
             REQUIRE(task.isBusy());
 
             task.requestStop();
@@ -65,7 +65,7 @@ namespace abyss::tests
         }
         SECTION("test deferred")
         {
-            Thread::Task<int> task(Test, std::launch::deferred);
+            Thread::Task task(std::launch::deferred, Test);
             REQUIRE(task.isBusy());
 
             int result = task.get();
@@ -75,7 +75,7 @@ namespace abyss::tests
         }
         SECTION("test timeout")
         {
-            Thread::Task<int> task(Test2);
+            Thread::Task task(Test2);
             REQUIRE(task.isBusy());
             REQUIRE(task.isTimeout(1ms));
         }
