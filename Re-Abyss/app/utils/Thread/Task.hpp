@@ -17,7 +17,7 @@ namespace abyss::Thread
         {}
         template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, Args...>
         Task(Func&& func, Args&&... args) :
-            m_future(std::async(std::launch::async, std::forward<Func>(func), std::forward<Args>(args)...))
+            Task(std::launch::async, std::forward<Func>(func), std::forward<Args>(args)...)
         {
         }
         template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, Args...>
@@ -26,13 +26,24 @@ namespace abyss::Thread
         {
         }
         template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
-        Task(Func&& func, Args&&... args):
-            m_future(std::async(std::launch::async, std::forward<Func>(func), m_stopSource.get_token(), std::forward<Args>(args)...))
+        Task(Func&& func, Args&&... args) :
+            Task(std::launch::async, std::forward<Func>(func), std::forward<Args>(args)...)
         {
         }
         template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
         Task(std::launch policy, Func&& func, Args&&... args) :
             m_future(std::async(policy, std::forward<Func>(func), m_stopSource.get_token(), std::forward<Args>(args)...))
+        {
+        }
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
+        Task(const std::stop_source& stopSource, Func&& func, Args&&... args) :
+            Task(std::launch::async, stopSource, std::forward<Func>(func), std::forward<Args>(args)...)
+        {
+        }
+        template<class Func, class... Args> requires std::is_invocable_r_v<Type, Func, std::stop_token, Args...>
+        Task(std::launch policy, const std::stop_source& stopSource, Func&& func, Args&&... args) :
+            m_stopSource(stopSource),
+            m_future(std::async(policy, std::forward<Func>(func), stopSource.get_token(), std::forward<Args>(args)...))
         {
         }
 
@@ -111,9 +122,12 @@ namespace abyss::Thread
     }
     template<class Func, class... Args>
     Task(Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
-
     template<class Func, class... Args>
     Task(std::launch, Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
+    template<class Func, class... Args>
+    Task(const std::stop_source&, Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
+    template<class Func, class... Args>
+    Task(std::launch, const std::stop_source&, Func, Args...) -> Task<detail::TaskResult_t<Func, Args...>>;
 
     template<class T>
     struct TaskAwaiter : Coro::IAwaiter

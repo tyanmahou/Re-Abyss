@@ -60,12 +60,22 @@ namespace abyss::tests
 
             REQUIRE(!task.isBusy());
         }
-        SECTION("test stop2")
+        SECTION("test stop")
         {
             Thread::Task task(Test3);
             REQUIRE(task.isBusy());
 
             task.request_stop();
+            task.get();
+            REQUIRE(!task.isBusy());
+        }
+        SECTION("test stop 2")
+        {
+            std::stop_source source;
+            Thread::Task task(source, Test3);
+            REQUIRE(task.isBusy());
+
+            source.request_stop();
             task.get();
             REQUIRE(!task.isBusy());
         }
