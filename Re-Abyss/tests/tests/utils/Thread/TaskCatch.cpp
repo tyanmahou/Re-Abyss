@@ -54,7 +54,7 @@ namespace abyss::tests
             Thread::Task task(Test2);
             REQUIRE(task.isBusy());
 
-            task.requestStop();
+            task.request_stop();
             int result = task.get();
             REQUIRE(result == 2);
 
@@ -65,7 +65,7 @@ namespace abyss::tests
             Thread::Task task(Test3);
             REQUIRE(task.isBusy());
 
-            task.requestStop();
+            task.request_stop();
             task.get();
             REQUIRE(!task.isBusy());
         }

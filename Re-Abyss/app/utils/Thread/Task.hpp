@@ -38,7 +38,7 @@ namespace abyss::Thread
 
         ~Task()
         {
-            this->requestStop();
+            this->request_stop();
         }
         inline decltype(auto) get()
         {
@@ -69,13 +69,21 @@ namespace abyss::Thread
         {
             return wait_for(duration) == std::future_status::timeout;
         }
-        inline bool requestStop() noexcept
+        inline bool request_stop() noexcept
         {
             return m_stopSource.request_stop();
         }
         inline bool isValid() const noexcept
         {
             return m_future.valid();
+        }
+        inline bool valid() const noexcept
+        {
+            return m_future.valid();
+        }
+        explicit operator bool() const noexcept
+        {
+            return valid();
         }
     private:
         std::stop_source m_stopSource;
