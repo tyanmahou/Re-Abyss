@@ -44,13 +44,7 @@ namespace
     private:
         Coro::Fiber<> loadAsync(LoadProcessor task)
         {
-            co_await Thread::Task([&](std::stop_token token) {
-                m_progress = 0.0;
-                for (auto progress : task.loadProgress(token)) {
-                    m_progress = progress;
-                }
-                m_progress = 1.0;
-            });
+            co_await task.loadAsync(m_progress);
         }
     private:
         double m_progress = 0.0;

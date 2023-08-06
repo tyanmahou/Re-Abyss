@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include <abyss/utils/Coro/Generator/Generator.hpp>
+#include <abyss/utils/Thread/Task.hpp>
 
 namespace abyss::Loading
 {
@@ -18,6 +19,9 @@ namespace abyss::Loading
 
         void load() const;
         Coro::Generator<double> loadProgress(std::stop_token token) const;
+
+        Thread::Task<void> loadAsync() const;
+        Thread::Task<void> loadAsync(double& progress) const;
     private:
         LoadProcessor(char, FuncType task);
         LoadProcessor(int, ProgressFuncType task);

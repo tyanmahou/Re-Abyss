@@ -1,5 +1,4 @@
 #include <abyss/scenes/Loading/LoadProcessor.hpp>
-#include "LoadProcessor.hpp"
 
 namespace abyss::Loading
 {
@@ -51,5 +50,23 @@ namespace abyss::Loading
             }
         }
         co_yield 1;
+    }
+    Thread::Task<void> abyss::Loading::LoadProcessor::loadAsync() const
+    {
+        return Thread::Task{
+            [this]() {this->load(); }
+        };
+    }
+    Thread::Task<void> LoadProcessor::loadAsync(double& progress) const
+    {
+        return Thread::Task{
+            [&](std::stop_token token) {
+                progress = 0.0;
+                for (auto p : this->loadProgress(token)) {
+                    progress = p;
+                }
+                progress = 1.0;
+            }
+        };
     }
 }
