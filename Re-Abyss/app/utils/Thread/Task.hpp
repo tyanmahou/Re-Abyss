@@ -137,7 +137,7 @@ namespace abyss::Thread
         {}
         bool await_ready() noexcept
         {
-            return resume();
+            return !resume();
         }
 
         template<Coro::AwaitableHandler Handle>
