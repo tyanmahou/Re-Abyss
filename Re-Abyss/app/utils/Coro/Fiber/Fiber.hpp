@@ -1,6 +1,5 @@
 #pragma once
 #include <coroutine>
-#include <memory>
 #include <abyss/utils/Coro/Fiber/Yield.hpp>
 
 namespace abyss::Coro
