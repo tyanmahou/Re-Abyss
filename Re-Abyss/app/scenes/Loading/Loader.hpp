@@ -2,7 +2,7 @@
 #include <memory>
 #include <functional>
 #include <abyss/scenes/Loading/ILoading.hpp>
-#include <abyss/scenes/Loading/LoadingTask.hpp>
+#include <abyss/scenes/Loading/LoadProcessor.hpp>
 #include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::Loading
@@ -44,13 +44,13 @@ namespace abyss::Loading
         /// ロード開始
         /// </summary>
         /// <param name="task"></param>
-        void start(LoadingTask task);
+        void start(LoadProcessor&& task);
 
         /// <summary>
         /// 非同期でロード開始
         /// </summary>
         /// <param name="task"></param>
-        LoadingHundler startAsync(LoadingTask task);
+        LoadingHundler startAsync(LoadProcessor&& task);
 
         /// <summary>
         /// 更新

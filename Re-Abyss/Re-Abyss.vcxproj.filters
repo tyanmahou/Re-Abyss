@@ -2567,7 +2567,7 @@
     <ClCompile Include="tests\tests\utils\Coro\FiberCest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\scenes\Loading\LoadingTask.cpp">
+    <ClCompile Include="app\scenes\Loading\LoadProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\tests\utils\Thread\TaskCatch.cpp">
@@ -6716,7 +6716,7 @@
     <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\scenes\Loading\LoadingTask.hpp">
+    <ClInclude Include="app\scenes\Loading\LoadProcessor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Thread\Task.hpp">

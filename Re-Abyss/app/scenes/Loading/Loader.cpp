@@ -12,7 +12,7 @@ namespace
     class AsyncLoader
     {
     public:
-        AsyncLoader(LoadingTask task):
+        AsyncLoader(LoadProcessor task):
             m_task(std::make_unique<Coro::Fiber<void>>(this->loadAsync(std::move(task))))
         {
         }
@@ -42,7 +42,7 @@ namespace
             }
         }
     private:
-        Coro::Fiber<> loadAsync(LoadingTask task)
+        Coro::Fiber<> loadAsync(LoadProcessor task)
         {
             co_await Thread::Task([&](std::stop_token token) {
                 m_progress = 0.0;
@@ -120,7 +120,7 @@ namespace abyss::Loading
         {
 
         }
-        void startSync(LoadingTask task)
+        void startSync(LoadProcessor task)
         {
             task.load();
         }
@@ -164,11 +164,11 @@ namespace abyss::Loading
     }
     Loader::~Loader()
     {}
-    void Loader::start(LoadingTask task)
+    void Loader::start(LoadProcessor&& task)
     {
         m_pImpl->startSync(std::move(task));
     }
-    LoadingHundler Loader::startAsync(LoadingTask task)
+    LoadingHundler Loader::startAsync(LoadProcessor&& task)
     {
         return m_pImpl->startAsync(
             std::make_unique<AsyncLoader>(std::move(task)),
