@@ -6722,6 +6722,9 @@
     <ClInclude Include="app\utils\Thread\Task.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\views\UI\BossArrival\BossArrivalVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

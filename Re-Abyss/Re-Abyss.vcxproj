@@ -2399,6 +2399,7 @@
     <ClInclude Include="app\views\Shader\Sky\SkyShader.hpp" />
     <ClInclude Include="app\views\Shader\TileMap\TileMapShader.hpp" />
     <ClInclude Include="app\views\Shader\util\BayerMatrix.hpp" />
+    <ClInclude Include="app\views\UI\BossArrival\BossArrivalVM.hpp" />
     <ClInclude Include="app\views\UI\BossHPBar\BossHPBarVM.hpp" />
     <ClInclude Include="app\views\UI\Common\Tips\TipsView.hpp" />
     <ClInclude Include="app\views\UI\DyingEffect\DyingEffectVM.hpp" />
