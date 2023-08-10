@@ -2,6 +2,9 @@
 
 namespace abyss::UI::BossArrival
 {
+    BossArrivalVM::BossArrivalVM()
+    {
+    }
     void BossArrivalVM::draw() const
     {
     }
