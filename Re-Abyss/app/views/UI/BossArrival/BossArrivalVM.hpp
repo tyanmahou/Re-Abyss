@@ -8,5 +8,7 @@ namespace abyss::UI::BossArrival
         BossArrivalVM();
 
         void draw() const;
+    private:
+        s3d::Vec2 m_pos;
     };
 }
