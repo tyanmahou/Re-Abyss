@@ -1010,6 +1010,7 @@
     <ClCompile Include="app\views\Shader\Sky\SkyShader.cpp" />
     <ClCompile Include="app\views\Shader\TileMap\TileMapShader.cpp" />
     <ClCompile Include="app\views\Shader\util\BayerMatrix.cpp" />
+    <ClCompile Include="app\views\UI\BossArrival\BossArrivalVM.cpp" />
     <ClCompile Include="app\views\UI\BossHPBar\BossHPBarVM.cpp" />
     <ClCompile Include="app\views\UI\Common\Tips\TipsView.cpp" />
     <ClCompile Include="app\views\UI\DyingEffect\DyingEffectVM.cpp" />
