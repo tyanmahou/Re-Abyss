@@ -35,4 +35,8 @@ namespace abyss::UI::BossArrival
         m_pUi->destroy();
         co_return;
     }
+    void Main::onDraw() const
+    {
+
+    }
 }

@@ -2,12 +2,14 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/UI/base/IUpdate.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/modules/UI/base/IDraw.hpp>
 
 namespace abyss::UI::BossArrival
 {
     class Main :
         public IComponent,
-        public IUpdate
+        public IUpdate,
+        public IDraw
     {
     public:
         Main(UIObj* pUi);
@@ -19,6 +21,8 @@ namespace abyss::UI::BossArrival
         void onUpdate() override;
 
         Coro::Fiber<void> updateAsync();
+
+        void onDraw()const override;
     private:
         UIObj* m_pUi;
         Coro::FiberHolder<> m_fiber;
@@ -29,6 +33,9 @@ namespace abyss
     template<>
     struct ComponentTree<UI::BossArrival::Main>
     {
-        using Base = MultiComponents<UI::IUpdate>;
+        using Base = MultiComponents<
+            UI::IUpdate,
+            UI::IDraw
+        >;
     };
 }
