@@ -6,6 +6,8 @@
 
 namespace abyss::UI::BossArrival
 {
+    class BossArrivalVM;
+
     class Main :
         public IComponent,
         public IUpdate,
@@ -26,6 +28,8 @@ namespace abyss::UI::BossArrival
     private:
         UIObj* m_pUi;
         Coro::FiberHolder<> m_fiber;
+
+        std::unique_ptr<BossArrivalVM> m_view;
     };
 }
 namespace abyss
