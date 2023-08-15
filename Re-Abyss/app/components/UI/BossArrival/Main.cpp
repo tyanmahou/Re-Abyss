@@ -4,10 +4,13 @@
 #include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/utils/Coro/Fiber/Tween.hpp>
 
+#include <abyss/views/UI/BossArrival/BossArrivalVM.hpp>
+
 namespace abyss::UI::BossArrival
 {
     Main::Main(UIObj* pUi) :
-        m_pUi(pUi)
+        m_pUi(pUi),
+        m_view(std::make_unique<BossArrivalVM>())
     {}
 
     void Main::setup(Executer executer)
