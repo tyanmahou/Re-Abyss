@@ -40,6 +40,6 @@ namespace abyss::UI::BossArrival
     }
     void Main::onDraw() const
     {
-
+        m_view->draw();
     }
 }
