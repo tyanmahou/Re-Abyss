@@ -15,6 +15,7 @@ namespace abyss::UI::BossArrival
     {
     public:
         Main(UIObj* pUi);
+        ~Main();
 
         void setup(Executer executer) override;
 

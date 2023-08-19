@@ -12,7 +12,8 @@ namespace abyss::UI::BossArrival
         m_pUi(pUi),
         m_view(std::make_unique<BossArrivalVM>())
     {}
-
+    Main::~Main()
+    {}
     void Main::setup(Executer executer)
     {
     }
