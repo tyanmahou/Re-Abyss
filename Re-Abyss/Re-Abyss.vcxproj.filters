@@ -2573,6 +2573,9 @@
     <ClCompile Include="tests\tests\utils\Thread\TaskCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\UI\BossArrival\BossArrivalVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
