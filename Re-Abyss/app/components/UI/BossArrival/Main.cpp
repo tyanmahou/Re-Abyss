@@ -14,7 +14,7 @@ namespace abyss::UI::BossArrival
     {}
     Main::~Main()
     {}
-    void Main::setup(Executer executer)
+    void Main::setup([[maybe_unused]]Executer executer)
     {
     }
     void Main::onStart()
