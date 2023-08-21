@@ -28,3 +28,6 @@
 
 *ASMリストの場所* *オブジェクト ファイル名*を`$(IntDir)%(RelativeDir)`に変更
 https://altebute.hatenablog.com/entry/2015/01/01/235301
+
+上記の影響でモジュールがビルドできなくなるので以下の対応が必要  
+https://mahou-ptr.hatenablog.com/entry/2023/08/19/235006
