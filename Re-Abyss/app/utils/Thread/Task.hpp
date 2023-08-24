@@ -56,7 +56,7 @@ namespace abyss::Thread
             return m_future.get();
         }
 
-        std::future_status wait_for(s3d::Duration duration) const
+        std::future_status wait_for(const s3d::Duration& duration) const
         {
             return m_future.wait_for(duration);
         }
