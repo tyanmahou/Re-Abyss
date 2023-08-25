@@ -56,10 +56,22 @@ namespace abyss::Thread
             return m_future.get();
         }
 
-        std::future_status wait_for(const s3d::Duration& duration) const
+        inline void wait() const
         {
-            return m_future.wait_for(duration);
+            return m_future.wait();
         }
+        template <class Rep, class Period>
+        std::future_status wait_for(const std::chrono::duration<Rep, Period>& relTime) const
+        {
+            return m_future.wait_for(relTime);
+        }
+
+        template <class Clock, class Duration>
+        std::future_status wait_until(const std::chrono::time_point<Clock, Duration>& absTime) const
+        {
+            return m_future.wait_until(absTime);
+        }
+
         bool isBusy() const
         {
             if (!isValid()) {
@@ -83,6 +95,10 @@ namespace abyss::Thread
         inline bool request_stop() noexcept
         {
             return m_stopSource.request_stop();
+        }
+        inline std::stop_token get_token() const noexcept
+        {
+            return m_stopSource.get_token();
         }
         inline bool isValid() const noexcept
         {
