@@ -79,6 +79,16 @@ namespace abyss::tests
             task.get();
             REQUIRE(!task.isBusy());
         }
+        SECTION("test stop token")
+        {
+            Thread::Task task(Test3);
+            REQUIRE(task.isBusy());
+
+            auto token = task.get_token();
+            REQUIRE(!token.stop_requested());
+            task.request_stop();
+            REQUIRE(token.stop_requested());
+        }
         SECTION("test deferred")
         {
             Thread::Task task(std::launch::deferred, Test);
