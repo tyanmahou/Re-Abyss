@@ -10,15 +10,15 @@ namespace abyss::UI::BossArrival
 
         BossArrivalVM& setPos(const s3d::Vec2& pos);
 
-        BossArrivalVM& setTime(double time)
+        BossArrivalVM& setTimeRate(double timeRate)
         {
-            m_time = time;
+            m_timeRate = timeRate;
             return *this;
         }
         void draw() const;
     private:
         TexturePacker m_texture;
         s3d::Vec2 m_pos;
-        double m_time = 0;
+        double m_timeRate = 0;
     };
 }

@@ -10,6 +10,7 @@ namespace abyss::UI::BossArrival
 {
     Main::Main(UIObj* pUi) :
         m_pUi(pUi),
+        m_timer(3.0),
         m_view(std::make_unique<BossArrivalVM>())
     {}
     Main::~Main()
@@ -25,6 +26,7 @@ namespace abyss::UI::BossArrival
     void Main::onUpdate()
     {
         m_fiber.resume();
+        m_timer.update(m_pUi->deltaTime());
     }
     Coro::Fiber<void> Main::updateAsync()
     {
@@ -41,6 +43,8 @@ namespace abyss::UI::BossArrival
     }
     void Main::onDraw() const
     {
-        m_view->draw();
+        m_view
+            ->setTimeRate(m_timer.rate())
+            .draw();
     }
 }

@@ -2,6 +2,7 @@
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/UI/base/IUpdate.hpp>
 #include <abyss/utils/Coro/Fiber/FiberHolder.hpp>
+#include <abyss/utils/TimeLite/Timer.hpp>
 #include <abyss/modules/UI/base/IDraw.hpp>
 
 namespace abyss::UI::BossArrival
@@ -30,6 +31,7 @@ namespace abyss::UI::BossArrival
         UIObj* m_pUi;
         Coro::FiberHolder<> m_fiber;
 
+        TimeLite::Timer m_timer;
         std::unique_ptr<BossArrivalVM> m_view;
     };
 }
