@@ -9,30 +9,18 @@
 
 namespace abyss::Scene::Experiment
 {
-    class Scene::Impl
+    class ComplexTest
     {
     public:
-        Impl(const InitData& init) :
-            m_data(init._s)
-        {
-            m_data->fader.fadeIn();
-        }
-
-        void update()
-        {
-            if (KeyEnter.down()) {
-                m_data->isRequestedSceneEnd = true;
-            }
-        }
-        void draw()
+        void draw() const
         {
             Vec2 p0 = { 50, -200 };
             Vec2 p1 = { 200, -50 };
             auto t = s3d::Periodic::Triangle0_1(8s);
             {
-                Vec2 center = { 750-200, 300 };
+                Vec2 center = { 750 - 200, 300 };
                 auto transformer = Complex::RotateDeg(0).slerp(Complex::RotateDeg(180), t);
-                Vec2 cx = transformer.transform({0, 0});
+                Vec2 cx = transformer.transform({ 0, 0 });
                 Vec2 p0x = transformer.transform(p0);
                 Vec2 p1x = transformer.transform(p1);
                 Triangle(center + cx, center + p0x, center + p1x).draw(ColorF(1, 1));
@@ -55,28 +43,26 @@ namespace abyss::Scene::Experiment
                 Vec2 p1x = transformer.transformPoint(p1);
                 Triangle(center, center + p0x, center + p1x).draw();
             }
-            //m_font(U"[Experiment] Push Enter Start").draw();
-            //Vec2 s = s3d::Circular0(100, s3d::ToRadians(0));
-            //Vec2 e = s3d::Circular0(100, s3d::ToRadians(170));
-            //auto t = s3d::Periodic::Triangle0_1(8s);
-            //{
-            //    Vec2 center = { 750, 300 };
-            //    auto color = Palette::White;
-            //    auto cp = Complex::RotateDeg(0).lerp(Complex::RotateDeg(190), t);
-            //    auto pos = center + s * cp;
-            //    s3d::Circle(pos, 10).draw(color);
+        }
+    };
+    class Scene::Impl
+    {
+    public:
+        Impl(const InitData& init) :
+            m_data(init._s)
+        {
+            m_data->fader.fadeIn();
+        }
 
-            //    s3d::Circle(center, 100).drawFrame();
-            //}
-            //{
-            //    Vec2 center = { 750, 300 };
-            //    auto color = Palette::White;
-            //    auto cp = Complex::RotateDeg(0).slerp(Complex::RotateDeg(190), t);
-            //    auto pos = center + s * cp;
-            //    s3d::Circle(pos, 10).draw(color);
+        void update()
+        {
+            if (KeyEnter.down()) {
+                m_data->isRequestedSceneEnd = true;
+            }
+        }
+        void draw()
+        {
 
-            //    s3d::Circle(center, 100).drawFrame();
-            //}
         }
     private:
         std::shared_ptr<Data_t> m_data;
