@@ -15,7 +15,7 @@ namespace abyss::UI::DevPortal
 
         // タスクボード
         {
-            pUi->attach<TaskBoard>(pUi);
+            pUi->attach<TaskBoard::TaskBoard>(pUi);
         }
     };
 }

@@ -2192,9 +2192,6 @@
     <ClCompile Include="app\modules\Devs\Project\Project.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\modules\Devs\Project\TaskBoard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\datastores\Devs\Project\GitHubDataStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2574,6 +2571,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="app\views\UI\BossArrival\BossArrivalVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\views\UI\DevPortal\TaskBoard\TaskBoardView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6179,9 +6179,6 @@
     <ClInclude Include="app\services\Devs\Project\ProjectService.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\modules\Devs\Project\TaskBoard.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="app\datastores\Devs\Project\GitHubDataStore.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -6726,6 +6723,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\UI\BossArrival\BossArrivalVM.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\UI\DevPortal\TaskBoard\TaskBoardView.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,6 @@
 #include <abyss/views/UI/DevPortal/TaskBoard/TaskBoardView.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/modules/Devs/Project/Project.hpp>
-#include <abyss/commons/Constants.hpp>
 #include <abyss/commons/FontName.hpp>
 
 namespace abyss::UI::DevPortal::TaskBoard
