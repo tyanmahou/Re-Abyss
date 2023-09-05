@@ -325,9 +325,12 @@
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
     <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\Cycle\Experiment\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Experiment\Master.cpp" />
     <ClCompile Include="app\components\Fade\FadeUtil.cpp" />
     <ClCompile Include="app\components\UI\BossArrival\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossArrival\Main.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
@@ -840,6 +843,7 @@
     <ClCompile Include="app\scenes\Scene\Boot\Initializer.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Experiment\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Scene.cpp" />
@@ -1362,11 +1366,14 @@
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
     <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Cycle\Experiment\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Experiment\Master.hpp" />
     <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
     <ClInclude Include="app\components\Sound\BgmDef.hpp" />
     <ClInclude Include="app\components\Sound\SeDef.hpp" />
     <ClInclude Include="app\components\UI\BossArrival\Builder.hpp" />
     <ClInclude Include="app\components\UI\BossArrival\Main.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
@@ -1439,6 +1446,7 @@
     <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
     <ClInclude Include="app\scenes\Loading\LoadProcessor.hpp" />
+    <ClInclude Include="app\scenes\Scene\Experiment\Booter.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp" />
     <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp" />
     <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp" />

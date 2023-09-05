@@ -1,5 +1,8 @@
 #include <abyss/scenes/Scene/Experiment/Scene.hpp>
 #if ABYSS_DEVELOP
+#include <abyss/scenes/Scene/Experiment/Booter.hpp>
+#include <abyss/scenes/Sys/System.hpp>
+#include <abyss/commons/Factory/System/Injector.hpp>
 #include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
@@ -45,15 +48,21 @@ namespace abyss::Scene::Experiment
             }
         }
     };
-    class Scene::Impl
+    class Scene::Impl final :
+        public Cycle::Experiment::IMasterObserver
     {
     public:
         Impl(const InitData& init) :
             m_data(init._s)
         {
-            m_data->fader.fadeIn();
         }
 
+        void init()
+        {
+            m_system = Factory::System::DevPortal(m_data.get())
+                .instantiate<Sys::System>();
+            m_system->boot<Booter>(this);
+        }
         void update()
         {
             if (KeyEnter.down()) {
@@ -65,6 +74,7 @@ namespace abyss::Scene::Experiment
 
         }
     private:
+        std::shared_ptr<Sys::System> m_system;
         std::shared_ptr<Data_t> m_data;
         Font m_font{ 20 };
     };
