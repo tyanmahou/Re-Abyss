@@ -68,10 +68,11 @@ namespace abyss::Scene::Experiment
             if (KeyEnter.down()) {
                 m_data->isRequestedSceneEnd = true;
             }
+            m_system->update();
         }
         void draw()
         {
-
+            m_system->draw();
         }
     private:
         std::shared_ptr<Sys::System> m_system;
