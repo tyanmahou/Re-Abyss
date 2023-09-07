@@ -9,6 +9,7 @@ namespace abyss::Factory::System
 
 #if ABYSS_DEVELOP
     emaject::Injector DevPortal(SequecneData* pData);
+    emaject::Injector Experiment(SequecneData* pData);
 #endif
     emaject::Injector Splash(SequecneData* pData);
     emaject::Injector Title(SequecneData* pData);

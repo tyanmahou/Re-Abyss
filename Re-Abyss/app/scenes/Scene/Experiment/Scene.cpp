@@ -59,7 +59,7 @@ namespace abyss::Scene::Experiment
 
         void init()
         {
-            m_system = Factory::System::DevPortal(m_data.get())
+            m_system = Factory::System::Experiment(m_data.get())
                 .instantiate<Sys::System>();
             m_system->boot<Booter>(this);
         }

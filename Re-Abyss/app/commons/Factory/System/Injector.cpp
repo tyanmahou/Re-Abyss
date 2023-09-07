@@ -180,6 +180,15 @@ namespace abyss::Factory::System
 
         return injector;
     }
+    emaject::Injector Experiment(SequecneData* pData)
+    {
+        emaject::Injector injector;
+        injector
+            .install<CommonInstaller>(pData)
+            ;
+
+        return injector;
+    }
 #endif
 
     emaject::Injector Splash(SequecneData* pData)
