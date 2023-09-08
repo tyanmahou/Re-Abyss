@@ -65,14 +65,16 @@ namespace abyss::Scene::Experiment
         }
         void update()
         {
-            if (KeyEnter.down()) {
-                m_data->isRequestedSceneEnd = true;
-            }
             m_system->update();
         }
         void draw()
         {
             m_system->draw();
+        }
+        bool onExit() override
+        {
+            m_data->isRequestedSceneEnd = true;
+            return true;
         }
     private:
         std::shared_ptr<Sys::System> m_system;
