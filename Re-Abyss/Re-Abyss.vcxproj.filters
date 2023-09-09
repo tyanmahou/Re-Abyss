@@ -2588,6 +2588,9 @@
     <ClCompile Include="app\components\UI\Experiment\Builder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Experiment\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6750,6 +6753,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\Experiment\Builder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Experiment\Main.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

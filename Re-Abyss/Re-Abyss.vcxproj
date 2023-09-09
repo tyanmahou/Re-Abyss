@@ -331,6 +331,7 @@
     <ClCompile Include="app\components\UI\BossArrival\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossArrival\Main.cpp" />
     <ClCompile Include="app\components\UI\Experiment\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
@@ -1374,6 +1375,7 @@
     <ClInclude Include="app\components\UI\BossArrival\Builder.hpp" />
     <ClInclude Include="app\components\UI\BossArrival\Main.hpp" />
     <ClInclude Include="app\components\UI\Experiment\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
