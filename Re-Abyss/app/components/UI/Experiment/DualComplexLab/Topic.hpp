@@ -1,7 +1,7 @@
 #pragma once
 #if ABYSS_DEVELOP
 #include <abyss/components/UI/Experiment/ITopic.hpp>
-namespace abyss::UI::Experiment::DualComplex
+namespace abyss::UI::Experiment::DualComplexLab
 {
     class Topic : public ITopic
     {

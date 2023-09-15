@@ -1,10 +1,10 @@
-#include <abyss/components/UI/Experiment/DualComplex/Topic.hpp>
+#include <abyss/components/UI/Experiment/DualComplexLab/Topic.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/utils/Math/Complex.hpp>
 #include <abyss/utils/Math/DualComplex.hpp>
 #include <abyss/utils/Math/InterpUtil.hpp>
 
-namespace abyss::UI::Experiment::DualComplex
+namespace abyss::UI::Experiment::DualComplexLab
 {
     void Topic::update()
     {

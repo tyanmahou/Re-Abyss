@@ -16,9 +16,9 @@ namespace abyss::UI::Experiment
         Main(UIObj* pUi);
 
         template<class T, class... Args>
-        Main& add(Args&&... arggs)
+        Main& add(Args&&... args)
         {
-            m_topics(std::make_shared<T>(std::forward<Args>(args),,,));
+            m_topics.push_back(std::make_shared<T>(std::forward<Args>(args)...));
             return *this;
         }
     public:
