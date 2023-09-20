@@ -15,6 +15,7 @@ namespace abyss::Scene::Experiment
         Impl(const InitData& init) :
             m_data(init._s)
         {
+            this->init();
         }
 
         void init()
