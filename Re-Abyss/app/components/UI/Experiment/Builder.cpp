@@ -11,7 +11,7 @@ namespace abyss::UI::Experiment
     {
         pUi->attach<Main>(pUi);
         pUi->attach<TopicBoard>(pUi)
-            ->add<DualComplexLab::Topic>()
+            ->add<DualComplexLab::Topic>(U"二重複素数")
             ;
     }
 }

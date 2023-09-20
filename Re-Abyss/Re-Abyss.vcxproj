@@ -333,6 +333,7 @@
     <ClCompile Include="app\components\UI\Experiment\Builder.cpp" />
     <ClCompile Include="app\components\UI\Experiment\DualComplexLab\Topic.cpp" />
     <ClCompile Include="app\components\UI\Experiment\Main.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\TopicBoard.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
     <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
@@ -1379,6 +1380,7 @@
     <ClInclude Include="app\components\UI\Experiment\DualComplexLab\Topic.hpp" />
     <ClInclude Include="app\components\UI\Experiment\ITopic.hpp" />
     <ClInclude Include="app\components\UI\Experiment\Main.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\TopicBoard.hpp" />
     <ClInclude Include="app\components\UI\Home\Main.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
     <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />

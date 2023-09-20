@@ -1,7 +1,6 @@
 #include <abyss/components/UI/Experiment/TopicBoard.hpp>
 #if ABYSS_DEVELOP
 #include <abyss/commons/Constants.hpp>
-#include "TopicBoard.hpp"
 
 namespace abyss::UI::Experiment
 {
