@@ -23,6 +23,9 @@ namespace abyss::UI::Experiment
     }
     void TopicBoard::onDraw() const
     {
+        m_window->draw([](const s3d::RectF screen) {
+
+        });
     }
 }
 #endif
