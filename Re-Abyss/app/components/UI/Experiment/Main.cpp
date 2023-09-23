@@ -3,6 +3,7 @@
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/components/Cycle/Experiment/Master.hpp>
+#include <abyss/components/UI/Experiment/ITopic.hpp>
 
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/modules/Cycle/CycleMaster.hpp>
@@ -16,6 +17,9 @@ namespace abyss::UI::Experiment
 
     void Main::onUpdate()
     {
+        if (m_topic) {
+            m_topic->update();
+        }
         if (InputManager::Start.down()) {
             m_pUi->getModule<CycleMaster>()->find<Cycle::Experiment::Master>()->exit();
         }
@@ -23,6 +27,9 @@ namespace abyss::UI::Experiment
 
     void Main::onDraw() const
     {
+        if (m_topic) {
+            m_topic->draw();
+        }
     }
 }
 #endif

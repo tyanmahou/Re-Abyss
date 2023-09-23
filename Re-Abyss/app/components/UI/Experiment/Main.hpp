@@ -6,6 +6,8 @@
 
 namespace abyss::UI::Experiment
 {
+    class ITopic;
+
     class Main final :
         public IComponent,
         public IUpdate,
@@ -13,12 +15,18 @@ namespace abyss::UI::Experiment
     {
     public:
         Main(UIObj* pUi);
+
+        void setTopic(std::shared_ptr<ITopic> topic)
+        {
+            m_topic = topic;
+        }
     public:
         void onUpdate() override;
     public:
         void onDraw()const override;
     private:
         UIObj* m_pUi;
+        std::shared_ptr<ITopic> m_topic;
     };
 }
 namespace abyss
