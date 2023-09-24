@@ -12,7 +12,7 @@ namespace abyss::UI::List
         {
             s3d::String title;
             std::function<void()> onClick;
-            s3d::Color backGroundColor{ 0, 0, 0, 128 };
+            s3d::Color backGroundColor{ 0, 0, 0 };
         };
     public:
         SimpleVerticalList& setScreen(const s3d::RectF& screen)
@@ -38,7 +38,7 @@ namespace abyss::UI::List
         void draw() const;
     public:
         s3d::RectF m_screen;
-        double m_fontSize;
+        double m_fontSize = 16;
         s3d::Array<Record> m_records;
     };
 }
