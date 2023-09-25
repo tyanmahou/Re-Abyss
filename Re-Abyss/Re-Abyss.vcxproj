@@ -1052,6 +1052,7 @@
     <ClCompile Include="app\views\UI\Title\Cursor\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\UI\Title\Logo\LogoVM.cpp" />
     <ClCompile Include="app\views\util\Anim\AnimUtil.cpp" />
+    <ClCompile Include="app\views\util\List\SimpleVerticalList.cpp" />
     <ClCompile Include="app\views\util\VertexUtil\VertexUtil.cpp" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
     <ClCompile Include="tests\tests\Collision\TagCatch.cpp" />
@@ -2454,6 +2455,7 @@
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
     <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
+    <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>

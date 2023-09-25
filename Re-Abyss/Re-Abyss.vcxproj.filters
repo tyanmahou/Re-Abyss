@@ -2597,6 +2597,9 @@
     <ClCompile Include="app\components\UI\Experiment\TopicBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\util\List\SimpleVerticalList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6771,6 +6774,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\components\UI\Experiment\TopicBoard.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

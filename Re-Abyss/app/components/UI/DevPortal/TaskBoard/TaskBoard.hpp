@@ -16,6 +16,7 @@ namespace abyss::UI::DevPortal::TaskBoard
         TaskBoard(UIObj* pUi);
         ~TaskBoard();
 
+        void onStart();
     public:
         void onDraw()const override;
 

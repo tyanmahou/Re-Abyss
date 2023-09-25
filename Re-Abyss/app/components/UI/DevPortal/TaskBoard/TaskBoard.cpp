@@ -26,12 +26,16 @@ namespace abyss::UI::DevPortal::TaskBoard
     TaskBoard::~TaskBoard()
     {
     }
+    void TaskBoard::onStart()
+    {
+        m_view->setProject(m_project);
+    }
     void TaskBoard::onDraw() const
     {
         m_window->draw([&](const RectF& sceneScreen) {
             m_view
                 ->setScreen(sceneScreen)
-                .draw(m_project);
+                .draw();
         });
     }
 }
