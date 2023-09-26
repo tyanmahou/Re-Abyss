@@ -2,11 +2,15 @@
 #if ABYSS_DEVELOP
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/UI/base/IDraw.hpp>
-#include <abyss/utils/Layout/Window/Window.hpp>
 #include <abyss/components/UI/Experiment/ITopic.hpp>
+#include <abyss/views/util/List/SimpleVerticalList.hpp>
+#include <abyss/utils/Layout/Window/Window.hpp>
+#include <abyss/utils/Ref/Ref.hpp>
 
 namespace abyss::UI::Experiment
 {
+    class Main;
+
     class TopicBoard final :
         public IComponent,
         public IDraw
@@ -19,6 +23,9 @@ namespace abyss::UI::Experiment
     public:
         TopicBoard(UIObj* pUi);
         ~TopicBoard();
+
+        void setup(Executer executer) override;
+        void onStart() override;
 
         template<class T, class... Args>
         TopicBoard& add(const s3d::String& title, Args&&... args)
@@ -38,6 +45,8 @@ namespace abyss::UI::Experiment
         std::unique_ptr<Layout::Window::Window> m_window;
 
         s3d::Array<TopicEntry> m_topics;
+        std::unique_ptr<List::SimpleVerticalList> m_list;
+        Ref<Main> m_main;
     };
 }
 namespace abyss

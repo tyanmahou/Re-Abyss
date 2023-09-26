@@ -17,6 +17,10 @@ namespace abyss::Math
     {
         return IsZeroLoose(v.x) && IsZeroLoose(v.y);
     }
+    inline bool IsEqualLoose(double a, double b)
+    {
+        return IsZeroLoose(a - b);
+    }
     inline bool IsEqualLoose(const s3d::Duration& a, const s3d::Duration& b)
     {
         return IsZeroLoose(a - b);

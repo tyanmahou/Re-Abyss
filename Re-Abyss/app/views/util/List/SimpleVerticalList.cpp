@@ -1,8 +1,15 @@
 #include <abyss/views/util/List/SimpleVerticalList.hpp>
 #include <abyss/commons/FontName.hpp>
+#include <abyss/utils/Math/Math.hpp>
 
 namespace abyss::UI::List
 {
+    SimpleVerticalList::SimpleVerticalList():
+        m_screen(),
+        m_fontSize(16),
+        m_fontColor(Palette::Black)
+    {
+    }
     void SimpleVerticalList::draw() const
     {
         auto font = FontAsset(FontName::DebugLog);
@@ -19,7 +26,11 @@ namespace abyss::UI::List
                 s3d::Cursor::RequestStyle(CursorStyle::Hand);
             }
             column.draw(color.setA(0.9));
-            font(record.title).draw(m_fontSize, column, Palette::Black);
+            if (abyss::Math::IsEqualLoose(m_fontSize, static_cast<double>(font.fontSize()))) {
+                font(record.title).draw( column, m_fontColor);
+            } else {
+                font(record.title).draw(m_fontSize, column, m_fontColor);
+            }
 
             if (column.leftReleased() && record.onClick) {
                 record.onClick();
