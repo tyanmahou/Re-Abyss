@@ -15,6 +15,7 @@ namespace abyss::UI::List
             std::function<void()> onClick;
             s3d::Color backGroundColor;
         };
+        using IContents = IContentList<Record>;
     public:
         SimpleVerticalList();
 
@@ -33,22 +34,16 @@ namespace abyss::UI::List
             m_fontColor = color;
             return *this;
         }
-        SimpleVerticalList& setList(IContentList<Record>* pRecords)
+        SimpleVerticalList& setList(const IContents* pRecords)
         {
             m_pRecords = pRecords;
             return *this;
         }
         void draw() const;
-
-        SimpleVerticalList& push_back(Record&& record)
-        {
-            // TODO 削除
-            return *this;
-        }
     public:
         s3d::RectF m_screen;
         double m_fontSize ;
         s3d::Color m_fontColor;
-        IContentList<Record>* m_pRecords;
+        const IContents* m_pRecords;
     };
 }

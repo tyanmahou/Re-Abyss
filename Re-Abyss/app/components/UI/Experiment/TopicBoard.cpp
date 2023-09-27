@@ -31,23 +31,27 @@ namespace abyss::UI::Experiment
     void TopicBoard::onStart()
     {
         m_main = m_pUi->find<Main>();
-        for (auto&& topic : m_topics) {
-            m_list->push_back({
-                .title = topic.title,
-                .onClick = [this, factory = topic.factory] {
-                    m_main->setTopic(factory());
-                },
-                .backGroundColor = ColorF(0.5, 1),
-            });
-        }
     }
     void TopicBoard::onDraw() const
     {
         m_window->draw([this](const s3d::RectF screen) {
             m_list->setScreen(screen)
                 .setFontColor(s3d::Palette::White)
+                .setList(this)
                 .draw();
         });
+    }
+    Coro::Generator<List::SimpleVerticalList::Record> TopicBoard::getList() const
+    {
+        for (auto&& topic : m_topics) {
+            co_yield {
+                .title = topic.title,
+                .onClick = [this, factory = topic.factory] {
+                    m_main->setTopic(factory());
+                },
+                .backGroundColor = ColorF(0.5, 1),
+            };
+        }
     }
 }
 #endif

@@ -5,9 +5,11 @@
 
 namespace abyss::UI::DevPortal::TaskBoard
 {
-    class TaskBoardView
+    class TaskBoardView : public List::SimpleVerticalList::IContents
     {
     public:
+        TaskBoardView();
+
         TaskBoardView& setScreen(const RectF& screen)
         {
             m_list.setScreen(screen);
@@ -16,7 +18,10 @@ namespace abyss::UI::DevPortal::TaskBoard
         TaskBoardView& setProject(Devs::Project::Project* project);
 
         void draw() const;
+    public:
+        Coro::Generator<List::SimpleVerticalList::Record> getList() const override;
     private:
+        Devs::Project::Project* m_pProject;
         List::SimpleVerticalList m_list;
     };
 }

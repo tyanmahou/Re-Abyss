@@ -7,7 +7,7 @@ namespace abyss::UI::DevPortal::TaskBoard
 {
     using namespace Devs::Project;
 
-    TaskBoardView& TaskBoardView::setProject(Devs::Project::Project* project)
+    Coro::Generator<List::SimpleVerticalList::Record> TaskBoardView::getList() const
     {
         // In Progressタスク
         const std::tuple<TaskStatus, ColorF> statuInfos[] = {
@@ -15,16 +15,26 @@ namespace abyss::UI::DevPortal::TaskBoard
             {TaskStatus::Todo, Color(168, 255, 243)},
         };
         for (const auto& [statusName, statusColor] : statuInfos) {
-            for (auto&& issue : project->issues(statusName)) {
-                m_list.push_back({
+            for (auto&& issue : m_pProject->issues(statusName)) {
+                co_yield {
                     .title = issue.title,
-                    .onClick = [project, url = issue.url]() {
-                        project->open(url);
+                    .onClick = [this, url = issue.url]() {
+                        m_pProject->open(url);
                     },
                     .backGroundColor = statusColor,
-                });
+                };
             }
         }
+    }
+
+    TaskBoardView::TaskBoardView()
+    {
+        m_list.setList(this);
+    }
+
+    TaskBoardView& TaskBoardView::setProject(Devs::Project::Project* project)
+    {
+        m_pProject = project;
         return *this;
     }
 

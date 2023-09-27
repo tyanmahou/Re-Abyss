@@ -13,7 +13,8 @@ namespace abyss::UI::Experiment
 
     class TopicBoard final :
         public IComponent,
-        public IDraw
+        public IDraw,
+        public List::SimpleVerticalList::IContents
     {
         struct TopicEntry
         {
@@ -40,6 +41,8 @@ namespace abyss::UI::Experiment
         }
     public:
         void onDraw()const override;
+    public:
+        Coro::Generator<List::SimpleVerticalList::Record> getList() const override;
     private:
         UIObj* m_pUi;
         std::unique_ptr<Layout::Window::Window> m_window;
