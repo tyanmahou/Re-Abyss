@@ -2455,6 +2455,7 @@
     <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
     <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
+    <ClInclude Include="app\views\util\List\IContentList.hpp" />
     <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>

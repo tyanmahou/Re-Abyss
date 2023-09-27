@@ -6779,6 +6779,9 @@
     <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\views\util\List\IContentList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">

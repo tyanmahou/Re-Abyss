@@ -2,6 +2,7 @@
 #include <functional>
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/String.hpp>
+#include <abyss/views/util/List/IContentList.hpp>
 
 namespace abyss::UI::List
 {
@@ -32,21 +33,22 @@ namespace abyss::UI::List
             m_fontColor = color;
             return *this;
         }
-        SimpleVerticalList& push_back(Record&& record)
+        SimpleVerticalList& setList(IContentList<Record>* pRecords)
         {
-            m_records.push_back(std::move(record));
-            return *this;
-        }
-        SimpleVerticalList& clear()
-        {
-            m_records.clear();
+            m_pRecords = pRecords;
             return *this;
         }
         void draw() const;
+
+        SimpleVerticalList& push_back(Record&& record)
+        {
+            // TODO 削除
+            return *this;
+        }
     public:
         s3d::RectF m_screen;
         double m_fontSize ;
         s3d::Color m_fontColor;
-        s3d::Array<Record> m_records;
+        IContentList<Record>* m_pRecords;
     };
 }

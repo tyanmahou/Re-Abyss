@@ -12,10 +12,13 @@ namespace abyss::UI::List
     }
     void SimpleVerticalList::draw() const
     {
+        if (!m_pRecords) {
+            return;
+        }
         auto font = FontAsset(FontName::DebugLog);
         const Vec2 columnSize{ m_screen.w, font.height(m_fontSize) };
         size_t index = 0;
-        for (const auto& record: m_records) {
+        for (const auto& record: m_pRecords->getList()) {
             RectF column(0, columnSize.y * index, columnSize);
             ColorF color(record.backGroundColor);
             if (column.mouseOver()) {
