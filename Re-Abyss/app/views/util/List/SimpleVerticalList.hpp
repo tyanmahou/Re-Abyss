@@ -2,7 +2,7 @@
 #include <functional>
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/String.hpp>
-#include <abyss/views/util/List/IContentList.hpp>
+#include <abyss/views/util/List/IEnumerable.hpp>
 
 namespace abyss::UI::List
 {
@@ -15,7 +15,7 @@ namespace abyss::UI::List
             std::function<void()> onClick;
             s3d::Color backGroundColor;
         };
-        using IContents = IContentList<Record>;
+        using IEnumerable = IEnumerable<Record>;
     public:
         SimpleVerticalList();
 
@@ -34,7 +34,7 @@ namespace abyss::UI::List
             m_fontColor = color;
             return *this;
         }
-        SimpleVerticalList& setList(const IContents* pRecords)
+        SimpleVerticalList& setList(const IEnumerable* pRecords)
         {
             m_pRecords = pRecords;
             return *this;
@@ -44,6 +44,6 @@ namespace abyss::UI::List
         s3d::RectF m_screen;
         double m_fontSize ;
         s3d::Color m_fontColor;
-        const IContents* m_pRecords;
+        const IEnumerable* m_pRecords;
     };
 }

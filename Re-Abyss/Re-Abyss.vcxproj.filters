@@ -6779,7 +6779,7 @@
     <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\views\util\List\IContentList.hpp">
+    <ClInclude Include="app\views\util\List\IEnumerable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

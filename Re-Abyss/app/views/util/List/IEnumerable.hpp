@@ -5,10 +5,10 @@ namespace abyss::UI::List
 {
 
     template<class Type>
-    class IContentList
+    class IEnumerable
     {
     public:
-        virtual ~IContentList() = default;
+        virtual ~IEnumerable() = default;
         virtual Coro::Generator<Type> getList() const = 0;
     };
 }

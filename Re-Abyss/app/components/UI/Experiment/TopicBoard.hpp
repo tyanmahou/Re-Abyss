@@ -14,7 +14,7 @@ namespace abyss::UI::Experiment
     class TopicBoard final :
         public IComponent,
         public IDraw,
-        public List::SimpleVerticalList::IContents
+        public List::SimpleVerticalList::IEnumerable
     {
         struct TopicEntry
         {

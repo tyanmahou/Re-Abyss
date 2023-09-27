@@ -5,7 +5,7 @@
 
 namespace abyss::UI::DevPortal::TaskBoard
 {
-    class TaskBoardView : public List::SimpleVerticalList::IContents
+    class TaskBoardView : public List::SimpleVerticalList::IEnumerable
     {
     public:
         TaskBoardView();
