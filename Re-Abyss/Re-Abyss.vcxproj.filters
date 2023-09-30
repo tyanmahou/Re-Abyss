@@ -2600,6 +2600,9 @@
     <ClCompile Include="app\views\util\List\SimpleVerticalList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Experiment\WorkLab\Topic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6780,6 +6783,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\util\List\IEnumerable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Experiment\WorkLab\Topic.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
