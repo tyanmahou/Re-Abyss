@@ -84,6 +84,8 @@ namespace abyss::Debug
                 if (col.isRight()) {
                     RectF(region.x + region.w, region.y, -qSize.x, region.h).draw(color);
                 }
+                Line(region.tl(), region.br()).draw(2, color);
+                Line(region.tr(), region.bl()).draw(2, color);
             }
         }
     }
