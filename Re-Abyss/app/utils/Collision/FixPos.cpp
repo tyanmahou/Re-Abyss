@@ -12,10 +12,10 @@ namespace abyss
 {
     FixPos::Result FixPos::ByLatestPos(const s3d::RectF& from, const s3d::RectF& come, ColDirection col)
     {
-		bool up = (col & ColDirection::Up);
-		bool down = (col & ColDirection::Down);
-		bool left = (col & ColDirection::Left);
-		bool right = (col & ColDirection::Right);
+		bool up = static_cast<bool>(col & ColDirection::Up);
+		bool down = static_cast<bool>(col & ColDirection::Down);
+		bool left = static_cast<bool>(col & ColDirection::Left);
+		bool right = static_cast<bool>(col & ColDirection::Right);
 
 		Vec2 comePos = come.center();
 		Vec2 comeSize = come.size;
@@ -90,10 +90,10 @@ namespace abyss
 		Vec2 ret = come;
 		uint8 retCol = ColDirection::None;
 
-		bool up = (col & ColDirection::Up);
-		bool down = (col & ColDirection::Down);
-		bool left = (col & ColDirection::Left);
-		bool right = (col & ColDirection::Right);
+		bool up = static_cast<bool>(col & ColDirection::Up);
+		bool down = static_cast<bool>(col & ColDirection::Down);
+		bool left = static_cast<bool>(col & ColDirection::Left);
+		bool right = static_cast<bool>(col & ColDirection::Right);
 
 		auto borderUp = from.y;
 		auto borderDown = from.y + from.h;

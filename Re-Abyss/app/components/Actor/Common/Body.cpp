@@ -278,7 +278,7 @@ namespace abyss::Actor
     }
     ColDirection Body::fixPos(const Physics::TerrainData& terrain)
     {
-        auto c = terrain.col;
+        ColDirection c = terrain.col;
         // 速度による判定無視は、prevRegionと比較しFixPos側で行ってる
 
         auto selfRegion = this->region();
@@ -293,7 +293,7 @@ namespace abyss::Actor
     ColDirection Body::fixPos(const Room::RoomData& room, const s3d::Optional<ColDirection>& strict)
     {
         auto c = strict.value_or(room.getCol());
-        c.ignoredForVelocity(m_velocity);
+        c.ignoreForVelocity(m_velocity);
 
         s3d::Vec2 before = this->region().center();
 

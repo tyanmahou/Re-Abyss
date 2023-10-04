@@ -37,7 +37,7 @@ namespace abyss::Actor::Player
             .setMaxVelocityY(Body::DefaultMaxVelocityY);
 
         // 死んだらルーム壁にあたる
-        m_mapCol->setIsEnableRoomHit(true, ColDirection(ColDirection::All).ignored(ColDirection::Down));
+        m_mapCol->setIsEnableRoomHit(true, ColDirection(ColDirection::All).ignore(ColDirection::Down));
         if (!m_pActor->find<FallChecker>()->isFall()) {
             const Vec2& knockBackSpeed = Param::Dead::KnockBackSpeed;
 

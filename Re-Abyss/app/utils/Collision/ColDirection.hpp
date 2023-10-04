@@ -23,11 +23,11 @@ namespace abyss
             m_value(other.m_value)
         {}
 
-        explicit constexpr operator value_type() const
+        [[nodiscard]] explicit constexpr operator value_type() const
         {
             return m_value;
         }
-        explicit constexpr operator s3d::uint32() const
+        [[nodiscard]] explicit constexpr operator s3d::uint32() const
         {
             return static_cast<uint32>(m_value);
         }
@@ -43,17 +43,17 @@ namespace abyss
             return *this;
         }
 
-        constexpr ColDirection operator | (const ColDirection& other)const
+        [[nodiscard]] constexpr ColDirection operator | (const ColDirection& other)const
         {
             return { static_cast<value_type>(m_value | other.m_value)};
         }
 
-        constexpr ColDirection operator | (const value_type& value)const
+        [[nodiscard]] constexpr ColDirection operator | (const value_type& value)const
         {
             return { static_cast<value_type>(m_value | value)};
         }
 
-        friend ColDirection operator | (const value_type& left, const ColDirection& right)
+        [[nodiscard]] friend ColDirection operator | (const value_type& left, const ColDirection& right)
         {
             return { static_cast<value_type>(left | right.m_value) };
         }
@@ -69,17 +69,17 @@ namespace abyss
             return *this |= other.m_value;
         }
 
-        constexpr ColDirection operator & (const ColDirection& other)const
+        [[nodiscard]] constexpr ColDirection operator & (const ColDirection& other)const
         {
             return { static_cast<value_type>(m_value & other.m_value) };
         }
 
-        constexpr ColDirection operator & (const value_type& value)const
+        [[nodiscard]] constexpr ColDirection operator & (const value_type& value)const
         {
             return { static_cast<value_type>(m_value & value) };
         }
 
-        friend ColDirection operator & (const value_type& left, const ColDirection& right)
+        [[nodiscard]] friend ColDirection operator & (const value_type& left, const ColDirection& right)
         {
             return { static_cast<value_type>(left & right.m_value) };
         }
@@ -93,64 +93,67 @@ namespace abyss
         {
             return *this &= other.m_value;
         }
-        constexpr bool operator == (const ColDirection& other)const
+        [[nodiscard]] constexpr bool operator == (const ColDirection& other)const
         {
             return m_value == other.m_value;
         }
 
-        constexpr bool operator == (const value_type& value)const
+        [[nodiscard]] constexpr bool operator == (const value_type& value)const
         {
             return m_value == value;
         }
 
-        friend bool operator == (const value_type& left, const ColDirection& right)
+        [[nodiscard]] friend bool operator == (const value_type& left, const ColDirection& right)
         {
             return left == right.m_value;
         }
 
-        constexpr bool operator != (const ColDirection& other)const
+        [[nodiscard]] constexpr bool operator != (const ColDirection& other)const
         {
             return m_value != other.m_value;
         }
 
-        constexpr bool operator != (const value_type& value)const
+        [[nodiscard]] constexpr bool operator != (const value_type& value)const
         {
             return m_value != value;
         }
 
-        friend bool operator != (const value_type& left, const ColDirection& right)
+        [[nodiscard]] friend bool operator != (const value_type& left, const ColDirection& right)
         {
             return left != right.m_value;
         }
 
-        constexpr operator bool() const
+        [[nodiscard]] constexpr explicit operator bool() const
         {
             return m_value != 0;
         }
 
-        constexpr bool isNone() const
+        [[nodiscard]] constexpr bool isNone() const
         {
             return m_value == 0;
         }
-
-        constexpr bool isUp() const
+        [[nodiscard]] constexpr bool isAny() const
         {
-            return *this & Up;
+            return m_value != 0;
+        }
+        [[nodiscard]] constexpr bool isUp() const
+        {
+            return static_cast<bool>(*this & Up);
         }
 
-        constexpr bool isDown() const
+        [[nodiscard]] constexpr bool isDown() const
         {
-            return *this & Down;
+            return static_cast<bool>(*this & Down);
         }
 
-        constexpr bool isLeft() const
+        [[nodiscard]] constexpr bool isLeft() const
         {
-            return *this & Left;
+            return static_cast<bool>(*this & Left);
         }
 
-        constexpr bool isRight() const
+        [[nodiscard]] constexpr bool isRight() const
         {
-            return *this & Right;
+            return static_cast<bool>(*this & Right);
         }
 
         /// <summary>
@@ -158,18 +161,29 @@ namespace abyss
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        ColDirection& ignored(const value_type& value)
+        ColDirection& ignore(const value_type& value)
         {
             m_value &= static_cast<value_type>(~value);
             return *this;
         }
-        
+        ColDirection& ignore(const ColDirection& other)
+        {
+            return this->ignore(other.m_value);
+        }
+        [[nodiscard]] constexpr ColDirection ignored(const value_type& value)const
+        {
+            return  { static_cast<value_type>(m_value & static_cast<value_type>(~value)) };
+        }
+        [[nodiscard]] constexpr ColDirection ignored(const ColDirection& other)const
+        {
+            return this->ignored(other.m_value);
+        }
         /// <summary>
         /// 速度から指定方向のあたり判定を無視する
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        ColDirection& ignoredForVelocity(const s3d::Vec2& vellocity)
+        ColDirection& ignoreForVelocity(const s3d::Vec2& vellocity)
         {
             value_type ignore = None;
             if (vellocity.y > 0) {
@@ -182,7 +196,7 @@ namespace abyss
             } else if (vellocity.x < 0) {
                 ignore |= Left;
             }
-            return this->ignored(ignore);
+            return this->ignore(ignore);
         }
 
     public:

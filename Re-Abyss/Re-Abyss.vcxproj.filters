@@ -2603,6 +2603,9 @@
     <ClCompile Include="app\components\UI\Experiment\WorkLab\Topic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tests\tests\utils\Collision\ColDirectionCatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
