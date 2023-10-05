@@ -32,6 +32,11 @@ namespace abyss::tests
             REQUIRE(ai == bi);
             REQUIRE_FALSE(ai != bi);
         }
+        SECTION("Ignore ForVelocity") {
+            ColDirection a = ColDirection::Left | ColDirection::Up;
+            a.ignoreForVelocity(Vec2::Up());
+            REQUIRE(a.isLeft());
+        }
     }
 }
 #endif ABYSS_DO_TEST
