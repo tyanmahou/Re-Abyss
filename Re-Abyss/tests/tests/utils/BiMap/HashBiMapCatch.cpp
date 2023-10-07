@@ -35,8 +35,8 @@ namespace abyss::tests
 
             // const
             const HashBiMap<int, int>& cmap = map;
-            REQUIRE(map.value(10) == 20);
-            REQUIRE(map.key(20) == 10);
+            REQUIRE(cmap.value(10) == 20);
+            REQUIRE(cmap.key(20) == 10);
         }
     }
 }

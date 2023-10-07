@@ -2,6 +2,7 @@ module;
 
 #if ABYSS_DO_TEST
 #define CATCH_CONFIG_RUNNER
+#define CATCH_CONFIG_ENABLE_BENCHMARKING
 #include <ThirdParty/Catch2/catch.hpp>
 #include <Siv3D.hpp>
 #endif // ABYSS_DO_TEST

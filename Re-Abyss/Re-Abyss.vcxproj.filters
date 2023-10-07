@@ -2606,7 +2606,7 @@
     <ClCompile Include="tests\tests\utils\Collision\ColDirectionCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\tests\utils\BidirectionalHashMap\BidirectionalHashMapCatch.cpp">
+    <ClCompile Include="tests\tests\utils\BiMap\HashBiMapCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6794,7 +6794,7 @@
     <ClInclude Include="app\components\UI\Experiment\WorkLab\Topic.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="app\utils\BidirectionalHashMap\BidirectionalHashMap.hpp">
+    <ClInclude Include="app\utils\BiMap\HashBiMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
