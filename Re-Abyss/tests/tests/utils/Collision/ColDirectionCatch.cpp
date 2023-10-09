@@ -8,27 +8,27 @@ namespace abyss::tests
     {
         SECTION("basic") {
             ColDirection a = ColDirection::Left;
-            REQUIRE_FALSE(a.isLeft());
+            REQUIRE(a.isLeft());
             a = ColDirection::Right;
-            REQUIRE_FALSE(a.isRight());
+            REQUIRE(a.isRight());
             a = ColDirection::Up;
-            REQUIRE_FALSE(a.isUp());
+            REQUIRE(a.isUp());
             a = ColDirection::Down;
-            REQUIRE_FALSE(a.isDown());
+            REQUIRE(a.isDown());
         }
         SECTION("operator bitwiaw or") {
             ColDirection a = ColDirection::Left | ColDirection::Right;
-            REQUIRE_FALSE(a.isLeft());
-            REQUIRE_FALSE(a.isRight());
-            REQUIRE_FALSE(!a.isUp());
-            REQUIRE_FALSE(!a.isDown());
+            REQUIRE(a.isLeft());
+            REQUIRE(a.isRight());
+            REQUIRE(!a.isUp());
+            REQUIRE(!a.isDown());
         }
         SECTION("operator bitwiaw and") {
             ColDirection a = ColDirection::All & ColDirection::Right;
-            REQUIRE_FALSE(!a.isLeft());
-            REQUIRE_FALSE(a.isRight());
-            REQUIRE_FALSE(!a.isUp());
-            REQUIRE_FALSE(!a.isDown());
+            REQUIRE(!a.isLeft());
+            REQUIRE(a.isRight());
+            REQUIRE(!a.isUp());
+            REQUIRE(!a.isDown());
         }
         SECTION("Ignore All") {
             ColDirection ignore = ColDirection::All;
