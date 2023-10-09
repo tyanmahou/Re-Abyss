@@ -6,6 +6,16 @@ namespace abyss::tests
 {
     TEST_CASE("utils ColDirection Test")
     {
+        SECTION("basic") {
+            ColDirection a = ColDirection::Left;
+            REQUIRE_FALSE(a.isLeft());
+            a = ColDirection::Right;
+            REQUIRE_FALSE(a.isRight());
+            a = ColDirection::Up;
+            REQUIRE_FALSE(a.isUp());
+            a = ColDirection::Down;
+            REQUIRE_FALSE(a.isDown());
+        }
         SECTION("operator bitwiaw or") {
             ColDirection a = ColDirection::Left | ColDirection::Right;
             REQUIRE_FALSE(a.isLeft());
