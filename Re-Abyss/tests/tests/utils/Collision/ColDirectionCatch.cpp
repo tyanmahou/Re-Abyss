@@ -60,6 +60,9 @@ namespace abyss::tests
             ColDirection a = ColDirection::Left | ColDirection::Up;
             a.ignoreForVelocity(Vec2::Up());
             REQUIRE(a.isLeft());
+
+            a.ignoreForVelocity(Vec2:: Left());
+            REQUIRE(a.isNone());
         }
     }
 }
