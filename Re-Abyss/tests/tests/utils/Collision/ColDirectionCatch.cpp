@@ -16,14 +16,14 @@ namespace abyss::tests
             a = ColDirection::Down;
             REQUIRE(a.isDown());
         }
-        SECTION("operator bitwiaw or") {
+        SECTION("operator bitwise or") {
             ColDirection a = ColDirection::Left | ColDirection::Right;
             REQUIRE(a.isLeft());
             REQUIRE(a.isRight());
             REQUIRE(!a.isUp());
             REQUIRE(!a.isDown());
         }
-        SECTION("operator bitwiaw and") {
+        SECTION("operator bitwise and") {
             ColDirection a = ColDirection::All & ColDirection::Right;
             REQUIRE(!a.isLeft());
             REQUIRE(a.isRight());
