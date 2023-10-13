@@ -23,8 +23,24 @@ namespace abyss::tests
             REQUIRE(!a.isUp());
             REQUIRE(!a.isDown());
         }
+        SECTION("operator bitwise or assign") {
+            ColDirection a = ColDirection::Left;
+            a |= ColDirection::Right;
+            REQUIRE(a.isLeft());
+            REQUIRE(a.isRight());
+            REQUIRE(!a.isUp());
+            REQUIRE(!a.isDown());
+        }
         SECTION("operator bitwise and") {
             ColDirection a = ColDirection::All & ColDirection::Right;
+            REQUIRE(!a.isLeft());
+            REQUIRE(a.isRight());
+            REQUIRE(!a.isUp());
+            REQUIRE(!a.isDown());
+        }
+        SECTION("operator bitwise and assign") {
+            ColDirection a = ColDirection::All;
+            a &=ColDirection::Right;
             REQUIRE(!a.isLeft());
             REQUIRE(a.isRight());
             REQUIRE(!a.isUp());
