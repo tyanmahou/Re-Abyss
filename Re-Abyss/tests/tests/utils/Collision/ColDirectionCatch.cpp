@@ -16,6 +16,18 @@ namespace abyss::tests
             a = ColDirection::Down;
             REQUIRE(a.isDown());
         }
+        SECTION("isAny") {
+            ColDirection a = ColDirection::None;
+            REQUIRE_FALSE(a.isAny());
+            a = ColDirection::Left;
+            REQUIRE(a.isAny());
+            a = ColDirection::Right;
+            REQUIRE(a.isAny());
+            a = ColDirection::Up;
+            REQUIRE(a.isAny());
+            a = ColDirection::Down;
+            REQUIRE(a.isAny());
+        }
         SECTION("operator bitwise or") {
             ColDirection a = ColDirection::Left | ColDirection::Right;
             REQUIRE(a.isLeft());
