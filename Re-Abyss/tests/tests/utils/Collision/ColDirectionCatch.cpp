@@ -16,6 +16,18 @@ namespace abyss::tests
             a = ColDirection::Down;
             REQUIRE(a.isDown());
         }
+        SECTION("isNone") {
+            ColDirection a = ColDirection::None;
+            REQUIRE(a.isNone());
+            a = ColDirection::Left;
+            REQUIRE_FALSE(a.isNone());
+            a = ColDirection::Right;
+            REQUIRE_FALSE(a.isNone());
+            a = ColDirection::Up;
+            REQUIRE_FALSE(a.isNone());
+            a = ColDirection::Down;
+            REQUIRE_FALSE(a.isNone());
+        }
         SECTION("isAny") {
             ColDirection a = ColDirection::None;
             REQUIRE_FALSE(a.isAny());
