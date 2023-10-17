@@ -35,7 +35,7 @@ namespace abyss
         /// <param name="key"></param>
         /// <returns></returns>
         template<class Self>
-        decltype(auto) value(this Self&& self, const Key& key)
+        [[nodiscard]] decltype(auto) value(this Self&& self, const Key& key)
         {
             return std::forward_like<Self>(self.m_k2v.at(key));
         }
@@ -48,9 +48,30 @@ namespace abyss
         /// <param name="value"></param>
         /// <returns></returns>
         template<class Self>
-        decltype(auto) key(this Self&& self, const Value& value)
+        [[nodiscard]] decltype(auto) key(this Self&& self, const Value& value)
         {
             return std::forward_like<Self>(self.m_v2k.at(value));
+        }
+
+        [[nodiscard]] auto begin() const
+        {
+            return m_k2v.begin();
+        }
+        [[nodiscard]] auto end() const
+        {
+            return m_k2v.end();
+        }
+        [[nodiscard]] auto cbegin() const
+        {
+            return m_k2v.cbegin();
+        }
+        [[nodiscard]] auto cend() const
+        {
+            return m_k2v.cend();
+        }
+        [[nodiscard]] size_t size() const
+        {
+            return m_k2v.size();
         }
     private:
         s3d::HashTable<Key, Value> m_k2v;
