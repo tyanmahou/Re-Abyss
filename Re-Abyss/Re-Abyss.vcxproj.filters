@@ -2609,6 +2609,9 @@
     <ClCompile Include="tests\tests\utils\BiMap\HashBiMapCatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\views\Shader\BossArrival\BossArrivalShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6795,6 +6798,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\BiMap\HashBiMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\views\Shader\BossArrival\BossArrivalShader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
