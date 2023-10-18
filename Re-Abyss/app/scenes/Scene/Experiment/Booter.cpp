@@ -10,8 +10,9 @@
 
 namespace abyss::Scene::Experiment
 {
-    Booter::Booter(Cycle::Experiment::IMasterObserver* pObserver) :
-        m_pObserver(pObserver)
+    Booter::Booter(Cycle::Experiment::IMasterObserver* pObserver, const s3d::Optional<size_t>& initTopic) :
+        m_pObserver(pObserver),
+        m_initTopic(initTopic)
     {}
 
     bool Booter::onBoot(Manager* pManager) const
@@ -23,7 +24,7 @@ namespace abyss::Scene::Experiment
         // UI
         {
             auto ui = pManager->getModule<UIs>();
-            ui->create<UI::Experiment::Builder>();
+            ui->create<UI::Experiment::Builder>(m_initTopic);
             ui->flush();
         }
         // Fade

@@ -4,6 +4,9 @@
 #include <abyss/modules/UI/base/UIObj.hpp>
 #include <abyss/components/UI/Experiment/Main.hpp>
 
+#include <abyss/components/Cycle/Experiment/Master.hpp>
+#include <abyss/modules/Cycle/CycleMaster.hpp>
+
 namespace abyss::UI::Experiment
 {
     TopicBoard::TopicBoard(UIObj* pUi):
@@ -31,6 +34,9 @@ namespace abyss::UI::Experiment
     void TopicBoard::onStart()
     {
         m_main = m_pUi->find<Main>();
+        if (m_initTopicIndex) {
+            m_main->setTopic(m_topics[*m_initTopicIndex].factory());
+        }
     }
     void TopicBoard::onDraw() const
     {
@@ -43,14 +49,17 @@ namespace abyss::UI::Experiment
     }
     Coro::Generator<List::SimpleVerticalList::Record> TopicBoard::getList() const
     {
+        size_t index = 0;
         for (auto&& topic : m_topics) {
             co_yield {
                 .title = topic.title,
-                .onClick = [this, factory = topic.factory] {
+                .onClick = [this, index, factory = topic.factory] {
                     m_main->setTopic(factory());
+                    m_pUi->getModule<CycleMaster>()->find<Cycle::Experiment::Master>()->onChangeTopic(index);
                 },
                 .backGroundColor = ColorF(0.5, 1),
             };
+            ++index;
         }
     }
 }

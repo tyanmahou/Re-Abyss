@@ -39,6 +39,10 @@ namespace abyss::UI::Experiment
             });
             return *this;
         }
+        void setInitTopicIndex(const s3d::Optional<size_t>& index)
+        {
+            m_initTopicIndex = index;
+        }
     public:
         void onDraw()const override;
     public:
@@ -50,6 +54,7 @@ namespace abyss::UI::Experiment
         s3d::Array<TopicEntry> m_topics;
         std::unique_ptr<List::SimpleVerticalList> m_list;
         Ref<Main> m_main;
+        s3d::Optional<size_t> m_initTopicIndex;
     };
 }
 namespace abyss

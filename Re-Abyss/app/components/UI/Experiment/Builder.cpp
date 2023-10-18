@@ -8,12 +8,13 @@
 
 namespace abyss::UI::Experiment
 {
-    void Builder::Build(UIObj* pUi)
+    void Builder::Build(UIObj* pUi, const s3d::Optional<size_t>& initTopic)
     {
         pUi->attach<Main>(pUi);
         pUi->attach<TopicBoard>(pUi)
             ->add<WorkLab::Topic>(U"作業用")
             .add<DualComplexLab::Topic>(U"二重複素数")
+            .setInitTopicIndex(initTopic)
             ;
     }
 }

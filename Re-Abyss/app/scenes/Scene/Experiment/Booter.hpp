@@ -9,10 +9,11 @@ namespace abyss::Scene::Experiment
         public Sys::IBooter
     {
     public:
-        Booter(Cycle::Experiment::IMasterObserver* pObserver);
+        Booter(Cycle::Experiment::IMasterObserver* pObserver, const s3d::Optional<size_t>& initTopic = s3d::none);
         bool onBoot(Manager* pManager) const override;
     private:
         Cycle::Experiment::IMasterObserver* m_pObserver;
+        s3d::Optional<size_t> m_initTopic;
     };
 }
 #endif

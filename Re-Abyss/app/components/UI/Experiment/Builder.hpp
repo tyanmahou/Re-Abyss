@@ -6,7 +6,7 @@ namespace abyss::UI::Experiment
 {
     struct Builder
     {
-        static void Build(UIObj* pUi);
+        static void Build(UIObj* pUi, const s3d::Optional<size_t>& initTopic = s3d::none);
     };
 }
 #endif

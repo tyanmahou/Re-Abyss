@@ -14,6 +14,7 @@ namespace abyss::Cycle::Experiment
     public:
         virtual ~IMasterObserver() = default;
         virtual bool onExit() = 0;
+        virtual bool onChangeTopic(size_t index) = 0;
     };
 
     /// <summary>
@@ -26,6 +27,7 @@ namespace abyss::Cycle::Experiment
         enum class Notify : s3d::int8
         {
             None,
+            ChangeTopic,
             Exit,
         };
     public:
@@ -33,6 +35,7 @@ namespace abyss::Cycle::Experiment
 
         bool listen() override;
         bool exit();
+        bool onChangeTopic(size_t index);
     private:
         bool notify(Notify notify);
     private:

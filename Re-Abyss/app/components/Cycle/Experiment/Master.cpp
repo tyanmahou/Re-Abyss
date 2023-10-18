@@ -25,6 +25,14 @@ namespace abyss::Cycle::Experiment
         }
         return false;
     }
+    bool Master::onChangeTopic(size_t index)
+    {
+        if (this->notify(Notify::ChangeTopic)) {
+            m_notifyEvent = std::bind(&IMasterObserver::onChangeTopic, m_observer, index);
+            return true;
+        }
+        return false;
+    }
     bool Master::listen()
     {
         if (!m_observer) {
@@ -33,7 +41,9 @@ namespace abyss::Cycle::Experiment
         if (!m_notifyEvent) {
             return false;
         }
-        return m_notifyEvent();
+        bool result = m_notifyEvent();
+        m_notifyEvent = nullptr;
+        return result;
     }
 }
 #endif
