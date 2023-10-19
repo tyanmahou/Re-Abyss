@@ -14,7 +14,7 @@ namespace abyss::UI::Experiment::WorkLab
         void draw() const override;
     private:
         BossArrivalShader m_shader;
-        Timer timer;
+        s3d::Timer m_timer;
     };
 }
 #endif
