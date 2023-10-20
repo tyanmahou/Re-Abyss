@@ -47,7 +47,6 @@ cbuffer ShaderParam : register(b1)
 	float2 g_pos;
 }
 
-static uint edges = 7 + 4 + 5 + 5 + 5 + 5 + 5 + 1 + 2 + 4 + 3;
 static float2 g_vertex[][4] = {
 	{float2(74, 258), float2(81, 258), float2(74, 379), float2(81, 379)},       // B-1-1
 	{float2(88, 258), float2(110, 258), float2(88, 379), float2(110, 379)},     // B-1-2
@@ -208,42 +207,53 @@ static int g_revMap[]={
 };
 s3d::PSInput VS(uint id: SV_VERTEXID)
 {
-	s3d::PSInput result;
-	float2 pos = g_pos;
-	const uint triId = id / 6;
-	const bool isEffect = triId > 46;
-	const uint objId = triId % 46;
-	const uint mod6 = id % 6;
+	// 矩形単位に分割
+	const uint quadId = id / 6;
+	// エフェクトか
+	const bool isEffect = quadId > 46;
 
+	// エッジのID
+	const uint objId = quadId % 46;
+
+	// タイム 1~20
 	const float time = g_timer * 20;
+	// α計算
 	const float alpha = (time >= g_vertexTime[objId]) ?	1.0 
 	                  : (time >= g_vertexTime[objId] - 1) ? time % 1.0
 					  : 0.0;
+	// エフェクトのα計算
 	float alphaEffect = (time >= g_vertexTime[objId] + 1) ? 0.0
 	                  : (time >= g_vertexTime[objId]) ? 1.0 - time % 1.0
 					  : (time >= g_vertexTime[objId] - 1) ? time % 1.0
 					  : 0;
+	// 最後だけアクセントとして長めにとる
 	const float alphaLast = (time >= g_vertexTime[objId] + 3) ? 0.0
 		                   :(time >= g_vertexTime[objId] + 2) ? 0.5 - (time % 1.0)*0.5
 		                   :(time >= g_vertexTime[objId] + 1) ? 1.0 - (time % 1.0)*0.5
 					       :(time >= g_vertexTime[objId])     ? 0.5 + (time % 1.0) * 0.5
 					       :(time >= g_vertexTime[objId] - 1) ? (time % 1.0) * 0.5
 					       :0;
-	alphaEffect = lerp(alphaEffect, alphaLast, (triId == 46 + 21) || (triId == 46 + 22));
+	alphaEffect = lerp(alphaEffect, alphaLast, (quadId == 46 + 21) || (quadId == 46 + 22));
 
-	const int index = g_modToIndex[mod6];
-	const float rate = alphaEffect;
-	const float et = 1 - alphaEffect * alphaEffect * alphaEffect;
+	// 頂点インデックス 0~4
+	const int index = g_modToIndex[id % 6];
+
+	// エフェクトのアニメ
 	const float2 effectAnimePos = (g_vertexPrev[objId][index] + lerp(g_vertexPrev[objId][g_modToMirrorIndex[index]],g_vertexPrev[objId][g_modToFlipIndex[index]], g_revMap[objId]))/2.0;
+	const float et = 1 - alphaEffect * alphaEffect * alphaEffect;
 	float2 effectPos = lerp(effectAnimePos, g_vertexPrev[objId][index], et);
-	pos = lerp(g_vertex[objId][index], effectPos, isEffect);
-	float4 color = float4(1, 0, 0, 1);	
-	color.a = lerp(alpha, alphaEffect, isEffect);
 
+	// 座標
+	float2 pos = lerp(g_vertex[objId][index], effectPos, isEffect);
+	// フェードアウトアニメ
 	pos = lerp(pos, lerp(pos, ((int)(index % 2.0) == 0) ? float2(0, 315) : float2(1120, 315), 1 - (20 - time) / 1.0) , time >= 19);
-	
+
+	// 色
+	const float4 color = float4(1, 0, 0, lerp(alpha, alphaEffect, isEffect));
+
 	// リザルト格納
-	result.position = s3d::Transform2D(pos, g_transform);
+	s3d::PSInput result;
+	result.position = s3d::Transform2D(pos + g_pos, g_transform);
 	result.uv = float2(0, 0);
 	result.color = color * g_colorMul;
 
