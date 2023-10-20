@@ -18,7 +18,7 @@ namespace abyss::UI::Experiment::WorkLab
         auto scoped = m_shader
             .setTime(m_timer.progress0_1())
             .start();
-        s3d::Graphics2D::DrawTriangles(46 * 2);
+        s3d::Graphics2D::DrawTriangles(46 * 2 * 2);
     }
 }
 #endif
