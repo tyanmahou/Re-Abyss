@@ -216,32 +216,24 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	const uint mod6 = id % 6;
 
 	const float time = g_timer * 20;
-	const float alpha = lerp(
-		lerp(
-			0.0f,
-			time % 1.0,
-			time >= g_vertexTime[objId] - 1
-		),
-		1.0,
-		time >= g_vertexTime[objId]
-	);
-	const float alphaEffect = lerp(
-		lerp(
-			lerp(
-				0.0f,
-				time % 1.0,
-				time >= g_vertexTime[objId] - 1
-			),
-			1.0 - time % 1.0,
-			time >= g_vertexTime[objId]
-		),
-		 0.0,
-		 time >= g_vertexTime[objId] + 1
-	);
+	const float alpha = (time >= g_vertexTime[objId]) ?	1.0 
+	                  : (time >= g_vertexTime[objId] - 1) ? time % 1.0
+					  : 0.0;
+	float alphaEffect = (time >= g_vertexTime[objId] + 1) ? 0.0
+	                  : (time >= g_vertexTime[objId]) ? 1.0 - time % 1.0
+					  : (time >= g_vertexTime[objId] - 1) ? time % 1.0
+					  : 0;
+	const float alphaLast = (time >= g_vertexTime[objId] + 3) ? 0.0
+		                   :(time >= g_vertexTime[objId] + 2) ? 0.5 - (time % 1.0)*0.5
+		                   :(time >= g_vertexTime[objId] + 1) ? 1.0 - (time % 1.0)*0.5
+					       :(time >= g_vertexTime[objId])     ? 0.5 + (time % 1.0) * 0.5
+					       :(time >= g_vertexTime[objId] - 1) ? (time % 1.0) * 0.5
+					       :0;
+	alphaEffect = lerp(alphaEffect, alphaLast, (triId == 46 + 21) || (triId == 46 + 22));
 
 	const int index = g_modToIndex[mod6];
 	const float rate = alphaEffect;
-	const float et = 1 - alphaEffect * alphaEffect * alphaEffect;//lerp(1 - (rate - 0.5)* 2, rate * 2, rate <= 0.5);
+	const float et = 1 - alphaEffect * alphaEffect * alphaEffect;
 	const float2 effectAnimePos = (g_vertexPrev[objId][index] + lerp(g_vertexPrev[objId][g_modToMirrorIndex[index]],g_vertexPrev[objId][g_modToFlipIndex[index]], g_revMap[objId]))/2.0;
 	float2 effectPos = lerp(effectAnimePos, g_vertexPrev[objId][index], et);
 	pos = lerp(g_vertex[objId][index], effectPos, isEffect);
@@ -249,6 +241,7 @@ s3d::PSInput VS(uint id: SV_VERTEXID)
 	color.a = lerp(alpha, alphaEffect, isEffect);
 
 	pos = lerp(pos, lerp(pos, ((int)(index % 2.0) == 0) ? float2(0, 315) : float2(1120, 315), 1 - (20 - time) / 1.0) , time >= 19);
+	
 	// リザルト格納
 	result.position = s3d::Transform2D(pos, g_transform);
 	result.uv = float2(0, 0);
