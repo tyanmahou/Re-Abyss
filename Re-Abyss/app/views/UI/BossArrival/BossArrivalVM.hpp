@@ -1,5 +1,5 @@
 #pragma once
-#include <abyss/utils/TexturePacker/TexturePacker.hpp>
+#include <abyss/views/Shader/BossArrival/BossArrivalShader.hpp>
 
 namespace abyss::UI::BossArrival
 {
@@ -17,8 +17,7 @@ namespace abyss::UI::BossArrival
         }
         void draw() const;
     private:
-        TexturePacker m_texture;
-        s3d::Vec2 m_pos;
+        BossArrivalShader m_shader;
         double m_timeRate = 0;
     };
 }

@@ -1,18 +1,20 @@
 #include <abyss/views/UI/BossArrival/BossArrivalVM.hpp>
-#include <abyss/views/util/Anchor/AnchorUtil.hpp>
 
 namespace abyss::UI::BossArrival
 {
-    BossArrivalVM::BossArrivalVM():
-        m_pos(AnchorUtil::FromCc(0 ,0))
+    BossArrivalVM::BossArrivalVM()
     {
     }
     BossArrivalVM& BossArrivalVM::setPos(const s3d::Vec2& pos)
     {
-        m_pos = pos;
+        m_shader.setPos(pos);
         return *this;
     }
     void BossArrivalVM::draw() const
     {
+        auto scoped = m_shader
+            .setTime(m_timeRate)
+            .start();
+        s3d::Graphics2D::DrawTriangles(46 * 2 * 2);
     }
 }
