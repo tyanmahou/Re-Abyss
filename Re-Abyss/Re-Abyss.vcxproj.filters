@@ -2612,6 +2612,9 @@
     <ClCompile Include="app\views\Shader\BossArrival\BossArrivalShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="app\components\UI\Experiment\BossArrival\Topic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -6801,6 +6804,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\views\Shader\BossArrival\BossArrivalShader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\components\UI\Experiment\BossArrival\Topic.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
