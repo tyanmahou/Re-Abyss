@@ -1297,6 +1297,7 @@
     <ClInclude Include="app\commons\Game\RenderStateInitializer.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\commons\MsgUtil.hpp" />
+    <ClInclude Include="app\commons\Resource\Font\FontAssetName.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Label.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Language.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Manager.hpp" />

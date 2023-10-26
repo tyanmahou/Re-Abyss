@@ -6809,6 +6809,9 @@
     <ClInclude Include="app\components\UI\Experiment\BossArrival\Topic.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\commons\Resource\Font\FontAssetName.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc">
