@@ -1,6 +1,6 @@
 [Horizon]
 header = 75
-footer = -60
+footer = 60
 
 [SelectFrame]
 basePos = "(0, 0)"

@@ -1,8 +1,12 @@
 #include <abyss/views/UI/BossArrival/BossArrivalVM.hpp>
 #include <abyss/views/util/Anchor/AnchorUtil.hpp>
+#include <abyss/commons/Resource/Font/FontAssetName.hpp>
+#include <abyss/params/UI/BossArrival/Param.hpp>
+
 namespace abyss::UI::BossArrival
 {
-    BossArrivalVM::BossArrivalVM()
+    BossArrivalVM::BossArrivalVM():
+        m_font(Param::FontSize, Resource::FontAssetName::PixelMplus12B)
     {
     }
     BossArrivalVM& BossArrivalVM::setPos(const s3d::Vec2& pos)
@@ -15,16 +19,17 @@ namespace abyss::UI::BossArrival
         // Warning
         {
             constexpr double thick = 3;
-            constexpr Vec2 pivot0{ 0,90 };
-            constexpr Vec2 pivot1{ 0,150 };
-            constexpr Vec2 axis{ 1, -1 };
+            const Vec2 pivot0{ 0,Param::Pivot0 };
+            const Vec2 pivot1{ 0,Param::Pivot1 };
             double alpha = 1.0;
 
             const ColorF color(1, 0, 0, alpha);
             Line(AnchorUtil::FromTl(pivot0), AnchorUtil::FromTr(pivot0)).draw(thick, color);
             Line(AnchorUtil::FromTl(pivot1), AnchorUtil::FromTr(pivot1)).draw(thick, color);
-            Line(AnchorUtil::FromBl(pivot0 * axis), AnchorUtil::FromBr(pivot0 * axis)).draw(thick, color);
-            Line(AnchorUtil::FromBl(pivot1 * axis), AnchorUtil::FromBr(pivot1 * axis)).draw(thick, color);
+            m_font(U"WARNING WARNING WARNING WARNING").draw(Arg::leftCenter = (pivot0 + pivot1) /2 , color);
+            Line(AnchorUtil::FromBl(pivot0), AnchorUtil::FromBr(pivot0)).draw(thick, color);
+            Line(AnchorUtil::FromBl(pivot1), AnchorUtil::FromBr(pivot1)).draw(thick, color);
+            m_font(U"WARNING WARNING WARNING WARNING").draw(Arg::rightCenter = AnchorUtil::FromBr((pivot0 + pivot1) / 2), color);
         }
 
         // Center Text

@@ -12,9 +12,9 @@ namespace abyss::UI
     {
         constexpr Color backColor(62, 166, 246, 128);
 
-        RectF(AnchorUtil::FromBl(0, -40), Constants::AppResolutionF.x, 40).draw(backColor);
+        RectF(AnchorUtil::FromBl(0, 40), Constants::AppResolutionF.x, 40).draw(backColor);
 
         auto moveRate = s3d::Min(1.0, rate * 4.0 / 3.0);
-        FontAsset(FontName::Tips)(message).draw(Arg::bottomRight = AnchorUtil::FromBr(FooterParam::Tips::BasePos + (1 - moveRate) * Vec2{20, 0}), ColorF(1, rate));
+        FontAsset(FontName::Tips)(message).draw(Arg::bottomRight = AnchorUtil::FromBr(FooterParam::Tips::BasePos + (1 - moveRate) * Vec2{-20, 0}), ColorF(1, rate));
     }
 }

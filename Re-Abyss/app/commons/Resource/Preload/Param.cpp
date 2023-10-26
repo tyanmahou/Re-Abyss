@@ -36,6 +36,7 @@
 
 // UI
 #include <abyss/params/UI/PlayerInfo/Param.hpp>
+#include <abyss/params/UI/BossArrival/Param.hpp>
 #include <abyss/params/UI/BossHPBar/Param.hpp>
 
 
@@ -153,6 +154,7 @@ namespace
         using namespace UI;
         resource->loadToml<PlayerInfo::Param>(U"UI/PlayerInfo/Param.toml");
         resource->loadToml<BossHPBar::Param>(U"UI/BossHPBar/Param.toml");
+        resource->loadToml<BossArrival::Param>(U"UI/BossArrival/Param.toml");
     }
     void LoadLoadingToml(const Assets* resource)
     {

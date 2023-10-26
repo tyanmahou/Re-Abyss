@@ -1459,6 +1459,7 @@
     <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
     <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
+    <ClInclude Include="app\params\UI\BossArrival\Param.hpp" />
     <ClInclude Include="app\Preprocess.hpp" />
     <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
     <ClInclude Include="app\scenes\Loading\LoadProcessor.hpp" />

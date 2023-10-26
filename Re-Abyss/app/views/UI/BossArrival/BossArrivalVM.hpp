@@ -17,6 +17,7 @@ namespace abyss::UI::BossArrival
         }
         void draw() const;
     private:
+        Font m_font;
         BossArrivalShader m_shader;
         double m_timeRate = 0;
     };

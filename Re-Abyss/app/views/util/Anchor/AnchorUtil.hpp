@@ -6,15 +6,23 @@ namespace abyss
     class AnchorUtil
     {
         static constexpr s3d::RectF AppScreen{ Constants::AppResolutionF };
+        static constexpr s3d::Vec2 AxisRd{ 1,1 };
+        static constexpr s3d::Vec2 AxisLd{ -1,1 };
+        static constexpr s3d::Vec2 AxisRu{ 1,-1 };
+        static constexpr s3d::Vec2 AxisLu{ -1,-1 };
 
-#define DEFINE_ANCHOR(name, method) \
+#define DEFINE_ANCHOR_AXIS(name, method, axis) \
         static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, double x, double y)\
         {\
             return From##name(rect, { x, y });\
         }\
         static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, const s3d::Vec2& pos)\
         {\
-            return rect.method() + pos;\
+            if constexpr(axis == AxisRd) {\
+                return rect.method() + pos;\
+            } else {\
+              return rect.method() + pos * axis;\
+            }\
         }\
         static constexpr s3d::Vec2 From##name(double x, double y)\
         {\
@@ -32,6 +40,13 @@ namespace abyss
         {\
             return From##name(s3d::Scene::Rect(), pos);\
         }
+#define DEFINE_ANCHOR(name, method, default) \
+DEFINE_ANCHOR_AXIS(name, method, default) \
+DEFINE_ANCHOR_AXIS(name##AxisRd, method, AxisRd) \
+DEFINE_ANCHOR_AXIS(name##AxisLd, method, AxisLd) \
+DEFINE_ANCHOR_AXIS(name##AxisRu, method, AxisRu) \
+DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
+
     public:
         /// <summary>
         /// ■━━━━━┓
@@ -40,7 +55,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tl, tl)
+        DEFINE_ANCHOR(Tl, tl, AxisRd)
 
         /// <summary>
         /// ┏━━━━━■
@@ -49,7 +64,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tr, tr)
+        DEFINE_ANCHOR(Tr, tr, AxisLd)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -58,7 +73,7 @@ namespace abyss
         /// ┃          ┃
         /// ■━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Bl, bl)
+        DEFINE_ANCHOR(Bl, bl, AxisRu)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -67,7 +82,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━■
         /// </summary>
-        DEFINE_ANCHOR(Br, br)
+        DEFINE_ANCHOR(Br, br, AxisLu)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -76,7 +91,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cc, center)
+        DEFINE_ANCHOR(Cc, center, AxisRd)
 
         /// <summary>
         /// ┏━━■━━┓
@@ -85,7 +100,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tc, topCenter)
+        DEFINE_ANCHOR(Tc, topCenter, AxisRd)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -94,7 +109,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━■━━┛
         /// </summary>
-        DEFINE_ANCHOR(Bc, bottomCenter)
+        DEFINE_ANCHOR(Bc, bottomCenter, AxisRu)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -103,7 +118,7 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cl, leftCenter)
+        DEFINE_ANCHOR(Cl, leftCenter, AxisRd)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -112,7 +127,8 @@ namespace abyss
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cr, rightCenter)
+        DEFINE_ANCHOR(Cr, rightCenter, AxisLd)
 #undef DEFINE_ANCHOR
+#undef DEFINE_ANCHOR_AXIS
     };
 }
