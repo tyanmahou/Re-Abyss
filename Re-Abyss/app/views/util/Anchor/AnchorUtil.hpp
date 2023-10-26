@@ -3,49 +3,72 @@
 
 namespace abyss
 {
+    struct AnchorAxis
+    {
+        static constexpr s3d::Vec2 Rd{ 1,1 };
+        static constexpr s3d::Vec2 Ld{ -1,1 };
+        static constexpr s3d::Vec2 Ru{ 1,-1 };
+        static constexpr s3d::Vec2 Lu{ -1,-1 };
+    };
     class AnchorUtil
     {
         static constexpr s3d::RectF AppScreen{ Constants::AppResolutionF };
-        static constexpr s3d::Vec2 AxisRd{ 1,1 };
-        static constexpr s3d::Vec2 AxisLd{ -1,1 };
-        static constexpr s3d::Vec2 AxisRu{ 1,-1 };
-        static constexpr s3d::Vec2 AxisLu{ -1,-1 };
-
-#define DEFINE_ANCHOR_AXIS(name, method, axis) \
-        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, double x, double y)\
+#define DEFINE_ANCHOR_BASE(name, method, defaultAxis) \
+        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, double x, double y, const s3d::Vec2& axis = defaultAxis)\
         {\
-            return From##name(rect, { x, y });\
+            return From##name(rect, { x, y }, axis);\
         }\
-        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, const s3d::Vec2& pos)\
+        static constexpr s3d::Vec2 From##name(const s3d::RectF& rect, const s3d::Vec2& pos, const s3d::Vec2& axis = defaultAxis)\
         {\
-            if constexpr(axis == AxisRd) {\
-                return rect.method() + pos;\
-            } else {\
-              return rect.method() + pos * axis;\
-            }\
+            return rect.method() + pos * axis; \
         }\
-        static constexpr s3d::Vec2 From##name(double x, double y)\
+        static constexpr s3d::Vec2 From##name(double x, double y, const s3d::Vec2& axis = defaultAxis)\
         {\
-            return From##name({ x, y });\
+            return From##name(s3d::Vec2{ x, y }, axis);\
         }\
-        static constexpr s3d::Vec2 From##name(const s3d::Vec2& pos)\
+        static constexpr s3d::Vec2 From##name(const s3d::Vec2& pos, const s3d::Vec2& axis = defaultAxis)\
         {\
-            return From##name(AppScreen, pos);\
+            return From##name(AppScreen, pos, axis);\
         }\
-        static s3d::Vec2 FromScene##name(double x, double y)\
+        static s3d::Vec2 FromScene##name(double x, double y, const s3d::Vec2& axis = defaultAxis)\
         {\
-            return FromScene##name({ x, y });\
+            return FromScene##name({ x, y }, axis);\
         }\
-        static s3d::Vec2 FromScene##name(const s3d::Vec2& pos)\
+        static s3d::Vec2 FromScene##name(const s3d::Vec2& pos, const s3d::Vec2& axis = defaultAxis)\
         {\
-            return From##name(s3d::Scene::Rect(), pos);\
+            return From##name(s3d::Scene::Rect(), pos, axis);\
         }
-#define DEFINE_ANCHOR(name, method, default) \
-DEFINE_ANCHOR_AXIS(name, method, default) \
-DEFINE_ANCHOR_AXIS(name##AxisRd, method, AxisRd) \
-DEFINE_ANCHOR_AXIS(name##AxisLd, method, AxisLd) \
-DEFINE_ANCHOR_AXIS(name##AxisRu, method, AxisRu) \
-DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
+#define DEFINE_ANCHOR_AXIS(name, axisName, axis)\
+        static constexpr s3d::Vec2 From##name##axisName(const s3d::RectF& rect, double x, double y)\
+        {\
+            return From##name(rect, { x, y }, axis); \
+        }\
+        static constexpr s3d::Vec2 From##name##axisName(const s3d::RectF& rect, const s3d::Vec2& pos)\
+        {\
+            return From##name(rect, pos, axis); \
+        }\
+        static constexpr s3d::Vec2 From##name##axisName(double x, double y)\
+        {\
+            return From##name(s3d::Vec2{ x, y }, axis); \
+        }\
+        static constexpr s3d::Vec2 From##name##axisName(const s3d::Vec2& pos)\
+        {\
+            return From##name(AppScreen, pos, axis); \
+        }\
+        static s3d::Vec2 FromScene##name##axisName(double x, double y)\
+        {\
+            return FromScene##name({ x, y }, axis); \
+        }\
+        static s3d::Vec2 FromScene##name##axisName(const s3d::Vec2& pos)\
+        {\
+            return From##name(s3d::Scene::Rect(), pos, axis); \
+        }
+#define DEFINE_ANCHOR(name, method, defaultAxis) \
+DEFINE_ANCHOR_BASE(name, method, defaultAxis)\
+DEFINE_ANCHOR_AXIS(name, AxisRd, AnchorAxis::Rd)\
+DEFINE_ANCHOR_AXIS(name, AxisLd, AnchorAxis::Ld)\
+DEFINE_ANCHOR_AXIS(name, AxisRu, AnchorAxis::Ru)\
+DEFINE_ANCHOR_AXIS(name, AxisLu, AnchorAxis::Lu)
 
     public:
         /// <summary>
@@ -55,7 +78,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tl, tl, AxisRd)
+        DEFINE_ANCHOR(Tl, tl, AnchorAxis::Rd)
 
         /// <summary>
         /// ┏━━━━━■
@@ -64,7 +87,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tr, tr, AxisLd)
+        DEFINE_ANCHOR(Tr, tr, AnchorAxis::Ld)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -73,7 +96,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ■━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Bl, bl, AxisRu)
+        DEFINE_ANCHOR(Bl, bl, AnchorAxis::Ru)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -82,7 +105,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━■
         /// </summary>
-        DEFINE_ANCHOR(Br, br, AxisLu)
+        DEFINE_ANCHOR(Br, br, AnchorAxis::Lu)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -91,7 +114,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cc, center, AxisRd)
+        DEFINE_ANCHOR(Cc, center, AnchorAxis::Rd)
 
         /// <summary>
         /// ┏━━■━━┓
@@ -100,7 +123,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Tc, topCenter, AxisRd)
+        DEFINE_ANCHOR(Tc, topCenter, AnchorAxis::Rd)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -109,7 +132,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━■━━┛
         /// </summary>
-        DEFINE_ANCHOR(Bc, bottomCenter, AxisRu)
+        DEFINE_ANCHOR(Bc, bottomCenter, AnchorAxis::Ru)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -118,7 +141,7 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cl, leftCenter, AxisRd)
+        DEFINE_ANCHOR(Cl, leftCenter, AnchorAxis::Rd)
 
         /// <summary>
         /// ┏━━━━━┓
@@ -127,8 +150,9 @@ DEFINE_ANCHOR_AXIS(name##AxisLu, method, AxisLu)
         /// ┃          ┃
         /// ┗━━━━━┛
         /// </summary>
-        DEFINE_ANCHOR(Cr, rightCenter, AxisLd)
+        DEFINE_ANCHOR(Cr, rightCenter, AnchorAxis::Ld)
 #undef DEFINE_ANCHOR
+#undef DEFINE_ANCHOR_BASE
 #undef DEFINE_ANCHOR_AXIS
     };
 }
