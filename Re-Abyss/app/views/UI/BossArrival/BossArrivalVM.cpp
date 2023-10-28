@@ -18,6 +18,7 @@ namespace abyss::UI::BossArrival
     {
         // Warning
         {
+            constexpr auto* warningText = U"WARNING WARNING WARNING WARNING WARNING WARNING";
             constexpr double thick = 3;
             const Vec2 pivot0{ 0,Param::Pivot0 };
             const Vec2 pivot1{ 0,Param::Pivot1 };
@@ -26,12 +27,11 @@ namespace abyss::UI::BossArrival
             const ColorF color(1, 0, 0, alpha);
             Line(AnchorUtil::FromTl(pivot0), AnchorUtil::FromTr(pivot0)).draw(thick, color);
             Line(AnchorUtil::FromTl(pivot1), AnchorUtil::FromTr(pivot1)).draw(thick, color);
-            m_font(U"WARNING WARNING WARNING WARNING").draw(Arg::leftCenter = (pivot0 + pivot1) /2 , color);
+            m_font(warningText).draw(Arg::leftCenter = (pivot0 + pivot1) /2 , color);
             Line(AnchorUtil::FromBl(pivot0), AnchorUtil::FromBr(pivot0)).draw(thick, color);
             Line(AnchorUtil::FromBl(pivot1), AnchorUtil::FromBr(pivot1)).draw(thick, color);
-            m_font(U"WARNING WARNING WARNING WARNING").draw(Arg::rightCenter = AnchorUtil::FromBr((pivot0 + pivot1) / 2), color);
+            m_font(warningText).draw(Arg::rightCenter = AnchorUtil::FromBr((pivot0 + pivot1) / 2), color);
         }
-
         // Center Text
         {
             auto scoped = m_shader
