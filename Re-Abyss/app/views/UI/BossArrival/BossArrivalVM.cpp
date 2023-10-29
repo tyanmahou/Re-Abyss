@@ -18,10 +18,11 @@ namespace abyss::UI::BossArrival
     {
         // Warning
         {
-            constexpr auto* warningText = U"WARNING WARNING WARNING WARNING WARNING WARNING";
+            constexpr auto* warningText = U"WARNING WARNING WARNING WARNING WARNING WARNING WARNING";
             constexpr double thick = 3;
-            const Vec2 pivot0{ 0,Param::Pivot0 };
-            const Vec2 pivot1{ 0,Param::Pivot1 };
+            double move = -m_timeRate * 50;
+            const Vec2 pivot0{ move,Param::Pivot0 };
+            const Vec2 pivot1{ move,Param::Pivot1 };
             double alpha = 1.0;
 
             const ColorF color(1, 0, 0, alpha);
