@@ -23,7 +23,15 @@ namespace abyss::UI::BossArrival
             double move = -m_timeRate * 50;
             const Vec2 pivot0{ move,Param::Pivot0 };
             const Vec2 pivot1{ move,Param::Pivot1 };
-            double alpha = 1.0;
+            const double alpha = [this]() {
+                if (m_timeRate <= 0.2) {
+                    return m_timeRate / 0.2;
+                } else if (m_timeRate < 0.9) {
+                    return 1.0;
+                } else {
+                    return 1.0-(m_timeRate-0.9) / 0.1;
+                }
+            }();
 
             const ColorF color(1, 0, 0, alpha);
             Line(AnchorUtil::FromTl(pivot0), AnchorUtil::FromTr(pivot0)).draw(thick, color);
