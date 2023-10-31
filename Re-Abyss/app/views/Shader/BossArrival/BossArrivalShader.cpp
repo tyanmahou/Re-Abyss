@@ -21,6 +21,10 @@ namespace abyss
         {
             m_cb->pos = static_cast<Float2>(pos);
         }
+        s3d::Vec2 getPos() const
+        {
+            return static_cast<s3d::Vec2>(m_cb->pos);
+        }
         void setTime(double time)
         {
             m_cb->timer = static_cast<float>(time);
@@ -55,5 +59,9 @@ namespace abyss
     s3d::ScopedCustomShader2D BossArrivalShader::start() const
     {
         return m_pImpl->start();
+    }
+    s3d::Vec2 BossArrivalShader::getPos() const
+    {
+        return m_pImpl->getPos();
     }
 }

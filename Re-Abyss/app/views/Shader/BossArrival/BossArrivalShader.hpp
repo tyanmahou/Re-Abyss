@@ -18,6 +18,8 @@ namespace abyss
         const BossArrivalShader& setPos(const s3d::Vec2& pos) const;
         const BossArrivalShader& setTime(double time) const;
         s3d::ScopedCustomShader2D start() const;
+
+        s3d::Vec2 getPos() const;
     private:
         std::unique_ptr<Impl> m_pImpl;
     };
