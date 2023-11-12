@@ -1,6 +1,6 @@
-#if ABYSS_DO_TEST
+﻿#if ABYSS_DO_TEST
 #include <ThirdParty/Catch2/catch.hpp>
-#include <abyss/utils/FixedPtr/FixedPtr.hpp>
+#include <abyss/utils/Memory/fixed_ptr.hpp>
 
 namespace
 {
@@ -107,11 +107,11 @@ namespace abyss::tests
 
             PtrType ptr(new A{});
 
-            REQUIRE(ptr->func() == 1);
+            REQUIRE(fixed_dynamic_cast<Super*>(ptr)->func() == 1);
 
             PtrType ptr2(new B{});
 
-            REQUIRE(ptr2->func() == 2);
+            REQUIRE(fixed_dynamic_cast<Super*>(ptr2)->func() == 2);
         }
     }
 }

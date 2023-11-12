@@ -1,11 +1,11 @@
-#pragma once
+﻿#pragma once
 #include <memory>
 #include <type_traits>
 #include <concepts>
 
 namespace abyss
 {
-    template<class Base, std::derived_from<Base>... Deriveds>
+    template<class... Types>
     class fixed_ptr
     {
     public:
@@ -18,15 +18,15 @@ namespace abyss
                 virtual void* visit([[maybe_unused]] T*) const = 0;
             };
 
-            struct base_type : ivisitor<Base>, ivisitor<Deriveds>...
+            struct base_type : ivisitor<Types>...
             {
-                using ivisitor<Base>::visit;
-                using ivisitor<Deriveds>::visit...;
+                using ivisitor<Types>::visit...;
             };
 
             template<class To, class Head, class... Tail>
             struct tester : tester<To, Tail...>
             {
+                using tester<To, Tail...>::visit;
                 constexpr void* visit([[maybe_unused]] Head* ptr) const override
                 {
                     if constexpr (std::convertible_to<Head*, To*>) {
@@ -39,6 +39,7 @@ namespace abyss
             template<class To, class Last>
             struct tester<To, Last> : base_type
             {
+                using base_type::visit;
                 constexpr void* visit([[maybe_unused]] Last* ptr) const override
                 {
                     if constexpr (std::convertible_to<Last*, To*>) {
@@ -49,12 +50,12 @@ namespace abyss
                 }
             };
             template<class To>
-            using tester_type = tester<To, Base, Deriveds...>;
+            using tester_type = tester<To, Types...>;
 
         public:
             template<class To>
             visitor_type([[maybe_unused]] To*) :
-                m_tester(std::make_unique<tester_type<To>>())
+                m_tester(&std::get<tester_type<To>>(s_testers))
             {}
 
             template<class From>
@@ -63,14 +64,15 @@ namespace abyss
                 return m_tester->visit(from);
             }
         private:
-            std::unique_ptr<base_type> m_tester;
+            base_type* m_tester;
+            static inline std::tuple<tester_type<Types>...> s_testers;
         };
 
     private:
         struct base_type
         {
             virtual ~base_type() = default;
-            virtual Base* get() const = 0;
+            virtual void* get() const = 0;
             virtual void* accept(const visitor_type& visitor) const = 0;
         };
         template<class T>
@@ -84,9 +86,9 @@ namespace abyss
             {
                 delete ptr;
             }
-            Base* get() const
+            void* get() const override
             {
-                return static_cast<Base*>(ptr);
+                return static_cast<void*>(ptr);
             }
             template<class U>
             void* accept2([[maybe_unused]] const visitor_type& visitor) const
@@ -100,7 +102,7 @@ namespace abyss
             void* accept(const visitor_type& visitor) const override
             {
                 void* ret = nullptr;
-                (ret = accept2<Base>(visitor), ret != nullptr) || ((ret = accept2<Deriveds>(visitor), ret != nullptr) || ...);
+                ((ret = accept2<Types>(visitor), ret != nullptr) || ...);
                 return ret;
             }
         };
@@ -114,7 +116,7 @@ namespace abyss
         fixed_ptr(std::nullptr_t) :
             m_ptr(nullptr)
         {}
-        Base* get() const
+        void* get() const
         {
             if (!m_ptr) {
                 return nullptr;
@@ -134,16 +136,6 @@ namespace abyss
             }
             return m_ptr->accept(visitor);
         }
-
-        Base& operator *() const
-        {
-            return *get();
-        }
-        Base* operator ->() const
-        {
-            return get();
-        }
-
         explicit operator bool() const
         {
             return m_ptr != nullptr;
@@ -161,12 +153,12 @@ namespace abyss
     template<class ToPtr>
     struct fixed_dynamic_cast_impl
     {
-        template<class Base, std::derived_from<Base>... Deriveds>
-        requires std::same_as<std::decay_t<ToPtr>, Base*> || (std::same_as<std::decay_t<ToPtr>, Deriveds*> || ...)
-            ToPtr operator()(const fixed_ptr<Base, Deriveds...>&ptr) const
+        template<class... Types>
+            requires (std::same_as<std::decay_t<ToPtr>, Types*> || ...)
+        ToPtr operator()(const fixed_ptr<Types...>& ptr) const
         {
             ToPtr to = nullptr;
-            typename fixed_ptr<Base, Deriveds...>::visitor_type visitor = to;
+            typename fixed_ptr<Types...>::visitor_type visitor = to;
 
             if (auto ret = ptr.accept(visitor)) {
                 to = static_cast<ToPtr>(ret);

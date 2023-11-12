@@ -1,7 +1,7 @@
-#pragma once
+﻿#pragma once
 #include <type_traits>
 #include <memory>
-#include <abyss/utils/FixedPtr/FixedPtr.hpp>
+#include <abyss/utils/Memory/fixed_ptr.hpp>
 
 namespace abyss
 {

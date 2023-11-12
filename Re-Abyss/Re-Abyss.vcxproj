@@ -1474,6 +1474,8 @@
     <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp" />
     <ClInclude Include="app\utils\Math\Complex.hpp" />
     <ClInclude Include="app\utils\Math\DualComplex.hpp" />
+    <ClInclude Include="app\utils\Memory\fixed_ptr.hpp" />
+    <ClInclude Include="app\utils\Memory\variant_ptr.hpp" />
     <ClInclude Include="app\utils\Thread\Task.hpp" />
     <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
     <ClInclude Include="app\modules\User\DataStore.hpp" />
@@ -2290,7 +2292,6 @@
     <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
     <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
-    <ClInclude Include="app\utils\FixedPtr\FixedPtr.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
