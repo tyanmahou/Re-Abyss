@@ -32,7 +32,7 @@ namespace abyss::UI::BossArrival
             {
                 const double radiusRate = [this]() {
                     if (m_timeRate <= 0.9) {
-                        return 0.9 + 0.1 * m_timeRate / 0.9;
+                        return 0.95 + 0.05 * m_timeRate / 0.9;
                     } else {
                         return s3d::EaseInCirc(1 - (m_timeRate -0.9) / 0.1);
                     }
