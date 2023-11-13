@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #include <type_traits>
+#include <tuple>
 #include <concepts>
 
 namespace abyss
@@ -8,19 +9,21 @@ namespace abyss
     template<class... Types>
     class fixed_ptr
     {
+    public:
+        using base_type = std::tuple_element_t<0, std::tuple<Types...>>;
     private:
         template<class T>
         struct icaster
         {
             virtual ~icaster() = default;
-            virtual T* cast_to([[maybe_unused]] T*) const = 0;
+            virtual T* cast_to([[maybe_unused]] T*) const noexcept = 0;
         };
-        struct base_type : icaster<Types>...
+        struct holder_base : icaster<Types>...
         {
             using icaster<Types>::cast_to...;
 
-            virtual ~base_type() = default;
-            virtual void* get() const = 0;
+            virtual ~holder_base() = default;
+            virtual base_type* get() const noexcept = 0;
         };
         template<class T, class Head, class... Tail>
         struct holder : holder<T, Tail...>
@@ -29,7 +32,7 @@ namespace abyss
             using holder<T, Tail...>::ptr;
             using holder<T, Tail...>::cast_to;
 
-            Head* cast_to([[maybe_unused]] Head* _) const override
+            Head* cast_to([[maybe_unused]] Head* _) const noexcept override
             {
                 if constexpr (std::convertible_to<T*, Head*>) {
                     return static_cast<Head*>(ptr);
@@ -39,7 +42,7 @@ namespace abyss
             }
         };
         template<class T, class Last>
-        struct holder<T, Last> : base_type
+        struct holder<T, Last> : holder_base
         {
             T* ptr;
 
@@ -50,14 +53,14 @@ namespace abyss
             {
                 delete ptr;
             }
-            void* get() const override
+            base_type* get() const noexcept override
             {
                 return ptr;
             }
 
-            using base_type::cast_to;
+            using holder_base::cast_to;
 
-            Last* cast_to([[maybe_unused]] Last* _) const override
+            Last* cast_to([[maybe_unused]] Last* _) const noexcept override
             {
                 if constexpr (std::convertible_to<T*, Last*>) {
                     return static_cast<Last*>(ptr);
@@ -67,31 +70,38 @@ namespace abyss
             }
         };
     public:
-        fixed_ptr() = default;
-        template<class Type>
+        fixed_ptr() noexcept = default;
+        template<class Type> requires std::derived_from<Type, base_type>
         fixed_ptr(Type* ptr) :
             m_ptr(std::make_shared<holder<Type, Types...>>(ptr))
         {}
-
-        fixed_ptr(std::nullptr_t) :
+        fixed_ptr(const fixed_ptr& other) noexcept :
+            m_ptr(other.m_ptr)
+        {}
+        fixed_ptr(fixed_ptr&& other) noexcept :
+            m_ptr(std::move(other.m_ptr))
+        {}
+        fixed_ptr(std::nullptr_t) noexcept :
             m_ptr(nullptr)
         {}
-        void* get() const
+        base_type* get() const noexcept
         {
             if (!m_ptr) {
                 return nullptr;
             }
             return m_ptr->get();
         }
-
-        void release() const
+        base_type* operator ->() const noexcept
         {
-            m_ptr = nullptr;
+            return get();
         }
-
+        base_type& operator *() const noexcept
+        {
+            return *get();
+        }
         template<class ToPtr>
             requires (std::same_as<std::decay_t<ToPtr>, Types*> || ...)
-        ToPtr cast_to() const
+        ToPtr cast_to() const noexcept
         {
             if (!m_ptr) {
                 return nullptr;
@@ -99,18 +109,37 @@ namespace abyss
             ToPtr p{};
             return m_ptr->cast_to(p);
         }
-        explicit operator bool() const
+        void reset() 
         {
-            return m_ptr != nullptr;
+            m_ptr = nullptr;
         }
-
+        explicit operator bool() const noexcept
+        {
+            return get() != nullptr;
+        }
+        template<class Type> requires std::derived_from<Type, base_type>
+        fixed_ptr& operator=(Type* ptr)
+        {
+            m_ptr = std::make_shared<holder<Type, Types...>>(ptr);
+            return *this;
+        }
+        fixed_ptr& operator=(const fixed_ptr& other) noexcept
+        {
+            m_ptr = other.m_ptr;
+            return *this;
+        }
+        fixed_ptr& operator=(fixed_ptr&& other) noexcept
+        {
+            m_ptr = std::move(other.m_ptr);
+            return *this;
+        }
         template<class T, class... Args>
         static fixed_ptr make_fixed(Args&&... args)
         {
             return fixed_ptr(new T(std::forward<Args>(args)...));
         }
     private:
-        std::shared_ptr<base_type> m_ptr;
+        std::shared_ptr<holder_base> m_ptr;
     };
 
     template<class ToPtr>
@@ -120,7 +149,7 @@ namespace abyss
             requires (std::same_as<std::decay_t<ToPtr>, Types*> || ...)
         ToPtr operator()(const fixed_ptr<Types...>& ptr) const
         {
-            return ptr.cast_to<ToPtr>();
+            return ptr.template cast_to<ToPtr>();
         }
     };
 

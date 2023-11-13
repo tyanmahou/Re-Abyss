@@ -8,45 +8,16 @@ namespace abyss
     class variant_ptr
     {
     public:
+        using value_type = std::variant<Base*, Deriveds*...>;
+    public:
         variant_ptr() noexcept = default;
         template<class Type> requires std::same_as<Type, Base> || (std::same_as<Type, Deriveds> || ...)
             variant_ptr(Type * ptr) noexcept
         {
-            if (ptr == nullptr) {
-                return;
-            }
-            const auto& rtti = typeid(*ptr);
-            if (rtti == typeid(Type)) [[likely]] {
-                m_ptr = ptr;
-                return;
-                }
-            Base* base = static_cast<Base*>(ptr);
-            if (rtti == typeid(Base)) {
-                m_ptr = base;
-                return;
-            }
-            auto derived_checks = [&]<class T>(T*) {
-                if (rtti == typeid(T)) {
-                    if constexpr (std::convertible_to<Base*, T*>) {
-                        m_ptr = static_cast<T*>(base);
-                        return true;
-                    } else {
-                        m_ptr = dynamic_cast<T*>(base);
-                        return true;
-                    }
-                }
-                return false;
-            };
-            if ((derived_checks(static_cast<Deriveds*>(nullptr)) || ...)) {
-                return;
-            }
-            m_ptr = ptr;
+            *this = ptr;
         }
         variant_ptr(const variant_ptr& other) noexcept :
             m_ptr(other.m_ptr)
-        {}
-        variant_ptr(variant_ptr&& other) noexcept :
-            m_ptr(std::move(other.m_ptr))
         {}
         variant_ptr(std::nullptr_t) noexcept :
             m_ptr()
@@ -74,12 +45,56 @@ namespace abyss
                 }
             }, m_ptr);
         }
+        void reset() noexcept
+        {
+            m_ptr = value_type{};
+        }
         explicit operator bool() const noexcept
         {
             return get() != nullptr;
         }
+        template<class Type> requires std::same_as<Type, Base> || (std::same_as<Type, Deriveds> || ...)
+        variant_ptr& operator=(Type* ptr) noexcept
+        {
+            if (ptr == nullptr) {
+                m_ptr = value_type{};
+                return *this;
+            }
+            const auto& rtti = typeid(*ptr);
+            if (rtti == typeid(Type)) [[likely]] {
+                m_ptr = ptr;
+                return *this;
+                }
+            Base* base = static_cast<Base*>(ptr);
+            if (rtti == typeid(Base)) {
+                m_ptr = base;
+                return *this;
+            }
+            auto derived_checks = [&]<class T>(T*) {
+                if (rtti == typeid(T)) {
+                    if constexpr (std::convertible_to<Base*, T*>) {
+                        m_ptr = static_cast<T*>(base);
+                        return true;
+                    } else {
+                        m_ptr = dynamic_cast<T*>(base);
+                        return true;
+                    }
+                }
+                return false;
+            };
+            if ((derived_checks(static_cast<Deriveds*>(nullptr)) || ...)) {
+                return *this;
+            }
+            m_ptr = ptr;
+            return *this;
+        }
+        variant_ptr& operator=(const variant_ptr& other) noexcept
+        {
+            m_ptr = other.m_ptr;
+            return *this;
+        }
     private:
-        std::variant<Base*, Deriveds*...> m_ptr;
+        value_type m_ptr;
     };
     template<class ToPtr>
     struct variant_dynamic_cast_impl
