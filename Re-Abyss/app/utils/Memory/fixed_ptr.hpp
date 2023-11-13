@@ -8,109 +8,69 @@ namespace abyss
     template<class... Types>
     class fixed_ptr
     {
-    public:
-        class visitor_type
-        {
-            template<class T>
-            struct ivisitor
-            {
-                virtual ~ivisitor() = default;
-                virtual void* visit([[maybe_unused]] T*) const = 0;
-            };
-
-            struct base_type : ivisitor<Types>...
-            {
-                using ivisitor<Types>::visit...;
-            };
-
-            template<class To, class Head, class... Tail>
-            struct tester : tester<To, Tail...>
-            {
-                using tester<To, Tail...>::visit;
-                constexpr void* visit([[maybe_unused]] Head* ptr) const override
-                {
-                    if constexpr (std::convertible_to<Head*, To*>) {
-                        return static_cast<To*>(ptr);
-                    } else {
-                        return nullptr;
-                    }
-                }
-            };
-            template<class To, class Last>
-            struct tester<To, Last> : base_type
-            {
-                using base_type::visit;
-                constexpr void* visit([[maybe_unused]] Last* ptr) const override
-                {
-                    if constexpr (std::convertible_to<Last*, To*>) {
-                        return static_cast<To*>(ptr);
-                    } else {
-                        return nullptr;
-                    }
-                }
-            };
-            template<class To>
-            using tester_type = tester<To, Types...>;
-
-        public:
-            template<class To>
-            visitor_type([[maybe_unused]] To*) :
-                m_tester(&std::get<tester_type<To>>(s_testers))
-            {}
-
-            template<class From>
-            void* visit(From* from) const
-            {
-                return m_tester->visit(from);
-            }
-        private:
-            base_type* m_tester;
-            static inline std::tuple<tester_type<Types>...> s_testers;
-        };
-
     private:
-        struct base_type
+        template<class T>
+        struct icaster
         {
+            virtual ~icaster() = default;
+            virtual T* cast_to([[maybe_unused]] T*) const = 0;
+        };
+        struct base_type : icaster<Types>...
+        {
+            using icaster<Types>::cast_to...;
+
             virtual ~base_type() = default;
             virtual void* get() const = 0;
-            virtual void* accept(const visitor_type& visitor) const = 0;
         };
-        template<class T>
-        struct holder_type : base_type
+        template<class T, class Head, class... Tail>
+        struct holder : holder<T, Tail...>
+        {
+            using holder<T, Tail...>::holder;
+            using holder<T, Tail...>::ptr;
+            using holder<T, Tail...>::cast_to;
+
+            Head* cast_to([[maybe_unused]] Head* _) const override
+            {
+                if constexpr (std::convertible_to<T*, Head*>) {
+                    return static_cast<Head*>(ptr);
+                } else {
+                    return nullptr;
+                }
+            }
+        };
+        template<class T, class Last>
+        struct holder<T, Last> : base_type
         {
             T* ptr;
-            holder_type(T* p) :
-                ptr(p)
+
+            holder(T* _ptr):
+                ptr(_ptr)
             {}
-            ~holder_type()
+            ~holder()
             {
                 delete ptr;
             }
             void* get() const override
             {
-                return static_cast<void*>(ptr);
+                return ptr;
             }
-            template<class U>
-            void* accept2([[maybe_unused]] const visitor_type& visitor) const
+
+            using base_type::cast_to;
+
+            Last* cast_to([[maybe_unused]] Last* _) const override
             {
-                if constexpr (std::convertible_to<T*, U*>) {
-                    return visitor.visit(static_cast<U*>(ptr));
+                if constexpr (std::convertible_to<T*, Last*>) {
+                    return static_cast<Last*>(ptr);
                 } else {
                     return nullptr;
                 }
-            }
-            void* accept(const visitor_type& visitor) const override
-            {
-                void* ret = nullptr;
-                ((ret = accept2<Types>(visitor), ret != nullptr) || ...);
-                return ret;
             }
         };
     public:
         fixed_ptr() = default;
         template<class Type>
         fixed_ptr(Type* ptr) :
-            m_ptr(std::make_shared<holder_type<Type>>(ptr))
+            m_ptr(std::make_shared<holder<Type, Types...>>(ptr))
         {}
 
         fixed_ptr(std::nullptr_t) :
@@ -129,12 +89,15 @@ namespace abyss
             m_ptr = nullptr;
         }
 
-        void* accept(const visitor_type& visitor) const
+        template<class ToPtr>
+            requires (std::same_as<std::decay_t<ToPtr>, Types*> || ...)
+        ToPtr cast_to() const
         {
             if (!m_ptr) {
                 return nullptr;
             }
-            return m_ptr->accept(visitor);
+            ToPtr p{};
+            return m_ptr->cast_to(p);
         }
         explicit operator bool() const
         {
@@ -157,13 +120,7 @@ namespace abyss
             requires (std::same_as<std::decay_t<ToPtr>, Types*> || ...)
         ToPtr operator()(const fixed_ptr<Types...>& ptr) const
         {
-            ToPtr to = nullptr;
-            typename fixed_ptr<Types...>::visitor_type visitor = to;
-
-            if (auto ret = ptr.accept(visitor)) {
-                to = static_cast<ToPtr>(ret);
-            }
-            return to;
+            return ptr.cast_to<ToPtr>();
         }
     };
 
