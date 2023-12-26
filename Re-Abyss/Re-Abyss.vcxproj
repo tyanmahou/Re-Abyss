@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <EnableStdModules>false</EnableStdModules>
-  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -23,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{c3abbbf2-2fbd-4771-a150-4aa7a1200e1a}</ProjectGuid>
+    <ProjectGuid>{2cfceb93-7761-4e21-b87a-7072892e7594}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Re_Abyss</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -42,14 +39,14 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
@@ -67,10 +64,10 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -79,40 +76,36 @@
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
     <TargetName>$(ProjectName)(debug)</TargetName>
-    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(SIV3D_0_6_12)\include;$(SIV3D_0_6_12)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_12)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(SIV3D_0_6_12)\include;$(SIV3D_0_6_12)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_12)\lib\Windows;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
-    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(SIV3D_0_6_12)\include;$(SIV3D_0_6_12)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_12)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <LocalDebuggerWorkingDirectory>$(ProjectDir)App</LocalDebuggerWorkingDirectory>
-    <IncludePath>$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(SIV3D_0_6_12)\include;$(SIV3D_0_6_12)\include\ThirdParty;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_12)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
+    <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
+    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -121,13 +114,10 @@
       <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <ForcedIncludeFiles>abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BuildStlModules>false</BuildStlModules>
       <PrecompiledHeaderFile>abyss/stdafx.hpp</PrecompiledHeaderFile>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
-      <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -135,8 +125,11 @@
       <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)/build"</Command>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)build"</Command>
     </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>ABYSS_NO_BUILD_RESOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,7 +138,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -154,13 +147,10 @@
       <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <ForcedIncludeFiles>abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BuildStlModules>false</BuildStlModules>
       <PrecompiledHeaderFile>abyss/stdafx.hpp</PrecompiledHeaderFile>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
-      <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -170,42 +160,7 @@
       <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)/build"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
-    <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;ABYSS_STAGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <DisableSpecificWarnings>26451;26812;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <ForcedIncludeFiles>abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <PrecompiledHeaderFile>abyss/stdafx.hpp</PrecompiledHeaderFile>
-      <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
-      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
-      <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <BuildStlModules>false</BuildStlModules>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
-    </Link>
-    <PostBuildEvent>
-      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)/build"</Command>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)build"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
@@ -215,7 +170,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;ABYSS_DEVELOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;ABYSS_DEVELOP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -224,13 +179,10 @@
       <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <ForcedIncludeFiles>abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BuildStlModules>false</BuildStlModules>
       <PrecompiledHeaderFile>abyss/stdafx.hpp</PrecompiledHeaderFile>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
-      <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
-      <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -240,11 +192,43 @@
       <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)/build"</Command>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)build"</Command>
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>ABYSS_NO_BUILD_RESOURCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_ENABLE_EXTENDED_ALIGNED_STORAGE;_SILENCE_CXX20_CISO646_REMOVED_WARNING;_SILENCE_ALL_CXX23_DEPRECATION_WARNINGS;_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS;ABYSS_STAGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableSpecificWarnings>26451;26812;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalOptions>/Zc:__cplusplus /source-charset: utf-8 /std:c++latest %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <ForcedIncludeFiles>abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <BuildStlModules>false</BuildStlModules>
+      <PrecompiledHeaderFile>abyss/stdafx.hpp</PrecompiledHeaderFile>
+      <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <DelayLoadDLLs>advapi32.dll;crypt32.dll;dwmapi.dll;gdi32.dll;imm32.dll;ole32.dll;oleaut32.dll;opengl32.dll;shell32.dll;shlwapi.dll;user32.dll;winmm.dll;ws2_32.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)build"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app\commons\Application\AppRunner.cpp" />
@@ -254,161 +238,25 @@
     <ClCompile Include="app\commons\ColorDef.cpp" />
     <ClCompile Include="app\commons\Factory\Adv\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Message\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Migration\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Project\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Scene\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\Sound\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Stage\Injector.cpp" />
+    <ClCompile Include="app\commons\Factory\Storage\Injector.cpp" />
     <ClCompile Include="app\commons\Factory\System\Injector.cpp" />
     <ClCompile Include="app\commons\Game\Game.cpp" />
     <ClCompile Include="app\commons\Game\RenderStateInitializer.cpp" />
     <ClCompile Include="app\commons\InputManager\InputManager.cpp" />
+    <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
+    <ClCompile Include="app\commons\Resource\Font\FontRegister.cpp" />
     <ClCompile Include="app\commons\Resource\Msg\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Msg\MessageTable.cpp" />
-    <ClCompile Include="app\commons\Resource\Font\FontRegister.cpp" />
-    <ClCompile Include="app\commons\Resource\Preload\Presets.cpp" />
-    <ClCompile Include="app\components\Actor\Common\BossFadeHider.cpp" />
-    <ClCompile Include="app\components\Actor\Common\DeployId.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\MainCollider.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\AimState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BossHpBarTarget.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AngryState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\ShotState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\CodeZero\WingCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
-    <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
-    <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
-    <ClCompile Include="app\components\Adv\BossCommon\Builder.cpp" />
-    <ClCompile Include="app\components\Adv\BossCommon\Command\BossArrival.cpp" />
-    <ClCompile Include="app\components\Adv\BossCommon\Command\ShowHpBar.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Builder.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\AppearEnd.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\AppearStart.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\DisappearEnd.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\DisappearStart.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\Teardown.cpp" />
-    <ClCompile Include="app\components\Adv\CodeZeroDemo\SignalCtrl.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\Bgm.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\CharaSetter.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\ClearMessage.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\ColorTag.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\MessageStream.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\NameSetter.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\PauseDisabled.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\ShakeTag.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\ShowHideMessage.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\SignalReceive.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\SignalSend.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\SkipEnabled.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\WaitInput.cpp" />
-    <ClCompile Include="app\components\Adv\Common\Command\WaitTime.cpp" />
-    <ClCompile Include="app\components\Adv\Common\EventCtrl.cpp" />
-    <ClCompile Include="app\components\Adv\Common\MessageBox.cpp" />
-    <ClCompile Include="app\components\Adv\Common\TalkCtrl.cpp" />
-    <ClCompile Include="app\components\Adv\CommonUtil.cpp" />
-    <ClCompile Include="app\components\Adv\AdvBuilder.cpp" />
-    <ClCompile Include="app\components\Adv\RoomGarder\Builder.cpp" />
-    <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
-    <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
-    <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
-    <ClCompile Include="app\components\Cycle\Experiment\Builder.cpp" />
-    <ClCompile Include="app\components\Cycle\Experiment\Master.cpp" />
-    <ClCompile Include="app\components\Fade\FadeUtil.cpp" />
-    <ClCompile Include="app\components\UI\BossArrival\Builder.cpp" />
-    <ClCompile Include="app\components\UI\BossArrival\Main.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\BossArrival\Topic.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\DualComplexLab\Topic.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\Main.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\TopicBoard.cpp" />
-    <ClCompile Include="app\components\UI\Experiment\WorkLab\Topic.cpp" />
-    <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
-    <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
-    <ClCompile Include="app\components\UI\Home\Top\ModeUtil.cpp" />
-    <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Splash\Main.cpp" />
-    <ClCompile Include="app\components\UI\StageResult\Builder.cpp" />
-    <ClCompile Include="app\components\UI\StageResult\Main.cpp" />
-    <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
-    <ClCompile Include="app\datastores\Sound\CSVSoundBankDataStore.cpp" />
-    <ClCompile Include="app\debugs\HotReload\HotReloadUtil.cpp" />
-    <ClCompile Include="app\modules\Adv\base\Process.cpp" />
-    <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
-    <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
-    <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
-    <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
-    <ClCompile Include="app\components\Cycle\Home\Builder.cpp" />
-    <ClCompile Include="app\components\Cycle\Home\Master.cpp" />
-    <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
-    <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Builder.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp" />
-    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.cpp" />
-    <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
-    <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
-    <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp" />
-    <ClCompile Include="app\components\UI\DevPortal\Builder.cpp" />
-    <ClCompile Include="app\components\UI\DevPortal\Main.cpp" />
-    <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp" />
-    <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
-    <ClCompile Include="app\datastores\Devs\Project\GitHubDataStore.cpp" />
-    <ClCompile Include="app\datastores\Msg\CSVMessageDataStore.cpp" />
-    <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
-    <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
-    <ClCompile Include="app\modules\Actor\Actors.cpp" />
-    <ClCompile Include="app\modules\Adv\Adventures.cpp" />
-    <ClCompile Include="app\modules\Adv\base\AdvObj.cpp" />
-    <ClCompile Include="app\models\Adv\Chara.cpp" />
-    <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp" />
-    <ClCompile Include="app\modules\Adv\Project\Project.cpp" />
-    <ClCompile Include="app\modules\Adv\TagString.cpp" />
-    <ClCompile Include="app\modules\Camera\CameraErp\CameraErpCtrl.cpp" />
-    <ClCompile Include="app\modules\Devs\Project\base\Tasks.cpp" />
-    <ClCompile Include="app\modules\Devs\Project\Project.cpp" />
-    <ClCompile Include="app\modules\Fade\Fader.cpp" />
-    <ClCompile Include="app\modules\Fade\SceneFader.cpp" />
-    <ClCompile Include="app\modules\FieldEnv\Fog\Fog.cpp" />
-    <ClCompile Include="app\modules\GameObject\IComponent.cpp" />
-    <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
-    <ClCompile Include="app\modules\Sfx\Bloom\Bloom.cpp" />
-    <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
-    <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp" />
-    <ClCompile Include="app\modules\Sfx\DecorFar\DecorFar.cpp" />
-    <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
-    <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
-    <ClCompile Include="app\modules\Sound\SceneSound.cpp" />
-    <ClCompile Include="app\modules\Sound\Se\SeCaches.cpp" />
-    <ClCompile Include="app\modules\Sound\Se\SoundEffects.cpp" />
-    <ClCompile Include="app\modules\Sound\SoundBank\SoundBank.cpp" />
-    <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
-    <ClCompile Include="app\modules\User\Storage.cpp" />
-    <ClCompile Include="app\components\Fade\IrisOut\IrisOutFade.cpp" />
-    <ClCompile Include="app\components\Fade\Screen\ScreenFade.cpp" />
-    <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
-    <ClCompile Include="app\scenes\Loading\Loader.cpp" />
-    <ClCompile Include="app\commons\Resource\Assets\Assets.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Param.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\Preloader.cpp" />
     <ClCompile Include="app\commons\Resource\Preload\PreloadInfo.cpp" />
+    <ClCompile Include="app\commons\Resource\Preload\Presets.cpp" />
     <ClCompile Include="app\commons\Resource\SaveUtil.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Manager\Manager.cpp" />
     <ClCompile Include="app\commons\Resource\UserData\Migration\Migration.cpp" />
@@ -418,6 +266,7 @@
     <ClCompile Include="app\components\Actor\Common\BehaviorTest.cpp" />
     <ClCompile Include="app\components\Actor\Common\Body.cpp" />
     <ClCompile Include="app\components\Actor\Common\BodyUpdater.cpp" />
+    <ClCompile Include="app\components\Actor\Common\BossFadeHider.cpp" />
     <ClCompile Include="app\components\Actor\Common\BossFadeMask.cpp" />
     <ClCompile Include="app\components\Actor\Common\BreathingCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Common\CameraFixPos.cpp" />
@@ -440,6 +289,7 @@
     <ClCompile Include="app\components\Actor\Common\DeadCheacker.cpp" />
     <ClCompile Include="app\components\Actor\Common\DeadOnHItReceiver.cpp" />
     <ClCompile Include="app\components\Actor\Common\DebugInfo.cpp" />
+    <ClCompile Include="app\components\Actor\Common\DeployId.cpp" />
     <ClCompile Include="app\components\Actor\Common\FallChecker.cpp" />
     <ClCompile Include="app\components\Actor\Common\Foot.cpp" />
     <ClCompile Include="app\components\Actor\Common\HP.cpp" />
@@ -453,6 +303,23 @@
     <ClCompile Include="app\components\Actor\Common\TerrainProxy.cpp" />
     <ClCompile Include="app\components\Actor\Common\TimeCounter.cpp" />
     <ClCompile Include="app\components\Actor\Common\VModelUpdater.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Main.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ParentObserver.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\AppearState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\MoveState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\MainCollider.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\AimState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\BossHpBarTarget.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\BossUtil.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.cpp" />
@@ -470,6 +337,9 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandMove.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.cpp" />
@@ -487,10 +357,13 @@
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitEndState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\Shot\State\WaitState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AngryState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\AppearState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\DeadState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\ShotState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CodeZero\State\WaitState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\CodeZero\WingCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\DamageCallback.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\DeadCallback.cpp" />
@@ -502,12 +375,6 @@
     <ClCompile Include="app\components\Actor\Enemy\Ikalien\State\WaitState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\ItemDropCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\BabyCtrl.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Builder.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\Main.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\ParentObserver.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\AppearState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\BaseState.cpp" />
-    <ClCompile Include="app\components\Actor\Enemy\BabyDux\State\MoveState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Behavior.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\KingDux\CrownCollider.cpp" />
@@ -547,6 +414,7 @@
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\LauncherState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\LaunShark\State\SwimState.cpp" />
+    <ClCompile Include="app\components\Actor\Enemy\MidBossDeadCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Enemy\RollingTako\State\RunState.cpp" />
@@ -574,10 +442,16 @@
     <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\CodeZeroBack\Main.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\DoorProxy.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\Door\GimmickReactor.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Gimmick\EventTrigger\Main.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\Builder.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.cpp" />
     <ClCompile Include="app\components\Actor\God\Builder.cpp" />
     <ClCompile Include="app\components\Actor\Item\CommonBuilder.cpp" />
     <ClCompile Include="app\components\Actor\Item\ItemCollision.cpp" />
@@ -607,6 +481,7 @@
     <ClCompile Include="app\components\Actor\Player\GimmickReactCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\MoveSwim.cpp" />
     <ClCompile Include="app\components\Actor\Player\OopartsCtrl.cpp" />
+    <ClCompile Include="app\components\Actor\Player\PlayerDesc.cpp" />
     <ClCompile Include="app\components\Actor\Player\PlayerUtil.cpp" />
     <ClCompile Include="app\components\Actor\Player\RestartCtrl.cpp" />
     <ClCompile Include="app\components\Actor\Player\RoomMoveChecker.cpp" />
@@ -619,6 +494,7 @@
     <ClCompile Include="app\components\Actor\Player\State\BaseState.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DamageState.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DeadState.cpp" />
+    <ClCompile Include="app\components\Actor\Player\State\DoorInMapMoveState.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\DoorInState.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\LadderState.cpp" />
     <ClCompile Include="app\components\Actor\Player\State\SwimState.cpp" />
@@ -626,6 +502,39 @@
     <ClCompile Include="app\components\Actor\Player\UICtrl.cpp" />
     <ClCompile Include="app\components\Actor\utils\ActorUtils.cpp" />
     <ClCompile Include="app\components\Actor\utils\BehaviorUtil.cpp" />
+    <ClCompile Include="app\components\Adv\AdvBuilder.cpp" />
+    <ClCompile Include="app\components\Adv\BossCommon\Builder.cpp" />
+    <ClCompile Include="app\components\Adv\BossCommon\Command\BossArrival.cpp" />
+    <ClCompile Include="app\components\Adv\BossCommon\Command\ShowHpBar.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Builder.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\AppearEnd.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\AppearStart.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\DisappearEnd.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\DisappearStart.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\Command\Teardown.cpp" />
+    <ClCompile Include="app\components\Adv\CodeZeroDemo\SignalCtrl.cpp" />
+    <ClCompile Include="app\components\Adv\CommonUtil.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\Bgm.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\CharaSetter.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\ClearMessage.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\ColorTag.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\MessageStream.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\NameSetter.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\PauseDisabled.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\ShakeTag.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\ShowHideMessage.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\SignalReceive.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\SignalSend.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\SkipEnabled.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\WaitInput.cpp" />
+    <ClCompile Include="app\components\Adv\Common\Command\WaitTime.cpp" />
+    <ClCompile Include="app\components\Adv\Common\EventCtrl.cpp" />
+    <ClCompile Include="app\components\Adv\Common\MessageBox.cpp" />
+    <ClCompile Include="app\components\Adv\Common\TalkCtrl.cpp" />
+    <ClCompile Include="app\components\Adv\RoomGarder\Builder.cpp" />
+    <ClCompile Include="app\components\Adv\RoomGarder\Command\Setup.cpp" />
+    <ClCompile Include="app\components\Adv\RoomGarder\Command\Teardown.cpp" />
+    <ClCompile Include="app\components\Adv\RoomGarder\SignalCtrl.cpp" />
     <ClCompile Include="app\components\Common\ClockCtrl.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Cron\BubbleGenerator\Generator.cpp" />
@@ -634,12 +543,20 @@
     <ClCompile Include="app\components\Cron\Common\RoomMoveCallbackCtrl.cpp" />
     <ClCompile Include="app\components\Cron\FishGenerator\Builder.cpp" />
     <ClCompile Include="app\components\Cron\FishGenerator\Generator.cpp" />
+    <ClCompile Include="app\components\Cycle\DevPortal\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\DevPortal\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\Experiment\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Experiment\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\Home\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\Home\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Main\Master.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\SaveSelect\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Splash\Master.cpp" />
+    <ClCompile Include="app\components\Cycle\StageResult\Builder.cpp" />
+    <ClCompile Include="app\components\Cycle\StageResult\Master.cpp" />
     <ClCompile Include="app\components\Cycle\Title\Builder.cpp" />
     <ClCompile Include="app\components\Cycle\Title\Master.cpp" />
     <ClCompile Include="app\components\Decor\City\StreetLight\Builder.cpp" />
@@ -657,8 +574,14 @@
     <ClCompile Include="app\components\Effect\Actor\Common\EnemyDead\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.cpp" />
+    <ClCompile Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Circles.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Item\Recovery\Flashs.cpp" />
@@ -670,7 +593,6 @@
     <ClCompile Include="app\components\Effect\Actor\Player\ShotFiring\Main.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Actor\Player\Shot\Main.cpp" />
-    <ClCompile Include="app\modules\Effect\base\Drawer.cpp" />
     <ClCompile Include="app\components\Effect\Common\BossFadeMask.cpp" />
     <ClCompile Include="app\components\Effect\Common\EmissiveCtrl.cpp" />
     <ClCompile Include="app\components\Effect\Common\LifeTime.cpp" />
@@ -682,7 +604,6 @@
     <ClCompile Include="app\components\Effect\Misc\Fish\Main.cpp" />
     <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\Builder.cpp" />
     <ClCompile Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.cpp" />
-    <ClCompile Include="app\modules\Event\base\StreamHandler.cpp" />
     <ClCompile Include="app\components\Event\Common\GlobalTimeCtrl.cpp" />
     <ClCompile Include="app\components\Event\Common\PlayerStateCtrl.cpp" />
     <ClCompile Include="app\components\Event\GameClear\Builder.cpp" />
@@ -693,6 +614,9 @@
     <ClCompile Include="app\components\Event\GameReady\MainStream.cpp" />
     <ClCompile Include="app\components\Event\GameRestart\Builder.cpp" />
     <ClCompile Include="app\components\Event\GameRestart\MainStream.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\Builder.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.cpp" />
+    <ClCompile Include="app\components\Event\MapMove\MapMoveCtrl.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\BasicMove\Builder.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\BasicMove\RoomMoveCallback.cpp" />
     <ClCompile Include="app\components\Event\RoomMove\DoorMove\Builder.cpp" />
@@ -701,16 +625,32 @@
     <ClCompile Include="app\components\Event\Talk\Builder.cpp" />
     <ClCompile Include="app\components\Event\Talk\MainStream.cpp" />
     <ClCompile Include="app\components\Event\Talk\PlayerStateChanger.cpp" />
-    <ClCompile Include="app\components\UI\Title\BgmCtrl.cpp" />
-    <ClCompile Include="app\components\UI\Title\Builder.cpp" />
-    <ClCompile Include="app\components\UI\Title\Main.cpp" />
+    <ClCompile Include="app\components\Fade\FadeUtil.cpp" />
+    <ClCompile Include="app\components\Fade\IrisOut\IrisOutFade.cpp" />
+    <ClCompile Include="app\components\Fade\Screen\ScreenFade.cpp" />
+    <ClCompile Include="app\components\UI\BossArrival\Builder.cpp" />
+    <ClCompile Include="app\components\UI\BossArrival\Main.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Builder.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\HPGaugeCtrl.cpp" />
     <ClCompile Include="app\components\UI\BossHPBar\Main.cpp" />
     <ClCompile Include="app\components\UI\Common\FooterTips.cpp" />
     <ClCompile Include="app\components\UI\Common\HierarchyCtrl.cpp" />
+    <ClCompile Include="app\components\UI\DevPortal\Builder.cpp" />
+    <ClCompile Include="app\components\UI\DevPortal\Main.cpp" />
+    <ClCompile Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Builder.cpp" />
     <ClCompile Include="app\components\UI\DyingEffect\Main.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\BossArrival\Topic.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\DualComplexLab\Topic.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\Main.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\TopicBoard.cpp" />
+    <ClCompile Include="app\components\UI\Experiment\WorkLab\Topic.cpp" />
+    <ClCompile Include="app\components\UI\GamePause\Main.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\Main.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\ModeUpdater.cpp" />
+    <ClCompile Include="app\components\UI\Home\Top\ModeUtil.cpp" />
     <ClCompile Include="app\components\UI\Message\Builder.cpp" />
     <ClCompile Include="app\components\UI\Message\Main.cpp" />
     <ClCompile Include="app\components\UI\PlayerInfo\Builder.cpp" />
@@ -728,18 +668,25 @@
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.cpp" />
     <ClCompile Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.cpp" />
     <ClCompile Include="app\components\UI\SpeechBalloon\Builder.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoCtrl.cpp" />
     <ClCompile Include="app\components\UI\Splash\Logo\LogoTimer.cpp" />
+    <ClCompile Include="app\components\UI\Splash\Main.cpp" />
+    <ClCompile Include="app\components\UI\StageResult\Builder.cpp" />
+    <ClCompile Include="app\components\UI\StageResult\Main.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\BgCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\BackGround\ViewCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\BgmCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\CursorCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\Cursor\Shot.cpp" />
     <ClCompile Include="app\components\UI\Title\Logo\Builder.cpp" />
     <ClCompile Include="app\components\UI\Title\Logo\LogoCtrl.cpp" />
     <ClCompile Include="app\components\UI\Title\Logo\ViewCtrl.cpp" />
+    <ClCompile Include="app\components\UI\Title\Main.cpp" />
     <ClCompile Include="app\datastores\Actor\Enemy\parser\TmxEnemyParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Enemy\TmxEnemyDataStore.cpp" />
     <ClCompile Include="app\datastores\Actor\Gimmick\parser\TmxGimmickParser.cpp" />
@@ -748,6 +695,7 @@
     <ClCompile Include="app\datastores\Actor\Item\TmxItemDataStore.cpp" />
     <ClCompile Include="app\datastores\Actor\Land\parser\TmxLandParser.cpp" />
     <ClCompile Include="app\datastores\Actor\Land\TmxLandDataStore.cpp" />
+    <ClCompile Include="app\datastores\Adv\TomlProjectDataStore.cpp" />
     <ClCompile Include="app\datastores\Attribute\TmxAttributeDataStore.cpp" />
     <ClCompile Include="app\datastores\base\DBDataStore.cpp" />
     <ClCompile Include="app\datastores\base\TmxDataStore.cpp" />
@@ -757,13 +705,17 @@
     <ClCompile Include="app\datastores\Decor\TmxAnimationDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\TmxDecorDataStore.cpp" />
     <ClCompile Include="app\datastores\Decor\TmxGraphicsDataStore.cpp" />
+    <ClCompile Include="app\datastores\Devs\Project\GitHubDataStore.cpp" />
     <ClCompile Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\MigrationDataStore.cpp" />
     <ClCompile Include="app\datastores\Migration\Migrations\2021010701_CreateUserTable.cpp" />
+    <ClCompile Include="app\datastores\Msg\CSVMessageDataStore.cpp" />
     <ClCompile Include="app\datastores\Room\TmxRoomDataStore.cpp" />
+    <ClCompile Include="app\datastores\Sound\CSVSoundBankDataStore.cpp" />
     <ClCompile Include="app\datastores\User\DBUserDataStore.cpp" />
     <ClCompile Include="app\debugs\FPSViewer\FPSViewer.cpp" />
     <ClCompile Include="app\debugs\HotReload\HotReload.cpp" />
+    <ClCompile Include="app\debugs\HotReload\HotReloadUtil.cpp" />
     <ClCompile Include="app\debugs\Log\Log.cpp" />
     <ClCompile Include="app\debugs\Log\LogViewer.cpp" />
     <ClCompile Include="app\debugs\Menu\Menu.cpp" />
@@ -773,25 +725,30 @@
     <ClCompile Include="app\debugs\Profiler\Profiler.cpp" />
     <ClCompile Include="app\debugs\System\System.cpp" />
     <ClCompile Include="app\debugs\Util\DebugUtil.cpp" />
-    <ClCompile Include="app\commons\Factory\Stage\Injector.cpp" />
-    <ClCompile Include="app\commons\Factory\Migration\Injector.cpp" />
-    <ClCompile Include="app\commons\Factory\Storage\Injector.cpp" />
+    <ClCompile Include="app\debugs\Watcher\Watcher.cpp" />
+    <ClCompile Include="app\debugs\Watcher\WatchViewer.cpp" />
     <ClCompile Include="app\Lib.cpp" />
     <ClCompile Include="app\Main.cpp" />
-    <ClCompile Include="app\components\Actor\Gimmick\Door\DoorData.cpp" />
-    <ClCompile Include="app\modules\Stage\StartPos\StartPosContainer.cpp" />
-    <ClCompile Include="app\modules\Stage\StartPos\StartPos.cpp" />
-    <ClCompile Include="app\modules\Camera\CameraParam.cpp" />
-    <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp" />
-    <ClCompile Include="app\modules\Room\RoomData.cpp" />
-    <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp" />
+    <ClCompile Include="app\models\Adv\Chara.cpp" />
+    <ClCompile Include="app\modules\Actor\Actors.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorObj.cpp" />
     <ClCompile Include="app\modules\Actor\base\ActorsHolder.cpp" />
     <ClCompile Include="app\modules\Actor\Player\PlayerManager.cpp" />
+    <ClCompile Include="app\modules\Adv\Adventures.cpp" />
+    <ClCompile Include="app\modules\Adv\base\AdvObj.cpp" />
+    <ClCompile Include="app\modules\Adv\base\Process.cpp" />
+    <ClCompile Include="app\modules\Adv\base\SentenceCtrl.cpp" />
+    <ClCompile Include="app\modules\Adv\base\SkipCtrl.cpp" />
+    <ClCompile Include="app\modules\Adv\Project\CharaTable.cpp" />
+    <ClCompile Include="app\modules\Adv\Project\Project.cpp" />
+    <ClCompile Include="app\modules\Adv\TagString.cpp" />
     <ClCompile Include="app\modules\Camera\Camera.cpp" />
+    <ClCompile Include="app\modules\Camera\CameraErp\CameraErpCtrl.cpp" />
     <ClCompile Include="app\modules\Camera\CameraFix\CameraFixCtrl.cpp" />
+    <ClCompile Include="app\modules\Camera\CameraParam.cpp" />
     <ClCompile Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.cpp" />
     <ClCompile Include="app\modules\Camera\Quake\Quake.cpp" />
+    <ClCompile Include="app\modules\Camera\Quake\QuakeEpicenter.cpp" />
     <ClCompile Include="app\modules\ColSys\Branch.cpp" />
     <ClCompile Include="app\modules\ColSys\CollisionManager.cpp" />
     <ClCompile Include="app\modules\ColSys\Result.cpp" />
@@ -806,46 +763,76 @@
     <ClCompile Include="app\modules\Decor\DecorBuildUtil.cpp" />
     <ClCompile Include="app\modules\Decor\DecorGraphics.cpp" />
     <ClCompile Include="app\modules\Decor\Decors.cpp" />
+    <ClCompile Include="app\modules\Devs\Project\base\Tasks.cpp" />
+    <ClCompile Include="app\modules\Devs\Project\Project.cpp" />
     <ClCompile Include="app\modules\Devs\WorldComment\WorldComment.cpp" />
     <ClCompile Include="app\modules\Distortion\Distortion.cpp" />
     <ClCompile Include="app\modules\DrawManager\DrawManager.cpp" />
+    <ClCompile Include="app\modules\Effect\base\Drawer.cpp" />
     <ClCompile Include="app\modules\Effect\base\EffectObj.cpp" />
     <ClCompile Include="app\modules\Effect\base\EffectsHolder.cpp" />
     <ClCompile Include="app\modules\Effect\Effects.cpp" />
+    <ClCompile Include="app\modules\Event\base\EventObj.cpp" />
+    <ClCompile Include="app\modules\Event\base\StreamHandler.cpp" />
+    <ClCompile Include="app\modules\Event\Events.cpp" />
+    <ClCompile Include="app\modules\Fade\Fader.cpp" />
+    <ClCompile Include="app\modules\Fade\SceneFader.cpp" />
     <ClCompile Include="app\modules\FieldEnv\Bg\Bg.cpp" />
     <ClCompile Include="app\modules\FieldEnv\Caustics\Caustics.cpp" />
     <ClCompile Include="app\modules\FieldEnv\Environment.cpp" />
+    <ClCompile Include="app\modules\FieldEnv\Fog\Fog.cpp" />
     <ClCompile Include="app\modules\FieldEnv\Sky\Sky.cpp" />
-    <ClCompile Include="app\modules\Event\base\EventObj.cpp" />
-    <ClCompile Include="app\modules\Event\Events.cpp" />
     <ClCompile Include="app\modules\GameObject\Components.cpp" />
     <ClCompile Include="app\modules\GameObject\Executer.cpp" />
     <ClCompile Include="app\modules\GameObject\ExecuteSorter.cpp" />
+    <ClCompile Include="app\modules\GameObject\IComponent.cpp" />
     <ClCompile Include="app\modules\GlobalTime\GlobalTime.cpp" />
     <ClCompile Include="app\modules\Light\Light.cpp" />
     <ClCompile Include="app\modules\Light\LightColor.cpp" />
     <ClCompile Include="app\modules\Manager\Manager.cpp" />
+    <ClCompile Include="app\modules\Pause\PauseManager.cpp" />
     <ClCompile Include="app\modules\Physics\PhysicsManager.cpp" />
     <ClCompile Include="app\modules\Physics\SimpleDetection.cpp" />
+    <ClCompile Include="app\modules\Room\RoomData.cpp" />
     <ClCompile Include="app\modules\Room\RoomManager.cpp" />
+    <ClCompile Include="app\modules\Sfx\Bloom\Bloom.cpp" />
+    <ClCompile Include="app\modules\Sfx\Blur\Blur.cpp" />
     <ClCompile Include="app\modules\Sfx\BossFade\BossFade.cpp" />
     <ClCompile Include="app\modules\Sfx\Common\ColorFade.cpp" />
+    <ClCompile Include="app\modules\Sfx\DeadEffect\DeadEffect.cpp" />
+    <ClCompile Include="app\modules\Sfx\DecorFar\DECORFAR.CPP" />
     <ClCompile Include="app\modules\Sfx\Flush\Flush.cpp" />
+    <ClCompile Include="app\modules\Sfx\Moisture\Moisture.cpp" />
+    <ClCompile Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.cpp" />
     <ClCompile Include="app\modules\Sfx\PostEffects.cpp" />
     <ClCompile Include="app\modules\Sfx\Scanline\Scanline.cpp" />
     <ClCompile Include="app\modules\Sfx\SkipFade\SkipFade.cpp" />
     <ClCompile Include="app\modules\Sfx\SpecialEffects.cpp" />
     <ClCompile Include="app\modules\Sound\Bgm\BackGroundMusic.cpp" />
+    <ClCompile Include="app\modules\Sound\SceneSound.cpp" />
+    <ClCompile Include="app\modules\Sound\Se\SeCaches.cpp" />
+    <ClCompile Include="app\modules\Sound\Se\SoundEffects.cpp" />
+    <ClCompile Include="app\modules\Sound\SoundBank\SoundBank.cpp" />
     <ClCompile Include="app\modules\Sound\Sounds.cpp" />
     <ClCompile Include="app\modules\Stage\Stage.cpp" />
     <ClCompile Include="app\modules\Stage\StageData.cpp" />
+    <ClCompile Include="app\modules\Stage\StageTranslator.cpp" />
+    <ClCompile Include="app\modules\Stage\StartPos\StartPos.cpp" />
+    <ClCompile Include="app\modules\Stage\StartPos\StartPosContainer.cpp" />
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempFlags.cpp" />
+    <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
     <ClCompile Include="app\modules\Temporary\Temporary.cpp" />
     <ClCompile Include="app\modules\Temporary\TemporaryData.cpp" />
     <ClCompile Include="app\modules\UI\base\UIHolder.cpp" />
     <ClCompile Include="app\modules\UI\base\UIObj.cpp" />
     <ClCompile Include="app\modules\UI\UIs.cpp" />
+    <ClCompile Include="app\modules\User\Storage.cpp" />
+    <ClCompile Include="app\scenes\Loading\Common\Loading.cpp" />
+    <ClCompile Include="app\scenes\Loading\Loader.cpp" />
     <ClCompile Include="app\scenes\Loading\LoadProcessor.cpp" />
     <ClCompile Include="app\scenes\Scene\Boot\Initializer.cpp" />
+    <ClCompile Include="app\scenes\Scene\Boot\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Demo\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\DevPortal\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\Experiment\Booter.cpp" />
@@ -853,18 +840,20 @@
     <ClCompile Include="app\scenes\Scene\Home\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Home\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\ISceneBase.cpp" />
+    <ClCompile Include="app\scenes\Scene\SaveSelect\Booter.cpp" />
+    <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Splash\Booter.cpp" />
+    <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp" />
     <ClCompile Include="app\scenes\Scene\StageResult\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\StageResult\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Stage\Booter.cpp" />
     <ClCompile Include="app\scenes\Scene\Stage\Scene.cpp" />
-    <ClCompile Include="app\scenes\Scene\Demo\Scene.cpp" />
-    <ClCompile Include="app\scenes\Scene\Boot\Scene.cpp" />
-    <ClCompile Include="app\scenes\Scene\SaveSelect\Scene.cpp" />
+    <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
+    <ClCompile Include="app\scenes\Scene\Title\Scene.cpp" />
     <ClCompile Include="app\scenes\SequenceManager.cpp" />
     <ClCompile Include="app\scenes\Sequence\Develop\DevelopSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Game\GameSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Root\RootSequence.cpp" />
-    <ClCompile Include="app\scenes\Scene\Splash\Scene.cpp" />
-    <ClCompile Include="app\scenes\Scene\Title\Scene.cpp" />
     <ClCompile Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\Stage\StageSequence.cpp" />
     <ClCompile Include="app\scenes\Sequence\User\UserSequence.cpp" />
@@ -885,32 +874,9 @@
     <ClCompile Include="app\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">Create</PrecompiledHeader>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">abyss/stdafx.hpp;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="app\scenes\Scene\Stage\Booter.cpp" />
-    <ClCompile Include="app\scenes\Scene\SaveSelect\Booter.cpp" />
-    <ClCompile Include="app\scenes\Scene\Splash\Booter.cpp" />
-    <ClCompile Include="app\scenes\Scene\Title\Booter.cpp" />
-    <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
-    <ClCompile Include="app\utils\Coro\Fiber\Tween.cpp" />
-    <ClCompile Include="app\utils\Coro\Fiber\FiberUtil.cpp" />
-    <ClCompile Include="app\utils\DebugMenu\DefaultController.cpp" />
-    <ClCompile Include="app\utils\DebugMenu\Save\JSONSave.cpp" />
-    <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
-    <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
-    <ClCompile Include="app\utils\Env\Env.cpp" />
-    <ClCompile Include="app\modules\Temporary\TempFrag\TempKey.cpp" />
-    <ClCompile Include="app\utils\NeptScript\Evaluator\Evaluator.cpp" />
-    <ClCompile Include="app\utils\NeptScript\Lexer\Lexer.cpp" />
-    <ClCompile Include="app\utils\NeptScript\Parser\Parser.cpp" />
-    <ClCompile Include="app\utils\NeptScript\Script.cpp" />
-    <ClCompile Include="app\utils\Random\RandUtil.cpp" />
-    <ClCompile Include="app\utils\Shake\SimpleShake.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSetting.cpp" />
     <ClCompile Include="app\utils\AudioSetting\AudioSettingReader.cpp" />
     <ClCompile Include="app\utils\Clock\Clock.cpp" />
@@ -918,11 +884,15 @@
     <ClCompile Include="app\utils\Collision\CollisionUtil.cpp" />
     <ClCompile Include="app\utils\Collision\FixPos.cpp" />
     <ClCompile Include="app\utils\Collision\SweepUtil.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\FiberUtil.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\MultiFibers.cpp" />
+    <ClCompile Include="app\utils\Coro\Fiber\Tween.cpp" />
     <ClCompile Include="app\utils\DateTime\DateTimeUtil.cpp" />
     <ClCompile Include="app\utils\DebugLog\DebugLog.cpp" />
     <ClCompile Include="app\utils\DebugLog\LogInfo.cpp" />
     <ClCompile Include="app\utils\DebugMenu\BoolItem.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Button.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\DefaultController.cpp" />
     <ClCompile Include="app\utils\DebugMenu\DefaultSkin.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Folder.cpp" />
     <ClCompile Include="app\utils\DebugMenu\Menu.cpp" />
@@ -930,28 +900,39 @@
     <ClCompile Include="app\utils\DebugMenu\NodeValue.cpp" />
     <ClCompile Include="app\utils\DebugMenu\parser\XMLParser.cpp" />
     <ClCompile Include="app\utils\DebugMenu\RadioButton.cpp" />
+    <ClCompile Include="app\utils\DebugMenu\Save\JSONSave.cpp" />
+    <ClCompile Include="app\utils\Easing\EasingUtil.cpp" />
+    <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
+    <ClCompile Include="app\utils\Env\Env.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
-    <ClCompile Include="app\utils\Math\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\Component.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\GrabCtrl.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\ScrollCtrl.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\WindowMover.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\WindowResizer.cpp" />
     <ClCompile Include="app\utils\Layout\Window\Window.cpp" />
+    <ClCompile Include="app\utils\Math\InterpUtil.cpp" />
     <ClCompile Include="app\utils\Migration\Migration.cpp" />
     <ClCompile Include="app\utils\Mrp\Lexer\Lexer.cpp" />
     <ClCompile Include="app\utils\Mrp\Mrp.cpp" />
     <ClCompile Include="app\utils\Mrp\Parser\Parser.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Evaluator\Evaluator.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Lexer\Lexer.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Parser\Parser.cpp" />
+    <ClCompile Include="app\utils\NeptScript\Script.cpp" />
     <ClCompile Include="app\utils\Network\GitHub\base\BaseApi.cpp" />
-    <ClCompile Include="app\utils\Network\GItHub\GitHub.cpp" />
+    <ClCompile Include="app\utils\Network\GitHub\GitHub.cpp" />
     <ClCompile Include="app\utils\Network\GitHub\GraphQL\GraphQLApi.cpp" />
     <ClCompile Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.cpp" />
+    <ClCompile Include="app\utils\Random\RandUtil.cpp" />
+    <ClCompile Include="app\utils\Shake\SimpleShake.cpp" />
     <ClCompile Include="app\utils\Singleton\DynamicSingleton.cpp" />
     <ClCompile Include="app\utils\TexturePacker\TexturePacker.cpp" />
     <ClCompile Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.cpp" />
     <ClCompile Include="app\utils\Windows\WindowMenu\WindowMenu.cpp" />
     <ClCompile Include="app\values\StageDef.cpp" />
+    <ClCompile Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\BazookaKun\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.cpp" />
@@ -962,7 +943,6 @@
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Head\HeadVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\CodeZero\Shot\ShotVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\Ikalien\IkalienVM.cpp" />
-    <ClCompile Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\KingDux\KingDuxVM.cpp" />
     <ClCompile Include="app\views\Actor\Enemy\KingDux\Tentacle\TentacleVM.cpp" />
@@ -1004,8 +984,8 @@
     <ClCompile Include="app\views\Light\LightUtil.cpp" />
     <ClCompile Include="app\views\Light\LightView.cpp" />
     <ClCompile Include="app\views\Loading\Common\LoadingView.cpp" />
-    <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp" />
     <ClCompile Include="app\views\Shader\Blend\BlendShader.cpp" />
+    <ClCompile Include="app\views\Shader\Bloom\BloomShader.cpp" />
     <ClCompile Include="app\views\Shader\BossArrival\BossArrivalShader.cpp" />
     <ClCompile Include="app\views\Shader\DecorFar\DecorFarShader.cpp" />
     <ClCompile Include="app\views\Shader\Distortion\DistortionShader.cpp" />
@@ -1078,217 +1058,33 @@
     <ClCompile Include="tests\tests\utils\NeptScript\LexerCatch.cpp" />
     <ClCompile Include="tests\tests\utils\NeptScript\ParserCatch.cpp" />
     <ClCompile Include="tests\tests\utils\Thread\TaskCatch.cpp" />
-    <ClCompile Include="tests\tests\utils\TOML\TomlBindCatch.cpp" />
+    <ClCompile Include="tests\tests\utils\TOML\TOMLBindCatch.cpp" />
     <ClCompile Include="tests\tests\utils\TrivialString\TrivialStringCatch.cpp" />
     <ClCompile Include="tests\tests\values\ForwardCtach.cpp" />
     <ClCompile Include="tests\tests\values\FpsCatch.cpp" />
     <ClCompile Include="tests\tests\values\StageDefCatch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="App\engine\texture\box-shadow\128.png" />
-    <Image Include="App\engine\texture\box-shadow\16.png" />
-    <Image Include="App\engine\texture\box-shadow\256.png" />
-    <Image Include="App\engine\texture\box-shadow\32.png" />
-    <Image Include="App\engine\texture\box-shadow\64.png" />
-    <Image Include="App\engine\texture\box-shadow\8.png" />
-    <Image Include="App\example\bay.jpg" />
-    <Image Include="App\example\gif\test.gif" />
-    <Image Include="App\example\obj\bark.jpg" />
-    <Image Include="App\example\obj\leaves.png" />
-    <Image Include="App\example\obj\pine_leaves_red.png" />
-    <Image Include="App\example\obj\siv3d-kun-eye.png" />
-    <Image Include="App\example\obj\siv3d-kun.png" />
-    <Image Include="App\example\particle.png" />
-    <Image Include="App\example\siv3d-kun.png" />
-    <Image Include="App\example\spritesheet\siv3d-kun-16.png" />
-    <Image Include="App\example\texture\earth.jpg" />
-    <Image Include="App\example\texture\grass.jpg" />
-    <Image Include="App\example\texture\ground.jpg" />
-    <Image Include="App\example\texture\rock.jpg" />
-    <Image Include="App\example\texture\uv.png" />
-    <Image Include="App\example\texture\wood.jpg" />
-    <Image Include="App\example\windmill.png" />
-    <Image Include="App\icon.ico" />
-    <Image Include="build\icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="App\dll\soundtouch\COPYING.TXT" />
-    <Text Include="App\engine\font\fontawesome\LICENSE.txt" />
-    <Text Include="App\engine\soundfont\GMGSx.sf2.txt" />
-    <Text Include="App\example\font\DotGothic16\OFL.txt" />
-    <Text Include="App\example\font\RocknRoll\OFL.txt" />
-    <Text Include="App\example\LICENSE.txt" />
-    <Text Include="App\example\midi\test.txt" />
-    <Text Include="App\example\obj\credit.txt" />
-    <Text Include="App\example\spritesheet\siv3d-kun-16.txt" />
-    <Text Include="App\example\svg\README.txt" />
-    <Text Include="App\example\texture\credit.txt" />
-    <Text Include="App\example\txt\en.txt" />
-    <Text Include="App\example\txt\jp.txt" />
-    <Text Include="App\example\txt\kr.txt" />
-    <Text Include="App\example\txt\sc.txt" />
-    <Text Include="App\example\video\river.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="..\Re-AbyssOld\Re-AbyssOld.vcxproj" />
     <None Include=".editorconfig" />
-    <None Include="App\dll\soundtouch\SoundTouch_x64.dll" />
-    <None Include="App\engine\font\fontawesome\fontawesome-brands.otf.zstdcmp" />
-    <None Include="App\engine\font\fontawesome\fontawesome-solid.otf.zstdcmp" />
-    <None Include="App\engine\font\materialdesignicons\license.md" />
-    <None Include="App\engine\font\materialdesignicons\materialdesignicons-webfont.ttf.zstdcmp" />
-    <None Include="App\engine\font\min\LICENSE" />
-    <None Include="App\engine\font\min\siv3d-min.woff" />
-    <None Include="App\engine\font\mplus\LICENSE_E" />
-    <None Include="App\engine\font\mplus\mplus-1p-black.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-bold.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-heavy.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-light.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-medium.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-regular.ttf.zstdcmp" />
-    <None Include="App\engine\font\mplus\mplus-1p-thin.ttf.zstdcmp" />
-    <None Include="App\engine\font\noto-cjk\LICENSE" />
-    <None Include="App\engine\font\noto-cjk\NotoSansCJK-Regular.ttc.zstdcmp" />
-    <None Include="App\engine\font\noto-cjk\NotoSansJP-Regular.otf.zstdcmp" />
-    <None Include="App\engine\font\noto-emoji\LICENSE" />
-    <None Include="App\engine\font\noto-emoji\NotoColorEmoji.ttf.zstdcmp" />
-    <None Include="App\engine\font\noto-emoji\NotoEmoji-Regular.ttf.zstdcmp" />
-    <None Include="App\engine\shader\d3d11\apply_srgb_curve.ps" />
-    <None Include="App\engine\shader\d3d11\bitmapfont.ps" />
-    <None Include="App\engine\shader\d3d11\copy.ps" />
-    <None Include="App\engine\shader\d3d11\forward3d.ps" />
-    <None Include="App\engine\shader\d3d11\forward3d.vs" />
-    <None Include="App\engine\shader\d3d11\fullscreen_triangle.ps" />
-    <None Include="App\engine\shader\d3d11\fullscreen_triangle.vs" />
-    <None Include="App\engine\shader\d3d11\gaussian_blur_9.ps" />
-    <None Include="App\engine\shader\d3d11\line3d.ps" />
-    <None Include="App\engine\shader\d3d11\line3d.vs" />
-    <None Include="App\engine\shader\d3d11\msdffont.ps" />
-    <None Include="App\engine\shader\d3d11\msdffont_outline.ps" />
-    <None Include="App\engine\shader\d3d11\msdffont_outlineshadow.ps" />
-    <None Include="App\engine\shader\d3d11\msdffont_shadow.ps" />
-    <None Include="App\engine\shader\d3d11\msdfprint.ps" />
-    <None Include="App\engine\shader\d3d11\round_dot.ps" />
-    <None Include="App\engine\shader\d3d11\sdffont.ps" />
-    <None Include="App\engine\shader\d3d11\sdffont_outline.ps" />
-    <None Include="App\engine\shader\d3d11\sdffont_outlineshadow.ps" />
-    <None Include="App\engine\shader\d3d11\sdffont_shadow.ps" />
-    <None Include="App\engine\shader\d3d11\shape.ps" />
-    <None Include="App\engine\shader\d3d11\sky.ps" />
-    <None Include="App\engine\shader\d3d11\sprite.vs" />
-    <None Include="App\engine\shader\d3d11\square_dot.ps" />
-    <None Include="App\engine\shader\d3d11\texture.ps" />
-    <None Include="App\engine\shader\glsl\apply_srgb_curve.frag" />
-    <None Include="App\engine\shader\glsl\bitmapfont.frag" />
-    <None Include="App\engine\shader\glsl\copy.frag" />
-    <None Include="App\engine\shader\glsl\forward3d.frag" />
-    <None Include="App\engine\shader\glsl\forward3d.vert" />
-    <None Include="App\engine\shader\glsl\fullscreen_triangle.frag" />
-    <None Include="App\engine\shader\glsl\fullscreen_triangle.vert" />
-    <None Include="App\engine\shader\glsl\gaussian_blur_9.frag" />
-    <None Include="App\engine\shader\glsl\line3d.frag" />
-    <None Include="App\engine\shader\glsl\line3d.vert" />
-    <None Include="App\engine\shader\glsl\msdffont.frag" />
-    <None Include="App\engine\shader\glsl\msdffont_outline.frag" />
-    <None Include="App\engine\shader\glsl\msdffont_outlineshadow.frag" />
-    <None Include="App\engine\shader\glsl\msdffont_shadow.frag" />
-    <None Include="App\engine\shader\glsl\msdfprint.frag" />
-    <None Include="App\engine\shader\glsl\round_dot.frag" />
-    <None Include="App\engine\shader\glsl\sdffont.frag" />
-    <None Include="App\engine\shader\glsl\sdffont_outline.frag" />
-    <None Include="App\engine\shader\glsl\sdffont_outlineshadow.frag" />
-    <None Include="App\engine\shader\glsl\sdffont_shadow.frag" />
-    <None Include="App\engine\shader\glsl\shape.frag" />
-    <None Include="App\engine\shader\glsl\sky.frag" />
-    <None Include="App\engine\shader\glsl\sprite.vert" />
-    <None Include="App\engine\shader\glsl\square_dot.frag" />
-    <None Include="App\engine\shader\glsl\texture.frag" />
-    <None Include="App\engine\soundfont\GMGSx.sf2.zstdcmp" />
-    <None Include="App\example\csv\config.csv" />
-    <None Include="App\example\font\DotGothic16\README-JP.md" />
-    <None Include="App\example\font\DotGothic16\README.md" />
-    <None Include="App\example\font\RocknRoll\README-JP.md" />
-    <None Include="App\example\font\RocknRoll\README.md" />
-    <None Include="App\example\geojson\countries.geojson" />
-    <None Include="App\example\ini\config.ini" />
-    <None Include="App\example\json\config.json" />
-    <None Include="App\example\json\empty.json" />
-    <None Include="App\example\json\invalid-blank.json" />
-    <None Include="App\example\json\invalid-syntax.json" />
-    <None Include="App\example\json\test.json" />
-    <None Include="App\example\midi\test.mid" />
-    <None Include="App\example\obj\blacksmith.mtl" />
-    <None Include="App\example\obj\crystal1.mtl" />
-    <None Include="App\example\obj\crystal2.mtl" />
-    <None Include="App\example\obj\crystal3.mtl" />
-    <None Include="App\example\obj\mill.mtl" />
-    <None Include="App\example\obj\pine.mtl" />
-    <None Include="App\example\obj\siv3d-kun.mtl" />
-    <None Include="App\example\obj\tree.mtl" />
-    <None Include="App\example\script\breakout.as" />
-    <None Include="App\example\script\hello.as" />
-    <None Include="App\example\script\paint.as" />
-    <None Include="App\example\script\piano.as" />
-    <None Include="App\example\script\test.as" />
-    <None Include="App\example\shader\glsl\default2d.vert" />
-    <None Include="App\example\shader\glsl\default2d_shape.frag" />
-    <None Include="App\example\shader\glsl\default2d_texture.frag" />
-    <None Include="App\example\shader\glsl\default3d_forward.frag" />
-    <None Include="App\example\shader\glsl\default3d_forward.vert" />
-    <None Include="App\example\shader\glsl\extract_bright_linear.frag" />
-    <None Include="App\example\shader\glsl\forward_fog.frag" />
-    <None Include="App\example\shader\glsl\forward_triplanar.frag" />
-    <None Include="App\example\shader\glsl\game_of_life.frag" />
-    <None Include="App\example\shader\glsl\grayscale.frag" />
-    <None Include="App\example\shader\glsl\homography.frag" />
-    <None Include="App\example\shader\glsl\homography.vert" />
-    <None Include="App\example\shader\glsl\multi_texture_blend.frag" />
-    <None Include="App\example\shader\glsl\multi_texture_mask.frag" />
-    <None Include="App\example\shader\glsl\poisson_disk.frag" />
-    <None Include="App\example\shader\glsl\posterize.frag" />
-    <None Include="App\example\shader\glsl\rgb_shift.frag" />
-    <None Include="App\example\shader\glsl\rgb_to_bgr.frag" />
-    <None Include="App\example\shader\glsl\soft_shape.vert" />
-    <None Include="App\example\shader\glsl\swirl.frag" />
-    <None Include="App\example\shader\glsl\terrain_forward.frag" />
-    <None Include="App\example\shader\glsl\terrain_forward.vert" />
-    <None Include="App\example\shader\glsl\terrain_normal.frag" />
-    <None Include="App\example\svg\cat.svg" />
-    <None Include="App\example\svg\turtle.svg" />
-    <None Include="App\example\toml\config.toml" />
-    <None Include="App\example\toml\test.toml" />
-    <None Include="App\example\zip\zip_test.zip" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="App\example\shot.mp3" />
-    <Media Include="App\example\test.mp3" />
-    <Media Include="App\example\video\river.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="App\example\font\DotGothic16\DotGothic16-Regular.ttf" />
-    <Font Include="App\example\font\RocknRoll\RocknRollOne-Regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="App\example\objdetect\haarcascade\eye.xml" />
-    <Xml Include="App\example\objdetect\haarcascade\face_anime.xml" />
-    <Xml Include="App\example\objdetect\haarcascade\frontal_catface.xml" />
-    <Xml Include="App\example\objdetect\haarcascade\frontal_face_alt2.xml" />
-    <Xml Include="App\example\xml\config.xml" />
-    <Xml Include="App\example\xml\test.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="app\commons\Application\AppRunner.hpp" />
     <ClInclude Include="app\commons\Application\base\BaseApp.hpp" />
     <ClInclude Include="app\commons\Application\base\IApplication.hpp" />
     <ClInclude Include="app\commons\Application\MainApp.hpp" />
-    <ClInclude Include="app\commons\Application\AppRunner.hpp" />
     <ClInclude Include="app\commons\Application\WindowCtrl.hpp" />
     <ClInclude Include="app\commons\ColorDef.hpp" />
     <ClInclude Include="app\commons\Concepts.hpp" />
     <ClInclude Include="app\commons\Constants.hpp" />
     <ClInclude Include="app\commons\Factory\Adv\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Message\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Migration\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Project\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Scene\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\Sound\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Stage\Injector.hpp" />
+    <ClInclude Include="app\commons\Factory\Storage\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\System\Injector.hpp" />
     <ClInclude Include="app\commons\Factory\System\StageFactoryOption.hpp" />
     <ClInclude Include="app\commons\FontName.hpp" />
@@ -1297,265 +1093,29 @@
     <ClInclude Include="app\commons\Game\RenderStateInitializer.hpp" />
     <ClInclude Include="app\commons\InputManager\InputManager.hpp" />
     <ClInclude Include="app\commons\MsgUtil.hpp" />
+    <ClInclude Include="app\commons\Path.hpp" />
+    <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\commons\Resource\Font\FontAssetName.hpp" />
+    <ClInclude Include="app\commons\Resource\Font\FontRegister.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Label.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Language.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Msg\MessageTable.hpp" />
-    <ClInclude Include="app\commons\Resource\Font\FontRegister.hpp" />
-    <ClInclude Include="app\commons\Resource\Preload\Presets.hpp" />
-    <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp" />
-    <ClInclude Include="app\components\Actor\Common\DeployId.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\MainCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\AimState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BossHpBarTarget.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\SeDef.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ShotProxy.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AngryState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\ShotState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\SeDef.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\Slime\SeDef.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.hpp" />
-    <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
-    <ClInclude Include="app\components\Actor\Item\Recovery\SeDef.hpp" />
-    <ClInclude Include="app\components\Actor\Land\BuilderFromEntity.hpp" />
-    <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
-    <ClInclude Include="app\components\Actor\Player\SeDef.hpp" />
-    <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
-    <ClInclude Include="app\components\Adv\BossCommon\Builder.hpp" />
-    <ClInclude Include="app\components\Adv\BossCommon\Command\BossArrival.hpp" />
-    <ClInclude Include="app\components\Adv\BossCommon\Command\ShowHpBar.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Builder.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\AppearEnd.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\AppearStart.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\DisappearEnd.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\DisappearStart.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\Teardown.hpp" />
-    <ClInclude Include="app\components\Adv\CodeZeroDemo\SignalCtrl.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\Bgm.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\CharaSetter.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\ClearMessage.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\ColorTag.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\MessageStream.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\NameSetter.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\PauseDisabled.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\ShakeTag.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\ShowHideMessage.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\SignalReceive.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\SignalSend.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\SkipEnabled.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\WaitInput.hpp" />
-    <ClInclude Include="app\components\Adv\Common\Command\WaitTime.hpp" />
-    <ClInclude Include="app\components\Adv\Common\EventCtrl.hpp" />
-    <ClInclude Include="app\components\Adv\Common\MessageBox.hpp" />
-    <ClInclude Include="app\components\Adv\Common\TalkCtrl.hpp" />
-    <ClInclude Include="app\components\Adv\CommonUtil.hpp" />
-    <ClInclude Include="app\components\Adv\AdvBuilder.hpp" />
-    <ClInclude Include="app\components\Adv\RoomGarder\Builder.hpp" />
-    <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
-    <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
-    <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
-    <ClInclude Include="app\components\Cycle\Experiment\Builder.hpp" />
-    <ClInclude Include="app\components\Cycle\Experiment\Master.hpp" />
-    <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
-    <ClInclude Include="app\components\Sound\BgmDef.hpp" />
-    <ClInclude Include="app\components\Sound\SeDef.hpp" />
-    <ClInclude Include="app\components\UI\BossArrival\Builder.hpp" />
-    <ClInclude Include="app\components\UI\BossArrival\Main.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\BossArrival\Topic.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\DualComplexLab\Topic.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\ITopic.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\Main.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\TopicBoard.hpp" />
-    <ClInclude Include="app\components\UI\Experiment\WorkLab\Topic.hpp" />
-    <ClInclude Include="app\components\UI\Home\Main.hpp" />
-    <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
-    <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
-    <ClInclude Include="app\components\UI\Home\Top\ModeUpdater.hpp" />
-    <ClInclude Include="app\components\UI\Home\Top\ModeUtil.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
-    <ClInclude Include="app\components\UI\StageResult\Builder.hpp" />
-    <ClInclude Include="app\components\UI\StageResult\Main.hpp" />
-    <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
-    <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
-    <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp" />
-    <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp" />
-    <ClInclude Include="app\debugs\HotReload\FileChanges.hpp" />
-    <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp" />
-    <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
-    <ClInclude Include="app\modules\Adv\base\Process.hpp" />
-    <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp" />
-    <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
-    <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
-    <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
-    <ClInclude Include="app\components\Cycle\Home\Builder.hpp" />
-    <ClInclude Include="app\components\Cycle\Home\Master.hpp" />
-    <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
-    <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
-    <ClInclude Include="app\components\Decor\BuilderFromEntity.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp" />
-    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.hpp" />
-    <ClInclude Include="app\components\Event\base\IStashUpdate.hpp" />
-    <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp" />
-    <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp" />
-    <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp" />
-    <ClInclude Include="app\components\Event\MapMove\LinkData.hpp" />
-    <ClInclude Include="app\components\Event\MapMove\MapMoveCtrl.hpp" />
-    <ClInclude Include="app\components\UI\DevPortal\Builder.hpp" />
-    <ClInclude Include="app\components\UI\DevPortal\Main.hpp" />
-    <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp" />
-    <ClInclude Include="app\components\UI\GamePause\Main.hpp" />
-    <ClInclude Include="app\components\UI\GamePause\Result.hpp" />
-    <ClInclude Include="app\datastores\Devs\Project\base\IProjectDataStore.hpp" />
-    <ClInclude Include="app\datastores\Devs\Project\GitHubDataStore.hpp" />
-    <ClInclude Include="app\datastores\Msg\base\IMessageDataStore.hpp" />
-    <ClInclude Include="app\datastores\Msg\CSVMessageDataStore.hpp" />
-    <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
-    <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
-    <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
-    <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
-    <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
-    <ClInclude Include="app\modules\Actor\Actors.hpp" />
-    <ClInclude Include="app\modules\Adv\Adventures.hpp" />
-    <ClInclude Include="app\modules\Adv\base\ICommand.hpp" />
-    <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
-    <ClInclude Include="app\models\Adv\Chara.hpp" />
-    <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraErp\CameraErpCtrl.hpp" />
-    <ClInclude Include="app\modules\Fade\base\IFadeColor.hpp" />
-    <ClInclude Include="app\modules\Fade\base\ISceneFade.hpp" />
-    <ClInclude Include="app\modules\Fade\Fader.hpp" />
-    <ClInclude Include="app\modules\Fade\SceneFader.hpp" />
-    <ClInclude Include="app\modules\Sound\SceneSound.hpp" />
-    <ClInclude Include="app\modules\Sound\Se\SeCaches.hpp" />
-    <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
-    <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
-    <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
-    <ClInclude Include="app\params\UI\BossArrival\Param.hpp" />
-    <ClInclude Include="app\Preprocess.hpp" />
-    <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
-    <ClInclude Include="app\scenes\Loading\LoadProcessor.hpp" />
-    <ClInclude Include="app\scenes\Scene\Experiment\Booter.hpp" />
-    <ClInclude Include="app\utils\BiMap\HashBiMap.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\HrItem.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\IInputController.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Save\IMenuSave.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp" />
-    <ClInclude Include="app\utils\Math\Complex.hpp" />
-    <ClInclude Include="app\utils\Math\DualComplex.hpp" />
-    <ClInclude Include="app\utils\Memory\fixed_ptr.hpp" />
-    <ClInclude Include="app\utils\Memory\variant_ptr.hpp" />
-    <ClInclude Include="app\utils\Thread\Task.hpp" />
-    <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
-    <ClInclude Include="app\modules\User\DataStore.hpp" />
-    <ClInclude Include="app\modules\User\RuntimeData.hpp" />
-    <ClInclude Include="app\modules\User\Storage.hpp" />
-    <ClInclude Include="app\modules\User\UserData.hpp" />
-    <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
-    <ClInclude Include="app\components\Fade\IrisOut\IrisOutFade.hpp" />
-    <ClInclude Include="app\components\Fade\Screen\ScreenFade.hpp" />
-    <ClInclude Include="app\params\UI\Title\CursorParam.hpp" />
-    <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
-    <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
-    <ClInclude Include="app\scenes\Sys\ModulePackage.hpp" />
-    <ClInclude Include="app\scenes\Sys\Modules.hpp" />
-    <ClInclude Include="app\scenes\Sys\System.hpp" />
-    <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />
-    <ClInclude Include="app\services\Adv\ProjectService.hpp" />
-    <ClInclude Include="app\services\Sound\base\ISoundBankService.hpp" />
-    <ClInclude Include="app\services\Sound\SoundBankService.hpp" />
-    <ClInclude Include="app\values\Adv\CharaKind.hpp" />
-    <ClInclude Include="app\modules\Adv\Project\CharaTable.hpp" />
-    <ClInclude Include="app\values\Adv\Emote.hpp" />
-    <ClInclude Include="app\values\Adv\Name.hpp" />
-    <ClInclude Include="app\models\Adv\Sentence.hpp" />
-    <ClInclude Include="app\values\Adv\LookType.hpp" />
-    <ClInclude Include="app\modules\Adv\TagString.hpp" />
-    <ClInclude Include="app\modules\Devs\Project\base\Issue.hpp" />
-    <ClInclude Include="app\modules\Devs\Project\Project.hpp" />
-    <ClInclude Include="app\modules\Devs\Project\base\Tasks.hpp" />
-    <ClInclude Include="app\modules\Devs\Project\base\TaskStatus.hpp" />
-    <ClInclude Include="app\modules\FieldEnv\Fog\Fog.hpp" />
-    <ClInclude Include="app\modules\GameObject\EventKind.hpp" />
-    <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
-    <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
-    <ClInclude Include="app\modules\Sfx\Bloom\Bloom.hpp" />
-    <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
-    <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp" />
-    <ClInclude Include="app\modules\Sfx\DecorFar\DecorFar.hpp" />
-    <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
-    <ClInclude Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.hpp" />
-    <ClInclude Include="app\modules\Stage\StageTranslator.hpp" />
-    <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
-    <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />
-    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
-    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\ShotParam.hpp" />
-    <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
-    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\EffectParam.hpp" />
-    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\Param.hpp" />
-    <ClInclude Include="app\params\Loading\Common\Param.hpp" />
-    <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
-    <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
-    <ClInclude Include="app\scenes\Loading\Common\Loading.hpp" />
-    <ClInclude Include="app\scenes\Loading\ILoading.hpp" />
-    <ClInclude Include="app\scenes\Loading\Loader.hpp" />
-    <ClInclude Include="app\commons\Path.hpp" />
-    <ClInclude Include="app\commons\Resource\Assets\Assets.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Param.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\Preloader.hpp" />
     <ClInclude Include="app\commons\Resource\Preload\PreloadInfo.hpp" />
+    <ClInclude Include="app\commons\Resource\Preload\Presets.hpp" />
     <ClInclude Include="app\commons\Resource\SaveUtil.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Manager\Manager.hpp" />
     <ClInclude Include="app\commons\Resource\UserData\Migration\Migration.hpp" />
     <ClInclude Include="app\commons\SingletonManager\SingletonManager.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IDraw.hpp" />
-    <ClInclude Include="app\modules\Actor\base\ILastUpdate.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IMove.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPostCollision.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPostPhysics.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPostUpdate.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPreCollision.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPreDraw.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPrePhysics.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IPreUpdate.hpp" />
-    <ClInclude Include="app\modules\Actor\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Actor\Common\AudioSource.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorTest.hpp" />
     <ClInclude Include="app\components\Actor\Common\Body.hpp" />
     <ClInclude Include="app\components\Actor\Common\BodyUpdater.hpp" />
+    <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp" />
     <ClInclude Include="app\components\Actor\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Actor\Common\BreathingCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\CameraFixPos.hpp" />
@@ -1586,6 +1146,7 @@
     <ClInclude Include="app\components\Actor\Common\DeadCheacker.hpp" />
     <ClInclude Include="app\components\Actor\Common\DeadOnHItReceiver.hpp" />
     <ClInclude Include="app\components\Actor\Common\DebugInfo.hpp" />
+    <ClInclude Include="app\components\Actor\Common\DeployId.hpp" />
     <ClInclude Include="app\components\Actor\Common\DrawBase.hpp" />
     <ClInclude Include="app\components\Actor\Common\FallChecker.hpp" />
     <ClInclude Include="app\components\Actor\Common\Foot.hpp" />
@@ -1606,10 +1167,32 @@
     <ClInclude Include="app\components\Actor\Common\TimeCounter.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModel.hpp" />
     <ClInclude Include="app\components\Actor\Common\VModelUpdater.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\BuildDesc.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\EyeCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ForwardCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Main.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ParentObserver.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\AppearState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\MoveState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\Shot\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\AimState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\BaseState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BazookaKun\TargetCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BossHpBarTarget.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\BossUtil.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ChargeCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CaptainTako\SeDef.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CaptainTako\State\AttackState.hpp" />
@@ -1628,6 +1211,9 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\HandProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\KindCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\ShockWaveCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryEndState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AngryState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\AttackWaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Hand\State\BaseState.hpp" />
@@ -1642,14 +1228,18 @@
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\ShotProxy.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitEndState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\PursuitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\Shot\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AngryState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\AppearState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\DeadState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\ShotState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CodeZero\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\CodeZero\WingCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\DamageCallback.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\DeadCallback.hpp" />
@@ -1662,14 +1252,6 @@
     <ClInclude Include="app\components\Actor\Enemy\Ikalien\State\WaitState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\ItemDropCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\BabyCtrl.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\BuildDesc.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Builder.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ComponentCache.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\Main.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\ParentObserver.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\AppearState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\BaseState.hpp" />
-    <ClInclude Include="app\components\Actor\Enemy\BabyDux\State\MoveState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Behavior.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\KingDux\ComponentCache.hpp" />
@@ -1715,6 +1297,7 @@
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\LauncherState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\LaunShark\State\SwimState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\MidBossDeadCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\ComponentCache.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\RollingTako\State\BaseState.hpp" />
@@ -1732,12 +1315,15 @@
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\AttackPlusState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Schield\State\WaitState.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\SeDef.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\ComponentCache.hpp" />
+    <ClInclude Include="app\components\Actor\Enemy\Slime\SeDef.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\JumpState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Slime\State\WalkState.hpp" />
     <ClInclude Include="app\components\Actor\Enemy\Warrus\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bulletin\Talkable.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Bush\Builder.hpp" />
@@ -1745,17 +1331,26 @@
     <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\CodeZeroBack\Main.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\Door\DoorData.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\DoorProxy.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\Door\GimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Gimmick\EventTrigger\Main.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\DamageCallback.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\MainCollider.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Gimmick\ShutterWall\ShutterUtil.hpp" />
     <ClInclude Include="app\components\Actor\God\Builder.hpp" />
+    <ClInclude Include="app\components\Actor\Item\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Item\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Item\IItemReactor.hpp" />
     <ClInclude Include="app\components\Actor\Item\ItemCollision.hpp" />
     <ClInclude Include="app\components\Actor\Item\LifeSpan.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Item\Recovery\ItemReactor.hpp" />
+    <ClInclude Include="app\components\Actor\Item\Recovery\SeDef.hpp" />
+    <ClInclude Include="app\components\Actor\Land\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Actor\Land\CommonBuilder.hpp" />
     <ClInclude Include="app\components\Actor\Land\Floor\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Land\Ladder\Builder.hpp" />
@@ -1781,9 +1376,11 @@
     <ClInclude Include="app\components\Actor\Player\IGimmickReactor.hpp" />
     <ClInclude Include="app\components\Actor\Player\MoveSwim.hpp" />
     <ClInclude Include="app\components\Actor\Player\OopartsCtrl.hpp" />
+    <ClInclude Include="app\components\Actor\Player\PlayerDesc.hpp" />
     <ClInclude Include="app\components\Actor\Player\PlayerUtil.hpp" />
     <ClInclude Include="app\components\Actor\Player\RestartCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\RoomMoveChecker.hpp" />
+    <ClInclude Include="app\components\Actor\Player\SeDef.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\EffectCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Player\Shot\MainCollider.hpp" />
@@ -1793,6 +1390,7 @@
     <ClInclude Include="app\components\Actor\Player\State\BaseState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DamageState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DeadState.hpp" />
+    <ClInclude Include="app\components\Actor\Player\State\DoorInMapMoveState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\DoorInState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\LadderState.hpp" />
     <ClInclude Include="app\components\Actor\Player\State\SwimState.hpp" />
@@ -1801,13 +1399,44 @@
     <ClInclude Include="app\components\Actor\utils\ActorUtils.hpp" />
     <ClInclude Include="app\components\Actor\utils\BehaviorUtil.hpp" />
     <ClInclude Include="app\components\Actor\utils\StatePriority.hpp" />
+    <ClInclude Include="app\components\Adv\AdvBuilder.hpp" />
+    <ClInclude Include="app\components\Adv\BossCommon\Builder.hpp" />
+    <ClInclude Include="app\components\Adv\BossCommon\Command\BossArrival.hpp" />
+    <ClInclude Include="app\components\Adv\BossCommon\Command\ShowHpBar.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Builder.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\AppearEnd.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\AppearStart.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\DisappearEnd.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\DisappearStart.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\Command\Teardown.hpp" />
+    <ClInclude Include="app\components\Adv\CodeZeroDemo\SignalCtrl.hpp" />
+    <ClInclude Include="app\components\Adv\CommonUtil.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\Bgm.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\CharaSetter.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\ClearMessage.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\ColorTag.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\MessageStream.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\NameSetter.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\PauseDisabled.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\ShakeTag.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\ShowHideMessage.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\SignalReceive.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\SignalSend.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\SkipEnabled.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\WaitInput.hpp" />
+    <ClInclude Include="app\components\Adv\Common\Command\WaitTime.hpp" />
+    <ClInclude Include="app\components\Adv\Common\EventCtrl.hpp" />
+    <ClInclude Include="app\components\Adv\Common\MessageBox.hpp" />
+    <ClInclude Include="app\components\Adv\Common\TalkCtrl.hpp" />
+    <ClInclude Include="app\components\Adv\RoomGarder\Builder.hpp" />
+    <ClInclude Include="app\components\Adv\RoomGarder\Command\Setup.hpp" />
+    <ClInclude Include="app\components\Adv\RoomGarder\Command\Teardown.hpp" />
+    <ClInclude Include="app\components\Adv\RoomGarder\SignalCtrl.hpp" />
     <ClInclude Include="app\components\Common\ClockCtrl.hpp" />
     <ClInclude Include="app\components\Common\CustomDrawBase.hpp" />
     <ClInclude Include="app\components\Common\ITimeScale.hpp" />
     <ClInclude Include="app\components\Common\MotionCtrl.hpp" />
     <ClInclude Include="app\components\Common\VModelBase.hpp" />
-    <ClInclude Include="app\modules\Cron\base\IJob.hpp" />
-    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\BubbleGenerator\Generator.hpp" />
     <ClInclude Include="app\components\Cron\Common\IntervalTimeScheduler.hpp" />
@@ -1815,17 +1444,23 @@
     <ClInclude Include="app\components\Cron\Common\RoomMoveCallbackCtrl.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Builder.hpp" />
     <ClInclude Include="app\components\Cron\FishGenerator\Generator.hpp" />
-    <ClInclude Include="app\modules\Cycle\base\IListener.hpp" />
+    <ClInclude Include="app\components\Cycle\DevPortal\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\DevPortal\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\Experiment\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Experiment\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\Home\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\Home\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Main\Master.hpp" />
     <ClInclude Include="app\components\Cycle\SaveSelect\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\SaveSelect\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Splash\Master.hpp" />
+    <ClInclude Include="app\components\Cycle\StageResult\Builder.hpp" />
+    <ClInclude Include="app\components\Cycle\StageResult\Master.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Builder.hpp" />
     <ClInclude Include="app\components\Cycle\Title\Master.hpp" />
-    <ClInclude Include="app\modules\Decor\base\IDraw.hpp" />
-    <ClInclude Include="app\modules\Decor\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Decor\BuilderFromEntity.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\Builder.hpp" />
     <ClInclude Include="app\components\Decor\City\StreetLight\LightCtrl.hpp" />
     <ClInclude Include="app\components\Decor\Common\BasicDraw.hpp" />
@@ -1842,8 +1477,14 @@
     <ClInclude Include="app\components\Effect\Actor\Common\EnemyDead\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\Kiran\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\NegaPosi\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\ChargeCircle.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\DistCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Enemy\CodeZero\ShotCharge\Main.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Builder.hpp" />
+    <ClInclude Include="app\components\Effect\Actor\Gimmick\ShutterWall\Break\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\Circles.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Item\Recovery\ColorDef.hpp" />
@@ -1857,10 +1498,6 @@
     <ClInclude Include="app\components\Effect\Actor\Player\ShotFiring\Main.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Actor\Player\Shot\Main.hpp" />
-    <ClInclude Include="app\modules\Effect\base\Drawer.hpp" />
-    <ClInclude Include="app\modules\Effect\base\IDraw.hpp" />
-    <ClInclude Include="app\modules\Effect\base\IDrawParts.hpp" />
-    <ClInclude Include="app\modules\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\components\Effect\Common\BossFadeMask.hpp" />
     <ClInclude Include="app\components\Effect\Common\EmissiveCtrl.hpp" />
     <ClInclude Include="app\components\Effect\Common\LifeTime.hpp" />
@@ -1875,10 +1512,6 @@
     <ClInclude Include="app\components\Effect\Misc\Fish\Main.hpp" />
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\Builder.hpp" />
     <ClInclude Include="app\components\Effect\Misc\ShockWaveDist\DistCtrl.hpp" />
-    <ClInclude Include="app\modules\Event\base\ILastUpdate.hpp" />
-    <ClInclude Include="app\modules\Event\base\IStream.hpp" />
-    <ClInclude Include="app\modules\Event\base\IUpdate.hpp" />
-    <ClInclude Include="app\modules\Event\base\StreamHandler.hpp" />
     <ClInclude Include="app\components\Event\Common\GlobalTimeCtrl.hpp" />
     <ClInclude Include="app\components\Event\Common\IGlobalTimeScale.hpp" />
     <ClInclude Include="app\components\Event\Common\PlayerStateCtrl.hpp" />
@@ -1890,6 +1523,11 @@
     <ClInclude Include="app\components\Event\GameReady\MainStream.hpp" />
     <ClInclude Include="app\components\Event\GameRestart\Builder.hpp" />
     <ClInclude Include="app\components\Event\GameRestart\MainStream.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\Builder.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\DoorIn\MapMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\IMapMoveCallback.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\LinkData.hpp" />
+    <ClInclude Include="app\components\Event\MapMove\MapMoveCtrl.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\BasicMove\Builder.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\BasicMove\RoomMoveCallback.hpp" />
     <ClInclude Include="app\components\Event\RoomMove\DoorMove\Builder.hpp" />
@@ -1899,12 +1537,13 @@
     <ClInclude Include="app\components\Event\Talk\Builder.hpp" />
     <ClInclude Include="app\components\Event\Talk\MainStream.hpp" />
     <ClInclude Include="app\components\Event\Talk\PlayerStateChanger.hpp" />
-    <ClInclude Include="app\components\UI\Title\BgmCtrl.hpp" />
-    <ClInclude Include="app\components\UI\Title\Builder.hpp" />
-    <ClInclude Include="app\components\UI\Title\Main.hpp" />
-    <ClInclude Include="app\modules\UI\base\IDraw.hpp" />
-    <ClInclude Include="app\modules\UI\base\IPostUpdate.hpp" />
-    <ClInclude Include="app\modules\UI\base\IUpdate.hpp" />
+    <ClInclude Include="app\components\Fade\FadeUtil.hpp" />
+    <ClInclude Include="app\components\Fade\IrisOut\IrisOutFade.hpp" />
+    <ClInclude Include="app\components\Fade\Screen\ScreenFade.hpp" />
+    <ClInclude Include="app\components\Sound\BgmDef.hpp" />
+    <ClInclude Include="app\components\Sound\SeDef.hpp" />
+    <ClInclude Include="app\components\UI\BossArrival\Builder.hpp" />
+    <ClInclude Include="app\components\UI\BossArrival\Main.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Builder.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\HPGaugeCtrl.hpp" />
     <ClInclude Include="app\components\UI\BossHPBar\Main.hpp" />
@@ -1912,9 +1551,26 @@
     <ClInclude Include="app\components\UI\Common\FooterTips.hpp" />
     <ClInclude Include="app\components\UI\Common\HierarchyCtrl.hpp" />
     <ClInclude Include="app\components\UI\Common\VModel.hpp" />
+    <ClInclude Include="app\components\UI\DevPortal\Builder.hpp" />
+    <ClInclude Include="app\components\UI\DevPortal\Main.hpp" />
+    <ClInclude Include="app\components\UI\DevPortal\TaskBoard\TaskBoard.hpp" />
     <ClInclude Include="app\components\UI\Dialog\DialogResult.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Builder.hpp" />
     <ClInclude Include="app\components\UI\DyingEffect\Main.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\BossArrival\Topic.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\DualComplexLab\Topic.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\ITopic.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\Main.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\TopicBoard.hpp" />
+    <ClInclude Include="app\components\UI\Experiment\WorkLab\Topic.hpp" />
+    <ClInclude Include="app\components\UI\GamePause\Main.hpp" />
+    <ClInclude Include="app\components\UI\GamePause\Result.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Main.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\Mode.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\ModeUpdater.hpp" />
+    <ClInclude Include="app\components\UI\Home\Top\ModeUtil.hpp" />
     <ClInclude Include="app\components\UI\Message\Builder.hpp" />
     <ClInclude Include="app\components\UI\Message\Main.hpp" />
     <ClInclude Include="app\components\UI\PlayerInfo\Builder.hpp" />
@@ -1935,18 +1591,25 @@
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\KiraKiraCtrl.hpp" />
     <ClInclude Include="app\components\UI\SaveSelect\UserInfo\ViewCtrl.hpp" />
     <ClInclude Include="app\components\UI\SpeechBalloon\Builder.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\Builder.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Splash\Logo\LogoTimer.hpp" />
+    <ClInclude Include="app\components\UI\Splash\Main.hpp" />
+    <ClInclude Include="app\components\UI\StageResult\Builder.hpp" />
+    <ClInclude Include="app\components\UI\StageResult\Main.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\BgCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\BackGround\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\BgmCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\CursorCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Cursor\Shot.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\Builder.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\LogoCtrl.hpp" />
     <ClInclude Include="app\components\UI\Title\Logo\ViewCtrl.hpp" />
+    <ClInclude Include="app\components\UI\Title\Main.hpp" />
     <ClInclude Include="app\components\UI\utils\DialogUtil.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\base\IEnemyDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Enemy\parser\TmxEnemyParser.hpp" />
@@ -1961,6 +1624,8 @@
     <ClInclude Include="app\datastores\Actor\Land\base\ITileMapDataStore.hpp" />
     <ClInclude Include="app\datastores\Actor\Land\parser\TmxLandParser.hpp" />
     <ClInclude Include="app\datastores\Actor\Land\TmxLandDataStore.hpp" />
+    <ClInclude Include="app\datastores\Adv\base\IProjectDataStore.hpp" />
+    <ClInclude Include="app\datastores\Adv\TomlProjectDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\base\IAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\Attribute\TmxAttributeDataStore.hpp" />
     <ClInclude Include="app\datastores\base\DBDataStore.hpp" />
@@ -1973,17 +1638,25 @@
     <ClInclude Include="app\datastores\Decor\TmxAnimationDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxDecorDataStore.hpp" />
     <ClInclude Include="app\datastores\Decor\TmxGraphicsDataStore.hpp" />
+    <ClInclude Include="app\datastores\Devs\Project\base\IProjectDataStore.hpp" />
+    <ClInclude Include="app\datastores\Devs\Project\GitHubDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\base\IMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\MigrationVersion\DBMigrationVersionDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\base\IMigrationDataStore.hpp" />
     <ClInclude Include="app\datastores\Migration\MigrationDataStore.hpp" />
+    <ClInclude Include="app\datastores\Msg\base\IMessageDataStore.hpp" />
+    <ClInclude Include="app\datastores\Msg\CSVMessageDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\base\IRoomDataStore.hpp" />
     <ClInclude Include="app\datastores\Room\TmxRoomDataStore.hpp" />
+    <ClInclude Include="app\datastores\Sound\base\ISoundBankDataStore.hpp" />
+    <ClInclude Include="app\datastores\Sound\CSVSoundBankDataStore.hpp" />
     <ClInclude Include="app\datastores\User\base\IUserDataStore.hpp" />
     <ClInclude Include="app\datastores\User\DBUserDataStore.hpp" />
     <ClInclude Include="app\debugs\Debug.hpp" />
     <ClInclude Include="app\debugs\FPSViewer\FPSViewer.hpp" />
+    <ClInclude Include="app\debugs\HotReload\FileChanges.hpp" />
     <ClInclude Include="app\debugs\HotReload\HotReload.hpp" />
+    <ClInclude Include="app\debugs\HotReload\HotReloadUtil.hpp" />
     <ClInclude Include="app\debugs\Log\Log.hpp" />
     <ClInclude Include="app\debugs\Log\LogViewer.hpp" />
     <ClInclude Include="app\debugs\Menu\DebugFlag.hpp" />
@@ -1995,6 +1668,10 @@
     <ClInclude Include="app\debugs\System\System.hpp" />
     <ClInclude Include="app\debugs\System\SystemContext.hpp" />
     <ClInclude Include="app\debugs\Util\DebugUtil.hpp" />
+    <ClInclude Include="app\debugs\Watcher\Watcher.hpp" />
+    <ClInclude Include="app\debugs\Watcher\WatchViewer.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\BabyDuxEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Enemy\BazookaKunEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CaptainTakoEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\CodeZeroEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Enemy\EnemyEntity.hpp" />
@@ -2012,10 +1689,12 @@
     <ClInclude Include="app\entities\Actor\Gimmick\DoorEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\EventTriggerEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\GimmickEntity.hpp" />
+    <ClInclude Include="app\entities\Actor\Gimmick\ShutterWallEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Gimmick\StartPosEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Item\ItemEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Item\RecoveryEntity.hpp" />
     <ClInclude Include="app\entities\Actor\Land\LandEntity.hpp" />
+    <ClInclude Include="app\entities\Adv\CharaEntity.hpp" />
     <ClInclude Include="app\entities\Decor\AnimationEntity.hpp" />
     <ClInclude Include="app\entities\Decor\City\StreetLightEntity.hpp" />
     <ClInclude Include="app\entities\Decor\DecorEntity.hpp" />
@@ -2027,34 +1706,48 @@
     <ClInclude Include="app\entities\Decor\Map\CommonEntity.hpp" />
     <ClInclude Include="app\entities\Room\RoomEntity.hpp" />
     <ClInclude Include="app\entities\User\UserEntity.hpp" />
-    <ClInclude Include="app\commons\Factory\Stage\Injector.hpp" />
-    <ClInclude Include="app\commons\Factory\Migration\Injector.hpp" />
-    <ClInclude Include="app\commons\Factory\Storage\Injector.hpp" />
-    <ClInclude Include="app\modules\Stage\StartPos\StartPosContainer.hpp" />
-    <ClInclude Include="app\modules\Stage\StartPos\StartPos.hpp" />
-    <ClInclude Include="app\modules\Camera\CameraParam.hpp" />
-    <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp" />
-    <ClInclude Include="app\modules\Decor\Map\TileMapData.hpp" />
-    <ClInclude Include="app\modules\Decor\Map\Tile.hpp" />
-    <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp" />
-    <ClInclude Include="app\modules\Room\RoomData.hpp" />
-    <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp" />
+    <ClInclude Include="app\models\Adv\Chara.hpp" />
+    <ClInclude Include="app\models\Adv\Sentence.hpp" />
     <ClInclude Include="app\models\User\UserModel.hpp" />
+    <ClInclude Include="app\modules\Actor\Actors.hpp" />
     <ClInclude Include="app\modules\Actor\base\ActorObj.hpp" />
     <ClInclude Include="app\modules\Actor\base\ActorObj.ipp" />
     <ClInclude Include="app\modules\Actor\base\ActorsHolder.hpp" />
     <ClInclude Include="app\modules\Actor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Actor\base\DestroyTiming.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IDraw.hpp" />
+    <ClInclude Include="app\modules\Actor\base\ILastUpdate.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IMove.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPostCollision.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPostPhysics.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPostUpdate.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPreCollision.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPreDraw.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPrePhysics.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IPreUpdate.hpp" />
+    <ClInclude Include="app\modules\Actor\base\IUpdate.hpp" />
     <ClInclude Include="app\modules\Actor\Player\PlayerManager.hpp" />
+    <ClInclude Include="app\modules\Adv\Adventures.hpp" />
+    <ClInclude Include="app\modules\Adv\base\AdvObj.hpp" />
+    <ClInclude Include="app\modules\Adv\base\ICommand.hpp" />
+    <ClInclude Include="app\modules\Adv\base\Process.hpp" />
+    <ClInclude Include="app\modules\Adv\base\SentenceCtrl.hpp" />
+    <ClInclude Include="app\modules\Adv\base\SkipCtrl.hpp" />
+    <ClInclude Include="app\modules\Adv\Project\CharaTable.hpp" />
+    <ClInclude Include="app\modules\Adv\Project\Project.hpp" />
+    <ClInclude Include="app\modules\Adv\TagString.hpp" />
     <ClInclude Include="app\modules\Camera\Camera.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraErp\CameraErpCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\base\ICameraFix.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraFix\CameraFixPriority.hpp" />
+    <ClInclude Include="app\modules\Camera\CameraParam.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\CameraTargetBase.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\base\ICameraTarget.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetCtrl.hpp" />
     <ClInclude Include="app\modules\Camera\CameraTarget\CameraTargetPriority.hpp" />
     <ClInclude Include="app\modules\Camera\Quake\Quake.hpp" />
+    <ClInclude Include="app\modules\Camera\Quake\QuakeEpicenter.hpp" />
     <ClInclude Include="app\modules\ColSys\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\ColSys\base\IExtension.hpp" />
     <ClInclude Include="app\modules\ColSys\base\INode.hpp" />
@@ -2065,29 +1758,53 @@
     <ClInclude Include="app\modules\ColSys\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Cron\base\Batch.hpp" />
     <ClInclude Include="app\modules\Cron\base\BatchHolder.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IJob.hpp" />
+    <ClInclude Include="app\modules\Cron\base\IScheduler.hpp" />
     <ClInclude Include="app\modules\Cron\Crons.hpp" />
     <ClInclude Include="app\modules\Cycle\base\CycleObj.hpp" />
+    <ClInclude Include="app\modules\Cycle\base\IListener.hpp" />
     <ClInclude Include="app\modules\Cycle\CycleMaster.hpp" />
     <ClInclude Include="app\modules\Decor\base\BufferLayer.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorHolder.hpp" />
     <ClInclude Include="app\modules\Decor\base\DecorObj.hpp" />
+    <ClInclude Include="app\modules\Decor\base\IDraw.hpp" />
+    <ClInclude Include="app\modules\Decor\base\IUpdate.hpp" />
     <ClInclude Include="app\modules\Decor\DecorBuildUtil.hpp" />
     <ClInclude Include="app\modules\Decor\DecorGraphics.hpp" />
     <ClInclude Include="app\modules\Decor\Decors.hpp" />
+    <ClInclude Include="app\modules\Decor\Map\Tile.hpp" />
+    <ClInclude Include="app\modules\Decor\Map\TileMapData.hpp" />
+    <ClInclude Include="app\modules\Devs\Project\base\Issue.hpp" />
+    <ClInclude Include="app\modules\Devs\Project\base\Tasks.hpp" />
+    <ClInclude Include="app\modules\Devs\Project\base\TaskStatus.hpp" />
+    <ClInclude Include="app\modules\Devs\Project\Project.hpp" />
     <ClInclude Include="app\modules\Devs\WorldComment\WorldComment.hpp" />
     <ClInclude Include="app\modules\Distortion\Distortion.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawLayer.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawManager.hpp" />
     <ClInclude Include="app\modules\DrawManager\DrawOrder.hpp" />
+    <ClInclude Include="app\modules\Effect\base\Drawer.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectObj.hpp" />
     <ClInclude Include="app\modules\Effect\base\EffectsHolder.hpp" />
+    <ClInclude Include="app\modules\Effect\base\IDraw.hpp" />
+    <ClInclude Include="app\modules\Effect\base\IDrawParts.hpp" />
+    <ClInclude Include="app\modules\Effect\base\IUpdate.hpp" />
     <ClInclude Include="app\modules\Effect\Effects.hpp" />
+    <ClInclude Include="app\modules\Event\base\EventObj.hpp" />
+    <ClInclude Include="app\modules\Event\base\ILastUpdate.hpp" />
+    <ClInclude Include="app\modules\Event\base\IStream.hpp" />
+    <ClInclude Include="app\modules\Event\base\IUpdate.hpp" />
+    <ClInclude Include="app\modules\Event\base\StreamHandler.hpp" />
+    <ClInclude Include="app\modules\Event\Events.hpp" />
+    <ClInclude Include="app\modules\Fade\base\IFadeColor.hpp" />
+    <ClInclude Include="app\modules\Fade\base\ISceneFade.hpp" />
+    <ClInclude Include="app\modules\Fade\Fader.hpp" />
+    <ClInclude Include="app\modules\Fade\SceneFader.hpp" />
     <ClInclude Include="app\modules\FieldEnv\Bg\Bg.hpp" />
     <ClInclude Include="app\modules\FieldEnv\Caustics\Caustics.hpp" />
     <ClInclude Include="app\modules\FieldEnv\Environment.hpp" />
+    <ClInclude Include="app\modules\FieldEnv\Fog\Fog.hpp" />
     <ClInclude Include="app\modules\FieldEnv\Sky\Sky.hpp" />
-    <ClInclude Include="app\modules\Event\base\EventObj.hpp" />
-    <ClInclude Include="app\modules\Event\Events.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentMapping.hpp" />
     <ClInclude Include="app\modules\GameObject\Components.hpp" />
     <ClInclude Include="app\modules\GameObject\ComponentTree.hpp" />
@@ -2098,9 +1815,11 @@
     <ClInclude Include="app\modules\GameObject\IComponent.hpp" />
     <ClInclude Include="app\modules\GameObject\WeakObject.hpp" />
     <ClInclude Include="app\modules\GlobalTime\GlobalTime.hpp" />
+    <ClInclude Include="app\modules\GlobalTime\GlobalTimeScale.hpp" />
     <ClInclude Include="app\modules\Light\Light.hpp" />
     <ClInclude Include="app\modules\Light\LightColor.hpp" />
     <ClInclude Include="app\modules\Manager\Manager.hpp" />
+    <ClInclude Include="app\modules\Pause\PauseManager.hpp" />
     <ClInclude Include="app\modules\Physics\base\IContacter.hpp" />
     <ClInclude Include="app\modules\Physics\base\IDetectionAlgorithm.hpp" />
     <ClInclude Include="app\modules\Physics\base\ITerrain.hpp" />
@@ -2110,32 +1829,63 @@
     <ClInclude Include="app\modules\Physics\PhysicsManager.hpp" />
     <ClInclude Include="app\modules\Physics\SimpleDetection.hpp" />
     <ClInclude Include="app\modules\Room\IRoomMoveCallback.hpp" />
+    <ClInclude Include="app\modules\Room\RoomData.hpp" />
+    <ClInclude Include="app\modules\Room\RoomGarderCtrl.hpp" />
     <ClInclude Include="app\modules\Room\RoomManager.hpp" />
+    <ClInclude Include="app\modules\Sfx\Bloom\Bloom.hpp" />
+    <ClInclude Include="app\modules\Sfx\Blur\Blur.hpp" />
     <ClInclude Include="app\modules\Sfx\BossFade\BossFade.hpp" />
     <ClInclude Include="app\modules\Sfx\Common\ColorFade.hpp" />
+    <ClInclude Include="app\modules\Sfx\DeadEffect\DeadEffect.hpp" />
+    <ClInclude Include="app\modules\Sfx\DecorFar\DecorFar.hpp" />
     <ClInclude Include="app\modules\Sfx\Flush\Flush.hpp" />
+    <ClInclude Include="app\modules\Sfx\Moisture\Moisture.hpp" />
+    <ClInclude Include="app\modules\Sfx\NegaPosiInv\NegaPosiInv.hpp" />
     <ClInclude Include="app\modules\Sfx\PostEffects.hpp" />
     <ClInclude Include="app\modules\Sfx\Scanline\Scanline.hpp" />
     <ClInclude Include="app\modules\Sfx\SkipFade\SkipFade.hpp" />
     <ClInclude Include="app\modules\Sfx\SpecialEffects.hpp" />
     <ClInclude Include="app\modules\Sound\Bgm\BackGroundMusic.hpp" />
     <ClInclude Include="app\modules\Sound\MixBus.hpp" />
+    <ClInclude Include="app\modules\Sound\SceneSound.hpp" />
+    <ClInclude Include="app\modules\Sound\Se\SeCaches.hpp" />
+    <ClInclude Include="app\modules\Sound\Se\SoundEffects.hpp" />
+    <ClInclude Include="app\modules\Sound\SoundBank\ISoundBank.hpp" />
+    <ClInclude Include="app\modules\Sound\SoundBank\SoundBank.hpp" />
     <ClInclude Include="app\modules\Sound\Sounds.hpp" />
     <ClInclude Include="app\modules\Stage\Stage.hpp" />
     <ClInclude Include="app\modules\Stage\StageData.hpp" />
+    <ClInclude Include="app\modules\Stage\StageTranslator.hpp" />
+    <ClInclude Include="app\modules\Stage\StartPos\StartPos.hpp" />
+    <ClInclude Include="app\modules\Stage\StartPos\StartPosContainer.hpp" />
+    <ClInclude Include="app\modules\Temporary\RestartInfo\RestartInfo.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempFlags.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
+    <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />
     <ClInclude Include="app\modules\Temporary\Temporary.hpp" />
     <ClInclude Include="app\modules\Temporary\TemporaryData.hpp" />
     <ClInclude Include="app\modules\UI\base\Filter.hpp" />
+    <ClInclude Include="app\modules\UI\base\IDraw.hpp" />
+    <ClInclude Include="app\modules\UI\base\IPostUpdate.hpp" />
+    <ClInclude Include="app\modules\UI\base\IUpdate.hpp" />
     <ClInclude Include="app\modules\UI\base\UIHolder.hpp" />
     <ClInclude Include="app\modules\UI\base\UIObj.hpp" />
     <ClInclude Include="app\modules\UI\UIs.hpp" />
+    <ClInclude Include="app\modules\User\DataStore.hpp" />
+    <ClInclude Include="app\modules\User\RuntimeData.hpp" />
+    <ClInclude Include="app\modules\User\Storage.hpp" />
+    <ClInclude Include="app\modules\User\UserData.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BabyDux\BabyDesc.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BabyDux\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\BazookaKun\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CaptainTako\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CodeZero\HandParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CodeZero\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\CodeZero\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\Ikalien\Param.hpp" />
-    <ClInclude Include="app\params\Actor\Enemy\BabyDux\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Enemy\KingDux\BabyDuxParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\Param.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\KingDux\TentacleParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\LaunShark\Param.hpp" />
@@ -2145,49 +1895,73 @@
     <ClInclude Include="app\params\Actor\Enemy\Schield\ShotParam.hpp" />
     <ClInclude Include="app\params\Actor\Enemy\Slime\Param.hpp" />
     <ClInclude Include="app\params\Actor\Gimmick\Bush\Param.hpp" />
+    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\EffectParam.hpp" />
+    <ClInclude Include="app\params\Actor\Gimmick\ShutterWall\Param.hpp" />
     <ClInclude Include="app\params\Actor\Item\Recovery\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\CameraParam.hpp" />
     <ClInclude Include="app\params\Actor\Player\Param.hpp" />
     <ClInclude Include="app\params\Actor\Player\ShotParam.hpp" />
+    <ClInclude Include="app\params\Loading\Common\Param.hpp" />
+    <ClInclude Include="app\params\UI\BossArrival\Param.hpp" />
     <ClInclude Include="app\params\UI\BossHPBar\Param.hpp" />
     <ClInclude Include="app\params\UI\Common\FooterParam.hpp" />
+    <ClInclude Include="app\params\UI\Home\Top\ViewParam.hpp" />
     <ClInclude Include="app\params\UI\PlayerInfo\Param.hpp" />
     <ClInclude Include="app\params\UI\SaveSelect\Param.hpp" />
     <ClInclude Include="app\params\UI\SaveSelect\UserInfoParam.hpp" />
     <ClInclude Include="app\params\UI\Splash\Param.hpp" />
     <ClInclude Include="app\params\UI\Title\BgParam.hpp" />
+    <ClInclude Include="app\params\UI\Title\CursorParam.hpp" />
     <ClInclude Include="app\params\UI\Title\LogoParam.hpp" />
+    <ClInclude Include="app\Preprocess.hpp" />
+    <ClInclude Include="app\scenes\Data\SceneContextHolder.hpp" />
+    <ClInclude Include="app\scenes\Data\SceneResultHolder.hpp" />
     <ClInclude Include="app\scenes\Data\SequecneData.hpp" />
+    <ClInclude Include="app\scenes\Loading\Common\Loading.hpp" />
+    <ClInclude Include="app\scenes\Loading\ILoading.hpp" />
+    <ClInclude Include="app\scenes\Loading\Loader.hpp" />
+    <ClInclude Include="app\scenes\Loading\LoadProcessor.hpp" />
+    <ClInclude Include="app\scenes\SceneKind.hpp" />
+    <ClInclude Include="app\scenes\Scene\Boot\Initializer.hpp" />
+    <ClInclude Include="app\scenes\Scene\Boot\Scene.hpp" />
+    <ClInclude Include="app\scenes\Scene\Demo\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\DevPortal\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\DevPortal\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\DevPortal\SceneResult.hpp" />
+    <ClInclude Include="app\scenes\Scene\Experiment\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\Experiment\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\Home\Scene.hpp" />
+    <ClInclude Include="app\scenes\Scene\Home\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\ISceneBase.hpp" />
+    <ClInclude Include="app\scenes\Scene\SaveSelect\Booter.hpp" />
+    <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\SaveSelect\SceneResult.hpp" />
     <ClInclude Include="app\scenes\Scene\SceneManager.hpp" />
+    <ClInclude Include="app\scenes\Scene\Splash\Booter.hpp" />
+    <ClInclude Include="app\scenes\Scene\Splash\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Booter.hpp" />
-    <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\StageResult\Context.hpp" />
-    <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />
+    <ClInclude Include="app\scenes\Scene\StageResult\Scene.hpp" />
+    <ClInclude Include="app\scenes\Scene\Stage\Booter.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\Context.hpp" />
-    <ClInclude Include="app\scenes\Scene\Demo\Scene.hpp" />
-    <ClInclude Include="app\scenes\Scene\Boot\Scene.hpp" />
-    <ClInclude Include="app\scenes\Scene\SaveSelect\Scene.hpp" />
-    <ClInclude Include="app\scenes\SceneKind.hpp" />
+    <ClInclude Include="app\scenes\Scene\Stage\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Stage\SceneResult.hpp" />
+    <ClInclude Include="app\scenes\Scene\Title\Booter.hpp" />
+    <ClInclude Include="app\scenes\Scene\Title\Scene.hpp" />
     <ClInclude Include="app\scenes\Scene\Title\SceneResult.hpp" />
+    <ClInclude Include="app\scenes\SequenceManager.hpp" />
     <ClInclude Include="app\scenes\Sequence\Develop\DevelopSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Game\GameSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\ISequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Root\RootSequence.hpp" />
-    <ClInclude Include="app\scenes\SequenceManager.hpp" />
-    <ClInclude Include="app\scenes\Scene\Splash\Scene.hpp" />
-    <ClInclude Include="app\scenes\Scene\Title\Scene.hpp" />
     <ClInclude Include="app\scenes\Sequence\SceneDebug\SceneDebugSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\Stage\StageSequence.hpp" />
     <ClInclude Include="app\scenes\Sequence\User\UserSequence.hpp" />
+    <ClInclude Include="app\scenes\Sys\IBooter.hpp" />
+    <ClInclude Include="app\scenes\Sys\ModulePackage.hpp" />
+    <ClInclude Include="app\scenes\Sys\Modules.hpp" />
+    <ClInclude Include="app\scenes\Sys\System.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\base\IEnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Enemy\EnemyService.hpp" />
     <ClInclude Include="app\services\Actor\Gimmick\base\IGimmickService.hpp" />
@@ -2196,6 +1970,8 @@
     <ClInclude Include="app\services\Actor\Item\ItemService.hpp" />
     <ClInclude Include="app\services\Actor\Land\base\ILandService.hpp" />
     <ClInclude Include="app\services\Actor\Land\LandService.hpp" />
+    <ClInclude Include="app\services\Adv\base\IProjectService.hpp" />
+    <ClInclude Include="app\services\Adv\ProjectService.hpp" />
     <ClInclude Include="app\services\Attribute\AttributeService.hpp" />
     <ClInclude Include="app\services\Attribute\base\IAttributeService.hpp" />
     <ClInclude Include="app\services\Decor\base\IDecorService.hpp" />
@@ -2208,16 +1984,99 @@
     <ClInclude Include="app\services\Msg\MessageService.hpp" />
     <ClInclude Include="app\services\Room\base\IRoomService.hpp" />
     <ClInclude Include="app\services\Room\RoomService.hpp" />
+    <ClInclude Include="app\services\Sound\base\ISoundBankService.hpp" />
+    <ClInclude Include="app\services\Sound\SoundBankService.hpp" />
     <ClInclude Include="app\services\User\base\IUserService.hpp" />
     <ClInclude Include="app\services\User\UserService.hpp" />
     <ClInclude Include="app\stdafx.hpp" />
-    <ClInclude Include="app\scenes\Scene\Stage\Booter.hpp" />
-    <ClInclude Include="app\scenes\Scene\SaveSelect\Booter.hpp" />
-    <ClInclude Include="app\scenes\Scene\Splash\Booter.hpp" />
-    <ClInclude Include="app\scenes\Scene\Title\Booter.hpp" />
+    <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
+    <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
+    <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
+    <ClInclude Include="app\utils\BiMap\HashBiMap.hpp" />
+    <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
+    <ClInclude Include="app\utils\Clock\Clock.hpp" />
+    <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
     <ClInclude Include="app\utils\Collision\ColDirection.hpp" />
     <ClInclude Include="app\utils\Collision\CollisionPairHash.hpp" />
+    <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
     <ClInclude Include="app\utils\Collision\CShape.hpp" />
+    <ClInclude Include="app\utils\Collision\FixPos.hpp" />
+    <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
+    <ClInclude Include="app\utils\Coro\AsyncGenerator\AsyncGenerator.hpp" />
+    <ClInclude Include="app\utils\Coro\Enumerator\Enumerator.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
+    <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\FiberUtil.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\IAwaiter.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Tween.hpp" />
+    <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp" />
+    <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
+    <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
+    <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
+    <ClInclude Include="app\utils\DB\DBBind.hpp" />
+    <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
+    <ClInclude Include="app\utils\DB\DBUtil.hpp" />
+    <ClInclude Include="app\utils\DebugLog\DebugLog.hpp" />
+    <ClInclude Include="app\utils\DebugLog\IViewer.hpp" />
+    <ClInclude Include="app\utils\DebugLog\LogInfo.hpp" />
+    <ClInclude Include="app\utils\DebugLog\LogKind.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\DefaultController.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\HrItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IInputController.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IItem.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\INode.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Menu.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\parser\MenuParser.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\RadioButton.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Save\IMenuSave.hpp" />
+    <ClInclude Include="app\utils\DebugMenu\Save\JSONSave.hpp" />
+    <ClInclude Include="app\utils\Easing\EasingUtil.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
+    <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
+    <ClInclude Include="app\utils\Env\detail\EnvParser.hpp" />
+    <ClInclude Include="app\utils\Env\Env.hpp" />
+    <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
+    <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
+    <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
+    <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
+    <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
+    <ClInclude Include="app\utils\JSON\JSONBind.hpp" />
+    <ClInclude Include="app\utils\JSON\JSONUtil.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\Component.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\Constants.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\GrabCtrl.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\ScrollCtrl.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowMover.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowParam.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\detail\WindowResizer.hpp" />
+    <ClInclude Include="app\utils\Layout\Window\Window.hpp" />
+    <ClInclude Include="app\utils\Math\Complex.hpp" />
+    <ClInclude Include="app\utils\Math\DualComplex.hpp" />
+    <ClInclude Include="app\utils\Math\InterpUtil.hpp" />
+    <ClInclude Include="app\utils\Math\Math.hpp" />
+    <ClInclude Include="app\utils\Memory\fixed_ptr.hpp" />
+    <ClInclude Include="app\utils\Memory\variant_ptr.hpp" />
+    <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
+    <ClInclude Include="app\utils\Meta\RemoveParam.hpp" />
+    <ClInclude Include="app\utils\Migration\Migration.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
+    <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
+    <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
+    <ClInclude Include="app\utils\Mrp\Parser\Parser.hpp" />
+    <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\NeptScript\Ast\INode.hpp" />
     <ClInclude Include="app\utils\NeptScript\Ast\IStatement.hpp" />
     <ClInclude Include="app\utils\NeptScript\Ast\Root.hpp" />
@@ -2233,96 +2092,6 @@
     <ClInclude Include="app\utils\NeptScript\Parser\Error.hpp" />
     <ClInclude Include="app\utils\NeptScript\Parser\Parser.hpp" />
     <ClInclude Include="app\utils\NeptScript\Script.hpp" />
-    <ClInclude Include="app\utils\Random\RandUtil.hpp" />
-    <ClInclude Include="app\utils\Shake\SimpleShake.hpp" />
-    <ClInclude Include="app\values\Forward.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\Fiber.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\Fiber.ipp" />
-    <ClInclude Include="app\utils\Coro\Fiber\FiberHolder.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\MultiFibers.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\FiberUtil.hpp" />
-    <ClInclude Include="app\utils\Coro\Fiber\Yield.hpp" />
-    <ClInclude Include="app\utils\Env\detail\EnvParser.hpp" />
-    <ClInclude Include="app\utils\Env\Env.hpp" />
-    <ClInclude Include="app\utils\JSON\JSONBind.hpp" />
-    <ClInclude Include="app\utils\JSON\JSONUtil.hpp" />
-    <ClInclude Include="app\values\Fps.hpp" />
-    <ClInclude Include="app\values\OopartsType.hpp" />
-    <ClInclude Include="app\modules\Temporary\TempFrag\TempKey.hpp" />
-    <ClInclude Include="app\modules\Temporary\TempFrag\TempLevel.hpp" />
-    <ClInclude Include="app\values\StageDef.hpp" />
-    <ClInclude Include="app\values\UserPlayMode.hpp" />
-    <ClInclude Include="app\utils\AudioSetting\AudioSetting.hpp" />
-    <ClInclude Include="app\utils\AudioSetting\AudioSettingReader.hpp" />
-    <ClInclude Include="app\utils\Axis2\Axis2.hpp" />
-    <ClInclude Include="app\utils\Chunk\Chunk.hpp" />
-    <ClInclude Include="app\utils\Clock\Clock.hpp" />
-    <ClInclude Include="app\utils\Clock\ClockUtil.hpp" />
-    <ClInclude Include="app\utils\Collision\CollisionUtil.hpp" />
-    <ClInclude Include="app\utils\Collision\FixPos.hpp" />
-    <ClInclude Include="app\utils\Collision\SweepUtil.hpp" />
-    <ClInclude Include="app\utils\Coro\AsyncGenerator\AsyncGenerator.hpp" />
-    <ClInclude Include="app\utils\Coro\Enumerator\Enumerator.hpp" />
-    <ClInclude Include="app\utils\Coro\Generator\Generator.hpp" />
-    <ClInclude Include="app\utils\Coro\Iterator\Iterator.hpp" />
-    <ClInclude Include="app\utils\DateTime\DateTimeUtil.hpp" />
-    <ClInclude Include="app\utils\DB\DBBind.hpp" />
-    <ClInclude Include="app\utils\DB\DBBindDef.hpp" />
-    <ClInclude Include="app\utils\DB\DBUtil.hpp" />
-    <ClInclude Include="app\utils\DebugLog\DebugLog.hpp" />
-    <ClInclude Include="app\utils\DebugLog\IViewer.hpp" />
-    <ClInclude Include="app\utils\DebugLog\LogInfo.hpp" />
-    <ClInclude Include="app\utils\DebugLog\LogKind.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\BoolItem.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Button.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\DefaultSkin.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Folder.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\IFindable.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\IFolder.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\IItem.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\INode.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\ISkin.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\IValue.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Menu.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\Node.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\NodeValue.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\parser\MenuParser.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\RadioButton.hpp" />
-    <ClInclude Include="app\utils\DebugMenu\RootFolder.hpp" />
-    <ClInclude Include="app\utils\Enum\EnumTraits.hpp" />
-    <ClInclude Include="app\utils\Enum\EnumVariant.hpp" />
-    <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
-    <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
-    <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
-    <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
-    <ClInclude Include="app\utils\IdGenerator\IdGen.hpp" />
-    <ClInclude Include="app\utils\Math\InterpUtil.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\Component.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\Constants.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\GrabCtrl.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\ScrollCtrl.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\WindowMover.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\WindowParam.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\detail\WindowResizer.hpp" />
-    <ClInclude Include="app\utils\Layout\Window\Window.hpp" />
-    <ClInclude Include="app\utils\Math\Math.hpp" />
-    <ClInclude Include="app\utils\Meta\IndexSeqVisit.hpp" />
-    <ClInclude Include="app\utils\Meta\RemoveParam.hpp" />
-    <ClInclude Include="app\utils\Migration\Migration.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\INode.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\IStatement.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\Root.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\Statement\NameStatement.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\Statement\TagStatement.hpp" />
-    <ClInclude Include="app\utils\Mns\Ast\Statement\TextStatement.hpp" />
-    <ClInclude Include="app\utils\Mns\Evaluator\IEvalImpl.hpp" />
-    <ClInclude Include="app\utils\Mns\Lexer\Token.hpp" />
-    <ClInclude Include="app\utils\Mns\Parser\Parser.hpp" />
-    <ClInclude Include="app\utils\Mrp\Lexer\Lexer.hpp" />
-    <ClInclude Include="app\utils\Mrp\Lexer\Token.hpp" />
-    <ClInclude Include="app\utils\Mrp\Mrp.hpp" />
-    <ClInclude Include="app\utils\Mrp\Parser\Parser.hpp" />
-    <ClInclude Include="app\utils\NameOf\NameOf.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\base\ApiResponse.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\base\BaseApi.hpp" />
     <ClInclude Include="app\utils\Network\GitHub\GitHub.hpp" />
@@ -2331,14 +2100,16 @@
     <ClInclude Include="app\utils\Network\GitHub\Issue\ListRepositoryIssuesApi.hpp" />
     <ClInclude Include="app\utils\NoConstruct.hpp" />
     <ClInclude Include="app\utils\Overloaded.hpp" />
-    <ClInclude Include="app\utils\Easing\EasingUtil.hpp" />
+    <ClInclude Include="app\utils\Random\RandUtil.hpp" />
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
+    <ClInclude Include="app\utils\Shake\SimpleShake.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\utils\Singleton\Singleton.hpp" />
     <ClInclude Include="app\utils\SourceLocation\SourceLocation.hpp" />
     <ClInclude Include="app\utils\Tag\Tag.hpp" />
     <ClInclude Include="app\utils\TexturePacker\TexturePacker.hpp" />
+    <ClInclude Include="app\utils\Thread\Task.hpp" />
     <ClInclude Include="app\utils\TimeLite\IntervalTimer.hpp" />
     <ClInclude Include="app\utils\TimeLite\Timer.hpp" />
     <ClInclude Include="app\utils\TOML\TOMLBind.hpp" />
@@ -2348,6 +2119,18 @@
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
+    <ClInclude Include="app\values\Adv\CharaKind.hpp" />
+    <ClInclude Include="app\values\Adv\Emote.hpp" />
+    <ClInclude Include="app\values\Adv\LookType.hpp" />
+    <ClInclude Include="app\values\Adv\Name.hpp" />
+    <ClInclude Include="app\values\Forward.hpp" />
+    <ClInclude Include="app\values\Fps.hpp" />
+    <ClInclude Include="app\values\OopartsType.hpp" />
+    <ClInclude Include="app\values\Sound\SoundLabel.hpp" />
+    <ClInclude Include="app\values\StageDef.hpp" />
+    <ClInclude Include="app\values\UserPlayMode.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.hpp" />
+    <ClInclude Include="app\views\Actor\Enemy\BabyDux\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\BazookaKun\BazookaKunVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\BazookaKun\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\CaptainTako\CpatainTakoVM.hpp" />
@@ -2361,8 +2144,6 @@
     <ClInclude Include="app\views\Actor\Enemy\CodeZero\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\IkalienVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\Ikalien\Motion.hpp" />
-    <ClInclude Include="app\views\Actor\Enemy\BabyDux\BabyDuxVM.hpp" />
-    <ClInclude Include="app\views\Actor\Enemy\BabyDux\Motion.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Foot\FootVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\KingDuxVM.hpp" />
     <ClInclude Include="app\views\Actor\Enemy\KingDux\Motion.hpp" />
@@ -2405,6 +2186,7 @@
     <ClInclude Include="app\views\Effect\Actor\Common\KiranVM.hpp" />
     <ClInclude Include="app\views\Effect\Actor\Ooparts\Common\KiraKira\KiraKiraVM.hpp" />
     <ClInclude Include="app\views\Effect\Misc\Fish\FishVM.hpp" />
+    <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
     <ClInclude Include="app\views\Fade\IrisOutFadeView.hpp" />
     <ClInclude Include="app\views\Fade\ScreenFadeView.hpp" />
     <ClInclude Include="app\views\FieldEnv\Caustics\CausticsView.hpp" />
@@ -2412,8 +2194,8 @@
     <ClInclude Include="app\views\Light\LightUtil.hpp" />
     <ClInclude Include="app\views\Light\LightView.hpp" />
     <ClInclude Include="app\views\Loading\Common\LoadingView.hpp" />
-    <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp" />
     <ClInclude Include="app\views\Shader\Blend\BlendShader.hpp" />
+    <ClInclude Include="app\views\Shader\Bloom\BloomShader.hpp" />
     <ClInclude Include="app\views\Shader\BossArrival\BossArrivalShader.hpp" />
     <ClInclude Include="app\views\Shader\DecorFar\DecorFarShader.hpp" />
     <ClInclude Include="app\views\Shader\Distortion\DistortionShader.hpp" />
@@ -2464,94 +2246,14 @@
     <ClInclude Include="app\views\UI\Title\Cursor\CursorVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Cursor\Shot\ShotVM.hpp" />
     <ClInclude Include="app\views\UI\Title\Logo\LogoVM.hpp" />
-    <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\Anchor\AnchorUtil.hpp" />
-    <ClInclude Include="app\views\Fade\FadeViewBase.hpp" />
+    <ClInclude Include="app\views\util\Anim\AnimUtil.hpp" />
     <ClInclude Include="app\views\util\List\IEnumerable.hpp" />
     <ClInclude Include="app\views\util\List\SimpleVerticalList.hpp" />
     <ClInclude Include="app\views\util\VertexUtil\VertexUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App\example\obj\blacksmith.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\crystal1.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\crystal2.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\crystal3.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\mill.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\pine.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\siv3d-kun.obj">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\obj\tree.obj">
-      <FileType>Document</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App\example\shader\hlsl\default2d.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\default3d_forward.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\extract_bright_linear.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\forward_fog.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\forward_triplanar.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\game_of_life.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\grayscale.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\homography.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\multi_texture_blend.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\multi_texture_mask.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\poisson_disk.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\posterize.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\rgb_shift.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\rgb_to_bgr.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\soft_shape.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\swirl.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\terrain_forward.hlsl">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="App\example\shader\hlsl\terrain_normal.hlsl">
-      <FileType>Document</FileType>
-    </None>
+    <Image Include="build\icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="build\Resource.rc" />

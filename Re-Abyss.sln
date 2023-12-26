@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Re-Abyss", "Re-Abyss\Re-Abyss.vcxproj", "{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Re-Abyss", "Re-Abyss\Re-Abyss.vcxproj", "{2CFCEB93-7761-4E21-B87A-7072892E7594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Staging|x64 = Staging|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Debug|x64.ActiveCfg = Debug|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Debug|x64.Build.0 = Debug|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Develop|x64.ActiveCfg = Develop|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Develop|x64.Build.0 = Develop|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Release|x64.ActiveCfg = Release|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Release|x64.Build.0 = Release|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Staging|x64.ActiveCfg = Staging|x64
-		{C3ABBBF2-2FBD-4771-A150-4AA7A1200E1A}.Staging|x64.Build.0 = Staging|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Debug|x64.ActiveCfg = Debug|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Debug|x64.Build.0 = Debug|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Develop|x64.ActiveCfg = Develop|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Develop|x64.Build.0 = Develop|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Release|x64.ActiveCfg = Release|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Release|x64.Build.0 = Release|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Staging|x64.ActiveCfg = Staging|x64
+		{2CFCEB93-7761-4E21-B87A-7072892E7594}.Staging|x64.Build.0 = Staging|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

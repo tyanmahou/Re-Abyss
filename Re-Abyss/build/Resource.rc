@@ -119,6 +119,7 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //
 //////////////////////////////////////////////////////
 
+
 #if ABYSS_NO_BUILD_RESOURCE
 
 Resource(resources/fonts/PixelMplus12-Bold.ttf)
@@ -271,21 +272,3 @@ Resource(resources/sounds/se/commons/decide.wav)
 Resource(resources/sounds/se/commons/select.wav)
 
 #endif
-
-/* examples 
-
-	//
-	// Define your resource path inside `Resource()` macro.
-	// No double quotation marks and white spaces may appear.
-	//
-	Resource(example/siv3d-kun.png)		// ok
-	Resource(example/windmill.png)		// ok
-	Resource(assets/a b c.txt)			// error: contains white spaces
-	Resource("example/windmill.png")	// error: contains double quotation marks
-
-	//
-	// If your file contains a white space, define the identifier without using Resource() macro.
-	//
-	MYIDENTIFIER_1 FILE "assets/a b c.txt"
-	MYIDENTIFIER_2 FILE "level 1/map.dat"
-*/

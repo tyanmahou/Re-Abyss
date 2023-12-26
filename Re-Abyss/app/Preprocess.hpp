@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 // デバッグ機能の使用マクロ
 #if defined(ABYSS_DEVELOP) || defined(ABYSS_STAGING)
