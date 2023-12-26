@@ -1,5 +1,5 @@
-rmdir /q ..\..\vendor\abyss
-mklink /d ..\..\vendor\abyss\include\abyss ..\..\app
+rmdir /q ..\..\vendor\abyss\include\abyss
+mklink /d ..\..\vendor\abyss\include\abyss ..\..\..\app
 
 rmdir /q ..\..\vendor\Emaject
 mklink /d ..\..\vendor\Emaject d:\Projects\Emaject\Emaject
