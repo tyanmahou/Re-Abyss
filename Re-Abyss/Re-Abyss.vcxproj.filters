@@ -6038,6 +6038,9 @@
     <ClInclude Include="app\stdafx.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\utils\Version\Version.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="build\icon.ico">

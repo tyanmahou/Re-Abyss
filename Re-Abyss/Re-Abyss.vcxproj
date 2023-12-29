@@ -2116,6 +2116,7 @@
     <ClInclude Include="app\utils\TOML\TOMLBindDef.hpp" />
     <ClInclude Include="app\utils\TOML\TOMLUtil.hpp" />
     <ClInclude Include="app\utils\TrivialString\TrivialString.hpp" />
+    <ClInclude Include="app\utils\Version\Version.hpp" />
     <ClInclude Include="app\utils\Visitor.hpp" />
     <ClInclude Include="app\utils\Windows\CustomWindowProc\CustomWindowProc.hpp" />
     <ClInclude Include="app\utils\Windows\WindowMenu\WindowMenu.hpp" />
