@@ -4,8 +4,10 @@
 
 namespace abyss
 {
-    class FrameRateController : IAddon
+    class FrameRateController : public IAddon
     {
+    protected:
+        void postPresent() override;
     private:
         s3d::Optional<Fps> m_value;
     };
