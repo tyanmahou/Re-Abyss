@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Debug label="デバッグ" callbackPath ="abyss::Debug::MenuBuilder">
 	<Scene label="シーン" custom="BuildSceneMenu"/>
 	<Log label ="ログ">
@@ -38,7 +38,7 @@
 		<Scanline label="スキャンライン" value="true"/>
 	</Render>
 	<FPS select="0" callback="ExecFPS">
-		<Item label="FPS：可変" />
+		<Item label="FPS：可変"  value="None" />
 		<hr/>
 		<Item label="FPS：10" value="10"/>
 		<Item label="FPS：30" value="30"/>
