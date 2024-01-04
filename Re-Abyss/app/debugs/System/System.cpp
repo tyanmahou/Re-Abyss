@@ -1,7 +1,7 @@
-#include <abyss/debugs/System/System.hpp>
+﻿#include <abyss/debugs/System/System.hpp>
 #if ABYSS_DEBUG
 #include <abyss/commons/Constants.hpp>
-#include <abyss/utils/FPS/FrameRateHz.hpp>
+#include <abyss/utils/FPS/FrameRateController.hpp>
 #include <abyss/debugs/FPSViewer/FPSViewer.hpp>
 #include <abyss/debugs/Log/Log.hpp>
 #include <abyss/debugs/Log/LogViewer.hpp>
@@ -55,6 +55,8 @@ namespace abyss::Debug
 			m_fpsViewer.setPrinter([](s3d::int32 fps){
 				Watcher::Print(U"[FPS] {}"_fmt(fps));
 			});
+
+            FrameRateController::Setup();
 		}
 		bool isPause() const
 		{
@@ -72,7 +74,6 @@ namespace abyss::Debug
 
 			// FPS制御
 			m_fpsViewer.update();
-			FrameRateHz::Sleep();
 
 			m_pause.update();
 

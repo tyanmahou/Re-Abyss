@@ -905,6 +905,7 @@
     <ClCompile Include="app\utils\Env\detail\EnvParser.cpp" />
     <ClCompile Include="app\utils\Env\Env.cpp" />
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp" />
+    <ClCompile Include="app\utils\FPS\FrameRateController.cpp" />
     <ClCompile Include="app\utils\FPS\FrameRateHz.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\Component.cpp" />
     <ClCompile Include="app\utils\Layout\Window\detail\GrabCtrl.cpp" />
@@ -2049,6 +2050,7 @@
     <ClInclude Include="app\utils\Env\detail\EnvParser.hpp" />
     <ClInclude Include="app\utils\Env\Env.hpp" />
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp" />
+    <ClInclude Include="app\utils\FPS\FrameRateController.hpp" />
     <ClInclude Include="app\utils\FPS\FrameRateHz.hpp" />
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp" />
     <ClInclude Include="app\utils\IdGenerator\FreeableIdGen.hpp" />
@@ -2104,6 +2106,7 @@
     <ClInclude Include="app\utils\Reflection\Reflection.hpp" />
     <ClInclude Include="app\utils\Ref\Ref.hpp" />
     <ClInclude Include="app\utils\Shake\SimpleShake.hpp" />
+    <ClInclude Include="app\utils\Singleton\AddonSingleton.hpp" />
     <ClInclude Include="app\utils\Singleton\DynamicSingleton.hpp" />
     <ClInclude Include="app\utils\Singleton\Singleton.hpp" />
     <ClInclude Include="app\utils\SourceLocation\SourceLocation.hpp" />

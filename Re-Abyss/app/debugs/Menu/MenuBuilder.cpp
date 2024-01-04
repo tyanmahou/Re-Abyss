@@ -1,4 +1,4 @@
-#include <abyss/debugs/Menu/MenuBuilder.hpp>
+﻿#include <abyss/debugs/Menu/MenuBuilder.hpp>
 #if ABYSS_DEBUG
 #include <abyss/commons/Path.hpp>
 #include <abyss/scenes/SequenceManager.hpp>
@@ -14,7 +14,7 @@
 #include <abyss/utils/DebugMenu/Button.hpp>
 #include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
-#include <abyss/utils/FPS/FrameRateHz.hpp>
+#include <abyss/utils/FPS/FrameRateController.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -121,7 +121,7 @@ namespace abyss::Debug
 	}
 	void MenuBuilder::ExecFPS(s3d::StringView value)
 	{
-        FrameRateHz::Set(ParseOpt<double>(value).map([](double fps) {
+        FrameRateController::Set(ParseOpt<double>(value).map([](double fps) {
             return Fps{ fps };
         }));
 	}

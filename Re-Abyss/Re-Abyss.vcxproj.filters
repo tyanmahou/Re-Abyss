@@ -2492,6 +2492,9 @@
     </ClCompile>
     <ClCompile Include="tests\tests\testing.ixx" />
     <ClCompile Include="tests\helper\TestRunner\TestRunner.ixx" />
+    <ClCompile Include="app\utils\FPS\FrameRateController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -6039,6 +6042,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Version\Version.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\FPS\FrameRateController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="app\utils\Singleton\AddonSingleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
