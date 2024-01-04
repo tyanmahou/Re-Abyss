@@ -2013,9 +2013,6 @@
     <ClCompile Include="app\utils\FileUtil\FileUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="app\utils\FPS\FrameRateHz.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="app\utils\Layout\Window\detail\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -5427,9 +5424,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\FileUtil\FileUtil.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="app\utils\FPS\FrameRateHz.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="app\utils\Hierarchy\Hierarchy.hpp">

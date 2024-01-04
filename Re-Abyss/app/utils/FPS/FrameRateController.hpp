@@ -18,7 +18,7 @@ namespace abyss
             Instance()->set(value);
         }
     private:
-        static s3d::StringView UniqueName()
+        constexpr static s3d::StringView UniqueName()
         {
             return U"FrameRateController";
         }
@@ -30,7 +30,7 @@ namespace abyss
     private:
         s3d::Optional<Fps> m_value;
 
-        Clock::duration m_sleepTime;
+        Clock::duration m_sleepTime{};
         TimePoint m_sleepUntil;
     };
 }
