@@ -17,13 +17,14 @@ namespace abyss
         {
             Instance()->set(value);
         }
-    private:
-        constexpr static s3d::StringView UniqueName()
+        static bool SetIfLessThanRefreshRate(const s3d::Optional<Fps>& value)
         {
-            return U"FrameRateController";
+            return Instance()->setIfLessThanRefreshRate(value);
         }
     protected:
         void set(const s3d::Optional<Fps>& value);
+        bool setIfLessThanRefreshRate(const s3d::Optional<Fps>& value);
+
         void postPresent() override;
     private:
         FrameRateController() = default;

@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <Siv3D/Addon.hpp>
+#include <abyss/utils/NameOf/NameOf.hpp>
 #include <concepts>
 
 namespace abyss
@@ -16,8 +17,8 @@ namespace abyss
         {
             static Type* instance = [] {
                 std::unique_ptr<Type> unique(new Type);
-                Addon::Register(Type::UniqueName(), std::move(unique));
-                return Addon::GetAddon<Type>(Type::UniqueName());
+                Addon::Register(NameOf::nameof<Type>(), std::move(unique));
+                return Addon::GetAddon<Type>(NameOf::nameof<Type>());
             }();
             return instance;
         }

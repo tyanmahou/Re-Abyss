@@ -6,15 +6,26 @@ namespace abyss
     void FrameRateController::set(const s3d::Optional<Fps>& value)
     {
         m_value = value;
-        auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate.map([](double x) {
-            return Fps{ x };
-        });
-        if (value && refreshRate && *refreshRate >= *value) {
+        if (value) {
             m_sleepTime = s3d::DurationCast<Clock::duration>(value->duration());
             s3d::Graphics::SetVSyncEnabled(false);
         } else {
+            s3d::Graphics::SetVSyncEnabled(true);
+        }
+    }
+    bool FrameRateController::setIfLessThanRefreshRate(const s3d::Optional<Fps>& value)
+    {
+        auto refreshRate = s3d::System::GetCurrentMonitor().refreshRate.map([](double x) {
+            return Fps{ x };
+        });
+        if (value && refreshRate && *value > *refreshRate) {
+            // モニタのリフレッシュレートを越える
             m_value = s3d::none;
             s3d::Graphics::SetVSyncEnabled(true);
+            return false;
+        } else {
+            this->set(value);
+            return true;
         }
     }
     void FrameRateController::postPresent()
