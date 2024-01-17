@@ -1,8 +1,9 @@
-#include <abyss/components/Actor/Common/Body.hpp>
+﻿#include <abyss/components/Actor/Common/Body.hpp>
 #include <Siv3D/Math.hpp>
 #include <abyss/modules/Room/RoomData.hpp>
 #include <abyss/utils/Math/Math.hpp>
 #include <abyss/utils/Collision/FixPos.hpp>
+#include <abyss/modules/Actor/base/ActorObj.hpp>
 
 namespace abyss::Actor
 {
@@ -271,6 +272,14 @@ namespace abyss::Actor
     {
         m_forward = m_forward.mirrored();
         return *this;
+    }
+    Body& Body::addForce(const s3d::Vec2& force)
+    {
+        m_velocity += force * m_pActor->deltaTime() /*/ mass*/;
+    }
+    Body& Body::addImpulse(const s3d::Vec2& impulse)
+    {
+        m_velocity += impulse /*/ mass*/;
     }
     bool Body::isForward(Forward f) const
     {

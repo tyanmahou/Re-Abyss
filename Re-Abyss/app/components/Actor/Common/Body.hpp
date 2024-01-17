@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <Siv3D/RectF.hpp>
 #include <Siv3D/Optional.hpp>
@@ -102,6 +102,9 @@ namespace abyss::Actor
 
         Body& noneResistanced();
         Body& reversed();
+
+        Body& addForce(const s3d::Vec2& force);
+        Body& addImpulse(const s3d::Vec2& impulse);
 
         bool isForward(Forward f) const;
 
