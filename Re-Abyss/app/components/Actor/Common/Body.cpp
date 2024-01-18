@@ -35,17 +35,6 @@ namespace abyss::Actor
                 m_velocity.x = min;
             }
         });
-
-        if (m_accel.x == 0.0) {
-            auto deltaDecel = m_decelX* dt;
-            if (m_velocity.x - deltaDecel > 0) {
-                m_velocity.x -= deltaDecel;
-            } else if (m_velocity.x + deltaDecel < 0) {
-                m_velocity.x += deltaDecel;
-            } else {
-                m_velocity.x = 0;
-            }
-        }
         m_maxVelocity.y.then([this](double max) {
             if (m_velocity.y > max) {
                 m_velocity.y = max;
@@ -56,6 +45,28 @@ namespace abyss::Actor
                 m_velocity.y = min;
             }
         });
+        m_minSpeed.then([this](double min) {
+            if (m_velocity.lengthSq() < min * min) {
+                m_velocity.setLength(min);
+            }
+        });
+        m_maxSpeed.then([this](double max) {
+            if (m_velocity.lengthSq() > max * max) {
+                m_velocity.setLength(max);
+            }
+        });
+
+        // 減速
+        if (m_accel.x == 0.0) {
+            auto deltaDecel = m_decelX * dt;
+            if (m_velocity.x - deltaDecel > 0) {
+                m_velocity.x -= deltaDecel;
+            } else if (m_velocity.x + deltaDecel < 0) {
+                m_velocity.x += deltaDecel;
+            } else {
+                m_velocity.x = 0;
+            }
+        }
 
         // 座標更新
         m_pos += m_velocity * dt;
@@ -125,6 +136,11 @@ namespace abyss::Actor
         m_minVelocity.y = s3d::none;
         return *this;
     }
+    Body& Body::setMaxSpeed(double speed)
+    {
+        m_maxSpeed = s3d::Math::Abs(speed);
+        return *this;
+    }
     Body& Body::setMaxSpeed(const s3d::Vec2& speed)
     {
         return this->
@@ -133,6 +149,7 @@ namespace abyss::Actor
     }
     Body& Body::setMaxSpeed(s3d::None_t)
     {
+        m_maxSpeed = s3d::none;
         return this->
             setMaxSpeedX(s3d::none)
             .setMaxSpeedY(s3d::none);

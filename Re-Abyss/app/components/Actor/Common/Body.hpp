@@ -15,29 +15,10 @@ namespace abyss::Actor
         public IComponent,
         public ILocator
     {
-    private:
-        s3d::Vec2 m_prevPos{ 0, 0 };
-        s3d::Vec2 m_pos{0, 0};
+    public:
+        inline static constexpr double DefaultGravity = 720.0;
+        inline static constexpr double DefaultMaxVelocityY = 78;
 
-        s3d::Vec2 m_pivot{ 0, 0 };
-        s3d::Vec2 m_pivotPrev{ 0, 0 };
-        s3d::Vec2 m_pivotNext{ 0, 0 };
-
-        s3d::Vec2 m_velocity{0, 0};
-
-        s3d::Vector2D <s3d::Optional<double>> m_minVelocity;
-        s3d::Vector2D <s3d::Optional<double>> m_maxVelocity;
-
-        s3d::Vec2 m_accel{0, DefaultGravity};
-        double m_decelX = 0.0;
-
-        Forward m_forward{Forward::None()};
-
-        s3d::Vec2 m_size{ 0, 0 };
-        s3d::Vec2 m_sizePrev{ 0, 0 };
-        s3d::Vec2 m_sizeNext{ 0, 0 };
-
-        ActorObj* m_pActor;
     public:
         Body(ActorObj* pActor);
 
@@ -60,6 +41,7 @@ namespace abyss::Actor
         Body& setMaxSpeedY(double speed);
         Body& setMaxSpeedY(s3d::None_t);
 
+        Body& setMaxSpeed(double speed);
         Body& setMaxSpeed(const s3d::Vec2& speed);
         Body& setMaxSpeed(s3d::None_t);
 
@@ -114,9 +96,31 @@ namespace abyss::Actor
         s3d::Vec2 getCenterPos()const override;
 
         s3d::Vec2 moveDiff() const;
-    public:
-        inline static constexpr double DefaultGravity = 720.0;
-        inline static constexpr double DefaultMaxVelocityY = 78;
+    private:
+        s3d::Vec2 m_prevPos{ 0, 0 };
+        s3d::Vec2 m_pos{ 0, 0 };
+
+        s3d::Vec2 m_pivot{ 0, 0 };
+        s3d::Vec2 m_pivotPrev{ 0, 0 };
+        s3d::Vec2 m_pivotNext{ 0, 0 };
+
+        s3d::Vec2 m_velocity{ 0, 0 };
+
+        s3d::Vector2D <s3d::Optional<double>> m_minVelocity;
+        s3d::Optional<double> m_minSpeed;
+        s3d::Vector2D <s3d::Optional<double>> m_maxVelocity;
+        s3d::Optional<double> m_maxSpeed;
+
+        s3d::Vec2 m_accel{ 0, DefaultGravity };
+        double m_decelX = 0.0;
+
+        Forward m_forward{ Forward::None() };
+
+        s3d::Vec2 m_size{ 0, 0 };
+        s3d::Vec2 m_sizePrev{ 0, 0 };
+        s3d::Vec2 m_sizeNext{ 0, 0 };
+
+        ActorObj* m_pActor;
     };
 }
 
