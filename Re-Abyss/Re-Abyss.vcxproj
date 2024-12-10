@@ -76,29 +76,29 @@
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Debug\Intermediate\</IntDir>
     <TargetName>$(ProjectName)(debug)</TargetName>
-    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_15)\include;$(SIV3D_0_6_15)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_15)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_15)\include;$(SIV3D_0_6_15)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_15)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Develop|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_15)\include;$(SIV3D_0_6_15)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_15)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\</OutDir>
     <IntDir>$(SolutionDir)Intermediate\$(ProjectName)\Release\Intermediate\</IntDir>
-    <IncludePath>$(SIV3D_0_6_13)\include;$(SIV3D_0_6_13)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_13)\lib\Windows;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SIV3D_0_6_15)\include;$(SIV3D_0_6_15)\include\ThirdParty;$(ProjectDir)\vendor\abyss\include;$(ProjectDir)\vendor\Emaject\include;$(ProjectDir)\vendor\Mkanta\include;$(ProjectDir)\vendor\S3DTiled\include;$(ProjectDir)\vendor\SQLite-for-Siv3D\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\vendor\S3DTiled\lib;$(ProjectDir)\vendor\SQLite-for-Siv3D\lib;$(SIV3D_0_6_15)\lib\Windows;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
