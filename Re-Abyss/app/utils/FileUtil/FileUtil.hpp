@@ -1,8 +1,11 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/String.hpp>
 
 namespace abyss::FileUtil
 {
+   s3d::String BaseName(s3d::FilePathView path);
+   s3d::String FileName(s3d::FilePathView path);
+
     /// <summary>
     /// 相対パスの ../ ./を排除する
     /// ex Hoge/../Piyp/ => Hoge/

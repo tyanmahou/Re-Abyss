@@ -1,4 +1,4 @@
-#include <abyss/utils/FileUtil/FileUtil.hpp>
+﻿#include <abyss/utils/FileUtil/FileUtil.hpp>
 
 #include <stack>
 #include <Siv3D.hpp>
@@ -14,7 +14,21 @@ namespace
 
 namespace abyss::FileUtil
 {
-    s3d::FilePath FixRelativePath(const s3d::FilePath& path)
+	s3d::String BaseName(s3d::FilePathView path)
+	{
+        if (path.ends_with(U'/')) {
+            path.remove_suffix(1);
+        }
+        return s3d::FileSystem::BaseName(path);
+	}
+    s3d::String FileName(s3d::FilePathView path)
+    {
+        if (path.ends_with(U'/')) {
+            path.remove_suffix(1);
+        }
+        return s3d::FileSystem::FileName(path);
+    }
+	s3d::FilePath FixRelativePath(const s3d::FilePath& path)
     {
 		std::stack<String> dirNameStack;
 		String dirName = U"";

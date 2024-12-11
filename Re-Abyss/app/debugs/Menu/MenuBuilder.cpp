@@ -15,6 +15,7 @@
 #include <abyss/utils/DebugMenu/HrItem.hpp>
 #include <abyss/utils/Enum/EnumTraits.hpp>
 #include <abyss/utils/FPS/FrameRateController.hpp>
+#include <abyss/utils/FileUtil/FileUtil.hpp>
 #include <Siv3D.hpp>
 
 namespace
@@ -63,7 +64,7 @@ namespace
 				if (s3d::FileSystem::DirectoryContents(path).any([](const s3d::FilePath& p) {
 					return s3d::FileSystem::Extension(p) == U"tmx";
 					})) {
-					auto child = Node::Create<DebugMenu::Folder>(s3d::FileSystem::BaseName(path));
+					auto child = Node::Create<DebugMenu::Folder>(FileUtil::BaseName(path));
 					folder.add(BuildMainSceneChangeButtons(child, path));
 				}
 				continue;
