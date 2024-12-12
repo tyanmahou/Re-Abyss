@@ -1114,6 +1114,7 @@
     <ClInclude Include="app\components\Actor\Common\BehaviorCtrl.hpp" />
     <ClInclude Include="app\components\Actor\Common\BehaviorTest.hpp" />
     <ClInclude Include="app\components\Actor\Common\Body.hpp" />
+    <ClInclude Include="app\components\Actor\Common\BodyAnchor.hpp" />
     <ClInclude Include="app\components\Actor\Common\BodyUpdater.hpp" />
     <ClInclude Include="app\components\Actor\Common\BossFadeHider.hpp" />
     <ClInclude Include="app\components\Actor\Common\BossFadeMask.hpp" />

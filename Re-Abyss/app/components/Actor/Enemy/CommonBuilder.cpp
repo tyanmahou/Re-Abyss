@@ -43,6 +43,7 @@ namespace abyss::Actor::Enemy
 				.setForward(opt.forward)
 				.initSize(opt.bodySize)
 				.initOffset(opt.bodyOffset)
+                .setAnchor(opt.bodyAnchor)
 				;
 
 			pActor->attach<BodyUpdater>(pActor);
@@ -146,6 +147,7 @@ namespace abyss::Actor::Enemy
         pos(0, 0),
         bodySize(40, 40),
         bodyOffset(0, 0),
+        bodyAnchor(BodyAnchor::Center),
         forward(Forward::Left()),
         initHp(1)
     {}

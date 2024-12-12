@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/Slime/Builder.hpp>
 
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
 #include <abyss/params/Actor/Enemy/Slime/Param.hpp>
@@ -23,7 +23,9 @@ namespace abyss::Actor::Enemy::Slime
 	{
 		// 共通ビルド
 		CommonBuilder::Build(pActor, BuildOption{}
-			.setInitPos(entity.pos)
+			.setInitPos(entity.footPos)
+            .setBodySize(Param::Walk::Size)
+            .setBodyAnchor(BodyAnchor::BottomCenter)
 			.setForward(entity.forward)
 			.setInitHp(Param::Base::Hp)
 			.setIsEnableRoomHit(true, ColDirection(ColDirection::Horizon))

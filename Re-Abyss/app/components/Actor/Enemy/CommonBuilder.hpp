@@ -6,6 +6,7 @@
 #include <abyss/values/Forward.hpp>
 #include <abyss/utils/Collision/ColDirection.hpp>
 #include <abyss/commons/Fwd.hpp>
+#include <abyss/components/Actor/Common/BodyAnchor.hpp>
 #include <abyss/components/Actor/Common/StateCtrl.hpp>
 #include <abyss/components/Actor/Common/Col/Collider/ICollider.hpp>
 #include <abyss/components/Actor/Common/VModel.hpp>
@@ -41,6 +42,11 @@ namespace abyss::Actor::Enemy
         BuildOption& setBodyOffset(const s3d::Vec2& offset)
         {
             this->bodyOffset = offset;
+            return *this;
+        }
+        BuildOption& setBodyAnchor(BodyAnchor anchor)
+        {
+            this->bodyAnchor = anchor;
             return *this;
         }
         BuildOption& setForward(Forward _forward)
@@ -148,6 +154,7 @@ namespace abyss::Actor::Enemy
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
         s3d::Vec2 bodyOffset;
+        BodyAnchor bodyAnchor;
         Forward forward;
 
         // hp

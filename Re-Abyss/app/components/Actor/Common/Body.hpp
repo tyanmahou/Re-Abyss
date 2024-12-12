@@ -7,6 +7,7 @@
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/ILocator.hpp>
+#include <abyss/components/Actor/Common/BodyAnchor.hpp>
 #include <abyss/modules/Physics/base/TerrainData.hpp>
 
 namespace abyss::Actor
@@ -74,6 +75,8 @@ namespace abyss::Actor
         const s3d::Vec2& getOffset() const;
         s3d::Vec2 getOffsetedPos() const;
 
+        Body& setAnchor(BodyAnchor anchor);
+
         s3d::RectF region() const;
         s3d::RectF prevRegion() const;
 
@@ -119,6 +122,8 @@ namespace abyss::Actor
         s3d::Vec2 m_size{ 0, 0 };
         s3d::Vec2 m_sizePrev{ 0, 0 };
         s3d::Vec2 m_sizeNext{ 0, 0 };
+
+        BodyAnchor m_anchor{BodyAnchor::Center};
 
         ActorObj* m_pActor;
     };

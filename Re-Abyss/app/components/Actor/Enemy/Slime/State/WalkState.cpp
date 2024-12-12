@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
 {
     void WalkState::start()
     {
-        m_body->setSize(Param::Walk::Size).setOffset(Param::Walk::Pivot);
+        m_body->setSize(Param::Walk::Size).setOffset(Vec2::Zero());
         m_motion->set(Motion::Walk);
     }
     void WalkState::update()

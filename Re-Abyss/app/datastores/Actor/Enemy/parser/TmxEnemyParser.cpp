@@ -1,4 +1,4 @@
-#include <abyss/datastores/Actor/Enemy/parser/TmxEnemyParser.hpp>
+﻿#include <abyss/datastores/Actor/Enemy/parser/TmxEnemyParser.hpp>
 
 #include <abyss/entities/Actor/Enemy/EnemyEntity.hpp>
 #include <abyss/entities/Actor/Enemy/SlimeEntity.hpp>
@@ -29,7 +29,8 @@ namespace
 		if (entity) {
 			Vec2 size = obj.toRectF().size;
 			entity->pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
-			entity->forward = obj.isMirrored ? Forward::Right() : Forward::Left();
+            entity->footPos = obj.pos + Vec2{ size.x / 2, 0 };
+            entity->forward = obj.isMirrored ? Forward::Right() : Forward::Left();
 		}
 		return entity;
 	}

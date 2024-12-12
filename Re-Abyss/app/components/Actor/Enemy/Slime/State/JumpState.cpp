@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
     void JumpState::start()
     {
         m_audio->play(SeDef::Jump);
-        m_body->setSize(Param::Jump::Size).setOffset({ 0, 0 });
+        m_body->setSize(Param::Jump::Size).setOffset(Param::Jump::Offset);
 
         m_body->jumpToHeight(Param::Jump::JumpHeight);
         m_motion->set(Motion::Jump);

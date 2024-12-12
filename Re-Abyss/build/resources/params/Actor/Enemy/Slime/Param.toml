@@ -3,13 +3,13 @@ hp = 6
 
 [Walk]
 size = "(35.0, 25.0)"
-pivot = "(0.0, 7.5)"
 accelX = 720.0
 maxSpeedX = 60.0
 searchRange = 200.0
 
 [Jump]
 size = "(32.0, 32.0)"
+offset = "(0.0, -4.0)"
 jumpHeight = 80.0
 
 [View]

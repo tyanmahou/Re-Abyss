@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/values/Forward.hpp>
 
@@ -28,6 +28,7 @@ namespace abyss::Actor::Enemy
 		s3d::uint32 id;
 		EnemyType type;
 		s3d::Vec2 pos;
-		Forward forward;
+        s3d::Vec2 footPos;
+        Forward forward;
 	};
 }

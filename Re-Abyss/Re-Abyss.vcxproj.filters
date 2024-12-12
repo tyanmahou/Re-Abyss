@@ -6044,6 +6044,9 @@
     <ClInclude Include="app\utils\Singleton\AddonSingleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="app\components\Actor\Common\BodyAnchor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="build\icon.ico">
