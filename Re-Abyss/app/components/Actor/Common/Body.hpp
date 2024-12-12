@@ -69,10 +69,10 @@ namespace abyss::Actor
         double getWidth() const;
         double getHeight() const;
 
-        Body& initPivot(const s3d::Vec2& pivot);
-        Body& setPivot(const s3d::Vec2& pivot);
-        const s3d::Vec2& getPivot() const;
-        s3d::Vec2 getPivotPos() const;
+        Body& initOffset(const s3d::Vec2& offset);
+        Body& setOffset(const s3d::Vec2& offset);
+        const s3d::Vec2& getOffset() const;
+        s3d::Vec2 getOffsetedPos() const;
 
         s3d::RectF region() const;
         s3d::RectF prevRegion() const;
@@ -100,9 +100,9 @@ namespace abyss::Actor
         s3d::Vec2 m_prevPos{ 0, 0 };
         s3d::Vec2 m_pos{ 0, 0 };
 
-        s3d::Vec2 m_pivot{ 0, 0 };
-        s3d::Vec2 m_pivotPrev{ 0, 0 };
-        s3d::Vec2 m_pivotNext{ 0, 0 };
+        s3d::Vec2 m_offset{ 0, 0 };
+        s3d::Vec2 m_offsetPrev{ 0, 0 };
+        s3d::Vec2 m_offsetNext{ 0, 0 };
 
         s3d::Vec2 m_velocity{ 0, 0 };
 

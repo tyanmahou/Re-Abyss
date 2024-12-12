@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/BabyDux/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -30,7 +30,7 @@ namespace abyss::Actor::Enemy::BabyDux
             CommonBuilder::Build(pActor, BuildOption{}
                 .setInitPos(pos)
                 .setBodySize(Param::Base::Size)
-                .setBodyPivot(Param::Base::Pivot)
+                .setBodyOffset(Param::Base::Pivot)
                 .setForward(forward)
                 .setInitHp(Param::Base::Hp)
                 .setIsEnableMapCollider(false)

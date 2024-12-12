@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Ikalien/State/PursuitState.hpp>
+﻿#include <abyss/components/Actor/Enemy/Ikalien/State/PursuitState.hpp>
 #include <abyss/components/Actor/Enemy/Ikalien/State/SwimState.hpp>
 
 #include <abyss/params/Actor/Enemy/Ikalien/Param.hpp>
@@ -28,8 +28,8 @@ namespace abyss::Actor::Enemy::Ikalien
         }
         m_rotate->setRotate(rotate);
 
-        Vec2 nextPivot = Mat3x2::Rotate(rotate).transformPoint(Param::Base::Pivot);
-        m_body->setPivot(nextPivot);
+        Vec2 nextOffset = Mat3x2::Rotate(rotate).transformPoint(Param::Base::Pivot);
+        m_body->setOffset(nextOffset);
 
         m_body->setVelocity(m_rotate->getDir() * Param::Pursuit::Speed);
         m_timer.update(dt);

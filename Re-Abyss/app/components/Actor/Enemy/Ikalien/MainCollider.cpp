@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Ikalien/MainCollider.hpp>
+﻿#include <abyss/components/Actor/Enemy/Ikalien/MainCollider.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -13,7 +13,7 @@ namespace abyss::Actor::Enemy::Ikalien
     }
     CShape MainCollider::getCollider() const
     {
-        return s3d::Circle(m_body->getPivotPos(), Param::Base::ColRadius);
+        return s3d::Circle(m_body->getCenterPos(), Param::Base::ColRadius);
     }
     MainCollider::MainCollider(ActorObj* pActor) :
         m_pActor(pActor)

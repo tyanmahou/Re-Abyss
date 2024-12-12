@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/CaptainTako/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/CaptainTako/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/entities/Actor/Enemy/CaptainTakoEntity.hpp>
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::CaptainTako
             .setInitPos(entity.pos)
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
-            .setBodyPivot(Param::Base::Pivot)
+            .setBodyOffset(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
             .setInitState<WaitState>()
             .setVModelPresenter<Presenter>(pActor)

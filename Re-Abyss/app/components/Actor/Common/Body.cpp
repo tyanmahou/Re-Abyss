@@ -18,8 +18,8 @@ namespace abyss::Actor
         m_sizePrev = m_size;
         m_size = m_sizeNext;
 
-        m_pivotPrev = m_pivot;
-        m_pivot = m_pivotNext;
+        m_offsetPrev = m_offset;
+        m_offset = m_offsetNext;
 
         m_prevPos = m_pos;
         // 速度更新
@@ -224,25 +224,25 @@ namespace abyss::Actor
     {
         return m_size.y;
     }
-    Body& Body::initPivot(const s3d::Vec2& pivot)
+    Body& Body::initOffset(const s3d::Vec2& offset)
     {
-        m_pivotPrev = pivot;
-        m_pivot = pivot;
-        m_pivotNext = pivot;
+        m_offsetPrev = offset;
+        m_offset = offset;
+        m_offsetNext = offset;
         return *this;
     }
-    Body& Body::setPivot(const s3d::Vec2& pivot)
+    Body& Body::setOffset(const s3d::Vec2& offset)
     {
-        m_pivotNext = pivot;
+        m_offsetNext = offset;
         return *this;
     }
-    const s3d::Vec2& Body::getPivot() const
+    const s3d::Vec2& Body::getOffset() const
     {
-        return m_pivot;
+        return m_offset;
     }
-    s3d::Vec2 Body::getPivotPos() const
+    s3d::Vec2 Body::getOffsetedPos() const
     {
-        return m_pos + m_pivot;
+        return m_pos + m_offset;
     }
     const s3d::Vec2& Body::getPos() const
     {
@@ -331,7 +331,7 @@ namespace abyss::Actor
     }
     s3d::Vec2 Body::getCenterPos() const
     {
-        return this->getPivotPos();
+        return this->getOffsetedPos();
     }
     s3d::Vec2 Body::moveDiff() const
     {
@@ -339,10 +339,10 @@ namespace abyss::Actor
     }
     s3d::RectF Body::region() const
     {
-        return { m_pos + m_pivot - m_size / 2, m_size };
+        return { m_pos + m_offset - m_size / 2, m_size };
     }
     s3d::RectF Body::prevRegion() const
     {
-        return { m_prevPos + m_pivotPrev - m_sizePrev / 2, m_sizePrev };
+        return { m_prevPos + m_offsetPrev - m_sizePrev / 2, m_sizePrev };
     }
 }

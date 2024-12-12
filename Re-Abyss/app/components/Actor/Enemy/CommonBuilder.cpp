@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
+﻿#include <abyss/components/Actor/Enemy/CommonBuilder.hpp>
 
 #include <abyss/components/Common/MotionCtrl.hpp>
 
@@ -42,7 +42,7 @@ namespace abyss::Actor::Enemy
 				->initPos(opt.pos)
 				.setForward(opt.forward)
 				.initSize(opt.bodySize)
-				.initPivot(opt.bodyPivot)
+				.initOffset(opt.bodyOffset)
 				;
 
 			pActor->attach<BodyUpdater>(pActor);
@@ -145,7 +145,7 @@ namespace abyss::Actor::Enemy
     BuildOption::BuildOption():
         pos(0, 0),
         bodySize(40, 40),
-        bodyPivot(0, 0),
+        bodyOffset(0, 0),
         forward(Forward::Left()),
         initHp(1)
     {}

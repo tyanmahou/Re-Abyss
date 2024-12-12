@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Item/Recovery/Builder.hpp>
+﻿#include <abyss/components/Actor/Item/Recovery/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/entities/Actor/Item/RecoveryEntity.hpp>
@@ -57,7 +57,7 @@ namespace abyss::Actor::Item::Recovery
             .setDeployId(objId)
             .setInitPos(pos)
             .setBodySize(setting.size)
-            .setBodyPivot(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
+            .setBodyOffset(s3d::Vec2{ 0, 20.0 - setting.size.y / 2.0 })
         );
 
         {

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Item/CommonBuilder.hpp>
+﻿#include <abyss/components/Actor/Item/CommonBuilder.hpp>
 
 #include <abyss/components/Actor/Common/DeployId.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -28,7 +28,7 @@ namespace abyss::Actor::Item
                 ->initPos(opt.pos)
                 .setForward(Forward::Left())
                 .initSize(opt.bodySize)
-                .initPivot(opt.bodyPivot)
+                .initOffset(opt.bodyOffset)
                 .setMaxVelocityY(20.0)
                 ;
 

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/KingDux/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/KingDux/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -48,7 +48,7 @@ namespace abyss::Actor::Enemy::KingDux
             .setDeployId(entity.id)
             .setInitPos(entity.pos)
             .setBodySize(Param::Base::ColSize)
-            .setBodyPivot(Param::Base::Pivot)
+            .setBodyOffset(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)

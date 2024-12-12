@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Ikalien/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/Ikalien/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::Ikalien
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
             .setInitPos(entity.pos)
-            .setBodyPivot(Param::Base::Pivot)
+            .setBodyOffset(Param::Base::Pivot)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)

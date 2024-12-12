@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Siv3D/Vector2D.hpp>
 
@@ -31,9 +31,9 @@ namespace abyss::Actor::Item
             this->bodySize = size;
             return *this;
         }
-        BuildOption& setBodyPivot(const s3d::Vec2& pivot)
+        BuildOption& setBodyOffset(const s3d::Vec2& offset)
         {
-            this->bodyPivot = pivot;
+            this->bodyOffset = offset;
             return *this;
         }
         BuildOption& setColliderRadius(double radius)
@@ -59,7 +59,7 @@ namespace abyss::Actor::Item
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
-        s3d::Vec2 bodyPivot;
+        s3d::Vec2 bodyOffset;
 
         // collider
         s3d::Optional<double> m_colliderRadius;

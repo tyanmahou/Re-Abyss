@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
+﻿#include <abyss/components/Actor/Enemy/Slime/State/WalkState.hpp>
 #include <abyss/components/Actor/Enemy/Slime/State/JumpState.hpp>
 
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
@@ -8,7 +8,7 @@ namespace abyss::Actor::Enemy::Slime
 {
     void WalkState::start()
     {
-        m_body->setSize(Param::Walk::Size).setPivot(Param::Walk::Pivot);
+        m_body->setSize(Param::Walk::Size).setOffset(Param::Walk::Pivot);
         m_motion->set(Motion::Walk);
     }
     void WalkState::update()

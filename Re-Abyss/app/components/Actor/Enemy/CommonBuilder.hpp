@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <functional>
 #include <Siv3D/String.hpp>
 #include <Siv3D/Vector2D.hpp>
@@ -38,9 +38,9 @@ namespace abyss::Actor::Enemy
             this->bodySize = size;
             return *this;
         }
-        BuildOption& setBodyPivot(const s3d::Vec2& pivot)
+        BuildOption& setBodyOffset(const s3d::Vec2& offset)
         {
-            this->bodyPivot = pivot;
+            this->bodyOffset = offset;
             return *this;
         }
         BuildOption& setForward(Forward _forward)
@@ -147,7 +147,7 @@ namespace abyss::Actor::Enemy
         // body
         s3d::Vec2 pos;
         s3d::Vec2 bodySize;
-        s3d::Vec2 bodyPivot;
+        s3d::Vec2 bodyOffset;
         Forward forward;
 
         // hp
