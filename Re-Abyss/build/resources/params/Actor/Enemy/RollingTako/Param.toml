@@ -1,7 +1,6 @@
 [Base]
 hp = 6
 size = "(45, 45)"
-pivot = "(0, 7.5)"
 
 [Wait]
 searchRange = 500.0

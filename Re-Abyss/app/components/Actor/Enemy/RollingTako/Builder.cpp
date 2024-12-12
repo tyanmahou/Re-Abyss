@@ -24,10 +24,10 @@ namespace abyss::Actor::Enemy::RollingTako
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.pos)
+            .setInitPos(entity.footPos)
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
-            .setBodyOffset(Param::Base::Pivot)
+            .setBodyAnchor(BodyAnchor::BottomCenter)
             .setInitHp(Param::Base::Hp)
             .setIsEnableRoomHit(true)
             .setVModelPresenter<Presenter>(pActor)

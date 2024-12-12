@@ -1,4 +1,4 @@
-#include <abyss/views/Actor/Enemy/RollingTako/RollingTakoVM.hpp>
+﻿#include <abyss/views/Actor/Enemy/RollingTako/RollingTakoVM.hpp>
 #include <Siv3D.hpp>
 #include <abyss/params/Actor/Enemy/RollingTako/Param.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -46,13 +46,13 @@ namespace abyss::Actor::Enemy::RollingTako
         bool isRight = m_forward.isRight();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::WaitAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 0, 60, 60);
-        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
+        tex.mirrored(isRight).draw(Arg::bottomCenter = m_pos, m_colorMul);
     }
     void RollingTakoVM::drawRun() const
     {
         bool isRight = m_forward.isRight();
         int32 time = static_cast<int32>(Periodic::Square0_1(Param::View::RunAnimeTimeSec, m_time));
         auto tex = m_texture(60 * time, 60, 60, 60);
-        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
+        tex.mirrored(isRight).draw(Arg::bottomCenter = m_pos, m_colorMul);
     }
 }
