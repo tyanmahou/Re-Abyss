@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/commons/Fwd.hpp>
@@ -24,6 +24,10 @@ namespace abyss::Actor::Enemy::CodeZero
         s3d::Vec2 getPos() const;
 
         const Look& getLook() const;
+        s3d::Vec2 getAnchoredPos() const override
+        {
+            return this->getCenterPos();
+        }
         s3d::Vec2 getCenterPos() const override;
 
         void setActive(bool isActive);

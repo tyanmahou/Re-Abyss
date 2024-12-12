@@ -333,6 +333,10 @@ namespace abyss::Actor
     {
         return this->getPivotPos();
     }
+    s3d::Vec2 Body::getAnchoredPos() const
+    {
+        return this->getPos();
+    }
     s3d::Vec2 Body::moveDiff() const
     {
         return m_pos - m_prevPos;
