@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 
 #include <abyss/components/Actor/Common/ILocator.hpp>
@@ -22,10 +22,7 @@ namespace abyss::Actor
         {
             return m_pos;
         }
-        s3d::Vec2 getAnchoredPos() const override
-        {
-            return this->getPos();
-        }
+
         s3d::Vec2 getCenterPos() const override
         {
             return this->getPos();
