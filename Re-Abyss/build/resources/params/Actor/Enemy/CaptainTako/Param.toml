@@ -1,7 +1,6 @@
 [Base]
 hp = 10
 size = "(32, 38)"
-pivot = "(0, 1)"
 
 [Wait]
 timeSec = 2.0

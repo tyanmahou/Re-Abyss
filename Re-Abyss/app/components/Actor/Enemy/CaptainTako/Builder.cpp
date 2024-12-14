@@ -21,10 +21,10 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.pos)
+            .setInitPos(entity.footPos)
             .setForward(entity.forward)
+            .setBodyAnchor(BodyAnchor::BottomCenter)
             .setBodySize(Param::Base::Size)
-            .setBodyOffset(Param::Base::Pivot)
             .setInitHp(Param::Base::Hp)
             .setInitState<WaitState>()
             .setVModelPresenter<Presenter>(pActor)

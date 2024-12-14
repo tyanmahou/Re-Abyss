@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/CaptainTako/State/AttackState.hpp>
+﻿#include <abyss/components/Actor/Enemy/CaptainTako/State/AttackState.hpp>
 #include <abyss/components/Actor/Enemy/CaptainTako/State/WaitState.hpp>
 
 #include <abyss/modules/Actor/Actors.hpp>
@@ -23,7 +23,7 @@ namespace abyss::Actor::Enemy::CaptainTako
 
         while (true) {
             // ショット
-            constexpr s3d::Vec2 offset{ -9, 4 };
+            constexpr s3d::Vec2 offset{ -9, -20 + 4 };
             const s3d::Vec2 fixedOffset{
                 m_body->isForward(Forward::Left()) ? offset.x : -offset.x,
                 offset.y

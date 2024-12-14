@@ -1,4 +1,4 @@
-#include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>
+﻿#include <abyss/views/Actor/Enemy/CaptainTako/CpatainTakoVM.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/params/Actor/Enemy/CaptainTako/Param.hpp>
@@ -50,7 +50,7 @@ namespace abyss::Actor::Enemy::CaptainTako
         bool isRight = m_forward.isRight();
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
         auto tex = m_texture(40 * page, 0, 40, 40);
-        tex.mirrored(isRight).drawAt(m_pos, m_colorMul);
+        tex.mirrored(isRight).draw(Arg::bottomCenter = m_pos, m_colorMul);
     }
     void CaptainTakoVM::drawCharge() const
     {
@@ -62,7 +62,6 @@ namespace abyss::Actor::Enemy::CaptainTako
         auto tex = m_texture({ 40 * page, 40 }, rawSize);
         const double scale = 1.0 + (m_chargeRate * Param::View::ChargingAddScale);
         const Vec2 size = s3d::Round(rawSize * scale);
-        const Vec2 pos = s3d::Round(m_pos - size / 2.0 - Vec2{0, (size.y -rawSize.y) / 2.0});
-        tex.mirrored(isRight).resized(size).draw(pos, color);
+        tex.mirrored(isRight).resized(size).draw(Arg::bottomCenter = m_pos, color);
     }
 }

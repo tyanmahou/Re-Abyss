@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/utils/TOML/TOMLBind.hpp>
 
@@ -8,12 +8,10 @@ namespace abyss::Actor::Enemy::CaptainTako
     {
         [[TOML_BIND(Base::Hp, "Base.hp")]]
         [[TOML_BIND(Base::Size, "Base.size")]]
-        [[TOML_BIND(Base::Pivot, "Base.pivot")]]
         struct Base
         {
             inline static s3d::int32 Hp{ 10 };
             inline static s3d::Vec2 Size{ 32, 38 };
-            inline static s3d::Vec2 Pivot{ 0, 1 };
         };
 
         [[TOML_BIND(Wait::TimeSec, "Wait.timeSec")]]
