@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Schield/State/AttackPlusState.hpp>
+﻿#include <abyss/components/Actor/Enemy/Schield/State/AttackPlusState.hpp>
 #include <abyss/components/Actor/Enemy/Schield/State/AttackCrossState.hpp>
 
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
@@ -34,9 +34,9 @@ namespace abyss::Actor::Enemy::Schield
         if (!m_isAttack && m_timer.rate() >= 0.5) {
             m_isAttack = true;
             const auto& pos = m_body->getPos();
-            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ -55, 10 }, s3d::Vec2{-1, 0});
-            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ 55, 10 }, s3d::Vec2{ 1, 0 });
-            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ 0, -27 }, s3d::Vec2{ 0, -1 });
+            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ -55, 10 - 30 }, s3d::Vec2{-1, 0});
+            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ 55, 10 - 30 }, s3d::Vec2{ 1, 0 });
+            m_pActor->getModule<Actors>()->create<Shot::Builder>(pos + s3d::Vec2{ 0, -27 - 30 }, s3d::Vec2{ 0, -1 });
         }
 
         if (m_transitionToAttackCross.isRunning()) {

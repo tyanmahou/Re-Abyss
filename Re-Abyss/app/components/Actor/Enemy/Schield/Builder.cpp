@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
+﻿#include <abyss/components/Actor/Enemy/Schield/Builder.hpp>
 
 #include <abyss/entities/Actor/Enemy/SchieldEntity.hpp>
 #include <abyss/params/Actor/Enemy/Schield/Param.hpp>
@@ -25,7 +25,8 @@ namespace abyss::Actor::Enemy::Schield
 	{
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.pos)
+            .setInitPos(entity.footPos)
+            .setBodyAnchor(BodyAnchor::BottomCenter)
             .setForward(entity.forward)
             .setBodySize(Param::Base::Size)
             .setInitHp(Param::Base::Hp)

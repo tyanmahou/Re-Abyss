@@ -1,4 +1,4 @@
-#include <abyss/views/Actor/Enemy/Schield/SchieldVM.hpp>
+﻿#include <abyss/views/Actor/Enemy/Schield/SchieldVM.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
@@ -57,11 +57,11 @@ namespace abyss::Actor::Enemy::Schield
         int32 page = static_cast<int32>(Periodic::Triangle0_1(Param::View::AnimeTimeSec, m_time) * 3.0);
         {
             auto&& tex = m_texture(U"wait");
-            tex(0, 60 * page, 150, 60).mirrored(isRight).drawAt(m_pos, m_colorMul);
+            tex(0, 60 * page, 150, 60).mirrored(isRight).draw(Arg::bottomCenter = m_pos, m_colorMul);
         }
         {
             auto&& tex = m_textureOver(U"wait_over");
-            tex(0, 60 * page, 150, 60).mirrored(isRight).drawAt(m_pos);
+            tex(0, 60 * page, 150, 60).mirrored(isRight).draw(Arg::bottomCenter = m_pos);
         }
     }
 
@@ -73,13 +73,13 @@ namespace abyss::Actor::Enemy::Schield
             auto&& tex = m_texture(U"wait_to_attack3");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
                 .mirrored(isRight)
-                .drawAt(m_pos, m_colorMul);
+                .draw(Arg::bottomCenter = m_pos, m_colorMul);
         }
         {
             auto&& tex = m_textureOver(U"wait_to_attack3_over");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
                 .mirrored(isRight)
-                .drawAt(m_pos);
+                .draw(Arg::bottomCenter = m_pos);
         }
     }
 
@@ -96,13 +96,13 @@ namespace abyss::Actor::Enemy::Schield
             auto&& tex = m_texture(U"wait_to_attack");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
                 .mirrored(isRight)
-                .drawAt(m_pos, m_colorMul);
+                .draw(Arg::bottomCenter = m_pos, m_colorMul);
         }
         {
             auto&& tex = m_textureOver(U"wait_to_attack_over");
             tex(150 * (page / 4), 60 * (page % 4), 150, 60)
                 .mirrored(isRight)
-                .drawAt(m_pos);
+                .draw(Arg::bottomCenter = m_pos);
         }
     }
 
@@ -117,6 +117,6 @@ namespace abyss::Actor::Enemy::Schield
         bool isRight = m_forward.isRight();
         tex(120 * (page / 4), 60 * (page % 4), 120, 60)
             .mirrored(isRight)
-            .drawAt(m_pos, m_colorMul);
+            .draw(Arg::bottomCenter = m_pos, m_colorMul);
     }
 }
