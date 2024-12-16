@@ -67,7 +67,8 @@ namespace
                 Vec2 size = obj.toRectF().size;
                 RectF rect{ obj.pos + Vec2{0, -size.y}, size};
                 it->pos = rect.center().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
-                it->footPos = rect.bottomCenter().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
+                Vec2 footBase = it->isFlipped ? rect.topCenter() : rect.bottomCenter();
+                it->footPos = footBase.rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
                 it->isFixBazooka = obj.getProperty(U"fix_bazooka").value_or(false);
                 it->bazookaRotate = obj.getProperty(U"bazooka_rotate").value_or(0.0);
                 return it;
