@@ -27,7 +27,7 @@ namespace abyss::Actor::Enemy::BazookaKun
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setInitState<WaitState>()
-            .setVModelPresenter<Presenter>(pActor)
+            .setVModelPresenter<Presenter>(pActor, entity.footPos)
             .setIsEnableBreathing(false)
         );
         // Body調整
@@ -58,7 +58,8 @@ namespace
         BazookaKunVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_body->getPos())
+                .setPos(m_footPos)
+                .setCenterPos(m_body->getPos())
                 .setIsMirrored(m_target->isMirrored())
                 .setIsFlipped(m_target->isFlipped())
                 .setRotate(m_target->rotate())
@@ -75,9 +76,10 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        Presenter(ActorObj* pActor) :
+        Presenter(ActorObj* pActor, Vec2 footPos) :
             m_pActor(pActor),
-            m_view(std::make_unique<BazookaKunVM>())
+            m_view(std::make_unique<BazookaKunVM>()),
+            m_footPos(footPos)
         {}
     private:
         ActorObj* m_pActor = nullptr;
@@ -87,6 +89,8 @@ namespace
         Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<BazookaKunVM> m_view;
+
+        Vec2 m_footPos;
     };
 }
 

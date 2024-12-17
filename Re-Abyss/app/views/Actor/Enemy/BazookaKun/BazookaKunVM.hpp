@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/utils/TexturePacker/TexturePacker.hpp>
 
 namespace abyss::Actor::Enemy::BazookaKun
@@ -9,6 +9,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         BazookaKunVM();
 
         BazookaKunVM& setPos(const s3d::Vec2& pos);
+        BazookaKunVM& setCenterPos(const s3d::Vec2& pos);
         BazookaKunVM& setIsMirrored(bool isMirrored)
         {
             m_isMirrored = isMirrored;
@@ -43,6 +44,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         }
         void draw() const;
     private:
+        s3d::RectF rect() const;
         s3d::Quad quad() const;
         void drawBazooka() const;
         void drawBody() const;
@@ -51,6 +53,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         TexturePacker m_texture;
 
         s3d::Vec2 m_pos{};
+        s3d::Vec2 m_centerPos{};
         bool m_isMirrored;
         bool m_isFlipped;
         double m_rotate;
