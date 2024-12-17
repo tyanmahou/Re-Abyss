@@ -14,11 +14,6 @@ namespace abyss::Actor::Enemy::BazookaKun
         m_pos = s3d::Round(pos);
         return *this;
     }
-    BazookaKunVM& BazookaKunVM::setCenterPos(const s3d::Vec2& pos)
-    {
-        m_centerPos = s3d::Round(pos);
-        return *this;
-    }
     BazookaKunVM& BazookaKunVM::setColorMul(const s3d::ColorF color)
     {
         m_colorMul = color;
@@ -26,66 +21,49 @@ namespace abyss::Actor::Enemy::BazookaKun
     }
     void BazookaKunVM::draw() const
     {
+        Transformer2D trans(Mat3x2::Translate(m_pos).rotated(s3d::ToRadians(m_rotate), m_pos));
+
         this->drawBazooka();
         this->drawBody();
         this->drawEye();
     }
-    s3d::RectF BazookaKunVM::rect() const
-    {
-        const auto& size = Param::Base::Size;
-        return{ m_pos - Vec2{size.x / 2, (m_isFlipped ? 0 : size.y)}, size };
-    }
-    s3d::Quad BazookaKunVM::quad() const
-    {
-        return rect().rotatedAt(m_pos, s3d::ToRadians(m_rotate));
-    }
     void BazookaKunVM::drawBazooka() const
     {
-        auto quad = this->quad();
-        quad.moveBy(Vec2{ m_isMirrored ? 1 : -1, 0 }.rotated(s3d::ToRadians(m_rotate)) * 10 * m_bazookaAnimRate);
-        {
-            const auto& size = Param::Base::Size;
-            Vec2 centerPos = m_pos + Vec2{0, (m_isFlipped ? size.y / 2 : -size.y / 2) };
-            centerPos = centerPos.rotateAt(m_pos, s3d::ToRadians(m_rotate));
-
-            Vec2  pivot = centerPos + Vec2{m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15};
-            pivot = pivot.rotateAt(centerPos, s3d::ToRadians(m_rotate));
-
-            quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
-        }
-
+        Vec2 pivot = Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 + Param::Base::Size.y / 2 : 15 - Param::Base::Size.y / 2 };
+        Transformer2D trans2(Mat3x2::Rotate(s3d::ToRadians(m_bazookaRotate), pivot));
+        Vec2 offset = Vec2{ (m_isMirrored ? 1 : -1) * 10 * m_bazookaAnimRate, 0 };
         auto tex = m_texture(U"bazooka")
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped);
-        quad(tex).draw(m_colorMul);
+        if (m_isFlipped) {
+            tex.draw(Arg::topCenter = offset, m_colorMul);
+        } else {
+            tex.draw(Arg::bottomCenter = offset, m_colorMul);
+        }
     }
     void BazookaKunVM::drawBody() const
     {
-        m_texture(U"body")
+        auto tex = m_texture(U"body")
             .mirrored(m_isMirrored)
-            .flipped(m_isFlipped)
-            .rotated(s3d::ToRadians(m_rotate))
-            .drawAt(m_centerPos, m_colorMul)
-            ;
+            .flipped(m_isFlipped);
+        if (m_isFlipped) {
+            tex.draw(Arg::topCenter = Vec2::Zero(), m_colorMul);
+        } else {
+            tex.draw(Arg::bottomCenter = Vec2::Zero(), m_colorMul);
+        }
     }
     void BazookaKunVM::drawEye() const
     {
+        Vec2 pivot = Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 + Param::Base::Size.y / 2: 15 - Param::Base::Size.y / 2};
+        Transformer2D trans2(Mat3x2::Rotate(s3d::ToRadians(m_bazookaRotate), pivot));
         s3d::int32 frame = static_cast<int32>(m_time * 60.0) % 240 <= 10 ? 1 : 0;
-
-        auto quad = this->quad();
-        {
-            const auto& size = Param::Base::Size;
-            Vec2 centerPos = m_pos + Vec2{ 0, (m_isFlipped ? size.y / 2 : -size.y / 2) };
-            centerPos = centerPos.rotateAt(m_pos, s3d::ToRadians(m_rotate));
-
-            Vec2 pivot = centerPos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
-            pivot = pivot.rotateAt(centerPos, s3d::ToRadians(m_rotate));
-
-            quad = quad.rotatedAt(pivot, s3d::ToRadians(m_bazookaRotate));
-        }
         auto tex = m_texture(frame == 1 ? U"eye2" : U"eye")
             .mirrored(m_isMirrored)
             .flipped(m_isFlipped);
-        quad(tex).draw(m_colorMul);
+        if (m_isFlipped) {
+            tex.draw(Arg::topCenter = Vec2::Zero(), m_colorMul);
+        } else {
+            tex.draw(Arg::bottomCenter = Vec2::Zero(), m_colorMul);
+        }
     }
 }

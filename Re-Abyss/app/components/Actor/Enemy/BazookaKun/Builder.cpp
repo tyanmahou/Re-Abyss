@@ -58,8 +58,7 @@ namespace
         BazookaKunVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_footPos)
-                .setCenterPos(m_body->getPos())
+                .setPos(m_footPos /*m_body->getPos()*/)
                 .setIsMirrored(m_target->isMirrored())
                 .setIsFlipped(m_target->isFlipped())
                 .setRotate(m_target->rotate())
