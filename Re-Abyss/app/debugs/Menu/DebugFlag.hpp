@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #if ABYSS_DEBUG
 
@@ -20,6 +20,7 @@ namespace abyss::Debug::DebugFlag
     inline constexpr auto* ActorCollider = U"Actor/Collider";
     inline constexpr auto* ActorMapCollider = U"Actor/MapCollider";
     inline constexpr auto* ActorTestBehavior = U"Actor/TestBehavior";
+    inline constexpr auto* ActorInvincible = U"Actor/Invincible";
 
     inline constexpr auto* RenderFog = U"Render/Fog";
     inline constexpr auto* RenderLight = U"Render/Light";

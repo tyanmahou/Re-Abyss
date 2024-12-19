@@ -23,6 +23,7 @@
 		<Collider label="コライダー" value="false"/>
 		<MapCollider label="地形コライダー" value="false"/>
 		<TestBehavior label="テストアクション" value="false"/>
+		<Invincible label="無敵" value="false"/>
 	</Actor>
 	<Render label ="レンダリング設定">
 		<Fog label="フォグ" value="true"/>
