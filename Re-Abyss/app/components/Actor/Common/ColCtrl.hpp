@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/components/Actor/Common/Col/Node.hpp>
 #include <abyss/modules/ColSys/Branch.hpp>
@@ -32,6 +32,12 @@ namespace abyss::Actor
 		/// </summary>
 		/// <returns></returns>
 		Ref<ColSys::Branch> branch(size_t index) const;
+
+        /// <summary>
+        /// ブランチ数
+        /// </summary>
+        /// <returns></returns>
+        size_t branchCount() const;
 
 		/// <summary>
 		/// 何かにヒットしたか

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Common/ColCtrl.hpp>
+﻿#include <abyss/components/Actor/Common/ColCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/ColSys/CollisionManager.hpp>
 
@@ -54,6 +54,10 @@ namespace abyss::Actor
 		}
 		return m_branchs[index];
 	}
+    size_t ColCtrl::branchCount() const
+    {
+        return m_branchs.size();
+    }
 	bool ColCtrl::isHitAny() const
 	{
 		return m_branchs.any([](const Ref<ColSys::Branch>& b) {

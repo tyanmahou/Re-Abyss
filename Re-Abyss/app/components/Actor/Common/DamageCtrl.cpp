@@ -1,8 +1,9 @@
-#include <abyss/components/Actor/Common/DamageCtrl.hpp>
+﻿#include <abyss/components/Actor/Common/DamageCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/IDamageCallback.hpp>
 #include <abyss/components/Actor/Common/Col/Extension/Attacker.hpp>
 #include <abyss/commons/ColorDef.hpp>
+#include <abyss/debugs/Debug.hpp>
 #include <Siv3D.hpp>
 
 namespace abyss::Actor
@@ -51,7 +52,14 @@ namespace abyss::Actor
 			// 無敵
 			return;
 		}
-
+#if ABYSS_DEBUG
+        if (Debug::MenuUtil::IsDebug(Debug::DebugFlag::ActorInvincible) &&
+            m_colCtrl->branchCount() >= 1 &&
+            m_colCtrl->branch(0)->layer() == ColSys::LayerGroup::Player) {
+            // 無敵
+            return;
+        }
+#endif
 		DamageData data;
 		const bool isDamaged = m_colCtrl->anyThen<Col::Attacker, 0>([this, &data](s3d::uint64 id, const Col::Attacker::Data& attacker) {
 			const auto& record = m_comboHistory.find(id);
