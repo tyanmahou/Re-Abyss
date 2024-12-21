@@ -337,7 +337,9 @@ namespace abyss::Actor
     s3d::Vec2 Body::getCenterPos() const
     {
         if (m_anchor == BodyAnchor::BottomCenter) {
-            return this->getOffsetedPos() - Vec2{ 0, m_sizePrev.y / 2.0 };
+            return this->getOffsetedPos() - Vec2{ 0, m_size.y / 2.0 };
+        } else if (m_anchor == BodyAnchor::TopCenter) {
+            return this->getOffsetedPos() + Vec2{ 0, m_size.y / 2.0 };
         } else {
             return this->getOffsetedPos();
         }
@@ -350,6 +352,8 @@ namespace abyss::Actor
     {
         if (m_anchor == BodyAnchor::BottomCenter) {
             return { m_pos + m_offset - Vec2{m_size.x /2.0, m_size.y}, m_size };
+        } else if (m_anchor == BodyAnchor::TopCenter) {
+            return { m_pos + m_offset - Vec2{m_size.x / 2.0, 0}, m_size };
         } else {
             return { m_pos + m_offset - m_size / 2, m_size };
         }
@@ -358,6 +362,8 @@ namespace abyss::Actor
     {
         if (m_anchor == BodyAnchor::BottomCenter) {
             return { m_prevPos + m_offsetPrev - Vec2{m_sizePrev.x / 2.0, m_sizePrev.y}, m_sizePrev };
+        } else if (m_anchor == BodyAnchor::TopCenter) {
+            return { m_prevPos + m_offsetPrev - Vec2{m_sizePrev.x / 2.0, 0}, m_sizePrev };
         } else {
             return { m_prevPos + m_offsetPrev - m_sizePrev / 2, m_sizePrev };
         }

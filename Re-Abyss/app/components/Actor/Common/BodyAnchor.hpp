@@ -6,5 +6,8 @@ namespace abyss::Actor
     {
         Center,
         BottomCenter,
+        TopCenter,
+        CenterLeft,
+        CenterRight,
     };
 }
