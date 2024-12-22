@@ -244,6 +244,10 @@ namespace abyss::Actor
     {
         return m_pos + m_offset;
     }
+    s3d::Vec2 Body::getOffsetedPosPrev() const
+    {
+        return m_prevPos + m_offsetPrev;
+    }
     Body& Body::setAnchor(BodyAnchor anchor)
     {
         m_anchor = anchor;

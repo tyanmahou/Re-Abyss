@@ -74,6 +74,7 @@ namespace abyss::Actor
         Body& setOffset(const s3d::Vec2& offset);
         const s3d::Vec2& getOffset() const;
         s3d::Vec2 getOffsetedPos() const;
+        s3d::Vec2 getOffsetedPosPrev() const;
 
         Body& setAnchor(BodyAnchor anchor);
 
