@@ -354,22 +354,25 @@ namespace abyss::Actor
     }
     s3d::RectF Body::region() const
     {
+        Vec2 pos = this->getOffsetedPos();
         if (m_anchor == BodyAnchor::BottomCenter) {
-            return { m_pos + m_offset - Vec2{m_size.x /2.0, m_size.y}, m_size };
+            return { pos - Vec2{m_size.x /2.0, m_size.y}, m_size };
         } else if (m_anchor == BodyAnchor::TopCenter) {
-            return { m_pos + m_offset - Vec2{m_size.x / 2.0, 0}, m_size };
+            return { pos - Vec2{m_size.x / 2.0, 0}, m_size };
         } else {
-            return { m_pos + m_offset - m_size / 2, m_size };
+            return { pos - m_size / 2, m_size };
         }
     }
     s3d::RectF Body::prevRegion() const
     {
+        Vec2 pos = this->getOffsetedPosPrev();
+
         if (m_anchor == BodyAnchor::BottomCenter) {
-            return { m_prevPos + m_offsetPrev - Vec2{m_sizePrev.x / 2.0, m_sizePrev.y}, m_sizePrev };
+            return { pos - Vec2{m_sizePrev.x / 2.0, m_sizePrev.y}, m_sizePrev };
         } else if (m_anchor == BodyAnchor::TopCenter) {
-            return { m_prevPos + m_offsetPrev - Vec2{m_sizePrev.x / 2.0, 0}, m_sizePrev };
+            return { pos - Vec2{m_sizePrev.x / 2.0, 0}, m_sizePrev };
         } else {
-            return { m_prevPos + m_offsetPrev - m_sizePrev / 2, m_sizePrev };
+            return { pos - m_sizePrev / 2, m_sizePrev };
         }
     }
 }
