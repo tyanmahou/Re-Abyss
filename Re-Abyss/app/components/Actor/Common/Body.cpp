@@ -352,27 +352,24 @@ namespace abyss::Actor
     {
         return m_pos - m_prevPos;
     }
+    s3d::RectF CalcRect(const s3d::Vec2& pos, const s3d::Vec2& size, BodyAnchor anchor)
+    {
+        if (anchor == BodyAnchor::BottomCenter) {
+            return RectF{ Arg::bottomCenter = pos, size };
+        } else if (anchor == BodyAnchor::TopCenter) {
+            return RectF{ Arg::topCenter = pos, size };
+        } else {
+            return RectF{ Arg::center = pos, size };
+        }
+    }
     s3d::RectF Body::region() const
     {
         Vec2 pos = this->getOffsetedPos();
-        if (m_anchor == BodyAnchor::BottomCenter) {
-            return { pos - Vec2{m_size.x /2.0, m_size.y}, m_size };
-        } else if (m_anchor == BodyAnchor::TopCenter) {
-            return { pos - Vec2{m_size.x / 2.0, 0}, m_size };
-        } else {
-            return { pos - m_size / 2, m_size };
-        }
+        return CalcRect(pos, m_size, m_anchor);
     }
     s3d::RectF Body::prevRegion() const
     {
         Vec2 pos = this->getOffsetedPosPrev();
-
-        if (m_anchor == BodyAnchor::BottomCenter) {
-            return { pos - Vec2{m_sizePrev.x / 2.0, m_sizePrev.y}, m_sizePrev };
-        } else if (m_anchor == BodyAnchor::TopCenter) {
-            return { pos - Vec2{m_sizePrev.x / 2.0, 0}, m_sizePrev };
-        } else {
-            return { pos - m_sizePrev / 2, m_sizePrev };
-        }
+        return CalcRect(pos, m_sizePrev, m_anchor);
     }
 }
