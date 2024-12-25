@@ -358,6 +358,10 @@ namespace abyss::Actor
             return RectF{ Arg::bottomCenter = pos, size };
         } else if (anchor == BodyAnchor::TopCenter) {
             return RectF{ Arg::topCenter = pos, size };
+        } else if (anchor == BodyAnchor::CenterLeft) {
+            return RectF{ Arg::leftCenter = pos, size };
+        } else if (anchor == BodyAnchor::CenterRight) {
+            return RectF{ Arg::rightCenter = pos, size };
         } else {
             return RectF{ Arg::center = pos, size };
         }
