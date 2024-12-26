@@ -21,8 +21,7 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.footPos)
-            .setBodyAnchor(entity.pos, entity.footPos)
+            .setInitPosAnchorSize(entity.pos, entity.footPos, entity.size)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)

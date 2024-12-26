@@ -30,6 +30,7 @@ namespace
 			Vec2 size = obj.toRectF().size;
 			entity->pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
             entity->footPos = obj.pos + Vec2{ size.x / 2, 0 };
+            entity->size = size;
             entity->forward = obj.isMirrored ? Forward::Right() : Forward::Left();
 		}
 		return entity;
@@ -69,6 +70,7 @@ namespace
                 it->pos = rect.center().rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
                 Vec2 footBase = it->isFlipped ? rect.topCenter() : rect.bottomCenter();
                 it->footPos = footBase.rotatedAt(rect.bl(), s3d::ToRadians(obj.rotation));
+                it->size = size;
                 it->isFixBazooka = obj.getProperty(U"fix_bazooka").value_or(false);
                 it->bazookaRotate = obj.getProperty(U"bazooka_rotate").value_or(0.0);
                 return it;

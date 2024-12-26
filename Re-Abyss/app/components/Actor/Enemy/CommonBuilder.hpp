@@ -49,21 +49,31 @@ namespace abyss::Actor::Enemy
             this->bodyAnchor = anchor;
             return *this;
         }
-        BuildOption& setBodyAnchor(const s3d::Vec2& centerPos, const s3d::Vec2& footPos, double e = 0.1)
+        BuildOption& setInitPosAnchorSize(const s3d::Vec2& centerPos, const s3d::Vec2& footPos, const s3d::Vec2& size, double e = 0.1)
         {
             if (centerPos.x + e < footPos.x) {
-                return this->setBodyAnchor(BodyAnchor::CenterRight);
+                return this->setInitPos(footPos)
+                    .setBodyAnchor(BodyAnchor::CenterRight)
+                    .setBodySize(Vec2{ size.y, size.x });
             }
             if (centerPos.x - e > footPos.x) {
-                return this->setBodyAnchor(BodyAnchor::CenterLeft);
+                return this->setInitPos(footPos)
+                    .setBodyAnchor(BodyAnchor::CenterLeft)
+                    .setBodySize(Vec2{ size.y, size.x });
             }
             if (centerPos.y + e < footPos.y) {
-                return this->setBodyAnchor(BodyAnchor::BottomCenter);
+                return this->setInitPos(footPos)
+                    .setBodyAnchor(BodyAnchor::BottomCenter)
+                    .setBodySize(size);
             }
             if (centerPos.y - e > footPos.y) {
-                return this->setBodyAnchor(BodyAnchor::TopCenter);
+                return this->setInitPos(footPos)
+                    .setBodyAnchor(BodyAnchor::TopCenter)
+                    .setBodySize(size);
             }
-            return this->setBodyAnchor(BodyAnchor::Center);
+            return this->setInitPos(footPos)
+                .setBodyAnchor(BodyAnchor::Center)
+                .setBodySize(size);
         }
         BuildOption& setForward(Forward _forward)
         {

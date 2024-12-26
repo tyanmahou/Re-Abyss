@@ -344,6 +344,10 @@ namespace abyss::Actor
             return this->getOffsetedPos() - Vec2{ 0, m_size.y / 2.0 };
         } else if (m_anchor == BodyAnchor::TopCenter) {
             return this->getOffsetedPos() + Vec2{ 0, m_size.y / 2.0 };
+        } else if (m_anchor == BodyAnchor::CenterLeft) {
+            return this->getOffsetedPos() + Vec2{ m_size.x / 2.0, 0 };
+        } else if (m_anchor == BodyAnchor::CenterRight) {
+            return this->getOffsetedPos() - Vec2{ m_size.x / 2.0, 0 };
         } else {
             return this->getOffsetedPos();
         }

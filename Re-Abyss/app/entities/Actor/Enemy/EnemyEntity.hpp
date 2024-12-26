@@ -29,6 +29,7 @@ namespace abyss::Actor::Enemy
 		EnemyType type;
 		s3d::Vec2 pos;
         s3d::Vec2 footPos;
+        s3d::Vec2 size;
         Forward forward;
 	};
 }
