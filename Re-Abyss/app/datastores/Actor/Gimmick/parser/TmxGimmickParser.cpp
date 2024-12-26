@@ -1,4 +1,4 @@
-#include <abyss/datastores/Actor/Gimmick/parser/TmxGimmickParser.hpp>
+﻿#include <abyss/datastores/Actor/Gimmick/parser/TmxGimmickParser.hpp>
 
 #include <abyss/entities/Actor/Gimmick/StartPosEntity.hpp>
 #include <abyss/entities/Actor/Gimmick/DoorEntity.hpp>
@@ -22,6 +22,8 @@ namespace
         if (entity) {
             Vec2 size = obj.toRectF().size;
             entity->pos = obj.pos + Vec2{ size.x / 2, -size.y / 2 };
+            entity->footPos = obj.pos + Vec2{ size.x / 2, 0 };
+            entity->size = size;
         }
         return entity;
     }
