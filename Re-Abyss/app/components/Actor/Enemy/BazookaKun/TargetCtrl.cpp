@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/BazookaKun/TargetCtrl.hpp>
+﻿#include <abyss/components/Actor/Enemy/BazookaKun/TargetCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
@@ -22,7 +22,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
     bool TargetCtrl::isInAimRange(Vec2& outToPlayer) const
     {
-        const auto& pos = m_body->getPos();
+        const auto& pos = m_body->getCenterPos();
         // 基準点の計算
         auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
         pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
@@ -63,7 +63,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
     s3d::Vec2 TargetCtrl::bazookaPos() const
     {
-        const auto& pos = m_body->getPos();
+        const auto& pos = m_body->getCenterPos();
 
         // 基準点の計算
         auto pivot = pos + Vec2{ m_isMirrored ? -3 : 3, m_isFlipped ? -15 : 15 };

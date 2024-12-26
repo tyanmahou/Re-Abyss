@@ -21,13 +21,14 @@ namespace abyss::Actor::Enemy::BazookaKun
     {
         // 共通ビルド
         CommonBuilder::Build(pActor, BuildOption{}
-            .setInitPos(entity.pos)
+            .setInitPos(entity.footPos)
+            .setBodyAnchor(entity.pos, entity.footPos)
             .setForward(entity.forward)
             .setInitHp(Param::Base::Hp)
             .setCollider<MainCollider>(pActor)
             .setIsEnableMapCollider(false)
             .setInitState<WaitState>()
-            .setVModelPresenter<Presenter>(pActor, entity.footPos)
+            .setVModelPresenter<Presenter>(pActor)
             .setIsEnableBreathing(false)
         );
         // Body調整
@@ -58,7 +59,7 @@ namespace
         BazookaKunVM* bind() const final
         {
             return &m_view->setTime(m_pActor->getTimeSec())
-                .setPos(m_footPos /*m_body->getPos()*/)
+                .setPos(m_body->getPos())
                 .setIsMirrored(m_target->isMirrored())
                 .setIsFlipped(m_target->isFlipped())
                 .setRotate(m_target->rotate())
@@ -75,10 +76,9 @@ namespace
             m_motion = m_pActor->find<MotionCtrl>();
         }
     public:
-        Presenter(ActorObj* pActor, Vec2 footPos) :
+        Presenter(ActorObj* pActor) :
             m_pActor(pActor),
-            m_view(std::make_unique<BazookaKunVM>()),
-            m_footPos(footPos)
+            m_view(std::make_unique<BazookaKunVM>())
         {}
     private:
         ActorObj* m_pActor = nullptr;
@@ -88,8 +88,6 @@ namespace
         Ref<MotionCtrl> m_motion;
 
         std::unique_ptr<BazookaKunVM> m_view;
-
-        Vec2 m_footPos;
     };
 }
 

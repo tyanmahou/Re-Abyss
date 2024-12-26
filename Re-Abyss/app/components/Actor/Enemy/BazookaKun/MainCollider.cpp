@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/BazookaKun/MainCollider.hpp>
+﻿#include <abyss/components/Actor/Enemy/BazookaKun/MainCollider.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/params/Actor/Enemy/BazookaKun/Param.hpp>
@@ -16,7 +16,7 @@ namespace abyss::Actor::Enemy::BazookaKun
 
     CShape MainCollider::getCollider() const
     {
-        const auto& pos = m_body->getPos();
+        const auto& pos = m_body->getCenterPos();
         // 基準点の計算
         return RectF{ pos - Vec2{
             Param::Base::BodySize.x / 2,

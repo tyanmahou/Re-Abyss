@@ -49,6 +49,22 @@ namespace abyss::Actor::Enemy
             this->bodyAnchor = anchor;
             return *this;
         }
+        BuildOption& setBodyAnchor(const s3d::Vec2& centerPos, const s3d::Vec2& footPos, double e = 0.1)
+        {
+            if (centerPos.x + e < footPos.x) {
+                return this->setBodyAnchor(BodyAnchor::CenterRight);
+            }
+            if (centerPos.x - e > footPos.x) {
+                return this->setBodyAnchor(BodyAnchor::CenterLeft);
+            }
+            if (centerPos.y + e < footPos.y) {
+                return this->setBodyAnchor(BodyAnchor::BottomCenter);
+            }
+            if (centerPos.y - e > footPos.y) {
+                return this->setBodyAnchor(BodyAnchor::TopCenter);
+            }
+            return this->setBodyAnchor(BodyAnchor::Center);
+        }
         BuildOption& setForward(Forward _forward)
         {
             this->forward = _forward;
