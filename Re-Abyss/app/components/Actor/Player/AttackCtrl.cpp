@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Player/AttackCtrl.hpp>
+﻿#include <abyss/components/Actor/Player/AttackCtrl.hpp>
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
@@ -56,7 +56,7 @@ namespace abyss::Actor::Player
 
         double charge = m_charge->pop();
         m_pActor->getModule<Actors>()->create<Shot::Builder>(
-            m_body->getPos() + Vec2{ 30 * m_body->getForward().signH(), -1},
+            m_body->getCenterPos() + Vec2{ 30 * m_body->getForward().signH(), -1},
             m_body->getForward(), 
             charge
             );
