@@ -1,4 +1,4 @@
-#include <abyss/modules/Stage/Stage.hpp>
+﻿#include <abyss/modules/Stage/Stage.hpp>
 
 #include <Siv3D.hpp>
 
@@ -63,7 +63,7 @@ namespace
                 continue;
             }
             const auto& startPos = static_cast<const Actor::Gimmick::StartPosEntity&>(*gimmick);
-            StartPos entry{ startPos.startId, startPos.pos, startPos.forward, startPos.isSave };
+            StartPos entry{ startPos.startId, startPos.footPos, startPos.forward, startPos.isSave };
             ret.add(entry);
         }
         return ret;
@@ -109,7 +109,7 @@ namespace abyss
     bool Stage::init() const
     {
         auto* playerManager = m_pManager->getModule<Actor::Player::PlayerManager>();
-        s3d::Optional<Room::RoomData> nextRoom = this->findRoom(playerManager->getPos());
+        s3d::Optional<Room::RoomData> nextRoom = this->findRoom(playerManager->getCenterPos());
         if (!nextRoom) {
             return false;
         }

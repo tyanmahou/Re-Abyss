@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/BabyDux/EyeCtrl.hpp>
+﻿#include <abyss/components/Actor/Enemy/BabyDux/EyeCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Enemy/BabyDux/ForwardCtrl.hpp>
@@ -24,7 +24,7 @@ namespace abyss::Actor::Enemy::BabyDux
     void EyeCtrl::onLastUpdate()
     {
         const auto& pos = m_body->getPos();
-        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
+        const auto& playerPos = ActorUtils::PlayerCenterPos(*m_pActor);
 
         auto erpRate = InterpUtil::DampRatio(Param::Eye::ErpRate, m_pActor->deltaTime());
 

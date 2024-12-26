@@ -1,4 +1,4 @@
-#include <abyss/views/UI/SaveSelect/UserInfo/PlayerView.hpp>
+﻿#include <abyss/views/UI/SaveSelect/UserInfo/PlayerView.hpp>
 #include <abyss/views/Actor/Ooparts/base/OopartsViewUtil.hpp>
 
 #include <Siv3D.hpp>
@@ -47,7 +47,7 @@ namespace abyss::UI::SaveSelect::UserInfo
                 .draw();
         }
         m_player
-            ->setPos(m_pos)
+            ->setPos(m_pos + Vec2{0, 40})
             .setForward(Forward::Left())
             .setTime(m_time)
             .setMotion(Actor::Player::Motion::Stay)

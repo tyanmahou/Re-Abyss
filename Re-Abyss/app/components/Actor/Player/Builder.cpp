@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Player/Builder.hpp>
+﻿#include <abyss/components/Actor/Player/Builder.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
@@ -72,6 +72,7 @@ namespace abyss::Actor::Player
 			pActor->attach<Body>(pActor)
 				->initSize(Param::Base::Size)
                 .initPos(initPos)
+                .setAnchor(BodyAnchor::BottomCenter)
 				.setForward(forward)
 				;
             pActor->attach<BodyUpdater>(pActor);
@@ -267,14 +268,14 @@ namespace
             return &m_oopartsView
                 ->setTime(m_pActor->getTimeSec())
                 .setForward(m_body->getForward())
-                .setPos(m_body->getPos() + handOffset)
+                .setPos(m_body->getCenterPos() + handOffset)
                 ;
         }
         ChargeEffectVM* bindChargeEft()const
         {
             return &m_chargeView
                 ->setTime(m_pActor->getTimeSec())
-                .setPos(m_body->getPos())
+                .setPos(m_body->getCenterPos())
                 .setCharge(m_charge->getCharge())
                 ;
         }

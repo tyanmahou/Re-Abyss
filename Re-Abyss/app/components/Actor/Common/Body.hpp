@@ -98,6 +98,7 @@ namespace abyss::Actor
         ColDirection fixPos(const Room::RoomData& room, const s3d::Optional<ColDirection>& strict = s3d::none);
 
         s3d::Vec2 getCenterPos()const override;
+        Body& setCenterPos(const s3d::Vec2& pos);
 
         s3d::Vec2 moveDiff() const;
     private:

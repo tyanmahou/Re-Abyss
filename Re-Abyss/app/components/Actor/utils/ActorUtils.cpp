@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/utils/ActorUtils.hpp>
+﻿#include <abyss/components/Actor/utils/ActorUtils.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Actor/Actors.hpp>
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
@@ -9,6 +9,10 @@ namespace abyss::Actor::ActorUtils
     const s3d::Vec2& PlayerPos(const ActorObj& actor)
     {
         return actor.getModule<Actor::Player::PlayerManager>()->getPos();
+    }
+    const s3d::Vec2& PlayerCenterPos(const ActorObj& actor)
+    {
+        return actor.getModule<Actor::Player::PlayerManager>()->getCenterPos();
     }
     const s3d::Vec2& PlayerVelocity(const ActorObj& actor)
     {

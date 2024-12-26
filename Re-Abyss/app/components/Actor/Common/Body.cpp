@@ -352,6 +352,11 @@ namespace abyss::Actor
             return this->getOffsetedPos();
         }
     }
+    Body& Body::setCenterPos(const s3d::Vec2& pos)
+    {
+        s3d::Vec2 diff = pos - this->getCenterPos();
+        return this->setPos(m_pos + diff);
+    }
     s3d::Vec2 Body::moveDiff() const
     {
         return m_pos - m_prevPos;

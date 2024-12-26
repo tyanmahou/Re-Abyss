@@ -1,4 +1,4 @@
-#include <abyss/components/Fade/FadeUtil.hpp>
+﻿#include <abyss/components/Fade/FadeUtil.hpp>
 
 #include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
@@ -55,7 +55,7 @@ namespace abyss::Fade
     {
         auto* playerManager = pGameObject->getModule<Actor::Player::PlayerManager>();
         return WaitIrisOut(pGameObject, [playerManager] {
-            return playerManager->getPos();
+            return playerManager->getCenterPos();
         }, timeSec);
     }
     template<FadeOperation Operation>

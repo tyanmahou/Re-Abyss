@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
+﻿#include <abyss/components/Actor/Ooparts/PursuitCtrl.hpp>
 #include <Siv3D.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
@@ -38,7 +38,7 @@ namespace abyss::Actor::Ooparts
             }
         }
         m_body->setForward(m_pParent->getForward());
-        m_body->setPos(m_pParent->getPos() + m_localPos);
+        m_body->setPos(m_pParent->getCenterPos() + m_localPos);
     }
 
 }

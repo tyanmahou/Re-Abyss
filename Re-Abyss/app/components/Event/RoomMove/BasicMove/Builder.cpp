@@ -1,4 +1,4 @@
-#include <abyss/components/Event/RoomMove/BasicMove/Builder.hpp>
+﻿#include <abyss/components/Event/RoomMove/BasicMove/Builder.hpp>
 
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Room/RoomManager.hpp>
@@ -16,7 +16,7 @@ namespace abyss::Event::RoomMove::BasicMove
     {
         {
             auto* player = pEvent->getModule<Actor::Player::PlayerManager>();
-            const auto& pos = player->getPos();
+            const auto& pos = player->getCenterPos();
             const auto& current = pEvent->getModule<RoomManager>()->currentRoom();
             auto camera = pEvent->getModule<Camera>();
             Vec2 cameraPos = camera->getPos();

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
+﻿#include <abyss/components/Actor/Gimmick/ShutterWall/ShutterCtrl.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/components/Actor/Gimmick/ShutterWall/ShutterUtil.hpp>
@@ -48,7 +48,7 @@ namespace abyss::Actor::Gimmick::ShutterWall
         const Vec2& pos = m_terrain->tl();
 
         if (m_isWait) {
-            const Vec2& playerPos = ActorUtils::PlayerPos(*m_pActor);
+            const Vec2& playerPos = ActorUtils::PlayerCenterPos(*m_pActor);
             const Vec2 centerPos = ShutterUtil::CenterPosFromTl(pos);
 
             auto toPlayer = playerPos - centerPos;

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
+﻿#include <abyss/components/Actor/Enemy/KingDux/EyeCtrl.hpp>
 
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
@@ -47,7 +47,7 @@ namespace abyss::Actor::Enemy::KingDux
     void EyeCtrl::updateDefault()
     {
         const auto& pos = m_body->getPos();
-        const auto& playerPos = ActorUtils::PlayerPos(*m_pActor);
+        const auto& playerPos = ActorUtils::PlayerCenterPos(*m_pActor);
 
         auto erpRate = InterpUtil::DampRatio(Param::Eye::ErpRate, m_pActor->deltaTime());
 

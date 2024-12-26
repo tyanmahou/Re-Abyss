@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Common/AudioSource.hpp>
+﻿#include <abyss/components/Actor/Common/AudioSource.hpp>
 #include <abyss/commons/Resource/Assets/Assets.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 
@@ -55,7 +55,7 @@ namespace
                 m_pActor->destroy();
             }
             const auto& pos = m_locator->getPos();
-            const auto& listener = ActorUtils::PlayerPos(*m_pActor);
+            const auto& listener = ActorUtils::PlayerCenterPos(*m_pActor);
 
             auto [volume, pan] = ::CalcVolume(pos, listener);
             m_audio.setVolume(volume);
@@ -95,7 +95,7 @@ namespace abyss::Actor
             return !audio.isPlaying();
         });
         const auto pos = m_locator->getCenterPos();
-        const auto& listener = ActorUtils::PlayerPos(*m_pActor);
+        const auto& listener = ActorUtils::PlayerCenterPos(*m_pActor);
 
         for (auto&& audio : m_audios) {
             auto [volume, pan] = ::CalcVolume(pos, listener);
@@ -127,7 +127,7 @@ namespace abyss::Actor
     void AudioSource::playDirect(const s3d::Audio& audio)
     {
         const auto pos = m_locator->getCenterPos();
-        const auto& listener = ActorUtils::PlayerPos(*m_pActor);
+        const auto& listener = ActorUtils::PlayerCenterPos(*m_pActor);
 
         auto [volume, pan] = ::CalcVolume(pos, listener);
         audio.setVolume(volume);

@@ -1,4 +1,4 @@
-#include <abyss/modules/Actor/Player/PlayerManager.hpp>
+﻿#include <abyss/modules/Actor/Player/PlayerManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
 #include <abyss/components/Actor/Common/Body.hpp>
 #include <abyss/components/Actor/Common/HP.hpp>
@@ -16,9 +16,18 @@ namespace abyss::Actor::Player
         m_body->setPos(pos);
         return *this;
     }
+    PlayerManager& PlayerManager::setCenterPos(const s3d::Vec2& pos)
+    {
+        m_body->setCenterPos(pos);
+        return *this;
+    }
     const s3d::Vec2& PlayerManager::getPos() const
     {
         return m_body->getPos();
+    }
+    s3d::Vec2 PlayerManager::getCenterPos() const
+    {
+        return m_body->getCenterPos();
     }
     const s3d::Vec2& PlayerManager::getVelocity() const
     {

@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Player/State/DoorInState.hpp>
+﻿#include <abyss/components/Actor/Player/State/DoorInState.hpp>
 #include <abyss/components/Actor/Player/State/SwimState.hpp>
 #include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/modules/Temporary/Temporary.hpp>
@@ -32,7 +32,7 @@ namespace abyss::Actor::Player
         m_pActor->getModule<Events>()->create<Event::RoomMove::DoorMove::Builder>(
             m_room,
             m_door,
-            m_body->getPos(),
+            m_body->getCenterPos(),
             [this]() {
             // ステートを更新する
             auto stateCtrl = m_pActor->find<StateCtrl>();

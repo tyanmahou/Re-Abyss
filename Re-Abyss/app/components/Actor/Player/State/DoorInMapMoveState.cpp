@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Player/State/DoorInMapMoveState.hpp>
+﻿#include <abyss/components/Actor/Player/State/DoorInMapMoveState.hpp>
 #include <abyss/components/Actor/Player/SeDef.hpp>
 #include <abyss/modules/Event/Events.hpp>
 #include <abyss/components/Event/MapMove/DoorIn/Builder.hpp>
@@ -36,7 +36,7 @@ namespace abyss::Actor::Player
         m_pActor->getModule<Events>()->create<Event::MapMove::DoorIn::Builder>(
             m_door,
             m_link,
-            m_body->getPos()
+            m_body->getCenterPos()
             );
     }
     void DoorInMapMoveState::end()

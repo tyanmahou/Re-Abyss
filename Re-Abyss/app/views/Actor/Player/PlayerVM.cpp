@@ -1,4 +1,4 @@
-#include <abyss/views/Actor/Player/PlayerVM.hpp>
+﻿#include <abyss/views/Actor/Player/PlayerVM.hpp>
 
 #include <Siv3D.hpp>
 #include <abyss/commons/ColorDef.hpp>
@@ -90,12 +90,12 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"stay")(MotionUtil::StayRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateStayAtk() const
     {
         m_texture(U"stay_atk")(MotionUtil::StayAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateFloat() const
     {
@@ -104,12 +104,12 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"float")(MotionUtil::FloatRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateFloatAtk() const
     {
         m_texture(U"float_atk")(MotionUtil::FloatAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRun() const
     {
@@ -118,12 +118,12 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"run")(MotionUtil::RunRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateRunAtk() const
     {
         m_texture(U"run_atk")(MotionUtil::RunAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwim() const
     {
@@ -132,13 +132,13 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"swim")(MotionUtil::SwimRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateSwimAtk() const
     {
 
         m_texture(U"swim_atk")(MotionUtil::SwimAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDive() const
     {
@@ -148,23 +148,23 @@ namespace abyss::Actor::Player
         }
 
         m_texture(U"dive")(MotionUtil::DiveRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDiveAtk() const
     {
         m_texture(U"dive_atk")(MotionUtil::DiveAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDamage() const
     {
         m_texture(U"damage")(MotionUtil::DamageRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDead() const
     {
         Vec2 pos;
         m_texture(U"dead")(MotionUtil::DeadRect(this, &pos))
-            .drawAt(pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadder() const
     {
@@ -173,12 +173,12 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"ladder")(MotionUtil::LadderRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderAtk() const
     {
         m_texture(U"ladder_atk")(MotionUtil::LadderAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTop() const
     {
@@ -187,16 +187,16 @@ namespace abyss::Actor::Player
             return;
         }
         m_texture(U"ladder")(MotionUtil::LadderTopRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateLadderTopAtk() const
     {
         m_texture(U"ladder_atk")(MotionUtil::LadderTopAtkRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
     void PlayerVM::drawStateDoor() const
     {
         m_texture(U"door")(MotionUtil::DoorRect(this))
-            .drawAt(m_pos, this->calcColor());
+            .draw(Arg::bottomCenter = m_pos, this->calcColor());
     }
 }

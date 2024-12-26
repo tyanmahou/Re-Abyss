@@ -1,4 +1,4 @@
-#include <abyss/components/Event/RoomMove/RoomMoveCtrl.hpp>
+﻿#include <abyss/components/Event/RoomMove/RoomMoveCtrl.hpp>
 #include <abyss/modules/Manager/Manager.hpp>
 #include <abyss/modules/Camera/Camera.hpp>
 #include <abyss/modules/Camera/CameraFix/base/ICameraFix.hpp>
@@ -80,7 +80,7 @@ namespace abyss::Event::RoomMove
             // カメラの座標更新
             cameraFix->setPos(m_callback->calcCameraPos());
             // プレイヤーの座標更新
-            m_pEvent->getModule<Actor::Player::PlayerManager>()->setPos(m_callback->calcPlayerPos());
+            m_pEvent->getModule<Actor::Player::PlayerManager>()->setCenterPos(m_callback->calcPlayerPos());
 
             if (sw.ms() >= m_animeMilliSec) {
                 break;

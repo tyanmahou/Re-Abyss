@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Siv3D/Vector2D.hpp>
 #include <abyss/values/Forward.hpp>
 
@@ -23,7 +23,10 @@ namespace abyss
         {
             return m_pos;
         }
-
+        s3d::Vec2 getCenterPos() const
+        {
+            return m_pos + Vec2{ 0, -40 };
+        }
         Forward getForward() const
         {
             return m_forward;

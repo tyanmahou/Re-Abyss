@@ -26,7 +26,7 @@ namespace abyss::Actor::Enemy::BazookaKun
         // 基準点の計算
         auto pivot = pos + Vec2{ m_isMirrored ? 3 : -3, m_isFlipped ? -15 : 15 };
         pivot = pivot.rotateAt(pos, s3d::ToRadians(m_rotate));
-        const Vec2 playerPos = ActorUtils::PlayerPos(*m_pActor);
+        const Vec2 playerPos = ActorUtils::PlayerCenterPos(*m_pActor);
 
         auto eyeVec = this->eyeVec();
 

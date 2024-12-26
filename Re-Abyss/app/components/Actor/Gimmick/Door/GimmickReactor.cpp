@@ -1,4 +1,4 @@
-#include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
+﻿#include <abyss/components/Actor/Gimmick/Door/GimmickReactor.hpp>
 
 #include <abyss/commons/InputManager/InputManager.hpp>
 #include <abyss/modules/Actor/base/ActorObj.hpp>
@@ -50,11 +50,11 @@ namespace abyss::Actor::Gimmick::Door
                 Player::DoorInMapMoveState::Change(player, door, *link);
                 return;
             } else if (auto startPos = pStage->findStartPos(m_door->getStartId())) {
-                if (auto room = pStage->findRoom(startPos->getPos())) {
+                if (auto room = pStage->findRoom(startPos->getCenterPos())) {
                     Door::DoorData door{
                         startPos->getStartId(),
                         m_door->getPos(),
-                        startPos->getPos(),
+                        startPos->getCenterPos(),
                         startPos->getForward(),
                         m_door->getSize(),
                         m_door->getKind(),
