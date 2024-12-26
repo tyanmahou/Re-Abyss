@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <abyss/commons/Fwd.hpp>
 #include <abyss/modules/GameObject/IComponent.hpp>
 #include <abyss/modules/Actor/base/ILastUpdate.hpp>
@@ -10,8 +10,6 @@ namespace abyss::Actor::Player
         public IComponent,
         public ILastUpdate
     {
-    private:
-        ActorObj* m_pActor;
     public:
         RoomMoveChecker(ActorObj* pActor);
 
@@ -20,6 +18,9 @@ namespace abyss::Actor::Player
         void onStart() override;
 
         void onLastUpdate() override;
+    private:
+        ActorObj* m_pActor;
+        Ref<Body> m_body;
     };
 }
 
