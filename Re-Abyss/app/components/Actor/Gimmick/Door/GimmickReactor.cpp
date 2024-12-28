@@ -60,7 +60,7 @@ namespace abyss::Actor::Gimmick::Door
                         m_door->getKind(),
                         startPos->isSave()
                     };
-                    player->find<StateCtrl>()->changeState<Player::DoorInState>(door, *room);
+                    Player::DoorInState::Change(player, door, *room);
                     return;
                 }
             }

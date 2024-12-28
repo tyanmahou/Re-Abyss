@@ -9,6 +9,10 @@
 
 namespace abyss::Actor::Player
 {
+    void DoorInState::Change(ActorObj* player, const Gimmick::Door::DoorData& door, const Room::RoomData& room)
+    {
+        player->find<StateCtrl>()->changeState<Player::DoorInState>(door, room);
+    }
     DoorInState::DoorInState(const Gimmick::Door::DoorData& door, const Room::RoomData& room):
         m_door(door),
         m_room(room)
